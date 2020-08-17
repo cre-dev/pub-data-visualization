@@ -6,8 +6,8 @@ A detailed explanation of this project is given in ./documentation.pdf
 
 It can be installed with :
 cd ~/Downloads
-git clone XXXXXXXXXXXXX/energy-visualization.git
-cd energy-visualization
+git clone https://github.com/cre-os/energy-data-visualization.git
+cd energy-data-visualization
 conda create --name visu python=3.8 pip
 conda activate visu
 pip install -e .
