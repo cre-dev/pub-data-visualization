@@ -9,7 +9,7 @@ setup(
       author           = 'CRE',
       author_email     = 'opensource[at]cre.fr',
       license          = 'MIT License',
-      long_description = open('README.txt').read(),
+      long_description = open('README').read(),
       python_requires  = ">= 3.8",
       install_requires = [
                           'matplotlib',
