@@ -19,10 +19,12 @@ or
 ```
 python _scripts/load/main_forecasting_error.py
 ```
-but ipython should be preferred for interactive plots.
+However, ipython should be preferred for interactive plots.
 
 # Input data
 The data used for the visualizations proposed in this repository come from different public data sources.
+only the data from eCO2mix and Météo-France are downloaded automatically.
+Data from RTE and ENTSO-E should be downloaded manually.
 They have to be stored as described in the documentation.
 ## eCO2mix
 Data about the supply and demand equilibrium and provided by Réseau de Transport d’Electricité (RTE) through eCO2mix allows to illustrate the production and the consumption on the French electricity network.
