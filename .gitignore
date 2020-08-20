@@ -1,0 +1,21 @@
+
+# Files
+*.txt
+*.pdf
+*.xls*
+*.doc*
+
+
+# .hidden files
+.___init__.py
+
+
+# Generated files
+*.DS_Store
+__pycache__/
+*.py[cod]
+*.log
+*.egg-info/
+
+
+
