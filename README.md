@@ -3,7 +3,7 @@ A complete description of this project is given in ./documentation.pdf.
 To obtain the proposed interactive visualizations, the user should :
 * install the package, 
 * download the input data,
-* run one the scripts with her own choice of parameters.
+* run one the scripts with ipython and her own choice of parameters.
 
 # 1. Installation
 It can be installed with :
@@ -29,7 +29,7 @@ They will create 3 folders in ~/ :
 - one for the transformed data,
 - one for the plots.
 
-However, ipython should be preferred for interactive plots.
+However, ipython should then be preferred for interactive plots.
 
 # 2. Download the input data
 The data used for the visualizations proposed in this repository come from different public data sources.
@@ -53,10 +53,25 @@ RTE publishes fundamental data about the French electricity transmission system.
 The files **have to be downloaded manually** on the platform RTE services portal.
 An account is necessary.
 
-# 3. How-to
+# 3. How-to : examples
 In this repository, we propose a set of modules that read, format and transform the input data from different public sources.
 We also provide ready-to-run scripts with parameters therein that can be modified by the user as illustrated below.
 The other possible visualizations are described in more details in the documentation.
+
+## Auction prices
+![Auction prices](examples/auction_prices.png)
+
+## National production
+
+## Load forecast
+
+## Distribution of the temperature
+
+## Spot report
+
+## Availability programs
+
+
 
 
 
