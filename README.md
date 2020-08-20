@@ -60,6 +60,7 @@ The other possible visualizations are described in more details in the documenta
 
 ## Auction prices
 ![Auction prices](examples/auction_prices.png)
+Having installed the package energy_data_visualization and downloaded the auction prices from the ENTSO-E platform as described in the documentation, this visualization is obtained by running scripts/auctions/main_prices.py in an IPython console.
 
 ## National production
 ![National production](examples/national_production.png)
