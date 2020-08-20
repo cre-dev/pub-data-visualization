@@ -38,23 +38,22 @@ only the data from eCO2mix and Météo-France are downloaded automatically.
 Data from RTE and ENTSO-E should be downloaded manually.
 They have to be stored as described in the documentation.
 
-## eCO2mix
+## eCO2mix : <https://www.rte-france.com/eco2mix/telecharger-les-indicateurs>
 Data about the supply and demand equilibrium and provided by Réseau de Transport d’Electricité (RTE) through <eCO2mix> allows to illustrate the production and the consumption on the French electricity network.
 They **can be downloaded automatically**.
 No account is necessary.
-[eCO2mix]: https://www.rte-france.com/eco2mix/telecharger-les-indicateurs
 
-## ENTSO-E
+## ENTSO-E : <https://transparency.entsoe.eu/content/static_content/Static content/knowledge base/SFTP-Transparency_Docs.html>
 The European Network of Transmission System Operators for Electricity (ENTSO-E) publishes fundamental data on its transparency platform.
 The source files used for the visualizations in this repository currently **have to be downloaded manually** with the SFTP share.
 An account is necessary.
 
-## Météo-France
+## Météo-France : <https://donneespubliques.meteofrance.fr/?fond=produit&id_produit=90&id_rubrique=32>
 As the French national meteorological service, Météo-France provides observation data extracted from the Global Telecommunication System (GTS) of the World Meteorological Organization (WMO).
 The data **can be downloaded automatically**.
 No account is necessary.
 
-## RTE
+## RTE : <https://services-rte.com/en/download-data-published-by-rte.html>
 RTE publishes fundamental data about the French electricity transmission system.
 The files currently **have to be downloaded manually** on the platform RTE services portal.
 An account is necessary.
