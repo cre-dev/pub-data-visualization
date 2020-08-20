@@ -49,7 +49,7 @@ The source files used for the visualizations in this repository currently **have
 An account is necessary.
 
 ## Météo-France
-As the French national meteorological service, Météo-France provides [observation data](https://donneespubliques.meteofrance.fr/?fond=produit&id_produit=90&id_rubrique=32) extracted from the Global Telecommunication System (GTS) of the World Meteorological Organization (WMO).
+As the French national meteorological service, Météo-France provides [observation data](https://donneespubliques.meteofrance.fr/?fond=produit&id_produit=90&id_rubrique=32) extracted from the Global Telecommunication System of the World Meteorological Organization.
 The data **can be downloaded automatically**.
 No account is necessary.
 
