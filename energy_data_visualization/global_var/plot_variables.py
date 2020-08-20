@@ -1,4 +1,7 @@
 
+"""
+User defined variables for plotting
+"""
 
 import matplotlib.cm as cm
 

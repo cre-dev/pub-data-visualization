@@ -1,4 +1,8 @@
 
+"""
+Folders where the raw auctions data and the 
+transformed dataframes are saved.
+"""
 
 import os
 #

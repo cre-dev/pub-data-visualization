@@ -1,4 +1,9 @@
 
+"""
+Dictionary of pairs 
+map_code : corresponding timezone
+"""
+
 import pytz
 
 

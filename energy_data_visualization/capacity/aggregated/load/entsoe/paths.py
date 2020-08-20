@@ -1,4 +1,9 @@
 
+"""
+Folders where the raw aggregated capacities data and the 
+transformed dataframes are saved.
+"""
+
 import os
 #
 from ..... import global_var

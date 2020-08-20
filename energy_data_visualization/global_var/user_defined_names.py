@@ -1,4 +1,8 @@
 
+"""
+User defined names to format data coming from different sources
+"""
+
 import pandas as pd
 
 ### Auctions
