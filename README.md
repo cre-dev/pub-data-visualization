@@ -65,10 +65,10 @@ The other possible visualizations are described in more details in the documenta
 ![National production](examples/national_production.png)
 
 ## Load forecast
-![National production](examples/forecasting_errors.png)
+![National production](examples/forecasting_error.png)
 
 ## Distribution of the temperature
-![Distribution temperature](examples/national_production.png)
+![Distribution temperature](examples/distribution_temperature.png)
 
 ## Spot report
 ![Spot report](examples/spot_report.png)
