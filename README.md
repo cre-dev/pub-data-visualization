@@ -62,14 +62,19 @@ The other possible visualizations are described in more details in the documenta
 ![Auction prices](examples/auction_prices.png)
 
 ## National production
+![National production](examples/national_production.png)
 
 ## Load forecast
+![National production](examples/forecasting_errors.png)
 
 ## Distribution of the temperature
+![Distribution temperature](examples/national_production.png)
 
 ## Spot report
+![Spot report](examples/spot_report.png)
 
 ## Availability programs
+![Availability programs](examples/incremental_programs.png)
 
 
 
