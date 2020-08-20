@@ -33,25 +33,27 @@ They will create 3 folders in ~/ :
 However, ipython should then be preferred for interactive plots.
 
 # 2. Download the input data
-
-[eCO2mix]: https://www.rte-france.com/eco2mix/telecharger-les-indicateurs
-
 The data used for the visualizations proposed in this repository come from different public data sources.
 only the data from eCO2mix and Météo-France are downloaded automatically.
 Data from RTE and ENTSO-E should be downloaded manually.
 They have to be stored as described in the documentation.
+
 ## eCO2mix
 Data about the supply and demand equilibrium and provided by Réseau de Transport d’Electricité (RTE) through <eCO2mix> allows to illustrate the production and the consumption on the French electricity network.
 They **can be downloaded automatically**.
 No account is necessary.
+[eCO2mix]: https://www.rte-france.com/eco2mix/telecharger-les-indicateurs
+
 ## ENTSO-E
 The European Network of Transmission System Operators for Electricity (ENTSO-E) publishes fundamental data on its transparency platform.
 The source files used for the visualizations in this repository currently **have to be downloaded manually** with the SFTP share.
 An account is necessary.
+
 ## Météo-France
 As the French national meteorological service, Météo-France provides observation data extracted from the Global Telecommunication System (GTS) of the World Meteorological Organization (WMO).
 The data **can be downloaded automatically**.
 No account is necessary.
+
 ## RTE
 RTE publishes fundamental data about the French electricity transmission system.
 The files currently **have to be downloaded manually** on the platform RTE services portal.
