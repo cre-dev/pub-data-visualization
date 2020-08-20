@@ -4,6 +4,7 @@ To obtain the proposed interactive visualizations, the user should :
 * install the package, 
 * download the input data,
 * run one the scripts with ipython and her own choice of parameters.
+All suggestions are welcome at <opensource@cre.fr>.
 
 # 1. Installation
 It can be installed with :
@@ -17,11 +18,11 @@ pip install -e .
 ```
 The installation can then be tested with one of the following :
 ```
-python _scripts/weather/main_curve.py
+python scripts/weather/main_curve.py
 ```
 or 
 ```
-python _scripts/load/main_forecasting_error.py
+python scripts/load/main_forecasting_error.py
 ```
 The scripts should terminate without any error.
 They will create 3 folders in ~/ : 
@@ -32,12 +33,15 @@ They will create 3 folders in ~/ :
 However, ipython should then be preferred for interactive plots.
 
 # 2. Download the input data
+
+[eCO2mix]: https://www.rte-france.com/eco2mix/telecharger-les-indicateurs
+
 The data used for the visualizations proposed in this repository come from different public data sources.
 only the data from eCO2mix and Météo-France are downloaded automatically.
 Data from RTE and ENTSO-E should be downloaded manually.
 They have to be stored as described in the documentation.
 ## eCO2mix
-Data about the supply and demand equilibrium and provided by Réseau de Transport d’Electricité (RTE) through eCO2mix allows to illustrate the production and the consumption on the French electricity network.
+Data about the supply and demand equilibrium and provided by Réseau de Transport d’Electricité (RTE) through <eCO2mix> allows to illustrate the production and the consumption on the French electricity network.
 They **can be downloaded automatically**.
 No account is necessary.
 ## ENTSO-E
@@ -57,21 +61,6 @@ An account is necessary.
 In this repository, we propose a set of modules that read, format and transform the input data from different public sources.
 We also provide ready-to-run scripts with parameters therein that can be modified by the user as illustrated below.
 The other possible visualizations are described in more details in the documentation.
-
-## Auction prices
-![Auction prices](examples/auction_prices.png)
-Having installed the package energy_data_visualization and downloaded the auction prices from the ENTSO-E platform as described in the documentation, this visualization is obtained by running scripts/auctions/main_prices.py in an IPython console.
-
-## National production
-![National production](examples/national_production.png)
-This visualization is obtained by running scripts/production/main_power.py.
-The data are downloaded automatically if the selected source for the input data is eCO2mix.
-Otherwise, if the source is ENTSO-E or RTE, the data currently have to be downloaded manually.
-
-## Load forecast
-![National production](examples/forecasting_error.png)
-This visualization is obtained by running scripts/load/main_forecasting_error.py.
-The data, coming from eCO2mix, are downloaded automatically.
 
 ## Distribution of the temperature
 ![Distribution temperature](examples/distribution_temperature.png)
