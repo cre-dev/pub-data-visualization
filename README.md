@@ -44,7 +44,7 @@ They **can be downloaded automatically**.
 No account is necessary.
 
 ## ENTSO-E
-The European Network of Transmission System Operators for Electricity publishes fundamental data on its [transparency platform](https://transparency.entsoe.eu/content/static_content/Static content/knowledge base/SFTP-Transparency_Docs.html).
+The European Network of Transmission System Operators for Electricity publishes fundamental data on its [transparency platform]("https://transparency.entsoe.eu/content/static_content/Static content/knowledge base/SFTP-Transparency_Docs.html").
 The source files used for the visualizations in this repository currently **have to be downloaded manually** with the SFTP share.
 An account is necessary.
 
