@@ -38,7 +38,7 @@ only the data from eCO2mix and Météo-France are downloaded automatically.
 Data from RTE and ENTSO-E should be downloaded manually.
 They have to be stored as described in the documentation.
 
-## eCO2mix : <https://www.rte-france.com/eco2mix/telecharger-les-indicateurs>
+## [eCO2mix] (https://www.rte-france.com/eco2mix/telecharger-les-indicateurs)
 Data about the supply and demand equilibrium and provided by Réseau de Transport d’Electricité (RTE) through <eCO2mix> allows to illustrate the production and the consumption on the French electricity network.
 They **can be downloaded automatically**.
 No account is necessary.
