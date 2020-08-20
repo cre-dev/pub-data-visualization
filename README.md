@@ -62,22 +62,22 @@ An account is necessary.
 # 3. How-to : examples
 In this repository, we propose a set of modules that read, format, transform and plot the input data from different public sources.
 We also provide ready-to-run visualization scripts as illustrated below.
-The with parameters therein can be modified by the user.
+The parameters therein can be modified by the user.
 Additionally, other possible visualizations are described in the documentation.
 
 ## Distribution of the temperature
 ![Distribution temperature](examples/distribution_temperature.png)
-This visualization is obtained by running scripts/weather/main_distribution.py.
+This figure is obtained by running scripts/weather/main_distribution.py.
 The data, coming from Météo-France, are downloaded automatically.
 
 ## Availability programs
 ![Availability programs](examples/incremental_programs.png)
-This visualization is obtained by running scripts/outages/main_incremental_programs.py.
+This figure is obtained by running scripts/outages/main_incremental_programs.py.
 The data have to be downloaded manually from ENTSO-E or RTE platforms.
 
 ## Spot report
 ![Spot report](examples/spot_report.png)
-This visualization is obtained by running scripts/multiplots/main_spot_report.py.
+This figure is obtained by running scripts/multiplots/main_spot_report.py.
 As it mixes data from different sources, the data from ENTSO-E and RTE have to be downloaded manually.
 
 
