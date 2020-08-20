@@ -20,10 +20,11 @@ or
 python _scripts/load/main_forecasting_error.py
 ```
 The scripts should terminate without any error.
-They will create three folders in ~/ : 
+They will create 3 folders in ~/ : 
 - one for the raw data,
 - one for the transformed data,
 - one for the plots.
+
 However, ipython should be preferred for interactive plots.
 
 # Input data
