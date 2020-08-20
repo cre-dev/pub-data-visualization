@@ -50,7 +50,7 @@ The data **can be downloaded automatically**.
 No account is necessary.
 ## RTE
 RTE publishes fundamental data about the French electricity transmission system.
-The files **have to be downloaded manually** on the platform RTE services portal.
+The files currently **have to be downloaded manually** on the platform RTE services portal.
 An account is necessary.
 
 # 3. How-to : examples
@@ -64,22 +64,29 @@ Having installed the package energy_data_visualization and downloaded the auctio
 
 ## National production
 ![National production](examples/national_production.png)
+This visualization is obtained by running scripts/production/main_power.py.
+The data are downloaded automatically if the selected source for the input data is eCO2mix.
+Otherwise, if the source is ENTSO-E or RTE, the data currently have to be downloaded manually.
 
 ## Load forecast
 ![National production](examples/forecasting_error.png)
+This visualization is obtained by running scripts/load/main_forecasting_error.py.
+The data, coming from eCO2mix, are downloaded automatically.
 
 ## Distribution of the temperature
 ![Distribution temperature](examples/distribution_temperature.png)
-
-## Spot report
-![Spot report](examples/spot_report.png)
+This visualization is obtained by running scripts/weather/main_distribution.py.
+The data, coming from Météo-France, are downloaded automatically.
 
 ## Availability programs
 ![Availability programs](examples/incremental_programs.png)
+This visualization is obtained by running scripts/outages/main_incremental_programs.py.
+The data have to be downloaded manually from ENTSO-E or RTE platforms.
 
-
-
-
+## Spot report
+![Spot report](examples/spot_report.png)
+This visualization is obtained by running scripts/multiplots/main_spot_report.py.
+As it mixes data from different sources, the data from ENTSO-E and RTE have to be downloaded manually.
 
 
 
