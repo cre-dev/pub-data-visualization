@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+"""
+The script allows the user to draw the weather conditions
+observed in a given zone.
+"""
+
 import numpy  as np
 import pandas as pd
 #

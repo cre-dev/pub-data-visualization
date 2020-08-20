@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+"""
+The script allows the user to draw the load of a given zone.
+"""
+
 import pandas as pd
 #
 from energy_data_visualization import global_var, load

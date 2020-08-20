@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+"""
+The script allows the user to draw the observed production
+of a given set of production units.
+"""
+
 #
 from energy_data_visualization import global_var, production
 

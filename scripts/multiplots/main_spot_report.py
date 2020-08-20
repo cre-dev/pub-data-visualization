@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+"""
+The script allows the user to draw the load, the production,
+the auction prices and the weather conditions 
+of a given zone.
+"""
+
 import numpy  as np
 import pandas as pd
 #
