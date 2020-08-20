@@ -16,11 +16,6 @@ IIU_*
 TBC_*
 NUA_*
 pers_var.py
-check_outages.py
-
-
-# .hidden files
-.___init__.py
 
 
 # Generated files
@@ -29,6 +24,6 @@ __pycache__/
 *.py[cod]
 *.log
 *.egg-info/
-
+.___init__.py
 
 
