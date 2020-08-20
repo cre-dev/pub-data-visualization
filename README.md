@@ -1,12 +1,16 @@
-# Documentation
-A complete description of this project is given in ./documentation.pdf
+# Presentation
+A complete description of this project is given in ./documentation.pdf.
+To obtain the proposed interactive visualizations, the user should :
+* install the package, 
+* download the input data,
+* run one the scripts with her own choice of parameters.
 
-# Installation
+# 1. Installation
 It can be installed with :
 ```
 cd ~/Downloads
 git clone https://github.com/cre-os/energy-data-visualization.git
-cd energy-visualization
+cd energy-data-visualization
 conda create --name visu python=3.8 pip
 conda activate visu
 pip install -e .
@@ -27,7 +31,7 @@ They will create 3 folders in ~/ :
 
 However, ipython should be preferred for interactive plots.
 
-# Input data
+# 2. Download the input data
 The data used for the visualizations proposed in this repository come from different public data sources.
 only the data from eCO2mix and Météo-France are downloaded automatically.
 Data from RTE and ENTSO-E should be downloaded manually.
@@ -48,3 +52,13 @@ No account is necessary.
 RTE publishes fundamental data about the French electricity transmission system.
 The files **have to be downloaded manually** on the platform RTE services portal.
 An account is necessary.
+
+# 3. How-to
+In this repository, we propose a set of modules that read, format and transform the input data from different public sources.
+We also provide ready-to-run scripts with parameters therein that can be modified by the user as illustrated below.
+The other possible visualizations are described in more details in the documentation.
+
+
+
+
+
