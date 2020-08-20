@@ -59,9 +59,10 @@ The files currently **have to be downloaded manually** on the platform [RTE serv
 An account is necessary.
 
 # 3. How-to : examples
-In this repository, we propose a set of modules that read, format and transform the input data from different public sources.
-We also provide ready-to-run scripts with parameters therein that can be modified by the user as illustrated below.
-The other possible visualizations are described in more details in the documentation.
+In this repository, we propose a set of modules that read, format, transform and plot the input data from different public sources.
+We also provide ready-to-run visualization scripts as illustrated below.
+The with parameters therein can be modified by the user.
+Additionally, other possible visualizations are described in the documentation.
 
 ## Distribution of the temperature
 ![Distribution temperature](examples/distribution_temperature.png)
