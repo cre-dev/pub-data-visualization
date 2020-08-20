@@ -4,13 +4,7 @@
 import numpy  as np
 import pandas as pd
 #
-import global_var
-import weather
-import production
-import load
-import outages
-import auctions
-import multiplots
+from energy_data_visualization import global_var, weather, production, load, outages, auctions, multiplots
 
 ###############################################################################
 map_code          = global_var.geography_map_code_france

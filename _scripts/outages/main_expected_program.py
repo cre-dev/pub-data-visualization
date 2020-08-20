@@ -3,8 +3,7 @@
 
 import pandas as pd
 #
-import global_var
-import outages
+from energy_data_visualization import global_var, outages
 
 ###############################################################################
 data_source_outages = global_var.data_source_rte

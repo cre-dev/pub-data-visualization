@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #
-import auctions
-import global_var
+from energy_data_visualization import auctions, global_var
 
 ###############################################################################
 data_source_auctions = global_var.data_source_entsoe

@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #
-import global_var
-import weather
+from energy_data_visualization import global_var, weather
 
 ###############################################################################
 data_source_weather = global_var.data_source_meteofrance

@@ -3,9 +3,7 @@
 
 import pandas as pd
 #
-import global_tools
-import global_var
-import outages
+from energy_data_visualization import global_tools, global_var, outages
 
 ###############################################################################
 contrat_delivery_begin_year    = 2018

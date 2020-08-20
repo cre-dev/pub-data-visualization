@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #
-import global_var
-import production
+from energy_data_visualization import global_var, production
 
 ###############################################################################
 data_source_production = global_var.data_source_eco2mix

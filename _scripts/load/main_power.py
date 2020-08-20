@@ -3,8 +3,7 @@
 
 import pandas as pd
 #
-import global_var
-import load
+from energy_data_visualization import global_var, load
 
 ###############################################################################
 data_source_load = global_var.data_source_eco2mix
