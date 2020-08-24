@@ -1,7 +1,7 @@
 
 """
-Folders where the raw auctions data and the 
-transformed dataframes are saved.
+    Folders where the raw auctions data provided by ENTSO-E
+    and the transformed dataframes are saved.
 """
 
 import os

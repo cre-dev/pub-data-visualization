@@ -1,4 +1,9 @@
 
+"""
+    Correspondances between the names used by eCO2mix
+    and the user defined names.
+"""
+
 from ..... import global_var
 
 columns = {'Périmètre'     : global_var.geography_area_name,

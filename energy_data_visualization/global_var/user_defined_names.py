@@ -1,6 +1,6 @@
 
 """
-User defined names to format data coming from different sources
+    User defined names to format data coming from different sources.
 """
 
 import pandas as pd
@@ -163,6 +163,7 @@ geography_map_code_spain              = 'SP'
 geography_map_code_swiss              = 'CH'
 geography_map_code_uk                 = 'UK'
 geography_map_code_unknown            = 'map_code_unknown'
+geography_zone_france                 = 'metropolitan_France'
 
 ### Indices
 index_date_local               = 'index date (local)'

@@ -1,4 +1,8 @@
 
+"""
+    Correspondances between the EIC codes of the production assets
+    used by RTE and the user defined names.
+"""
 
 unit_name = {'SPEM POINTE TG'   : 'SPEM',
              '17W100P100P0336C' : 'SPEM',

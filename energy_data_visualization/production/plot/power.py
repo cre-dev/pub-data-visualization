@@ -25,6 +25,35 @@ def power(df,
           close             = True,
           figsize           = global_var.figsize_horizontal,
           ):
+    """
+        Plots the production data by creating a figure and
+        calling the function to fill the subplot.
+ 
+        :param df: The production data
+        :param map_code: The delivery zone
+        :param production_source: The energy source of the production
+        :param production_nature: The nature of the data to plot
+        :param unit_name: The name of the production asset
+        :param date_min: The left bound
+        :param date_max: The right bound
+        :param source: The production data source
+        :param folder_out: The folder where the figure is saved
+        :param close: Boolean to close the figure after it is saved
+        :param figsize: Desired size of the figure
+        :type df: pd.DataFrame
+        :type map_code: string
+        :type production_source: string
+        :type production_nature: string
+        :type unit_name: string
+        :type date_min: pd.Timestamp
+        :type date_max: pd.Timestamp
+        :type source: string
+        :param folder_out: string
+        :param close: bool
+        :param figsize: (int,int)
+        :return: None
+        :rtype: None
+    """
 
     ### Interactive mode
     if close:

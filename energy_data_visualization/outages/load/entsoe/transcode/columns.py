@@ -1,4 +1,9 @@
 
+"""
+    Correspondances between the names of the columns used by ENTSO-E
+    and the user defined names.
+"""
+
 from ..... import global_var
 
 columns = {'areacode'               : global_var.geography_area_code,

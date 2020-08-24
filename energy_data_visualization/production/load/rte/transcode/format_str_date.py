@@ -7,6 +7,15 @@ from ..... import global_tools
 
 
 def format_str_date(str_dates):
+    """
+        Parses the dates provided by RTE in the production data frames.
+
+        :param str_dates: The dates with the format chosen by RTE
+        :type str_dates: string
+        :return: The formatted timestamp
+        :rtype: pd.Timestamp
+    """
+
     # Parse
     dt_match = re.compile(r"^(\d{2})/(\d{2})/(\d{4}) (\d{2}):(\d{2})-(\d{2}):(\d{2})$").match(str_dates)
     assert dt_match, str_dates

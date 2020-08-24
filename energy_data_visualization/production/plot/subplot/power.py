@@ -11,6 +11,26 @@ def power(ax,
           unit_name         = None,
           **kwargs,
           ):
+    """
+        Draws in a subplot the weather data.
+ 
+        :param ax: The ax to fill
+        :param df: The production data
+        :param map_code: The delivery zone
+        :param production_nature: The nature of the data to plot
+        :param production_source: The energy source of the production
+        :param unit_name: The name of the production asset
+        :param kwargs: additional parameter for the plt.plot function
+        :type ax: matplotlib.axes._subplots.AxesSubplot
+        :type df: pd.DataFrame
+        :type map_code: string
+        :type production_nature: string
+        :type production_source: string
+        :type unit_name: string
+        :type kwargs: dict
+        :return: None
+        :rtype: None
+    """ 
 
     if map_code:
         df = df.xs(map_code,

@@ -7,6 +7,16 @@ from .... import global_var
 from . import paths, transcode
 
 def load(map_code = None):
+    """
+        Loads the production data provided by ENTSO-E
+        in the given delivery zone.
+ 
+        :param map_code: The bidding zone
+        :type map_code: string
+        :return: The production data
+        :rtype: pd.DataFrame
+    """
+    
     df_path = paths.fpath_production_entsoe_tmp.format(map_code = map_code) + '.csv'
     try:
         print('Load df - ', end = '')

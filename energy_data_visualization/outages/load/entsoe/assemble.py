@@ -5,6 +5,15 @@ from .... import global_var
 
 
 def assemble(df):
+    """
+        Merges the outages data provided by ENTSO-E
+        in different files and discards duplicates.
+ 
+        :param df: The outages data frame
+        :type df: pd.DataFrame
+        :return: The corrected outages data frame
+        :rtype: pd.DataFrame
+    """
     
     print('\nExtract')
     # Only keep the last publications        

@@ -10,6 +10,23 @@ def load(source            = None,
          date_min          = pd.Timestamp('2012').tz_localize('CET'),
          date_max          = pd.Timestamp('2019').tz_localize('CET'),
          ):
+    """
+        Calls the appropriate loader of the production data
+        from the given data source,
+        in a given delivery_zone,
+        and between two dates.
+ 
+        :param source: The data source
+        :param map_code: The bidding zone
+        :param date_min: The left bound
+        :param date_max: The right bound
+        :type source: string
+        :type map_code: string
+        :type date_min: pd.Timestamp
+        :type date_max: pd.Timestamp
+        :return: The selected production data
+        :rtype: pd.DataFrame
+    """
     
     if source == global_var.data_source_eco2mix:
         df_mw = eco2mix.load(date_min = date_min,

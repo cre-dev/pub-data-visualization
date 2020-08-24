@@ -1,4 +1,9 @@
 
+"""
+    Correspondances between the names used by ENTSO-E
+    and the user defined names.
+"""
+
 from ..... import global_var
 
 columns = {'ActualConsumption'       : global_var.production_negative_part_mw,

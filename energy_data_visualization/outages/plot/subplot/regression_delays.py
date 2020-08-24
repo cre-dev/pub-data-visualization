@@ -7,6 +7,17 @@ from .... import global_var
 def regression_delays(ax,
                       df,
                       ):
+    """
+        Plots the announced and finally observed lengths of the outages
+        of a set of units with a regression line in a subplot.
+ 
+        :param ax: The ax to fill
+        :param df: The outages dataframe
+        :type ax: matplotlib.axes._subplots.AxesSubplot
+        :type df: pd.DataFrame
+        :return: None
+        :rtype: None
+    """ 
     
     dg_grouped = df.reset_index().groupby(global_var.publication_id)
     

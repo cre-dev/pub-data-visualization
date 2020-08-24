@@ -8,13 +8,31 @@ from .... import global_tools, global_var
 ###############################################################################
 
 def evolution_mean_availability(ax,
-                                df_power_tot,
+                                df,
                                 unit  = None,
                                 color = None,
                                 step  = False,
                                 ):
-    X, Y = global_tools.piecewise_constant_interpolators(df_power_tot.index, 
-                                                         df_power_tot.values,
+    """
+        Draws in a subplot the evolution of the mean unavailbility 
+        of a set of production assets.
+ 
+        :param ax: The ax to fill
+        :param df: The expected availability during the delivery
+        :param unit: The power unit for the plot (MW or GW)
+        :param color: The color to plot the series
+        :param step: Boolean to interpolate linearly or piecewise constantly
+        :type ax: matplotlib.axes._subplots.AxesSubplot
+        :type df: pd.Series
+        :type unit: string
+        :type color: string
+        :type step: bool
+        :return: None
+        :rtype: None
+    """ 
+    
+    X, Y = global_tools.piecewise_constant_interpolators(df.index, 
+                                                         df.values,
                                                          )
     if   unit == 'GW':
         Y /= 1e3

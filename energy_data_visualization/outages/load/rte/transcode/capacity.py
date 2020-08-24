@@ -1,5 +1,8 @@
 
-
+"""
+    Capacities of the production assets in the files provided by RTE
+    when it is not detailed.
+"""
 
 capacity = {# values coming from clients.rte-france.com - local issuing office
             '17W100P100P0042T' : 600, # PORCHEVILLE B 1

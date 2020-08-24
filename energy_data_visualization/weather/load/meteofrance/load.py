@@ -13,7 +13,19 @@ from . import geography, paths, transcode, url
 
 ###############################################################################
 
-def download_raw_weather_data(year = None, month = None):
+def download_raw_weather_data(year  = None,
+                              month = None,
+                              ):
+    """
+        Downloads the weather data provided by Météo-France.
+ 
+        :param year: The selected year
+        :param month: The selected month
+        :type year: int
+        :type month: int
+        :return: The selected weather data
+        :rtype: pd.DataFrame
+    """
     assert type(year)  == int and year > 2000, year
     assert type(month) == int and month in np.arange(1,13), month
     os.makedirs(paths.folder_weather_meteofrance_raw,
@@ -36,7 +48,19 @@ def download_raw_weather_data(year = None, month = None):
             shutil.copyfileobj(f_in, f_out)
 
 
-def read_raw_weather_data(year = None, month = None):
+def read_raw_weather_data(year  = None,
+                          month = None,
+                          ):
+    """
+        Reads the weather data provided by Météo-France.
+ 
+        :param year: The selected year
+        :param month: The selected month
+        :type year: int
+        :type month: int
+        :return: The selected weather data
+        :rtype: pd.DataFrame
+    """
     assert type(year)  == int and year > 2000, year
     assert type(month) == int and month in np.arange(1,13), month
     csv_file_path = os.path.join(paths.folder_weather_meteofrance_raw,
@@ -67,6 +91,15 @@ def read_raw_weather_data(year = None, month = None):
 
 
 def correct_filter_weather(df_weather):
+    """
+        Finds and tries to corrects anomalies in
+        the weather data provided by Météo-France.
+ 
+        :param df_weather: The weather data frame
+        :type df_weather: pd.DataFrame
+        :return: The corrected weather data frame
+        :rtype: pd.DataFrame
+    """
     # Some series start with a few Nan so correct them or drop them
     length_missing_data_beginning = (1 - pd.isnull(df_weather)).idxmax(axis = 0) - df_weather.index[0]
     dropped_columns               = df_weather.columns[length_missing_data_beginning > pd.to_timedelta(24, unit='h')].remove_unused_levels()#.levels[0]
@@ -86,6 +119,12 @@ def correct_filter_weather(df_weather):
 ###############################################################################
 
 def download_weather_description():
+    """
+        Downloads the description of the weather data provided by Météo-France.
+ 
+        :return: None
+        :rtype: None
+    """
     os.makedirs(paths.folder_weather_meteofrance_raw, exist_ok = True)
     csv_file_path = os.path.join(paths.folder_weather_meteofrance_raw,
                                  paths.dikt_files['weather.description'],
@@ -98,6 +137,12 @@ def download_weather_description():
                                )
 
 def read_weather_description():
+    """
+        Reads the description of the weather data provided by Météo-France.
+ 
+        :return: The coordinates of the weather stations
+        :rtype: pd.DataFrame
+    """
     csv_file_path = os.path.join(paths.folder_weather_meteofrance_raw,
                                  paths.dikt_files['weather.description'],
                                  ) + '.csv'
@@ -111,6 +156,13 @@ def read_weather_description():
     return df
 
 def load_weather_description():
+    """
+        Downloads and reads the description 
+        of the weather data provided by Météo-France.
+ 
+        :return: None
+        :rtype: None
+    """
     try:
         weather_description = read_weather_description()
     except FileNotFoundError:
@@ -124,6 +176,20 @@ def load(zone     = None,
          date_min = None,
          date_max = None,
          ):
+    """
+        Loads the weather data provided by Météo-France
+        between two dates in a given zone.
+ 
+        :param zone: The selected zone
+        :param date_min: The left bound
+        :param date_max: The right bound
+        :type zone: string
+        :type date_min: pd.Timestamp
+        :type date_max: pd.Timestamp
+        :return: The weather data
+        :rtype: pd.DataFrame
+    """
+
     fname_weather = os.path.join(paths.fpath_weather_meteofrance_tmp, 
                                  'df_weather_{0}_{1}.csv'.format(date_min.year,
                                                                  (date_max-pd.DateOffset(nanosecond = 1)).year,
@@ -203,7 +269,7 @@ def load(zone     = None,
             pickle.dump(trash_weather, f)
 
     coordinates_weather = weather_description.set_index(global_var.weather_site_name)[[global_var.geography_latitude, global_var.geography_longitude]]
-    if zone == 'Metropolitan_France':
+    if zone == global_var.geography_zone_france:
         coordinates_weather = coordinates_weather.loc[  (pd.Series(True, coordinates_weather.index))
                                                       & (coordinates_weather[global_var.geography_latitude]  > geography.metropolis_latitude_min)
                                                       & (coordinates_weather[global_var.geography_latitude]  < geography.metropolis_latitude_max)

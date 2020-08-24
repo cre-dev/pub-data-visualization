@@ -6,10 +6,26 @@ from .... import global_tools, global_var
 
 
 def incremental_programs(ax,
-                        df_programs,
-                        diff_init = False,
-                        smoother  = None,
-                        ):
+                         df_programs,
+                         diff_init = False,
+                         smoother  = None,
+                         ):
+    """
+        Draws in a subplot the expected availability programs
+        of a set of production assets.
+ 
+        :param ax: The ax to fill
+        :param df: The expected availability programs
+        :param diff_init: Boolean to plot relative differences
+                          with the initial date
+        :param smoother: Boolean to draw oblique instead of vertical steps
+        :type ax: matplotlib.axes._subplots.AxesSubplot
+        :type df: pd.DataFrame
+        :type diff_init: bool
+        :type smoother: bool
+        :return: None
+        :rtype: None
+    """ 
     
     ### Plot init
     if diff_init:

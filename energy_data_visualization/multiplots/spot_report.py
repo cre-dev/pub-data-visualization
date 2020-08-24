@@ -31,6 +31,42 @@ def spot_report(dg_weather,
                 folder_out = None, 
                 close      = True,
                 ):
+    """
+        Plots energy data related to the spot market
+        by creating a figure and
+        calling the function to fill the subplot.
+ 
+        :param dg_weather: The weather data
+        :param df_production: The production data
+        :param dg_load: The load data
+        :param df_extrapolated programs: The availability data
+        :param dg_auctions: The auction prices data
+        :param map_code: The delivery zone
+        :param date_min: The left bound
+        :param date_max: The right bound
+        :param diff_init: Boolean to plot relative
+                          differences of the unavailability
+        :param smoother: Boolean to draw oblique instead of vertical steps
+                         for the unavailability
+        :param figsize: Desired size of the figure
+        :param folder_out: The folder where the figure is saved
+        :param close: Boolean to close the figure after it is saved
+        :type dg_weather: pd.DataFrame
+        :type df_production: pd.DataFrame
+        :type dg_load: pd.DataFrame
+        :type df_extrapolated: pd.DataFrame
+        :type dg_auctions: pd.DataFrame
+        :type map_code: string
+        :type date_min: pd.Timestamp
+        :type date_max: pd.Timestamp
+        :type diff_init: bool
+        :type smoother: string
+        :param figsize: (int,int)
+        :param folder_out: string
+        :param close: bool
+        :return: None
+        :rtype: None
+    """
 
     ### Interactive mode
     if close:

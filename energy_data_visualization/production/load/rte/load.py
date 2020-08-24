@@ -8,6 +8,12 @@ from . import paths, transcode
 
 
 def load():
+    """
+        Loads the production data provided by RTE.
+
+        :return: The production data
+        :rtype: pd.DataFrame
+    """
     df_path = paths.fpath_production_rte_tmp + '.csv'
     try:
         print('Load df - ', end = '')

@@ -14,6 +14,24 @@ def distribution(ax,
                  source            = None,
                  physical_quantity = None,
                  ):
+    """
+        Draws in a subplot the boxplots of the weather data.
+ 
+        :param ax: The ax to fill
+        :param df: The production data
+        :param figsize: Desired size of the figure
+        :param nature: The nature of the weather data to plot
+        :param source: The source of the weather data to plot
+        :param physical_quantity: The weather quantity to plot
+        :type ax: matplotlib.axes._subplots.AxesSubplot
+        :type df: pd.DataFrame
+        :type fig_size: (int,int)
+        :type nature: string
+        :type source: string
+        :type physical quantity: string
+        :return: None
+        :rtype: None
+    """ 
 
     data = (df.xs(key   = nature,
                   axis  = 1,

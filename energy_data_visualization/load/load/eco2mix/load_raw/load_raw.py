@@ -8,6 +8,16 @@ import pandas as pd
 from . import url
 
 def load_raw(year):
+    """
+        Downloads the data from eCO2mix if it is not saved locally
+        then reads the downloaded dataframes.
+ 
+        :param year: The year of the data to load
+        :type year: int
+        :return: The selected eCO2mix data
+        :rtype: pd.DataFrame
+    """
+
     fname_xls = url.fname_xls.format(year = year)
     fpath_xls = os.path.join(url.folder_raw,
                              fname_xls,

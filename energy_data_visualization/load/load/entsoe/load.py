@@ -8,6 +8,15 @@ from . import transcode
 from .paths import folder_load_entsoe_raw, fpath_load_entsoe_tmp
 
 def load(map_code = None):
+    """
+        Loads the load data provided by ENTSO-E.
+ 
+        :param map_code: The delivery zone
+        :type map_code: string
+        :return: The load data
+        :rtype: pd.DataFrame
+    """
+    
     df_path = fpath_load_entsoe_tmp.format(map_code = map_code) + '.csv'
     try:
         print('Loaded df - ', end = '')

@@ -22,8 +22,27 @@ def distribution(df,
                  close             = True,
                  figsize           = global_var.figsize_vertical,
                  ):
-    
-
+    """
+        Plots the boxplots of the weather data by creating a figure and
+        calling the function to fill the subplot.
+ 
+        :param df: The weather data
+        :param nature: The nature of the weather data to plot
+        :param source: The source of the weather data to plot
+        :param physical_quantity: The weather quantity to plot
+        :param folder_out: The folder where the figure is saved
+        :param close: Boolean to close the figure after it is saved
+        :param figsize: Desired size of the figure
+        :type df: pd.DataFrame
+        :type nature: string
+        :type source: string
+        :type physical_quantity: string
+        :param folder_out: string
+        :param close: bool
+        :param figsize: (int,int)
+        :return: None
+        :rtype: None
+    """
 
     ### Interactive mode
     if close:

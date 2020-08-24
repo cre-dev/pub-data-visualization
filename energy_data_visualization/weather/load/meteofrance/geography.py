@@ -1,4 +1,8 @@
 
+"""
+    Geographical information about the weather data provided by Météo-France
+"""
+
 
 metropolis_latitude_min  = 41
 metropolis_latitude_max  = 51.2

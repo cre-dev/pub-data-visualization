@@ -1,4 +1,8 @@
 
+"""
+    Correspondances between the names of the operating companies 
+    used by RTE and the user defined names.
+"""
 
 import numpy as np
 #

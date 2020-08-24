@@ -6,10 +6,25 @@ from . import meteofrance
 
 
 def load(source   = global_var.data_source_meteofrance,
-         zone     = 'Metropolitan_France',
+         zone     = global_var.geography_zone_france,
          date_min = pd.Timestamp('2015').tz_localize('CET'),
          date_max = pd.Timestamp('2020').tz_localize('CET'),
          ):
+    """
+        Calls the appropriate loader of the weather data
+        between two dates in the given zone.
+ 
+        :param source: The data source
+        :param zone: The selected zone
+        :param date_min: The left bound
+        :param date_max: The right bound
+        :type source: string
+        :type zone: string
+        :type date_min: pd.Timestamp
+        :type date_max: pd.Timestamp
+        :return: The selected weather data
+        :rtype: pd.DataFrame
+    """
     
     if source == global_var.data_source_meteofrance:
         df, coordinates_weather, trash_weather = meteofrance.load(zone     = zone,

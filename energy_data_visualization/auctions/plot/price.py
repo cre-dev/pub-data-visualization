@@ -46,7 +46,7 @@ def price(dg,
         :param figsize: (int,int)
         :return: None
         :rtype: None
-    """    
+    """  
     ### Interactive mode
     if close:
         plt.ioff()

@@ -20,10 +20,35 @@ def power(df,
           map_code    = None,
           date_min    = None,
           date_max    = None,
+          figsize     = global_var.figsize_horizontal,
           folder_out  = None,
           close       = True,
-          figsize     = global_var.figsize_horizontal,
           ):
+    """
+        Plots the load data by creating a figure and
+        calling the function to fill the subplot.
+ 
+        :param df: The load data
+        :param source_load: The data source
+        :param load_nature: The nature of the data to plot
+        :param map_code: The delivery zone
+        :param date_min: The left bound
+        :param date_max: The right bound
+        :param figsize: Desired size of the figure
+        :param folder_out: The folder where the figure is saved
+        :param close: Boolean to close the figure after it is saved
+        :type df: pd.DataFrame
+        :type source_load: string
+        :type load_nature: string
+        :type map_code: string
+        :type date_min: pd.Timestamp
+        :type date_max: pd.Timestamp
+        :param figsize: (int,int)
+        :param folder_out: string
+        :param close: bool
+        :return: None
+        :rtype: None
+    """
     
     ### Interactive mode
     if close:

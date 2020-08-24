@@ -1,4 +1,9 @@
 
+"""
+    Correspondances between the names of the statutes of the outages 
+    used by RTE and the user defined names.
+"""
+
 from ..... import global_var
 
 

@@ -5,7 +5,7 @@ import os
 from .... import global_var, global_tools
 from . import paths, transcode
 
-def load(map_code = None):    
+def load(map_code = None):
     """
         Loads the auction prices given by ENTSO-E.
  

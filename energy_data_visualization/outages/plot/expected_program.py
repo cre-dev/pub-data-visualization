@@ -27,7 +27,36 @@ def expected_program(df,
                      folder_out = None,
                      close      = True,
                      ):
-
+    """
+        Plots the expected availability program
+        of a set of units by creating a figure and
+        calling the function to fill the subplot.
+ 
+        :param df: The expected availability program
+        :param date_min: The left bound
+        :param date_max: The right bound
+        :param source: The data source
+        :param map_code: The delivery zone
+        :param company: The operating company
+        :param production_source: The energy production source
+        :param unit_name: The name of the production asset
+        :param figsize: Desired size of the figure
+        :param folder_out: The folder where the figure is saved
+        :param close: Boolean to close the figure after it is saved
+        :type df: pd.Series
+        :type date_min: pd.Timestamp
+        :type date_max: pd.Timestamp
+        :type source: string
+        :type map_code: string
+        :type company: string
+        :type production_source: string
+        :type unit_name: string
+        :type figsize: (int,int)
+        :type folder_out: string
+        :type close: bool
+        :return: None
+        :rtype: None
+    """
     
     ### Interactive mode
     if close:

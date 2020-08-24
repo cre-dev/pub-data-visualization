@@ -12,6 +12,19 @@ def load(date_min = None,
          date_max = None,
          map_code = None,
          ):
+    """
+        Loads the load data provided by eCO2mix.
+ 
+        :param data_min: The left bound
+        :param date_max: The right bound
+        :param map_code: The delivery zone
+        :type date_min: pd.Timestamp
+        :type date_max: pd.Timestamp
+        :type map_code: string
+        :return: The load data
+        :rtype: pd.DataFrame
+    """
+    
     assert map_code == global_var.geography_map_code_france
     df_path         = fpath_load_tmp.format(date_min.year,
                                             (date_max-pd.DateOffset(nanosecond = 1)).year,

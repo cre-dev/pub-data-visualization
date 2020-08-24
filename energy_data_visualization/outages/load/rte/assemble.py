@@ -7,6 +7,15 @@ from .... import global_var
  
 
 def assemble(df):
+    """
+        Merges the outages data provided by RTE
+        in different files and discards duplicates and anomalies.
+ 
+        :param df: The outages data frame
+        :type df: pd.DataFrame
+        :return: The corrected outages data frame
+        :rtype: pd.DataFrame
+    """
     
     ### Drop NaT values
     print('Drop NaT values')

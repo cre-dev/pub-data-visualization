@@ -28,7 +28,41 @@ def transparent_production(program,
                            folder_out        = None, 
                            close             = True,
                            ):
-
+    """
+        Plots the expected availability of 
+        a given set of production assets 
+        and the observed production
+        by creating a figure and
+        calling the function to fill the subplot.
+ 
+        :param program: The availability data
+        :param df_prod: The production data
+        :param source_outages: The availabilty data source
+        :param source_production: The production data source
+        :param unit_name: The name of the production asset
+        :param date_min: The left bound
+        :param date_max: The right bound
+        :param production_nature: The nature of the production data
+        :param production_source: The energy source of the production
+        :param figsize: Desired size of the figure
+        :param folder_out: The folder where the figure is saved
+        :param close: Boolean to close the figure after it is saved
+        :type program: pd.DataFrame
+        :type df_prod: pd.DataFrame
+        :type source_outages: string
+        :type source_production: string
+        :type unit_name: string
+        :type date_min: pd.Timestamp
+        :type date_max: pd.Timestamp
+        :type production_nature: string
+        :type production_source: string
+        :param figsize: (int,int)
+        :param folder_out: string
+        :param close: bool
+        :return: None
+        :rtype: None
+    """
+    
     ### Interactive mode
     if close:
         plt.ioff()

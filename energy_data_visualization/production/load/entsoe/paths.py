@@ -1,4 +1,9 @@
 
+"""
+    Folders where the raw production data provided by ENTSO-E
+    and the transformed dataframes are saved.
+"""
+
 import os
 #
 from .... import global_var

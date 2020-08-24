@@ -27,6 +27,35 @@ def animated_availability(dh,
                           folder_out        = None, 
                           close             = True,
                           ):
+    """
+        Plots the expected availability program at two changeable dates
+        by creating a figure and filling the animated subplot.
+ 
+        :param dh: The expected availability at different dates
+        :param production_dt_min: The left bound
+        :param production_dt_max: The right bound
+        :param source_outages: The data source
+        :param map_code: The delivery zone
+        :param company_outages: The operating company
+        :param production_source: The energy production source
+        :param unit_name: The name of the production asset
+        :param figsize: Desired size of the figure
+        :param folder_out: The folder where the figure is saved
+        :param close: Boolean to close the figure after it is saved
+        :type dh: pd.DataFrame
+        :type production_dt_min: pd.Timestamp
+        :type production_dt_max: pd.Timestamp
+        :type source_outages: string
+        :type map_code: string
+        :type company_outages: string
+        :type production_source: string
+        :type unit_name: string
+        :param figsize: (int,int)
+        :param folder_out: string
+        :param close: bool
+        :return: None
+        :rtype: None
+    """
 
     ### Interactive mode
     if close:

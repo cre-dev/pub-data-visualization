@@ -13,6 +13,26 @@ def load(source             = None,
          publication_dt_min = None,
          publication_dt_max = None,
          ):
+    """
+        Calls the appropriate loader of the outages data.
+ 
+        :param source: The data source
+        :param map_code: The delivery zone
+        :param company: The operator of the production assets
+        :param unit_name: The names of the production assets
+        :param production_source: The energy source of the production assets
+        :param publication_dt_min: The left bound of the publications
+        :param publication_dt_max: The right bound of the publications
+        :type source: string
+        :type map_code: string
+        :type company: string
+        :type unit_name: string
+        :type production_source: string
+        :type publication_dt_min: pd.Timestamp
+        :type publication_dt_max: pd.Timestamp
+        :return: The selected outages data
+        :rtype: pd.DataFrame
+    """
     
     if source == global_var.data_source_rte:
         df, dikt_incoherences = rte.load(map_code = map_code)

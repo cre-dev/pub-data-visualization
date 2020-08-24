@@ -16,15 +16,40 @@ global_tools.set_mpl(mpl, plt, FontProperties())
     
 
 def curve(df,
-            date_min   = None,
-            date_max   = None,
-            nature     = None,
-            source     = None,
-            physical_quantity = None,
-            folder_out = None,
-            close      = True,
-            figsize    = global_var.figsize_horizontal,
-            ):
+          date_min   = None,
+          date_max   = None,
+          nature     = None,
+          source     = None,
+          physical_quantity = None,
+          folder_out = None,
+          close      = True,
+          figsize    = global_var.figsize_horizontal,
+          ):
+    """
+        Plots the weather data by creating a figure and
+        calling the function to fill the subplot.
+ 
+        :param df: The weather data
+        :param date_min: The left bound
+        :param date_max: The right bound
+        :param nature: The nature of the weather data to plot
+        :param source: The source of the weather data to plot
+        :param physical_quantity: The weather quantity to plot
+        :param folder_out: The folder where the figure is saved
+        :param close: Boolean to close the figure after it is saved
+        :param figsize: Desired size of the figure
+        :type df: pd.DataFrame
+        :type date_min: pd.Timestamp
+        :type date_max: pd.Timestamp
+        :type nature: string
+        :type source: string
+        :type physical_quantity: string
+        :param folder_out: string
+        :param close: bool
+        :param figsize: (int,int)
+        :return: None
+        :rtype: None
+    """
 
     ### Interactive mode
     if close:

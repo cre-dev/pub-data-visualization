@@ -12,9 +12,7 @@ from pandas.plotting import register_matplotlib_converters; register_matplotlib_
 from matplotlib.font_manager import FontProperties
 global_tools.set_mpl(mpl, plt, FontProperties())
 import matplotlib.patches as mpatches
-#
 
-plt.ioff()
 
 
 ###############################################################################    
@@ -27,7 +25,32 @@ def regression_delays(df,
                       figsize           = global_var.figsize_horizontal,
                       folder_out        = None,
                       close             = True,
-                      ):                                            
+                      ):   
+    """
+        Plots the announced and finally observed lengths of the outages
+        with a regression line
+        of a set of units by creating a figure and
+        calling the function to fill the subplot.
+ 
+        :param df: The outages dataframe
+        :param source: The data source
+        :param company: The operating company
+        :param production_source: The energy production source
+        :param unit_name: The name of the production asset
+        :param figsize: Desired size of the figure
+        :param folder_out: The folder where the figure is saved
+        :param close: Boolean to close the figure after it is saved
+        :type df: pd.DataFrame
+        :type source: string
+        :type company: string
+        :type production_source: string
+        :type unit_name: string
+        :type figsize: (int,int)
+        :type folder_out: string
+        :type close: bool
+        :return: None
+        :rtype: None
+    """                                         
     
     ### Interactive mode
     if close:
