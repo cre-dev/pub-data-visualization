@@ -1,7 +1,7 @@
 
 """
 Visualization module for public energy data with Python
-==================================
+=======================================================
 
 See https://github.com/cre-os/energy-data-visualization for complete documentation.
 """

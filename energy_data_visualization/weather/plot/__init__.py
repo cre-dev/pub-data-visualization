@@ -1,4 +1,9 @@
 
+"""
+Module to plot the weather data
+===============================
+
+"""
 
 
 from .curve        import *

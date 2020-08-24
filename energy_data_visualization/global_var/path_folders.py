@@ -1,8 +1,8 @@
 
 """
-    Definition of :
-        - the folders to read and save the data
-        - the folders where the plots should be save
+    Definition of
+    the folders to read and save the data
+    and the folders where the plots should be saved.
     Although a default configuration is proposed,
     the user can decide her own folders by creating 
     a module pers_var.py in this folder.

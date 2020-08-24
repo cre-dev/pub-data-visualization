@@ -1,4 +1,10 @@
 
+"""
+Module to plot outages data
+===================================================
+
+"""
+
 
 from .animated_availability         import *
 from .evolution_mean_availability   import *

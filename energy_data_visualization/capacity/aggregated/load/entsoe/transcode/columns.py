@@ -1,7 +1,7 @@
 
 """
-Correspondances between the columns names used by ENTSO-E
-and the user defined names.
+    Correspondances between the columns names used by ENTSO-E
+    and the user defined names.
 """
 
 from ...... import global_var

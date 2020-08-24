@@ -1,4 +1,9 @@
 
+"""
+Module to homogenize and format the data coming from different data sources.
+============================================================================
+
+"""
 
 from .dikt_tz            import *
 from .months             import *

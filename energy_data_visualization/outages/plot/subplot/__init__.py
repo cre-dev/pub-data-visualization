@@ -1,4 +1,10 @@
 
+"""
+Module to draw the subplots with outages data
+===================================================
+
+"""
+
 
 from .evolution_mean_availability   import *
 from .expected_program              import *

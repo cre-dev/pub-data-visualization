@@ -1,4 +1,9 @@
 
+"""
+Module containing a set of tools to deal with the outages data
+==============================================================
+
+"""
 
 
 from .compute_all_programs   import *

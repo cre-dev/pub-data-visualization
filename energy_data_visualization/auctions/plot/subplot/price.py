@@ -22,7 +22,7 @@ def price(ax,
  
         :param ax: The ax to fill
         :param dg: The auction prices
-        ;param kwargs: additional parameter for the plt.plot function
+        :param kwargs: additional parameter for the plt.plot function
         :type ax: matplotlib.axes._subplots.AxesSubplot
         :type dg: pd.DataFrame
         :type kwargs: dict

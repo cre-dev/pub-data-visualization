@@ -17,7 +17,7 @@ def forecasting_error(ax,
         :param df: The load data
         :param load_observation_nature: The nature of the observation data to plot
         :param load_forecasts_nature: The nature of the forecasts to plot
-        ;param kwargs: additional parameter for the plt.plot function
+        :param kwargs: additional parameter for the plt.plot function
         :type ax: matplotlib.axes._subplots.AxesSubplot
         :type df: pd.DataFrame
         :type load_observation_nature: string
