@@ -3,7 +3,7 @@ A complete description of this project is given in ./documentation.pdf.
 To obtain the proposed interactive visualizations, the user should :
 * install the package, 
 * download the input data,
-* run one the scripts with ipython and her own choice of parameters.
+* run one of the scripts with ipython and her own choice of parameters.
 
 All suggestions are welcome at <opensource@cre.fr>.
 
