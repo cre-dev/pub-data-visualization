@@ -27,10 +27,13 @@ or
 python scripts/load/main_forecasting_error.py
 ```
 The scripts should terminate without any error.
-They will create 3 folders in ~/ : 
-- one for the raw data,
-- one for the transformed data,
-- one for the plots.
+They will create 3 folders in the home directory :
+```
+~/
+├── _energy_plots/       # for the plots
+├── _energy_public_data/ # for the raw data
+├── _energy_tmp_data/    # for the transformed data
+```
 
 However, ipython should then be preferred for interactive plots.
 
