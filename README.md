@@ -115,7 +115,7 @@ The parameters therein can be modified by the user.
 
 ### Day-ahead fixing prices
 ![Auction prices](examples/auction_prices.png)
-This figure, that represents the fixing prices of the day-ahead auctions, is obtained by running <code> scripts/auctions/main_price.py <\code>.
+This figure, that represents the fixing prices of the day-ahead auctions, is obtained by running <pre><code> scripts/auctions/main_price.py <\code><\pre>.
 The data, provided by ENTSO-E, currently have to be downloaded manually.
 
 
