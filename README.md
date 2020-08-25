@@ -63,6 +63,7 @@ An account is necessary.
 The data have to be stored as follows :
 
 ```bash
+\~
 ~/_energy_public_data/
 ├── 11_ENTSOE/
 │  ├── ActualGenerationOutputPerUnit/
