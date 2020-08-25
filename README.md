@@ -106,9 +106,6 @@ The data have to be stored as follows :
 ```
 
 
-# Description of the code
-See the Sphinx documentation.
-
 # How-to : ready-to-run examples
 In this repository, we propose a set of modules that read, format, transform and plot the input data from different public sources.
 We also provide ready-to-run visualization scripts as illustrated below.
@@ -199,7 +196,14 @@ This figure is obtained by running `scripts/multiplots/main_transparent_producti
 The data from RTE have to be downloaded manually.
 
 
-# Parameters of the scripts
+
+
+# Description of the code
+
+## Documentation
+An html documentation generated with Sphinx can be found in ./doc/.
+
+## Parameters of the scripts
 
 | Variable name                  | Type                            | Possible values                                                 | Purpose                                       |
 | ---                            | ---                             | ---                                                             | ---                                           |
