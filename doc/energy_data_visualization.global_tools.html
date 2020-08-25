@@ -1,33 +1,40 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>energy_data_visualization.global_tools package &#8212; energy-data-visualization 0.1 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
-  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">energy-data-visualization 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">energy_data_visualization.global_tools package</a></li> 
+      </ul>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          
-
           <div class="body" role="main">
             
   <div class="section" id="energy-data-visualization-global-tools-package">
@@ -37,9 +44,9 @@
 </div>
 <div class="section" id="module-energy_data_visualization.global_tools.compute_delivery_begin_date_local">
 <span id="energy-data-visualization-global-tools-compute-delivery-begin-date-local-module"></span><h2>energy_data_visualization.global_tools.compute_delivery_begin_date_local module<a class="headerlink" href="#module-energy_data_visualization.global_tools.compute_delivery_begin_date_local" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt id="energy_data_visualization.global_tools.compute_delivery_begin_date_local.compute_delivery_begin_date_local">
-<code class="sig-prename descclassname">energy_data_visualization.global_tools.compute_delivery_begin_date_local.</code><code class="sig-name descname">compute_delivery_begin_date_local</code><span class="sig-paren">(</span><em class="sig-param">delivery_begin_year_local=None</em>, <em class="sig-param">product=None</em>, <em class="sig-param">delivery_period_index=None</em>, <em class="sig-param">local_tz=None</em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.compute_delivery_begin_date_local.compute_delivery_begin_date_local" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">energy_data_visualization.global_tools.compute_delivery_begin_date_local.</code><code class="sig-name descname">compute_delivery_begin_date_local</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">delivery_begin_year_local</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">product</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">delivery_period_index</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">local_tz</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.compute_delivery_begin_date_local.compute_delivery_begin_date_local" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the localized beginning 
 date of a given contract.</p>
 <dl class="field-list simple">
@@ -63,9 +70,9 @@ date of a given contract.</p>
 </div>
 <div class="section" id="module-energy_data_visualization.global_tools.compute_delivery_end_date">
 <span id="energy-data-visualization-global-tools-compute-delivery-end-date-module"></span><h2>energy_data_visualization.global_tools.compute_delivery_end_date module<a class="headerlink" href="#module-energy_data_visualization.global_tools.compute_delivery_end_date" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt id="energy_data_visualization.global_tools.compute_delivery_end_date.compute_delivery_end_date">
-<code class="sig-prename descclassname">energy_data_visualization.global_tools.compute_delivery_end_date.</code><code class="sig-name descname">compute_delivery_end_date</code><span class="sig-paren">(</span><em class="sig-param">delivery_begin_date_local=None</em>, <em class="sig-param">product=None</em>, <em class="sig-param">delivery_period_index=None</em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.compute_delivery_end_date.compute_delivery_end_date" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">energy_data_visualization.global_tools.compute_delivery_end_date.</code><code class="sig-name descname">compute_delivery_end_date</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">delivery_begin_date_local</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">product</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">delivery_period_index</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.compute_delivery_end_date.compute_delivery_end_date" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the localized end 
 date of a given contract.</p>
 <dl class="field-list simple">
@@ -88,9 +95,9 @@ date of a given contract.</p>
 </div>
 <div class="section" id="module-energy_data_visualization.global_tools.compute_delivery_period_index">
 <span id="energy-data-visualization-global-tools-compute-delivery-period-index-module"></span><h2>energy_data_visualization.global_tools.compute_delivery_period_index module<a class="headerlink" href="#module-energy_data_visualization.global_tools.compute_delivery_period_index" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt id="energy_data_visualization.global_tools.compute_delivery_period_index.compute_delivery_period_index">
-<code class="sig-prename descclassname">energy_data_visualization.global_tools.compute_delivery_period_index.</code><code class="sig-name descname">compute_delivery_period_index</code><span class="sig-paren">(</span><em class="sig-param">product=None</em>, <em class="sig-param">delivery_begin_dt_local=None</em>, <em class="sig-param">delivery_end_date_local=None</em>, <em class="sig-param">tz_local=None</em>, <em class="sig-param">profile=None</em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.compute_delivery_period_index.compute_delivery_period_index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">energy_data_visualization.global_tools.compute_delivery_period_index.</code><code class="sig-name descname">compute_delivery_period_index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">product</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">delivery_begin_dt_local</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">delivery_end_date_local</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tz_local</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">profile</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.compute_delivery_period_index.compute_delivery_period_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the delivery period index of a given contract.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -114,9 +121,9 @@ date of a given contract.</p>
 </div>
 <div class="section" id="module-energy_data_visualization.global_tools.compute_delivery_windows">
 <span id="energy-data-visualization-global-tools-compute-delivery-windows-module"></span><h2>energy_data_visualization.global_tools.compute_delivery_windows module<a class="headerlink" href="#module-energy_data_visualization.global_tools.compute_delivery_windows" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt id="energy_data_visualization.global_tools.compute_delivery_windows.compute_delivery_windows">
-<code class="sig-prename descclassname">energy_data_visualization.global_tools.compute_delivery_windows.</code><code class="sig-name descname">compute_delivery_windows</code><span class="sig-paren">(</span><em class="sig-param">product=None</em>, <em class="sig-param">delivery_begin_year_local=None</em>, <em class="sig-param">delivery_period_index=None</em>, <em class="sig-param">profile=None</em>, <em class="sig-param">delivery_begin_date_local=None</em>, <em class="sig-param">tz_local=None</em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.compute_delivery_windows.compute_delivery_windows" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">energy_data_visualization.global_tools.compute_delivery_windows.</code><code class="sig-name descname">compute_delivery_windows</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">product</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">delivery_begin_year_local</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">delivery_period_index</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">profile</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">delivery_begin_date_local</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tz_local</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.compute_delivery_windows.compute_delivery_windows" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the delivery windows of a given contract.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -141,9 +148,9 @@ date of a given contract.</p>
 </div>
 <div class="section" id="module-energy_data_visualization.global_tools.compute_nb_hours">
 <span id="energy-data-visualization-global-tools-compute-nb-hours-module"></span><h2>energy_data_visualization.global_tools.compute_nb_hours module<a class="headerlink" href="#module-energy_data_visualization.global_tools.compute_nb_hours" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt id="energy_data_visualization.global_tools.compute_nb_hours.compute_nb_hours">
-<code class="sig-prename descclassname">energy_data_visualization.global_tools.compute_nb_hours.</code><code class="sig-name descname">compute_nb_hours</code><span class="sig-paren">(</span><em class="sig-param">product_delivery_windows</em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.compute_nb_hours.compute_nb_hours" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">energy_data_visualization.global_tools.compute_nb_hours.</code><code class="sig-name descname">compute_nb_hours</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">product_delivery_windows</span></em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.compute_nb_hours.compute_nb_hours" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the number of hours of a given delivery contract.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -161,9 +168,9 @@ date of a given contract.</p>
 </div>
 <div class="section" id="module-energy_data_visualization.global_tools.dt_exists_in_tz">
 <span id="energy-data-visualization-global-tools-dt-exists-in-tz-module"></span><h2>energy_data_visualization.global_tools.dt_exists_in_tz module<a class="headerlink" href="#module-energy_data_visualization.global_tools.dt_exists_in_tz" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt id="energy_data_visualization.global_tools.dt_exists_in_tz.dt_exists_in_tz">
-<code class="sig-prename descclassname">energy_data_visualization.global_tools.dt_exists_in_tz.</code><code class="sig-name descname">dt_exists_in_tz</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">tz</em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.dt_exists_in_tz.dt_exists_in_tz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">energy_data_visualization.global_tools.dt_exists_in_tz.</code><code class="sig-name descname">dt_exists_in_tz</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">tz</span></em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.dt_exists_in_tz.dt_exists_in_tz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tests the existence of time in a given timezone</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -184,9 +191,9 @@ date of a given contract.</p>
 </div>
 <div class="section" id="module-energy_data_visualization.global_tools.format_contract_name">
 <span id="energy-data-visualization-global-tools-format-contract-name-module"></span><h2>energy_data_visualization.global_tools.format_contract_name module<a class="headerlink" href="#module-energy_data_visualization.global_tools.format_contract_name" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt id="energy_data_visualization.global_tools.format_contract_name.format_contract_name">
-<code class="sig-prename descclassname">energy_data_visualization.global_tools.format_contract_name.</code><code class="sig-name descname">format_contract_name</code><span class="sig-paren">(</span><em class="sig-param">year</em>, <em class="sig-param">product</em>, <em class="sig-param">delivery_period</em>, <em class="sig-param">profile</em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.format_contract_name.format_contract_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">energy_data_visualization.global_tools.format_contract_name.</code><code class="sig-name descname">format_contract_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">year</span></em>, <em class="sig-param"><span class="n">product</span></em>, <em class="sig-param"><span class="n">delivery_period</span></em>, <em class="sig-param"><span class="n">profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.format_contract_name.format_contract_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a generic name for a given contract.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -209,9 +216,9 @@ date of a given contract.</p>
 </div>
 <div class="section" id="module-energy_data_visualization.global_tools.format_latex">
 <span id="energy-data-visualization-global-tools-format-latex-module"></span><h2>energy_data_visualization.global_tools.format_latex module<a class="headerlink" href="#module-energy_data_visualization.global_tools.format_latex" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt id="energy_data_visualization.global_tools.format_latex.format_latex">
-<code class="sig-prename descclassname">energy_data_visualization.global_tools.format_latex.</code><code class="sig-name descname">format_latex</code><span class="sig-paren">(</span><em class="sig-param">ss</em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.format_latex.format_latex" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">energy_data_visualization.global_tools.format_latex.</code><code class="sig-name descname">format_latex</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ss</span></em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.format_latex.format_latex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Formats a string so that it is compatible with Latex.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -229,9 +236,9 @@ date of a given contract.</p>
 </div>
 <div class="section" id="module-energy_data_visualization.global_tools.format_unit_name">
 <span id="energy-data-visualization-global-tools-format-unit-name-module"></span><h2>energy_data_visualization.global_tools.format_unit_name module<a class="headerlink" href="#module-energy_data_visualization.global_tools.format_unit_name" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt id="energy_data_visualization.global_tools.format_unit_name.format_unit_name">
-<code class="sig-prename descclassname">energy_data_visualization.global_tools.format_unit_name.</code><code class="sig-name descname">format_unit_name</code><span class="sig-paren">(</span><em class="sig-param">unit</em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.format_unit_name.format_unit_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">energy_data_visualization.global_tools.format_unit_name.</code><code class="sig-name descname">format_unit_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">unit</span></em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.format_unit_name.format_unit_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Formats the name of a production unit 
 so that different date sources coincide.</p>
 <dl class="field-list simple">
@@ -250,14 +257,14 @@ so that different date sources coincide.</p>
 </div>
 <div class="section" id="module-energy_data_visualization.global_tools.piecewise_constant_interpolators">
 <span id="energy-data-visualization-global-tools-piecewise-constant-interpolators-module"></span><h2>energy_data_visualization.global_tools.piecewise_constant_interpolators module<a class="headerlink" href="#module-energy_data_visualization.global_tools.piecewise_constant_interpolators" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt id="energy_data_visualization.global_tools.piecewise_constant_interpolators.levels_to_points">
-<code class="sig-prename descclassname">energy_data_visualization.global_tools.piecewise_constant_interpolators.</code><code class="sig-name descname">levels_to_points</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.piecewise_constant_interpolators.levels_to_points" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">energy_data_visualization.global_tools.piecewise_constant_interpolators.</code><code class="sig-name descname">levels_to_points</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.piecewise_constant_interpolators.levels_to_points" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="energy_data_visualization.global_tools.piecewise_constant_interpolators.piecewise_constant_interpolators">
-<code class="sig-prename descclassname">energy_data_visualization.global_tools.piecewise_constant_interpolators.</code><code class="sig-name descname">piecewise_constant_interpolators</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">smoother=None</em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.piecewise_constant_interpolators.piecewise_constant_interpolators" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">energy_data_visualization.global_tools.piecewise_constant_interpolators.</code><code class="sig-name descname">piecewise_constant_interpolators</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">smoother</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.piecewise_constant_interpolators.piecewise_constant_interpolators" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the points to interpolate 
 to draw a piecewise constant function.</p>
 <dl class="field-list simple">
@@ -277,17 +284,17 @@ to draw a piecewise constant function.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="energy_data_visualization.global_tools.piecewise_constant_interpolators.remove_redundant_interpolators">
-<code class="sig-prename descclassname">energy_data_visualization.global_tools.piecewise_constant_interpolators.</code><code class="sig-name descname">remove_redundant_interpolators</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">Y</em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.piecewise_constant_interpolators.remove_redundant_interpolators" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">energy_data_visualization.global_tools.piecewise_constant_interpolators.</code><code class="sig-name descname">remove_redundant_interpolators</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">Y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.piecewise_constant_interpolators.remove_redundant_interpolators" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-energy_data_visualization.global_tools.set_mpl">
 <span id="energy-data-visualization-global-tools-set-mpl-module"></span><h2>energy_data_visualization.global_tools.set_mpl module<a class="headerlink" href="#module-energy_data_visualization.global_tools.set_mpl" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt id="energy_data_visualization.global_tools.set_mpl.set_mpl">
-<code class="sig-prename descclassname">energy_data_visualization.global_tools.set_mpl.</code><code class="sig-name descname">set_mpl</code><span class="sig-paren">(</span><em class="sig-param">mpl</em>, <em class="sig-param">plt</em>, <em class="sig-param">fontP</em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.set_mpl.set_mpl" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">energy_data_visualization.global_tools.set_mpl.</code><code class="sig-name descname">set_mpl</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mpl</span></em>, <em class="sig-param"><span class="n">plt</span></em>, <em class="sig-param"><span class="n">fontP</span></em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.global_tools.set_mpl.set_mpl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets matplotlib so that all plots look alike with Latex strings.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -317,30 +324,42 @@ to draw a piecewise constant function.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
-          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">energy-data-visualization</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-  </ul></li>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">energy_data_visualization.global_tools package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-energy_data_visualization.global_tools.compute_delivery_begin_date_local">energy_data_visualization.global_tools.compute_delivery_begin_date_local module</a></li>
+<li><a class="reference internal" href="#module-energy_data_visualization.global_tools.compute_delivery_end_date">energy_data_visualization.global_tools.compute_delivery_end_date module</a></li>
+<li><a class="reference internal" href="#module-energy_data_visualization.global_tools.compute_delivery_period_index">energy_data_visualization.global_tools.compute_delivery_period_index module</a></li>
+<li><a class="reference internal" href="#module-energy_data_visualization.global_tools.compute_delivery_windows">energy_data_visualization.global_tools.compute_delivery_windows module</a></li>
+<li><a class="reference internal" href="#module-energy_data_visualization.global_tools.compute_nb_hours">energy_data_visualization.global_tools.compute_nb_hours module</a></li>
+<li><a class="reference internal" href="#module-energy_data_visualization.global_tools.dt_exists_in_tz">energy_data_visualization.global_tools.dt_exists_in_tz module</a></li>
+<li><a class="reference internal" href="#module-energy_data_visualization.global_tools.format_contract_name">energy_data_visualization.global_tools.format_contract_name module</a></li>
+<li><a class="reference internal" href="#module-energy_data_visualization.global_tools.format_latex">energy_data_visualization.global_tools.format_latex module</a></li>
+<li><a class="reference internal" href="#module-energy_data_visualization.global_tools.format_unit_name">energy_data_visualization.global_tools.format_unit_name module</a></li>
+<li><a class="reference internal" href="#module-energy_data_visualization.global_tools.piecewise_constant_interpolators">energy_data_visualization.global_tools.piecewise_constant_interpolators module</a></li>
+<li><a class="reference internal" href="#module-energy_data_visualization.global_tools.set_mpl">energy_data_visualization.global_tools.set_mpl module</a></li>
+<li><a class="reference internal" href="#module-energy_data_visualization.global_tools">Module contents</a><ul>
+<li><a class="reference internal" href="#generic-set-of-tools-to-manipulate-the-data">Generic set of tools to manipulate the data</a></li>
 </ul>
-</div>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/energy_data_visualization.global_tools.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -351,32 +370,26 @@ to draw a piecewise constant function.</p>
     </div>
 </div>
 <script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="footer">
-      &copy;2020, Commission de Régulation de l'Energie.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/energy_data_visualization.global_tools.rst.txt"
-          rel="nofollow">Page source</a>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">energy-data-visualization 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">energy_data_visualization.global_tools package</a></li> 
+      </ul>
     </div>
-
-    
-
-    
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Commission de Régulation de l&#39;Energie.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
   </body>
 </html>

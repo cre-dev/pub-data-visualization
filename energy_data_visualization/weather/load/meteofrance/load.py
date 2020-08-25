@@ -6,7 +6,6 @@ import pickle
 import shutil
 import urllib
 import gzip
-from termcolor import colored
 #
 from .... import global_var
 from . import geography, paths, transcode, url
@@ -23,8 +22,8 @@ def download_raw_weather_data(year  = None,
         :param month: The selected month
         :type year: int
         :type month: int
-        :return: The selected weather data
-        :rtype: pd.DataFrame
+        :return: None
+        :rtype: None
     """
     assert type(year)  == int and year > 2000, year
     assert type(month) == int and month in np.arange(1,13), month

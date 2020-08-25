@@ -1,33 +1,40 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>energy_data_visualization.weather.load.meteofrance package &#8212; energy-data-visualization 0.1 documentation</title>
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
+    <link rel="search" title="Search" href="search.html" /> 
   </head><body>
-  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">energy-data-visualization 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">energy_data_visualization.weather.load.meteofrance package</a></li> 
+      </ul>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          
-
           <div class="body" role="main">
             
   <div class="section" id="energy-data-visualization-weather-load-meteofrance-package">
@@ -57,9 +64,9 @@
 </div>
 <div class="section" id="module-energy_data_visualization.weather.load.meteofrance.load">
 <span id="energy-data-visualization-weather-load-meteofrance-load-module"></span><h2>energy_data_visualization.weather.load.meteofrance.load module<a class="headerlink" href="#module-energy_data_visualization.weather.load.meteofrance.load" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<dl class="py function">
 <dt id="energy_data_visualization.weather.load.meteofrance.load.correct_filter_weather">
-<code class="sig-prename descclassname">energy_data_visualization.weather.load.meteofrance.load.</code><code class="sig-name descname">correct_filter_weather</code><span class="sig-paren">(</span><em class="sig-param">df_weather</em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.weather.load.meteofrance.load.correct_filter_weather" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">energy_data_visualization.weather.load.meteofrance.load.</code><code class="sig-name descname">correct_filter_weather</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df_weather</span></em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.weather.load.meteofrance.load.correct_filter_weather" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds and tries to corrects anomalies in
 the weather data provided by Météo-France.</p>
 <dl class="field-list simple">
@@ -75,9 +82,9 @@ the weather data provided by Météo-France.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="energy_data_visualization.weather.load.meteofrance.load.download_raw_weather_data">
-<code class="sig-prename descclassname">energy_data_visualization.weather.load.meteofrance.load.</code><code class="sig-name descname">download_raw_weather_data</code><span class="sig-paren">(</span><em class="sig-param">year=None</em>, <em class="sig-param">month=None</em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.weather.load.meteofrance.load.download_raw_weather_data" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">energy_data_visualization.weather.load.meteofrance.load.</code><code class="sig-name descname">download_raw_weather_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">year</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">month</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.weather.load.meteofrance.load.download_raw_weather_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Downloads the weather data provided by Météo-France.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -87,15 +94,15 @@ the weather data provided by Météo-France.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The selected weather data</p>
+<dd class="field-even"><p>None</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>pd.DataFrame</p>
+<dd class="field-odd"><p>None</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="energy_data_visualization.weather.load.meteofrance.load.download_weather_description">
 <code class="sig-prename descclassname">energy_data_visualization.weather.load.meteofrance.load.</code><code class="sig-name descname">download_weather_description</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.weather.load.meteofrance.load.download_weather_description" title="Permalink to this definition">¶</a></dt>
 <dd><p>Downloads the description of the weather data provided by Météo-France.</p>
@@ -109,9 +116,9 @@ the weather data provided by Météo-France.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="energy_data_visualization.weather.load.meteofrance.load.load">
-<code class="sig-prename descclassname">energy_data_visualization.weather.load.meteofrance.load.</code><code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">zone=None</em>, <em class="sig-param">date_min=None</em>, <em class="sig-param">date_max=None</em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.weather.load.meteofrance.load.load" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">energy_data_visualization.weather.load.meteofrance.load.</code><code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">zone</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">date_min</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">date_max</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.weather.load.meteofrance.load.load" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads the weather data provided by Météo-France
 between two dates in a given zone.</p>
 <dl class="field-list simple">
@@ -131,7 +138,7 @@ between two dates in a given zone.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="energy_data_visualization.weather.load.meteofrance.load.load_weather_description">
 <code class="sig-prename descclassname">energy_data_visualization.weather.load.meteofrance.load.</code><code class="sig-name descname">load_weather_description</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.weather.load.meteofrance.load.load_weather_description" title="Permalink to this definition">¶</a></dt>
 <dd><p>Downloads and reads the description 
@@ -146,9 +153,9 @@ of the weather data provided by Météo-France.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="energy_data_visualization.weather.load.meteofrance.load.read_raw_weather_data">
-<code class="sig-prename descclassname">energy_data_visualization.weather.load.meteofrance.load.</code><code class="sig-name descname">read_raw_weather_data</code><span class="sig-paren">(</span><em class="sig-param">year=None</em>, <em class="sig-param">month=None</em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.weather.load.meteofrance.load.read_raw_weather_data" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">energy_data_visualization.weather.load.meteofrance.load.</code><code class="sig-name descname">read_raw_weather_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">year</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">month</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.weather.load.meteofrance.load.read_raw_weather_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the weather data provided by Météo-France.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -166,7 +173,7 @@ of the weather data provided by Météo-France.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="energy_data_visualization.weather.load.meteofrance.load.read_weather_description">
 <code class="sig-prename descclassname">energy_data_visualization.weather.load.meteofrance.load.</code><code class="sig-name descname">read_weather_description</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#energy_data_visualization.weather.load.meteofrance.load.read_weather_description" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the description of the weather data provided by Météo-France.</p>
@@ -199,30 +206,36 @@ and the transformed dataframes are saved.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
-          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">energy-data-visualization</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-  </ul></li>
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">energy_data_visualization.weather.load.meteofrance package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-energy_data_visualization.weather.load.meteofrance.geography">energy_data_visualization.weather.load.meteofrance.geography module</a></li>
+<li><a class="reference internal" href="#module-energy_data_visualization.weather.load.meteofrance.load">energy_data_visualization.weather.load.meteofrance.load module</a></li>
+<li><a class="reference internal" href="#module-energy_data_visualization.weather.load.meteofrance.paths">energy_data_visualization.weather.load.meteofrance.paths module</a></li>
+<li><a class="reference internal" href="#module-energy_data_visualization.weather.load.meteofrance.url">energy_data_visualization.weather.load.meteofrance.url module</a></li>
+<li><a class="reference internal" href="#module-energy_data_visualization.weather.load.meteofrance">Module contents</a><ul>
+<li><a class="reference internal" href="#module-to-load-the-weather-data-provided-by-meteo-france">Module to load the weather data provided by Météo-France</a></li>
 </ul>
-</div>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/energy_data_visualization.weather.load.meteofrance.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -233,32 +246,26 @@ and the transformed dataframes are saved.</p>
     </div>
 </div>
 <script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="footer">
-      &copy;2020, Commission de Régulation de l'Energie.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/energy_data_visualization.weather.load.meteofrance.rst.txt"
-          rel="nofollow">Page source</a>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">energy-data-visualization 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">energy_data_visualization.weather.load.meteofrance package</a></li> 
+      </ul>
     </div>
-
-    
-
-    
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Commission de Régulation de l&#39;Energie.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
   </body>
 </html>
