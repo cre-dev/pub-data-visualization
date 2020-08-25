@@ -124,9 +124,10 @@ The data, provided by ENTSO-E, currently have to be downloaded manually.
 
 ## Load
 
-### National load
-![National load](examples/load/power.png)
-This figure is obtained by running `scripts/load/main_power.py`.
+### Load curve
+![Load curve](examples/load/power.png)
+This figure, obtained by running `scripts/load/main_power.py`, is a mere representation of the load curve.
+Data from eCO2mix and ENTSO-E can serve as inputs.
 
 ### Day-ahead forecasting error
 ![Day-ahead forecasting error](examples/load/forecasting_error.png)
@@ -153,14 +154,14 @@ The data have to be downloaded manually from ENTSO-E or RTE platforms.
 
 ### Availability programs
 ![Availability programs](examples/outages/incremental_programs.png)
-This figure is obtained by running scripts/outages/main_incremental_programs.py.
+This figure is obtained by running `scripts/outages/main_incremental_programs.py`.
 The data have to be downloaded manually from ENTSO-E or RTE platforms.
 
 ### Regression delays
 ![Regression delays](examples/outages/regression_delays.png)
 This figure is obtained by running `scripts/outages/main_regression_delays.py`.
 The data have to be downloaded manually from ENTSO-E or RTE platforms.
-It displays a linear fit between the initially announced and the finnaly observed length of the outages.
+It displays a linear fit between the initially announced and the finally observed length of the outages.
 The coefficient being obtained with the minimization of a squared error, outliers have a large effect.
 
 
