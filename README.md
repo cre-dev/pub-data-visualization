@@ -117,7 +117,7 @@ The parameters therein can be modified by the user.
 ## Auctions
 
 ### Day-ahead fixing prices
-![Auction prices](examples/auction_prices.png)
+![Auction prices](examples/auctions/prices.png)
 This figure, that represents the fixing prices of the day-ahead auctions, is obtained by running `scripts/auctions/main_price.py`.
 The data, provided by ENTSO-E, currently have to be downloaded manually.
 
@@ -125,11 +125,11 @@ The data, provided by ENTSO-E, currently have to be downloaded manually.
 ## Load
 
 ### National load
-![National load](examples/national_load.png)
+![National load](examples/load/power.png)
 This figure is obtained by running `scripts/load/main_power.py`.
 
 ### Day-ahead forecasting error
-![Day-ahead forecasting error](examples/national_load_forecasting_error.png)
+![Day-ahead forecasting error](examples/load/forecasting_error.png)
 This figure represents the national load forecasting error and is obtained by running `scripts/load/main_forecasting_error.py`.
 The data are provided by eCO2mix.
 
@@ -137,28 +137,28 @@ The data are provided by eCO2mix.
 ## Outages
 
 ### Animated view of the unavailability
-![Animated view of the unavailability](examples/animated_availability.png)
+![Animated view of the unavailability](examples/outages/animated_availability.png)
 This figure is obtained by running `scripts/outages/main_animated_availability.py`.
 The data have to be downloaded manually from ENTSO-E or RTE platforms.
 
 ### Evolution of the mean unavailability
-![Evolution of the mean unavailability](examples/evolution_mean_availability.png)
+![Evolution of the mean unavailability](examples/outages/evolution_mean_availability.png)
 This figure is obtained by running `scripts/outages/main_evolution_mean_availability.py`.
 The data have to be downloaded manually from ENTSO-E or RTE platforms.
 
 ### Expected availability program of a given unit
-![Expected availability program of a given unit](examples/expected_program.png)
+![Expected availability program of a given unit](examples/outages/expected_program.png)
 This figure is obtained by running `scripts/outages/main_expected_program.py`.
 The data have to be downloaded manually from ENTSO-E or RTE platforms.
 
 ### Availability programs
-![Availability programs](examples/incremental_programs.png)
+![Availability programs](examples/outages/incremental_programs.png)
 This figure is obtained by running scripts/outages/main_incremental_programs.py.
 The data have to be downloaded manually from ENTSO-E or RTE platforms.
 
 ### Regression delays
-![Regression delays](examples/regression_delays.png)
-This figure is obtained by running scripts/outages/main_regression_delays.py.
+![Regression delays](examples/outages/regression_delays.png)
+This figure is obtained by running `scripts/outages/main_regression_delays.py`.
 The data have to be downloaded manually from ENTSO-E or RTE platforms.
 It displays a linear fit between the initially announced and the finnaly observed length of the outages.
 The coefficient being obtained with the minimization of a squared error, outliers have a large effect.
@@ -167,20 +167,20 @@ The coefficient being obtained with the minimization of a squared error, outlier
 ## Production data
 
 ## Unit production
-![Unit production](examples/unit_production.png)
-This figure is obtained by running scripts/production/main_power.py.
+![Unit production](examples/production/power.png)
+This figure is obtained by running `scripts/production/main_power.py`.
 It can be used with data provided by eCO2mix, ENTSO-E or RTE.
 
 
 ## Weather data
 
 ### National mean weather
-![Weather curve](examples/weather_curve.png)
+![Weather curve](examples/weather/curve.png)
 This figure is obtained by running `scripts/weather/main_curve.py`.
 The data, provided from Météo-France, are downloaded automatically.
 
 ### Distribution of the temperature
-![Distribution temperature](examples/distribution_temperature.png)
+![Distribution temperature](examples/weather/distribution_temperature.png)
 This figure is obtained by running `scripts/weather/main_distribution.py`.
 The data, provided from Météo-France, are downloaded automatically.
 
@@ -188,13 +188,13 @@ The data, provided from Météo-France, are downloaded automatically.
 ## Multiplots
 
 ### Spot report
-![Spot report](examples/spot_report.png)
-This figure is obtained by running scripts/multiplots/main_spot_report.py.
+![Spot report](examples/multiplots/spot_report.png)
+This figure is obtained by running `scripts/multiplots/main_spot_report.py`.
 As it mixes data from different sources, the data from ENTSO-E and RTE have to be downloaded manually.
 
 ### Announced availability and observed production of a given unit
-![Transparent production](examples/transparent_production.png)
-This figure is obtained by running scripts/multiplots/main_transparent_production.py.
+![Transparent production](examples/multiplots/transparent_production.png)
+This figure is obtained by running `scripts/multiplots/main_transparent_production.py`.
 The data from RTE have to be downloaded manually.
 
 
