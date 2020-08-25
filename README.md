@@ -62,6 +62,66 @@ An account is necessary.
 ## Local organization of the data
 The data have to be stored as follows :
 
+```bash
+├── app
+│   ├── css
+│   │   ├── **/*.css
+│   ├── favicon.ico
+│   ├── images
+│   ├── index.html
+│   ├── js
+│   │   ├── **/*.js
+│   └── partials/template
+├── dist (or build)
+├── node_modules
+├── bower_components (if using bower)
+├── test
+├── Gruntfile.js/gulpfile.js
+├── README.md
+├── package.json
+├── bower.json (if using bower)
+└── .gitignore
+```
+
+<code>
+~/_energy_public_data/
++-- 11_ENTSOE/
+|  +-- ActualGenerationOutputPerUnit/
+|  |  +-- 2014_12_ActualGenerationOutputPerUnit.csv
+|  |  +-- …	 
+|  +-- ActualTotalLoad/
+|  |  +-- 2014_12_ActualTotalLoad.csv
+|  |  +-- …	 
+|  +-- DayAheadPrices/	 
+|  |  +-- 2014_12_DayAheadPrices.csv
+|  |  +-- …	 
+|  +-- Outages/	 	 
+|  |  +-- OutagesGU/	 
+|  |  |  +-- 2014_12_OutagesGU.csv
+|  |  |  +-- …
+|  |  +-- OutagesPU/	 
+|  |  |  +-- 2014_12_OutagesPU.csv
+|  |  |  +-- …
++--20_MeteoFrance/	 	 
+|  +-- synop/	 	 
+|  |  +-- postesSynop.csv
+|  |  +-- synop.201001.csv
+|  |  +-- …	 
++--24_RTE/	 	 	 
+|  +-- Centrales_production_reference/
+|  |  +-- Centrales_production_reference.xls
+|  +-- DonneesIndisponibilitesProduction/
+|  |  +-- DonneesIndisponibilitesProduction_2010.xls
+|  |  +-- …	 
+|  +-- eCO2mix_RTE/	 
+|  |  +-- eCO2mix_RTE_Annuel-Definitif_2012.xls
+|  |  +-- …	 
+|  +-- ProductionGroupe/	 
+|  |  +-- ProductionGroupe_2012/
+|  |  |  +-- ProductionGroupe_2012-semestre1.xls
+|  |  |  +-- …
+<\code>
+
 
 
 <code>
@@ -70,7 +130,7 @@ The data have to be stored as follows :
 |  +-- ActualGenerationOutputPerUnit/
 |  |  +-- 2014_12_ActualGenerationOutputPerUnit.csv
 |  |  +-- …	 
-|  +-- ActualTotalLoad/	 
+|  +-- ActualTotalLoad/
 |  |  +-- 2014_12_ActualTotalLoad.csv
 |  |  +-- …	 
 |  +-- DayAheadPrices/	 
