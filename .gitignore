@@ -16,6 +16,7 @@ IIU_*
 TBC_*
 NUA_*
 pers_var.py
+doc_source/
 
 
 # Generated files
@@ -25,5 +26,13 @@ __pycache__/
 *.log
 *.egg-info/
 .___init__.py
+
+# Sphinx
+doc/.doctrees/
+doc/_sources/
+doc/_static/
+doc/.buildinfo
+doc/objects.inv
+doc/searchindex.js
 
 
