@@ -178,12 +178,12 @@ It can be used with data provided by eCO2mix, ENTSO-E or RTE.
 ### National mean weather
 ![Weather curve](examples/weather/curve.png)
 This figure is obtained by running `scripts/weather/main_curve.py`.
-The data, provided from Météo-France, are downloaded automatically.
+The data, provided by Météo-France, are downloaded automatically.
 
 ### Distribution of the temperature
 ![Distribution temperature](examples/weather/distribution_temperature.png)
 This figure is obtained by running `scripts/weather/main_distribution.py`.
-The data, provided from Météo-France, are downloaded automatically.
+The data, provided by Météo-France, are downloaded automatically.
 
 
 ## Multiplots
