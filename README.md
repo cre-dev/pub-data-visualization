@@ -83,7 +83,7 @@ The data have to be stored as follows :
 └── .gitignore
 ```
 
-<code>
+```bash
 ~/_energy_public_data/
 +-- 11_ENTSOE/
 |  +-- ActualGenerationOutputPerUnit/
@@ -120,7 +120,7 @@ The data have to be stored as follows :
 |  |  +-- ProductionGroupe_2012/
 |  |  |  +-- ProductionGroupe_2012-semestre1.xls
 |  |  |  +-- …
-<\code>
+```
 
 
 
