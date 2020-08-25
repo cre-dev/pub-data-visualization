@@ -12,10 +12,11 @@ setup(
       long_description = open('README.md').read(),
       python_requires  = ">= 3.8",
       install_requires = [
-                          'matplotlib',
+                          'ipython',
+						  'matplotlib',
                           'numpy',
                           'pandas',
                           'seaborn',
-			  'termcolor',
+			              'termcolor',
                           ],
       )
