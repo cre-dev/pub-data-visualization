@@ -53,7 +53,7 @@ The source files used for the visualizations in this repository currently **have
 An account is necessary.
 
 ## Météo-France
-As the French national meteorological service, [Météo-France](http://meteofrance.com/) provides [observation data](https://donneespubliques.meteofrance.fr/?fond=produit&id_produit=90&id_rubrique=32) extracted from the Global Telecommunication System ([GTS](https://public.wmo.int/en/programmes/global-telecommunication-system)) of the World Meteorological Organization ([WMO](https://public.wmo.int/en/programmes/global-telecommunication-system)).
+As the French national meteorological service, [Météo-France](http://meteofrance.com/) provides [observation data](https://donneespubliques.meteofrance.fr/?fond=produit&id_produit=90&id_rubrique=32) extracted from the Global Telecommunication System ([GTS](https://public.wmo.int/en/programmes/global-telecommunication-system)) of the World Meteorological Organization ([WMO](https://public.wmo.int/en)).
 The data **can be downloaded automatically**.
 No account is necessary.
 
@@ -166,7 +166,7 @@ The coefficient being obtained with the minimization of a squared error, outlier
 
 ## Production data
 
-## Unit production
+### Unit production
 ![Unit production](examples/production/power.png)
 This figure is obtained by running `scripts/production/main_power.py`.
 It can be used with data provided by eCO2mix, ENTSO-E or RTE.
