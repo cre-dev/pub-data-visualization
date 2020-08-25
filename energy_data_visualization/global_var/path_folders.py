@@ -26,16 +26,16 @@ except (ModuleNotFoundError, AssertionError):
     path_public_data = os.path.join(path_home,
                                     r'_energy_public_data',
                                     )
-    path_private_data = os.path.join(path_home,
-                                     r'_energy_private_data',
-                                     )
+#    path_private_data = os.path.join(path_home,
+#                                     r'_energy_private_data',
+#                                     )
     path_transformed = os.path.join(path_home, 
-                                    r'_energy__tmp_data',
+                                    r'_energy_tmp_data',
                                     )
     path_plots       = os.path.join(path_home, 
                                     r'_energy_plots',
                                     )
-    path_outputs     = os.path.join(path_home, 
-                                    r'_energy_outputs',
-                                    )
+#    path_outputs     = os.path.join(path_home, 
+#                                    r'_energy_outputs',
+#                                    )
 

@@ -15,7 +15,7 @@ def load(date_min = None,
     """
         Loads the load data provided by eCO2mix.
  
-        :param data_min: The left bound
+        :param date_min: The left bound
         :param date_max: The right bound
         :param map_code: The delivery zone
         :type date_min: pd.Timestamp

@@ -1,7 +1,7 @@
 
 """
-Module match the user defined names with the names used by RTE
-==============================================================
+Module to format the date strings used by RTE
+=============================================
 
 """
 

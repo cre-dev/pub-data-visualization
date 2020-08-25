@@ -41,9 +41,9 @@ def price(dg,
         :type map_code: string
         :type date_min: pd.Timestamp
         :type date_max: pd.Timestamp
-        :param folder_out: string
-        :param close: bool
-        :param figsize: (int,int)
+        :type folder_out: string
+        :type close: bool
+        :type figsize: (int,int)
         :return: None
         :rtype: None
     """  
