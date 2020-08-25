@@ -30,7 +30,6 @@ __pycache__/
 # Sphinx
 doc/.doctrees/
 doc/_sources/
-doc/_static/
 doc/.buildinfo
 doc/objects.inv
 doc/searchindex.js
