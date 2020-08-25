@@ -62,7 +62,9 @@ An account is necessary.
 ## Local organization of the data
 The data have to be stored as follows :
 
-'''
+
+
+<code>
 ~/_energy_public_data/
 +-- 11_ENTSOE/
 |  +-- ActualGenerationOutputPerUnit/
@@ -99,7 +101,7 @@ The data have to be stored as follows :
 |  |  +-- ProductionGroupe_2012/
 |  |  |  +-- ProductionGroupe_2012-semestre1.xls
 |  |  |  +-- …
-'''
+<\code>
 
 # Description of the code
 See the Sphinx documentation.
