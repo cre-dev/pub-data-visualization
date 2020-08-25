@@ -123,11 +123,11 @@ The data, provided by ENTSO-E, currently have to be downloaded manually.
 
 ### National load
 ![National load](examples/national_load.png)
-This figure is obtained by running <code> scripts/load/main_power.py <\code>.
+This figure is obtained by running `scripts/load/main_power.py`.
 
 ### Day-ahead forecasting error
 ![Day-ahead forecasting error](examples/national_load_forecasting_error.png)
-This figure represents the national load forecasting error and is obtained by running <code> scripts/load/main_forecasting_error.py <\code>.
+This figure represents the national load forecasting error and is obtained by running `scripts/load/main_forecasting_error.py`.
 The data are provided by eCO2mix.
 
 
@@ -135,17 +135,17 @@ The data are provided by eCO2mix.
 
 ### Animated view of the unavailability
 ![Animated view of the unavailability](examples/animated_availability.png)
-This figure is obtained by running <code> scripts/outages/main_animated_availability.py <\code>.
+This figure is obtained by running `scripts/outages/main_animated_availability.py`.
 The data have to be downloaded manually from ENTSO-E or RTE platforms.
 
 ### Evolution of the mean unavailability
 ![Evolution of the mean unavailability](examples/evolution_mean_availability.png)
-This figure is obtained by running <code> scripts/outages/main_evolution_mean_availability.py <\code>.
+This figure is obtained by running `scripts/outages/main_evolution_mean_availability.py`.
 The data have to be downloaded manually from ENTSO-E or RTE platforms.
 
 ### Expected availability program of a given unit
 ![Expected availability program of a given unit](examples/expected_program.png)
-This figure is obtained by running <code> scripts/outages/main_expected_program.py <\code>.
+This figure is obtained by running `scripts/outages/main_expected_program.py`.
 The data have to be downloaded manually from ENTSO-E or RTE platforms.
 
 ### Availability programs
@@ -173,12 +173,12 @@ It can be used with data provided by eCO2mix, ENTSO-E or RTE.
 
 ### National mean weather
 ![Weather curve](examples/weather_curve.png)
-This figure is obtained by running <code> scripts/weather/main_curve.py <\code>.
+This figure is obtained by running `scripts/weather/main_curve.py`.
 The data, provided from Météo-France, are downloaded automatically.
 
 ### Distribution of the temperature
 ![Distribution temperature](examples/distribution_temperature.png)
-This figure is obtained by running <code> scripts/weather/main_distribution.py <\code>.
+This figure is obtained by running `scripts/weather/main_distribution.py`.
 The data, provided from Météo-France, are downloaded automatically.
 
 
