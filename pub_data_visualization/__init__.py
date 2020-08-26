@@ -14,16 +14,20 @@ All the subpackages have a similar structure :
 |         dataSource1/
 |         dataSource2/
 |         ...
-|     plot/
-|         __init__.py
-|         plotFunction1.py
-|         plotFunction2.py
-|         subplot/
 |     tools/
 |         __init__.py
 |         tool1.py
 |         tool2.py
 |         ...
+|     plot/
+|         __init__.py
+|         plotFunction1.py
+|         plotFunction2.py
+|         ...
+|         subplot/
+|             subplotFunction1.py
+|             subplotFunction2.py
+|             ...
 
 """
 
