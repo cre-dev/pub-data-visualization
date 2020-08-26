@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 
 """
-The script allows the user to draw
-the auction prices for a given bidding zone.
+    The script allows the user to draw
+    the auction prices for a given bidding zone.
 """
 
 #
-from energy_data_visualization import auctions, global_var
+from pub_data_visualization import auctions, global_var
 
 ###############################################################################
 data_source_auctions = global_var.data_source_entsoe

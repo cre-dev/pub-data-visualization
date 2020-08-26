@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*-
 
 """
-The script allows the user to draw the load, the production,
-the auction prices and the weather conditions 
-of a given zone.
+    The script allows the user to draw the load, the production,
+    the auction prices and the weather conditions 
+    of a given zone.
 """
 
 import numpy  as np
 import pandas as pd
 #
-from energy_data_visualization import global_var, weather, production, load, outages, auctions, multiplots
+from pub_data_visualization import global_var, weather, production, load, outages, auctions, multiplots
 
 ###############################################################################
 map_code          = global_var.geography_map_code_france

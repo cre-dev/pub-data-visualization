@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 
 """
-The script allows the user to draw the observed production
-of a given set of production units.
+    The script allows the user to draw the observed production
+    of a given set of production units.
 """
 
 #
-from energy_data_visualization import global_var, production
+from pub_data_visualization import global_var, production
 
 ###############################################################################
 data_source_production = global_var.data_source_eco2mix

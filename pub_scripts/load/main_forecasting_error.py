@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-The script allows the user to draw the load
-and the forecasting errors for a given zone.
+    The script allows the user to draw the load
+    and the forecasting errors for a given zone.
 """
 
 import pandas as pd
 #
-from energy_data_visualization import global_var, load
+from pub_data_visualization import global_var, load
 
 ###############################################################################
 data_source_load = global_var.data_source_eco2mix

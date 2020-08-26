@@ -2,14 +2,14 @@
 # -*- coding: utf-8 -*-
 
 """
-The script allows the user to draw the comparison
-between the initially announced length of the outages
-and the finnaly observed length of the outages
-of a given set of production units.
+    The script allows the user to draw the comparison
+    between the initially announced length of the outages
+    and the finnaly observed length of the outages
+    of a given set of production units.
 """
 
 #
-from energy_data_visualization import global_var, outages
+from pub_data_visualization import global_var, outages
 
 ###############################################################################
 data_source_outages = global_var.data_source_rte

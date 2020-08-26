@@ -12,8 +12,8 @@ All suggestions are welcome at <opensource@cre.fr>.
 It can be installed with :
 ```
 cd ~/Downloads
-git clone https://github.com/cre-os/energy-data-visualization.git
-cd energy-data-visualization
+git clone https://github.com/cre-os/pub-data-visualization.git
+cd pub-data-visualization
 conda create --name visu python=3.8 pip
 conda activate visu
 pip install -e .
@@ -201,7 +201,7 @@ The data from RTE have to be downloaded manually.
 # Description of the code
 
 ## Documentation
-An html documentation generated with Sphinx can be found in ./doc/energy_data_visualization.html.
+An html documentation generated with Sphinx can be found in ./doc/pub_data_visualization.html.
 
 ## Parameters of the scripts
 

@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-The script allows the user to plot interactively the expected availability
-of a given set of production units from different temporal viewpoints.
+    The script allows the user to plot interactively the expected availability
+    of a given set of production units from different temporal viewpoints.
 """
 
 import pandas as pd
 #
-from energy_data_visualization import global_var, outages
+from pub_data_visualization import global_var, outages
 
 ###############################################################################
 data_source_outages = global_var.data_source_entsoe

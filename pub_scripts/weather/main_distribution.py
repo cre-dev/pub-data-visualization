@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 
 """
-The script allows the user to draw the empirical boxplots
-of the weather conditions for the different months and different years.
+    The script allows the user to draw the empirical boxplots
+    of the weather conditions for the different months and different years.
 """
 
 #
-from energy_data_visualization import global_var, weather
+from pub_data_visualization import global_var, weather
 
 ###############################################################################
 data_source_weather = global_var.data_source_meteofrance

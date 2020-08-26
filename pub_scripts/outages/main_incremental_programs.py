@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 """
-The script allows the user to draw the expected availability
-of a given set of production units from several temporal viewpoints.
+    The script allows the user to draw the expected availability
+    of a given set of production units from several temporal viewpoints.
 """
 
 import pandas as pd
 #
-from energy_data_visualization import global_var, outages
+from pub_data_visualization import global_var, outages
 
 ###############################################################################
 data_source_outages = global_var.data_source_rte

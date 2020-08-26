@@ -2,14 +2,14 @@
 # -*- coding: utf-8 -*-
 
 """
-The script allows the user to draw the weather conditions
-observed in a given zone.
+    The script allows the user to draw the weather conditions
+    observed in a given zone.
 """
 
 import numpy  as np
 import pandas as pd
 #
-from energy_data_visualization import global_var, weather
+from pub_data_visualization import global_var, weather
 
 ###############################################################################
 data_source_weather = global_var.data_source_meteofrance

@@ -74,15 +74,21 @@ def compute_delivery_windows(product                   = None,
         return [(delivery_begin_date_local + pd.DateOffset(days = ii_day) + pd.DateOffset(hours = 8),
                  delivery_begin_date_local + pd.DateOffset(days = ii_day) + pd.DateOffset(hours = 20),
                  )
-                for ii_day in range((delivery_end_date_local - delivery_begin_date_local).days)
-                if (delivery_begin_date_local + pd.DateOffset(days = ii_day)).weekday() not in [5, 6]
+                for ii_day in range((  delivery_end_date_local.tz_localize(None)
+                                     - delivery_begin_date_local.tz_localize(None)
+                                     ).days)
+                if (  (delivery_begin_date_local + pd.DateOffset(days = ii_day)).weekday() not in [5, 6]
+                    or (delivery_end_date_local - delivery_begin_date_local).days <= 2 # Il semble que les contrats week peak n'incluent pas les we mais les produits we peak existent
+                    )
                 ]
 
     elif profile == global_var.contract_profile_ofpk:
         return [(delivery_begin_date_local + pd.DateOffset(days = ii_day) + pd.DateOffset(hours = begin_hour),
                  delivery_begin_date_local + pd.DateOffset(days = ii_day) + pd.DateOffset(hours = end_hour),
                  )
-                for ii_day in range((delivery_end_date_local - delivery_begin_date_local).days)
+                for ii_day in range((  delivery_end_date_local.tz_localize(None)
+                                     - delivery_begin_date_local.tz_localize(None)
+                                     ).days)
                 for begin_hour, end_hour in ([(0,8), (20,24)]
                                              if
                                              (delivery_begin_date_local + pd.DateOffset(days = ii_day)).weekday() not in [5,6]
