@@ -20,11 +20,11 @@ pip install -e .
 ```
 The installation can then be tested with one of the following :
 ```
-python scripts/weather/main_curve.py
+python pub_scripts/weather/main_curve.py
 ```
 or 
 ```
-python scripts/load/main_forecasting_error.py
+python pub_scripts/load/main_forecasting_error.py
 ```
 The scripts should terminate without any error.
 They will create 3 folders in the home directory :
