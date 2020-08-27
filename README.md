@@ -234,7 +234,7 @@ An html documentation generated with Sphinx can be found in ./doc/pub_data_visua
 | smoother                       | string or pd.Timedelta          | "basic";                                                        | For aesthetic purposes                        |
 | unit_name                      | None or string                  | any production unit                                             | -                                             |
 | weather_nature                 | string                          | "observation"                                                   | -                                             |
-| weather_quantity               | string                          | "nebulosity (%)"; '"temperature (°C)"; "wind_speed m/s)"        | -                                             |
+| weather_quantity               | string                          | "nebulosity (%)"; '"temperature (°C)"; "wind_speed (m/s)"        | -                                             |
 
 
 
