@@ -9,6 +9,7 @@
 *.pdf
 *.xls*
 *.doc*
+*.db
 
 
 # Personal ignore
