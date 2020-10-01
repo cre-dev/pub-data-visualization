@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pub_data_visualization.outages.plot.subplot package &#8212; energy-data-visualization 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">energy-data-visualization 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">pub_data_visualization.outages.plot.subplot package</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pub-data-visualization-outages-plot-subplot-package">
+<h1>pub_data_visualization.outages.plot.subplot package<a class="headerlink" href="#pub-data-visualization-outages-plot-subplot-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pub_data_visualization.outages.plot.subplot.evolution_mean_availability">
+<span id="pub-data-visualization-outages-plot-subplot-evolution-mean-availability-module"></span><h2>pub_data_visualization.outages.plot.subplot.evolution_mean_availability module<a class="headerlink" href="#module-pub_data_visualization.outages.plot.subplot.evolution_mean_availability" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="pub_data_visualization.outages.plot.subplot.evolution_mean_availability.evolution_mean_availability">
+<code class="sig-prename descclassname">pub_data_visualization.outages.plot.subplot.evolution_mean_availability.</code><code class="sig-name descname">evolution_mean_availability</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">step</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pub_data_visualization.outages.plot.subplot.evolution_mean_availability.evolution_mean_availability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws in a subplot the evolution of the mean unavailbility 
+of a set of production assets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>matplotlib.axes._subplots.AxesSubplot</em>) – The ax to fill</p></li>
+<li><p><strong>df</strong> (<em>pd.Series</em>) – The expected availability during the delivery</p></li>
+<li><p><strong>unit</strong> (<em>string</em>) – The power unit for the plot (MW or GW)</p></li>
+<li><p><strong>color</strong> (<em>string</em>) – The color to plot the series</p></li>
+<li><p><strong>step</strong> (<em>bool</em>) – Boolean to interpolate linearly or piecewise constantly</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pub_data_visualization.outages.plot.subplot.expected_program">
+<span id="pub-data-visualization-outages-plot-subplot-expected-program-module"></span><h2>pub_data_visualization.outages.plot.subplot.expected_program module<a class="headerlink" href="#module-pub_data_visualization.outages.plot.subplot.expected_program" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="pub_data_visualization.outages.plot.subplot.expected_program.expected_program">
+<code class="sig-prename descclassname">pub_data_visualization.outages.plot.subplot.expected_program.</code><code class="sig-name descname">expected_program</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">ds</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pub_data_visualization.outages.plot.subplot.expected_program.expected_program" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws in a subplot the expected availability program
+of a set of production assets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>matplotlib.axes._subplots.AxesSubplot</em>) – The ax to fill</p></li>
+<li><p><strong>ds</strong> (<em>pd.Series</em>) – The expected availability program</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em>) – Additional arugments for the plt.plot function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pub_data_visualization.outages.plot.subplot.incremental_programs">
+<span id="pub-data-visualization-outages-plot-subplot-incremental-programs-module"></span><h2>pub_data_visualization.outages.plot.subplot.incremental_programs module<a class="headerlink" href="#module-pub_data_visualization.outages.plot.subplot.incremental_programs" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="pub_data_visualization.outages.plot.subplot.incremental_programs.incremental_programs">
+<code class="sig-prename descclassname">pub_data_visualization.outages.plot.subplot.incremental_programs.</code><code class="sig-name descname">incremental_programs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">df_programs</span></em>, <em class="sig-param"><span class="n">diff_init</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">smoother</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pub_data_visualization.outages.plot.subplot.incremental_programs.incremental_programs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws in a subplot the expected availability programs
+of a set of production assets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>matplotlib.axes._subplots.AxesSubplot</em>) – The ax to fill</p></li>
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – The expected availability programs</p></li>
+<li><p><strong>diff_init</strong> (<em>bool</em>) – Boolean to plot relative differences
+with the initial date</p></li>
+<li><p><strong>smoother</strong> (<em>bool</em>) – Boolean to draw oblique instead of vertical steps</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pub_data_visualization.outages.plot.subplot.nameplate_capacity">
+<span id="pub-data-visualization-outages-plot-subplot-nameplate-capacity-module"></span><h2>pub_data_visualization.outages.plot.subplot.nameplate_capacity module<a class="headerlink" href="#module-pub_data_visualization.outages.plot.subplot.nameplate_capacity" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="pub_data_visualization.outages.plot.subplot.nameplate_capacity.nameplate_capacity">
+<code class="sig-prename descclassname">pub_data_visualization.outages.plot.subplot.nameplate_capacity.</code><code class="sig-name descname">nameplate_capacity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">df</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pub_data_visualization.outages.plot.subplot.nameplate_capacity.nameplate_capacity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws in a subplot the nameplate capacity
+of a set of production assets
+as a horizontal line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>matplotlib.axes._subplots.AxesSubplot</em>) – The ax to fill</p></li>
+<li><p><strong>df</strong> (<em>pd.Series</em>) – The nameplate capacity at different dates</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pub_data_visualization.outages.plot.subplot.regression_delays">
+<span id="pub-data-visualization-outages-plot-subplot-regression-delays-module"></span><h2>pub_data_visualization.outages.plot.subplot.regression_delays module<a class="headerlink" href="#module-pub_data_visualization.outages.plot.subplot.regression_delays" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="pub_data_visualization.outages.plot.subplot.regression_delays.regression_delays">
+<code class="sig-prename descclassname">pub_data_visualization.outages.plot.subplot.regression_delays.</code><code class="sig-name descname">regression_delays</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">df</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pub_data_visualization.outages.plot.subplot.regression_delays.regression_delays" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the announced and finally observed lengths of the outages
+of a set of units with a regression line in a subplot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ax</strong> (<em>matplotlib.axes._subplots.AxesSubplot</em>) – The ax to fill</p></li>
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – The outages dataframe</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pub_data_visualization.outages.plot.subplot">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pub_data_visualization.outages.plot.subplot" title="Permalink to this headline">¶</a></h2>
+<p>Module to draw the subplots with outages data</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pub_data_visualization.outages.plot.subplot package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pub_data_visualization.outages.plot.subplot.evolution_mean_availability">pub_data_visualization.outages.plot.subplot.evolution_mean_availability module</a></li>
+<li><a class="reference internal" href="#module-pub_data_visualization.outages.plot.subplot.expected_program">pub_data_visualization.outages.plot.subplot.expected_program module</a></li>
+<li><a class="reference internal" href="#module-pub_data_visualization.outages.plot.subplot.incremental_programs">pub_data_visualization.outages.plot.subplot.incremental_programs module</a></li>
+<li><a class="reference internal" href="#module-pub_data_visualization.outages.plot.subplot.nameplate_capacity">pub_data_visualization.outages.plot.subplot.nameplate_capacity module</a></li>
+<li><a class="reference internal" href="#module-pub_data_visualization.outages.plot.subplot.regression_delays">pub_data_visualization.outages.plot.subplot.regression_delays module</a></li>
+<li><a class="reference internal" href="#module-pub_data_visualization.outages.plot.subplot">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pub_data_visualization.outages.plot.subplot.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">energy-data-visualization 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">pub_data_visualization.outages.plot.subplot package</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Commission de Régulation de l&#39;Energie.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>
