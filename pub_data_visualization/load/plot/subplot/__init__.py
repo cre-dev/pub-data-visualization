@@ -1,7 +1,6 @@
 
 """
-Module to fill subplots with load data
-===================================================
+    Module to fill subplots with load data
 
 """
 

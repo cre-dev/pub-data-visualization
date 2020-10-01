@@ -1,7 +1,6 @@
 
 """
-Module to load the weather data provided by Météo-France
-========================================================
+    Module to load the weather data provided by Météo-France.
 
 """
 

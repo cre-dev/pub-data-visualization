@@ -1,7 +1,7 @@
 
 """
-Module to load and plot outages data
-===================================================
+    Module to load and plot public outages data
+    ===================================================
 
 """
 

@@ -1,7 +1,6 @@
 
 """
-Visualization module to load and plot the load data
-===================================================
+    Visualization module to load and plot the load data
 
 """
 

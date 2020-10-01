@@ -33,7 +33,7 @@ df = auctions.load(date_min = date_min,
 ### Pivot
 dg = df.pivot_table(values = global_var.auction_price_euro_mwh, 
                     index = [global_var.contract_delivery_begin_year_local,
-                             global_var.contract_product,
+                             global_var.contract_frequency,
                              global_var.contract_delivery_begin_dt_UTC,
                              global_var.contract_profile,
                              ],

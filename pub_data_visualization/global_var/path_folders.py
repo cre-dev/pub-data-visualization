@@ -1,5 +1,7 @@
 
 """
+    Definition of the paths to the data.
+
     Definition of
     the folders to read and save the data
     and the folders where the plots should be saved.

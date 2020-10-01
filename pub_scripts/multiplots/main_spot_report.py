@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 """
-    The script allows the user to draw the load, the production,
-    the auction prices and the weather conditions 
-    of a given zone.
+The script allows the user to draw the load, the production,
+the auction prices and the weather conditions 
+of a given zone.
 """
 
 import numpy  as np
@@ -84,7 +84,7 @@ df_auctions = auctions.load(date_min = date_min,
                             )
 dg_auctions = df_auctions.pivot_table(values = global_var.auction_price_euro_mwh, 
                                       index = [global_var.contract_delivery_begin_year_local,
-                                               global_var.contract_product,
+                                               global_var.contract_frequency,
                                                global_var.contract_delivery_begin_date_local, 
                                                global_var.contract_delivery_period_index, 
                                                global_var.contract_delivery_begin_dt_local,

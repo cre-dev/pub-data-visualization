@@ -1,7 +1,6 @@
 
 """
-Module to match the user defined names with the names used by Météo-France
-==========================================================================
+    Module to match the user defined names with the names used by Météo-France
 
 """
 

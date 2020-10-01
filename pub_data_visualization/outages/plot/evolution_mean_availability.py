@@ -23,7 +23,7 @@ def evolution_mean_availability(df_power_tot,
                                 company           = None,
                                 production_source = None,
                                 unit_name         = None,
-                                power_unit        = 'GW',
+                                power_unit        = global_var.quantity_unit_gw,
                                 step              = False,
                                 figsize           = global_var.figsize_horizontal,
                                 folder_out        = None, 
@@ -97,7 +97,7 @@ def evolution_mean_availability(df_power_tot,
     
     ### labels                
     ax.set_xlabel('Date')
-    ax.set_ylabel('Unavailable Power ({0})'.format(power_unit))
+    ax.set_ylabel('Unavailable Power {0}'.format(power_unit))
     
     ### Add legend
     lns01, labs01 = ax.get_legend_handles_labels()

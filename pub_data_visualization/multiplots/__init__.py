@@ -1,7 +1,6 @@
 
 """
-Visualization module to plot data coming from different sources in one figure
-=============================================================================
+    Visualization module to plot data from different sources in one figure
 
 """
 

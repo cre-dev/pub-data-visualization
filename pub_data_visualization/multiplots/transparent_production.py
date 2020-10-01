@@ -56,9 +56,9 @@ def transparent_production(program,
         :type date_max: pd.Timestamp
         :type production_nature: string
         :type production_source: string
-        :param figsize: (int,int)
-        :param folder_out: string
-        :param close: bool
+        :type figsize: (int,int)
+        :type folder_out: string
+        :type close: bool
         :return: None
         :rtype: None
     """

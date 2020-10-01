@@ -50,9 +50,9 @@ def animated_availability(dh,
         :type company_outages: string
         :type production_source: string
         :type unit_name: string
-        :param figsize: (int,int)
-        :param folder_out: string
-        :param close: bool
+        :type figsize: (int,int)
+        :type folder_out: string
+        :type close: bool
         :return: None
         :rtype: None
     """

@@ -53,7 +53,7 @@ def load(source             = None,
     df = df[col_order]
     
     dg = df.loc[  pd.Series(True, index = df.index)
-                & ((df[global_var.company_name]     .isin([company]           if type(company)           == str else company))           if bool(company)            else True)
+                & ((df[global_var.producer_name]    .isin([company]           if type(company)           == str else company))           if bool(company)            else True)
                 & ((df[global_var.production_source].isin([production_source] if type(production_source) == str else production_source)) if bool(production_source)  else True)
                 & ((df[global_var.unit_name]        .isin([unit_name]         if type(unit_name)         == str else unit_name))         if bool(unit_name)          else True)
                 & ((df[global_var.publication_dt_UTC] >= publication_dt_min)                                                             if bool(publication_dt_min) else True)
@@ -71,7 +71,7 @@ global_var.outage_end_dt_UTC,
 global_var.unit_name,
 global_var.outage_remaining_power_mw,
 global_var.unit_nameplate_capacity,
-global_var.company_name,
+global_var.producer_name,
 global_var.geography_map_code,
 global_var.production_source,
 global_var.publication_creation_dt_UTC,

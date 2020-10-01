@@ -68,10 +68,10 @@ def load(map_code = None):
             dg[global_var.contract_delivery_begin_date_local] = dg[global_var.contract_delivery_begin_dt_local].apply(lambda x : x.replace(hour = 0, minute = 0))
             dg[global_var.contract_delivery_begin_year_local] = dg[global_var.contract_delivery_begin_dt_local].apply(lambda x : x.timetuple().tm_year)
             dg[global_var.contract_delivery_begin_date_UTC]   = dg[global_var.contract_delivery_begin_date_local].apply(lambda x : x.tz_convert('UTC'))
-            dg[global_var.contract_product]                   = global_var.contract_product_hour
+            dg[global_var.contract_frequency]                 = global_var.contract_frequency_hour
             dg[global_var.contract_profile]                   = global_var.contract_profile_hour
-            dg[global_var.contract_delivery_period_index]     = dg.apply(lambda row : global_tools.compute_delivery_period_index(product  = row[global_var.contract_product],
-                                                                                                                                 tz_local = global_var.dikt_tz[row[global_var.geography_map_code]],
+            dg[global_var.contract_delivery_period_index]     = dg.apply(lambda row : global_tools.compute_delivery_period_index(frequency  = row[global_var.contract_frequency],
+                                                                                                                                 tz_local   = global_var.dikt_tz[row[global_var.geography_map_code]],
                                                                                                                                  delivery_begin_dt_local = row[global_var.contract_delivery_begin_dt_local],
                                                                                                                                  ),
                 

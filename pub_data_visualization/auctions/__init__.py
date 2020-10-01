@@ -1,7 +1,6 @@
 
 """
-Module to load and plot auctions data.
-======================================
+    Module to load and plot public auctions data.
 
 """
 

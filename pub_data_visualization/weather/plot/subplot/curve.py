@@ -10,7 +10,7 @@ def curve(ax,
           **kwargs,
           ):
     """
-        Draws in a subplot the weather data.
+        Draws in a subplot the weather curve.
  
         :param ax: The ax to fill
         :param df: The production data

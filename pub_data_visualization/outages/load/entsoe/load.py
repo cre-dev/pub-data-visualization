@@ -100,7 +100,7 @@ def load(map_code = None):
                        )
         df = df.reset_index(drop = True)
         df[global_var.outage_remaining_power_gw] = df[global_var.outage_remaining_power_mw]/1e3
-        df.loc[:,global_var.company_name]        = global_var.company_name_unknown
+        df.loc[:,global_var.producer_name]        = global_var.producer_name_unknown
         
         print('Transcode')
         df.loc[:,global_var.unit_name]         = df[global_var.unit_name].apply(global_tools.format_unit_name)

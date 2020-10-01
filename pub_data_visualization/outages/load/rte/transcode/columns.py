@@ -8,7 +8,7 @@
 from ..... import global_var
 
 
-columns = {"Nom du producteur"                : global_var.company_name,
+columns = {"Nom du producteur"                : global_var.producer_name,
            "Début Période"                    : global_var.outage_period_begin_dt_local,
            "Fin Période"                      : global_var.outage_period_end_dt_local,
            "Puissance disponible restante"    : global_var.outage_remaining_power_mw,

@@ -7,6 +7,18 @@ from ... import global_var, capacity
 def compute_all_programs(df_outage,
                          list_plants = None,
                          ):
+    """
+        Computes the availability programs from the unavailabilty files
+        for each production asset at the different publication dates.
+ 
+        :param df_outage: The outages dataframe
+        :param list_plants: The list of production assets to consider
+        :type df_outage: pd.DataFrame
+        :type list_plants: list of strings
+        :return: A dictionary of the availability programs and
+                 the problematic publications found
+        :rtype: (dict, dict)
+    """  
     
     try:
         capacity_end = capacity.unit.load(source     = global_var.data_source_rte,
@@ -52,6 +64,20 @@ def compute_program(dg,
                     unit_name         = None,
                     capacity_end_date = None,
                     ):
+    """
+        Computes the availability programs
+        for one asset asset at the different publication dates.
+ 
+        :param dg: The outages dataframe for the considered unit
+        :param unit_name: The name of the unit
+        :param capacity_end_date: The nameplate capacity of the unit
+        :type dg: pd.DataFrame
+        :type unit_name: string
+        :type capacity_end_date: float or None
+        :return: The expected availabilty programs and
+                 the set of problematic publications
+        :rtype: (pd.DataFrame, list)
+    """
 
     dg     = dg.sort_index(level = global_var.publication_dt_UTC)
     nb_pub = dg.shape[0]

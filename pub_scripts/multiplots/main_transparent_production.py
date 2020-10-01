@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 """
-    The script allows the user to plot the observed production and 
-    the production expected from the transpranecy publications 
-    for a given set of production units.
+The script allows the user to plot the observed production and 
+the production expected from the transpranecy publications 
+for a given set of production units.
 """
 
 import pandas as pd
@@ -45,7 +45,7 @@ dikt_programs, _   = outages.tools.compute_all_programs(df)
 df_program         = dikt_programs[unit_name]
 df_awaited_program = outages.tools.cross_section_view(df_program)
     
-# Plot program and production
+### Plot program and production
 multiplots.transparent_production(df_awaited_program,
                                   df_production,
                                   source_outages    = data_source_outages,

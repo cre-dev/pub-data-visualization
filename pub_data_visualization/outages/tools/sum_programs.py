@@ -10,6 +10,22 @@ def sum_programs(dikt_programs,
                  publication_dt_min = None,
                  publication_dt_max = None,
                  ):
+    """
+        Sums the availability programs of a set of production assets.
+        
+        :param dikt_programs: The expected availabilty programs
+        :param production_dt_min: The left bound of the programs
+        :param production_dt_max: The right bound of the programs
+        :param publication_dt_min: The left bound of the publications
+        :param publication_dt_max: The right bound of the publications
+        :type dikt_programs: dict
+        :type production_dt_min: pd.Timestamp
+        :type production_dt_max: pd.Timestamp
+        :type publication_dt_min: pd.Timestamp
+        :type publication_dt_max: pd.Timestamp
+        :return: The total expected availability
+        :rtype: pd.DataFrame
+    """
     
     
     all_production_steps  = sorted(set([e

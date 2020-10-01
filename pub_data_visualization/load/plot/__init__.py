@@ -1,7 +1,6 @@
 
 """
-Module to plot the load data
-============================
+    Module to plot the load data
 
 """
 

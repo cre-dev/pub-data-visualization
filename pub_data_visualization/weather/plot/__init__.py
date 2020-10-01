@@ -1,7 +1,6 @@
 
 """
-Module to plot the weather data
-===============================
+    Module to plot the weather data
 
 """
 

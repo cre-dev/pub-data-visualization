@@ -1,5 +1,7 @@
 
 """
+    Correspondances between dates and written months.
+
     Correspondances between the months written in different sources
     and their indices (from 1 to 12).
 """

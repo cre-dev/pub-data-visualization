@@ -4,11 +4,19 @@ import pandas as pd
 def cross_section_view(df_program,
                        tolerated_delay = pd.Timedelta(minutes = 0),
                        ):
+    """
+        Computes the expected production at all times t given 
+        the information available at times t + tolerated_delay.
+        
+        :param df_program: The expected availabilty programs
+        :param tolerated_delay: The tolerated delay for publication
+        :type df_program: pd.DataFrame
+        :type program: pd.Timedelta
+        :return: The expected availability given the publications
+        :rtype: pd.Series
+    """
     
     assert type(tolerated_delay) == pd.Timedelta
-    
-    # Compute the expected production at all times t given 
-    # the information available at times t + tolerated_delay
     
     publications_dt = df_program.index
     publications_minus_delay_dt = [d - tolerated_delay
@@ -47,3 +55,4 @@ def cross_section_view(df_program,
                                                        ] 
             
     return viewed_series
+

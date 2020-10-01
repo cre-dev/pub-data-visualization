@@ -1,7 +1,6 @@
 
 """
-Module to manipulate the load data
-==================================
+    Module to transform the load data
 
 """
 

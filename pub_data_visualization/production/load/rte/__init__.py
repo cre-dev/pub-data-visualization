@@ -1,7 +1,6 @@
 
 """
-Module to load production data provided by RTE
-==============================================
+    Module to load production data provided by RTE
 
 """
 

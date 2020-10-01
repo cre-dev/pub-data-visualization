@@ -6,6 +6,19 @@ import pandas as pd
 def compute_energy_unavailability_product(product_delivery_windows,
                                           program,
                                           ):
+    """
+        Computes the availability of one unit
+        during the delivery windows of one contract.
+ 
+        :param product_delivery_windows_local: The delivery windows
+        :param program: The expected programs of the production unit
+        :type product_delivery_windows_local: list of pairs
+        :type program: pd.Dataframe
+        :return: The availability during the delivery
+                 of the unit at different dates
+        :rtype: pd.Series
+    """
+    
     nameplate_capacity = program.max().max()
     window_dt_UTC      = [d.tz_convert('UTC') 
                           for (begin, end) in product_delivery_windows
@@ -44,21 +57,32 @@ def compute_energy_unavailability_product(product_delivery_windows,
 ###############################################################################
 
 def compute_missing_energy(product_delivery_windows_local,
-                           dikt_programs_UTC,
-                           ):    
+                           dikt_programs,
+                           ):
+    """
+        Computes the availability during the delivery windows of one contract.
+ 
+        :param product_delivery_windows_local: The delivery windows
+        :param dikt_programs: The set of expected programs for the units
+        :type product_delivery_windows_local: list of pairs
+        :type dikt_programs: dict of pd.Dataframes
+        :return: The availability during the delivery
+                 at different dates
+        :rtype: pd.Series
+    """
 
     dikt_energy           = {}
-    for ii, unit_name in enumerate(dikt_programs_UTC):
+    for ii, unit_name in enumerate(dikt_programs):
         print('\rcompute_missing_energy loop 1 - {0:3}/{1:3}- {2:20}'.format(ii,
-                                                                             len(dikt_programs_UTC),
+                                                                             len(dikt_programs),
                                                                              unit_name, 
                                                                              ),
               end = '',
               )
-        assert not pd.isnull(dikt_programs_UTC[unit_name].columns).sum()
-        assert not pd.isnull(dikt_programs_UTC[unit_name].index.values).sum()
+        assert not pd.isnull(dikt_programs[unit_name].columns).sum()
+        assert not pd.isnull(dikt_programs[unit_name].index.values).sum()
         dikt_energy[unit_name] = compute_energy_unavailability_product(product_delivery_windows_local,
-                                                                       dikt_programs_UTC[unit_name],
+                                                                       dikt_programs[unit_name],
                                                                        )
     all_publications_dates = sorted(set([e
                                          for unit_name in dikt_energy

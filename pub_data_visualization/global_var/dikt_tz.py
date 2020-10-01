@@ -1,5 +1,7 @@
 
 """
+    Dictionary of timezones.
+
     Dictionary of pairs 
     map_code : corresponding timezone
 """

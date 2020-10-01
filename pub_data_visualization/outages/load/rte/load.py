@@ -104,7 +104,7 @@ def load(map_code = None):
         
         print('Transcode')
         df.loc[:,global_var.unit_name]         = df[global_var.unit_name].replace(transcode.unit_name).apply(global_tools.format_unit_name)
-        df.loc[:,global_var.company_name]      = df[global_var.company_name].replace(transcode.company_name)
+        df.loc[:,global_var.producer_name]     = df[global_var.producer_name].replace(transcode.producer_name)
         df.loc[:,global_var.outage_type]       = df[global_var.outage_type].replace(transcode.outage_type)
         df.loc[:,global_var.unit_type]         = df[global_var.unit_type].replace(transcode.unit_type)
         df.loc[:,global_var.production_source] = df[global_var.production_source].astype(str).replace(transcode.production_source)

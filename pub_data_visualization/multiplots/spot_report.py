@@ -39,7 +39,7 @@ def spot_report(dg_weather,
         :param dg_weather: The weather data
         :param df_production: The production data
         :param dg_load: The load data
-        :param df_extrapolated programs: The availability data
+        :param df_extrapolated_programs_mw: The availability data
         :param dg_auctions: The auction prices data
         :param map_code: The delivery zone
         :param date_min: The left bound
@@ -54,16 +54,16 @@ def spot_report(dg_weather,
         :type dg_weather: pd.DataFrame
         :type df_production: pd.DataFrame
         :type dg_load: pd.DataFrame
-        :type df_extrapolated: pd.DataFrame
+        :type df_extrapolated_programs_mw: pd.DataFrame
         :type dg_auctions: pd.DataFrame
         :type map_code: string
         :type date_min: pd.Timestamp
         :type date_max: pd.Timestamp
         :type diff_init: bool
         :type smoother: string
-        :param figsize: (int,int)
-        :param folder_out: string
-        :param close: bool
+        :type figsize: (int,int)
+        :type folder_out: string
+        :type close: bool
         :return: None
         :rtype: None
     """

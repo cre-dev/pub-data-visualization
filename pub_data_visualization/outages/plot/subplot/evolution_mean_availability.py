@@ -34,9 +34,9 @@ def evolution_mean_availability(ax,
     X, Y = global_tools.piecewise_constant_interpolators(df.index, 
                                                          df.values,
                                                          )
-    if   unit == 'GW':
+    if   unit == global_var.quantity_unit_gw:
         Y /= 1e3
-    elif unit == 'MW':
+    elif unit == global_var.quantity_unit_mw:
         Y = Y
     else:
         raise ValueError

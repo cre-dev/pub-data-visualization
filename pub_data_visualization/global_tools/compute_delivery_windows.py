@@ -7,7 +7,7 @@ from .. import global_var
 from . import compute_delivery_begin_date_local, compute_delivery_end_date
 
 
-def compute_delivery_windows(product                   = None,
+def compute_delivery_windows(frequency                 = None,
                              delivery_begin_year_local = None,
                              delivery_period_index     = None,
                              profile                   = None,
@@ -17,13 +17,13 @@ def compute_delivery_windows(product                   = None,
     """
         Computes the delivery windows of a given contract.
  
-        :param product: The type of delivery contract (year, month, etc.)
+        :param frequency: The type of delivery contract (year, month, etc.)
         :param delivery_begin_year_local: The year of the delivery
         :param delivery_period_index: The index of the delivery contract
         :param profile: The profile of the delivery
         :param delivery_begin_date_local: The beginning date of the delivery
         :param tz_local: The local timezone
-        :type product: string
+        :type frequency: string
         :type delivery_begin_year_local: int
         :type delivery_period_index: int
         :type profile: string
@@ -46,11 +46,11 @@ def compute_delivery_windows(product                   = None,
         raise NotImplementedError
         
     if not delivery_begin_date_local:
-        assert product not in [global_var.contract_product_hour,
-                               global_var.contract_product_bloc,
-                               ]
+        assert frequency not in [global_var.contract_frequency_hour,
+                                 global_var.contract_frequency_bloc,
+                                 ]
         delivery_begin_date_local = compute_delivery_begin_date_local(delivery_begin_year_local = delivery_begin_year_local,
-                                                                      product                   = product,
+                                                                      frequency                 = frequency,
                                                                       delivery_period_index     = delivery_period_index,
                                                                       local_tz                  = tz_local,
                                                                       )
@@ -61,7 +61,7 @@ def compute_delivery_windows(product                   = None,
         raise ValueError('Incorrect begin_date : {0}'.format(delivery_begin_date_local))
         
     delivery_end_date_local = compute_delivery_end_date(delivery_begin_date_local = delivery_begin_date_local,
-                                                        product                   = product,
+                                                        frequency                 = frequency,
                                                         delivery_period_index     = delivery_period_index,
                                                         )    
         

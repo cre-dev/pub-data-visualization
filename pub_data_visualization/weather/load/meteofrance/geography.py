@@ -1,6 +1,7 @@
 
 """
-    Geographical information about the weather data provided by Météo-France
+    Geographical information about the weather data provided by Météo-France.
+    
 """
 
 

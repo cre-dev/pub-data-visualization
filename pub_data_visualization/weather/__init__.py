@@ -1,7 +1,6 @@
 
 """
-Module to load and plot weather data
-===================================================
+    Module to load and plot weather data.
 
 """
 

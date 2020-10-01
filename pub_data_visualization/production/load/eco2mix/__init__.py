@@ -1,7 +1,6 @@
 
 """
-Module to load production data provided by eCO2mix
-==================================================
+    Module to load production data provided by eCO2mix
 
 """
 

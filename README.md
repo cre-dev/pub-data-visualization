@@ -211,7 +211,7 @@ An html documentation generated with Sphinx can be found in ./doc/pub_data_visua
 | company_outages                | None or string                  | any company that publishes                                      | -                                             |
 | contract_delivery_begin_year   | int                             | 2018; …                                                         | -                                             |
 | contract_delivery_period_index | int	                           | depends on the selected contract_product                        | -                                             |
-| contract_product               | string	                   | "M"; "Q"; …	                                             | -                                             |
+| contract_frequency             | string	                   | "M"; "Q"; …	                                             | -                                             |
 | contract_profile               | string	                   | "BASE"; "PEAK" …                                                | -                                             |
 | data_source_auctions           | string	                   | "ENTSOE"                                                        | -                                             |
 | data_source_load               | string	                   | "eCO2mix"; "ENTSOE"                                             | -                                             |

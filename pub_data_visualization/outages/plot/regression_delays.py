@@ -25,7 +25,7 @@ def regression_delays(df,
                       figsize           = global_var.figsize_horizontal,
                       folder_out        = None,
                       close             = True,
-                      ):   
+                      ):
     """
         Plots the announced and finally observed lengths of the outages
         with a regression line

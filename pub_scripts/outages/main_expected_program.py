@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 """
-    The script allows the user to draw 
-    the expected availability program of
-    a given set of production units.
+The script allows the user to draw 
+the expected availability program of
+a given set of production units.
 """
 
 import pandas as pd

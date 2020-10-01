@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 """
-    The script allows the user to draw the comparison
-    between the initially announced length of the outages
-    and the finnaly observed length of the outages
-    of a given set of production units.
+The script allows the user to draw the comparison
+between the initially announced length of the outages
+and the finnaly observed length of the outages
+of a given set of production units.
 """
 
 #

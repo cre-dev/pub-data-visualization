@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 """
-    The script allows the user to plot the expected availability of
-    a given set of production unit during the delivery period
-    of a given contract.
+The script allows the user to plot the expected availability of
+a given set of production unit during the delivery period
+of a given contract.
 """
 
 import pandas as pd
@@ -13,7 +13,7 @@ from pub_data_visualization import global_tools, global_var, outages
 
 ###############################################################################
 contrat_delivery_begin_year    = 2018
-contract_product               = global_var.contract_product_month
+contract_frequency             = global_var.contract_frequency_month
 contract_delivery_period_index = 10
 contract_profile               = global_var.contract_profile_base
 #
@@ -42,7 +42,7 @@ df = outages.load(source    = date_source_outages,
 ### Transform
 dikt_programs, _ = outages.tools.compute_all_programs(df)
 product_delivery_windows = global_tools.compute_delivery_windows(delivery_begin_year_local = contrat_delivery_begin_year, 
-                                                                 product                   = contract_product, 
+                                                                 frequency                 = contract_frequency, 
                                                                  delivery_period_index     = contract_delivery_period_index, 
                                                                  profile                   = contract_profile, 
                                                                  tz_local                  = global_var.dikt_tz[map_code],
@@ -53,7 +53,7 @@ df_energy_tot  = outages.tools.compute_missing_energy(product_delivery_windows,
                                                       )
 df_power_tot   = df_energy_tot/nb_hours
 contract_name  = global_tools.format_contract_name(contrat_delivery_begin_year,
-                                                   contract_product,
+                                                   contract_frequency,
                                                    contract_delivery_period_index,
                                                    contract_profile,
                                                    )
