@@ -201,7 +201,7 @@ The data from RTE have to be downloaded manually.
 # Description of the code
 
 ## Documentation
-An html documentation generated with Sphinx can be found in ./doc/pub_data_visualization.html.
+An html documentation generated with Sphinx can be found in ./pub_doc/pub_data_visualization.html.
 
 ## Parameters of the scripts
 
