@@ -4,9 +4,9 @@
 
 """
 
-from .cascade_products   import *
-from .dikt_tz            import *
-from .months             import *
-from .path_folders       import *
-from .plot_variables     import *
-from .user_defined_names import *
+from .cascade_frequencies import *
+from .dikt_tz             import *
+from .months              import *
+from .path_folders        import *
+from .plot_variables      import *
+from .user_defined_names  import *
