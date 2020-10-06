@@ -1,7 +1,6 @@
 
 """
-Module to the data about the aggregated capacities
-==================================================
+    Module to the data about the aggregated capacities.
 
 """
 

@@ -1,7 +1,6 @@
 
 """
-Module to load the data about the capacities
-============================================
+Module to load the data about the capacities.
 
 """
 

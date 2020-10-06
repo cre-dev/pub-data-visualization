@@ -1,8 +1,8 @@
 
 """
-Correspondances between the names used by RTE
-for the production sources
-and the user defined names.
+    Correspondances between the names used by RTE for the production sources
+    and the user defined names.
+    
 """
 
 from ...... import global_var
