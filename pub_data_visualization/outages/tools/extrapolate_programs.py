@@ -34,9 +34,12 @@ def extrapolate_programs(dikt_programs,
     selected_production_steps = [e
                                  for ii, e in enumerate(all_production_steps)
                                  if (    (   ii+1 == len(all_production_steps)
+                                          or production_dt_min is None
                                           or all_production_steps[ii+1] >= production_dt_min
                                           )
-                                     and all_production_steps[ii] <  production_dt_max
+                                     and (   production_dt_max is None
+                                          or all_production_steps[ii] <  production_dt_max
+                                          )
                                      )
                                  ]
     
