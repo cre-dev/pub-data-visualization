@@ -35,7 +35,6 @@ df = outages.load(source    = data_source_outages,
                   publication_dt_max = date_max,
                   )                        
 
-
 ### Plot
 outages.plot.regression_delays(df,
                                source            = data_source_outages,
@@ -48,9 +47,3 @@ outages.plot.regression_delays(df,
                                )
 
 
-
-
-
-    
-    
-    
