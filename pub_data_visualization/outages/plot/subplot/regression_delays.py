@@ -10,6 +10,8 @@ def regression_delays(ax,
     """
         Plots the announced and finally observed lengths of the outages
         of a set of units with a regression line in a subplot.
+        
+        Permanent plant shutdowns are a problem for the regression.
  
         :param ax: The ax to fill
         :param df: The outages dataframe
@@ -27,6 +29,8 @@ def regression_delays(ax,
     Y = (  dg_grouped[global_var.outage_end_dt_UTC].tail(1)
          - dg_grouped[global_var.outage_begin_dt_UTC].tail(1)
          ).reset_index(drop = True).dt.total_seconds()/3600
+    
+    import ipdb; ipdb.set_trace()
     
     ax.scatter(X,
                Y,
