@@ -30,8 +30,6 @@ def regression_delays(ax,
          - dg_grouped[global_var.outage_begin_dt_UTC].tail(1)
          ).reset_index(drop = True).dt.total_seconds()/3600
     
-    import ipdb; ipdb.set_trace()
-    
     ax.scatter(X,
                Y,
                )
