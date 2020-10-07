@@ -45,7 +45,7 @@ def evolution_mean_availability(ax,
         ax.step(X,
                 Y,
                 where = 'post',
-                label = 'mean unavailable power ({0})'.format(unit),
+                label = 'mean unavailable power {0}'.format(unit),
                 color = (global_var.colors[9]
                          if color is None
                          else
@@ -55,7 +55,7 @@ def evolution_mean_availability(ax,
     else:
         ax.plot(X,
                 Y,
-                label = 'mean unavailable power ({0})'.format(unit),
+                label = 'mean unavailable power {0}'.format(unit),
                 color = (global_var.colors[9]
                          if color is None
                          else
