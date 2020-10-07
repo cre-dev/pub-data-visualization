@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-    The script allows the user to draw the empirical boxplots
-    of the weather conditions for the different months and different years.
+The script allows the user to draw the empirical boxplots
+of the weather conditions for the different months and different years.
 """
 
 #

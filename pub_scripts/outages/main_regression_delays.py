@@ -16,7 +16,7 @@ data_source_outages = global_var.data_source_rte
 map_code            = global_var.geography_map_code_france
 company_outages     = None
 production_source   = global_var.production_source_nuclear
-unit_name           = None
+unit_name           = 'CHINON 2'
 date_min            = None
 date_max            = None
 ###############################################################################

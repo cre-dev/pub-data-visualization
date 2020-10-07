@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-    The script allows the user to draw the weather conditions
-    observed in a given zone.
+The script allows the user to draw the weather conditions
+observed in a given zone.
 """
 
 import numpy  as np

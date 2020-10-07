@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-    The script allows the user to draw the observed production
-    of a given set of production units.
+The script allows the user to draw the observed production
+of a given set of production units.
 """
 
 #

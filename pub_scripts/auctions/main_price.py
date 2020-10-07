@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-    The script allows the user to draw
-    the auction prices for a given bidding zone.
+The script allows the user to draw
+the auction prices for a given bidding zone.
 """
 
 #
