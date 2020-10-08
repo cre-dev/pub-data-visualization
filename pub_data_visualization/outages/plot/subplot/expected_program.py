@@ -1,9 +1,7 @@
 
 
-#
+
 from .... import global_tools
-
-
 
 
 def expected_program(ax,

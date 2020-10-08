@@ -12,10 +12,6 @@ latex_preamble = r"""
 \usepackage{bm}
 """
 
-#####
-# Set matplotlib so that all graphs look alike
-#####
-
 verb = False
 
 def set_mpl(mpl,
@@ -44,7 +40,7 @@ def set_mpl(mpl,
         plt.rc('text', usetex=True)
         plt.rc('text.latex', preamble = latex_preamble)
         plt.rc('legend',**{'fontsize' : size_txt})
-        # Font 
+        ### Font 
         plt.rc('font', **{'family' : 'serif', 
                           'serif'  : ['Computer Modern'], 
                           'size'   : size_txt

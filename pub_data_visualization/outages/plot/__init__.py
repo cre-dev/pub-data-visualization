@@ -1,6 +1,6 @@
 
 """
-    Module to plot outages data
+    Module to plot outages data.
 
 """
 

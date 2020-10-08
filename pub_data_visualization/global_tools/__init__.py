@@ -1,9 +1,10 @@
 
 """
-Generic set of tools to manipulate the data
-===========================================
+    Generic set of tools to manipulate the data.
 
-This module contains a set of tools used by the different subpackages of this project.
+    This module contains a set of tools used by
+    the different subpackages of this project.
+    
 """
 
 from .compute_delivery_begin_date_local import *

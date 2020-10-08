@@ -1,7 +1,6 @@
 
 
 import pandas as pd
-#
 
 
 def sum_programs(dikt_programs,

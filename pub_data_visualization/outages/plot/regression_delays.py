@@ -15,7 +15,6 @@ import matplotlib.patches as mpatches
 
 
 
-###############################################################################    
 
 def regression_delays(df,
                       source            = None,

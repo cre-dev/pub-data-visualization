@@ -1,6 +1,7 @@
 
 """
     Definition of the cascade effect between different WEPs.
+    
 """
 
 from . import user_defined_names as global_var

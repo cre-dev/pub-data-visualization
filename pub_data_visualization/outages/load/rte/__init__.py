@@ -1,6 +1,6 @@
 
 """
-    Module to load outages data from RTE
+    Module to load outages data from RTE.
 
 """
 

@@ -1,9 +1,5 @@
 
 
-#
-
-
-
 def nameplate_capacity(ax,
                        df,
                        ): 

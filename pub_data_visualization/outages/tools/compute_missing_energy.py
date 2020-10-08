@@ -1,6 +1,6 @@
 
+
 import pandas as pd
-#
 
 
 def compute_energy_unavailability_product(product_delivery_windows,

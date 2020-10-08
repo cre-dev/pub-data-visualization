@@ -1,6 +1,6 @@
 
 """
-    Module to load the weather data
+    Module to load the weather data.
 
 """
 

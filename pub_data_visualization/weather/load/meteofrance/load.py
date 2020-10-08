@@ -10,7 +10,6 @@ import gzip
 from .... import global_var
 from . import geography, paths, transcode, url
 
-###############################################################################
 
 def download_raw_weather_data(year  = None,
                               month = None,

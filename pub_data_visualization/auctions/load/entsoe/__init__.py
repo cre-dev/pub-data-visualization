@@ -1,6 +1,6 @@
 
 """
-    Module to load auctions data coming from ENTSO-E
+    Module to load auctions data coming from ENTSO-E.
 
 """
 

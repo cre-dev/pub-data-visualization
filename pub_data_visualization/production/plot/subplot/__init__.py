@@ -1,7 +1,6 @@
 
 """
-Module to fill the subplots with production data
-================================================
+    Module to fill the subplots with production data.
 
 """
 

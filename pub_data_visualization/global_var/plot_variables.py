@@ -1,6 +1,7 @@
 
 """
-    User defined variables for plotting
+    User defined variables for plotting.
+    
 """
 
 import matplotlib.cm as cm

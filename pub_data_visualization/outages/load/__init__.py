@@ -1,6 +1,6 @@
 
 """
-    Module to load public outages data
+    Module to load public outages data.
 
 """
 

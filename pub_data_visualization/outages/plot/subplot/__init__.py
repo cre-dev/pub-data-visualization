@@ -1,6 +1,6 @@
 
 """
-    Module to draw the subplots with outages data
+    Module to draw the subplots with outages data.
 
 """
 

@@ -13,8 +13,7 @@ def compute_delivery_begin_date_local(delivery_begin_year_local = None,
                                       local_tz                  = None,
                                       ):
     """
-        Computes the localized beginning 
-        date of a given contract.
+        Computes the localized beginning date of a given contract.
  
         :param delivery_begin_year_local: The year of the delivery
         :param delivery_begin_date_local: The presumed date of the delivery

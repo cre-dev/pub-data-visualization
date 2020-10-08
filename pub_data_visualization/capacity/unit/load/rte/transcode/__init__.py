@@ -1,6 +1,6 @@
 
 """
-    Module to match the user defined names with the names used by RTE
+    Module to match the user defined names with the names used by RTE.
 
 """
 

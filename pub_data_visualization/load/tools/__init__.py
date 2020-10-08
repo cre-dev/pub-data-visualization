@@ -1,6 +1,6 @@
 
 """
-    Module to transform the load data
+    Module to transform the load data.
 
 """
 

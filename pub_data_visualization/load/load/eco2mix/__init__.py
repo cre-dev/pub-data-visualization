@@ -1,6 +1,6 @@
 
 """
-    Module to load the load data provided by eCO2mix
+    Module to load the load data provided by eCO2mix.
 
 """
 

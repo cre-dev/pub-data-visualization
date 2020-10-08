@@ -2,7 +2,6 @@
 
 
 import pandas as pd
-#
 
 
 def extrapolate_programs(dikt_programs,

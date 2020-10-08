@@ -1,6 +1,6 @@
 
 """
-    Module to load production data provided by ENTSO-E
+    Module to load production data provided by ENTSO-E.
 
 """
 

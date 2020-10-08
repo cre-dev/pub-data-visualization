@@ -1,6 +1,5 @@
 
 
-#
 from .. import global_var
 
 def format_contract_name(year,

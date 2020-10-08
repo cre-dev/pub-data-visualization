@@ -1,6 +1,6 @@
 
 """
-    Module containing a set of tools to deal with the outages data
+    Module containing a set of tools to deal with the outages data.
 
 """
 

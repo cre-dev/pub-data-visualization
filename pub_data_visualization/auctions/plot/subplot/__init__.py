@@ -1,7 +1,6 @@
 
 """
-Module for the subplots of auctions data
-===================================================
+    Module for the subplots of auctions data.
 
 """
 

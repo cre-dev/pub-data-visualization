@@ -1,8 +1,7 @@
 
 """
-    Correspondance between the names used byb ENTSO-E
-    for the production sources
-    and the user defined names
+    Correspondance between the names used by ENTSO-E for the production sources
+    and the user defined names.
     
 """
 

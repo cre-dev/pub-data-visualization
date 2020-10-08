@@ -1,6 +1,6 @@
 
 """
-    Module to load public auctions data
+    Module to load public auctions data.
 
 """
 

@@ -1,6 +1,6 @@
 
 """
-    Module to fill subplots with weather data
+    Module to fill subplots with weather data.
 
 """
 

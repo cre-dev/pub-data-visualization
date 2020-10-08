@@ -1,6 +1,6 @@
 
 """
-    Module to load and plot production data
+    Module to load and plot production data.
 
 """
 

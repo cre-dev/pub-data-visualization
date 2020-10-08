@@ -1,6 +1,6 @@
 
 """
-    Module to load the load data provided by ENTSO-E
+    Module to load the load data provided by ENTSO-E.
 
 """
 

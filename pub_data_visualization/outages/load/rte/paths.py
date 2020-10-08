@@ -2,6 +2,7 @@
 """
     Folders where the raw outages data provided by RTE
     and the transformed dataframes are saved.
+    
 """
 
 import os

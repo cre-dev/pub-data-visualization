@@ -1,7 +1,6 @@
 
 """
-Module to plot auctions data
-============================
+    Module to plot auctions data.
 
 """
 

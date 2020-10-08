@@ -194,10 +194,10 @@ def compute_program(dg,
     program.index.name   = global_var.publication_dt_UTC
     program.columns.name = global_var.production_step_dt_UTC
     
-    # Eliminate the first of simultaneous publications
+    ### Eliminate the first of simultaneous publications
     program = program.groupby(global_var.publication_dt_UTC).tail(1)
     
-    # Checks
+    ### Checks
     assert not pd.isnull(program.index.values).any()
     assert not pd.isnull(program.columns).any()
 

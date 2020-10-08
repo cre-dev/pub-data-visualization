@@ -11,8 +11,7 @@ from .assemble import assemble
 
 def load(map_code = None):
     """
-        Loads the outages data provided by RTE
-        in the given delivery zone.
+        Loads the outages data provided by RTE in the given delivery zone.
  
         :param map_code: The delivery zone
         :type map_code: string

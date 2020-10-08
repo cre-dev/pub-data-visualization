@@ -1,6 +1,6 @@
 
 """
-    Module to format the date strings used by RTE
+    Module to format the date strings used by RTE.
 
 """
 

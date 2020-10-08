@@ -1,6 +1,6 @@
 
 """
-    Module to load the load data
+    Module to load the load data.
 
 """
 

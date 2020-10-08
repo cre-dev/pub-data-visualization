@@ -2,8 +2,10 @@
 """
     Correspondances between the EIC codes of the production assets
     used by RTE and the user defined names.
+    
     See for more details
     https://www.entsoe.eu/data/energy-identification-codes-eic/eic-approved-codes/
+    
 """
 
 unit_name = {'SPEM POINTE TG'   : 'SPEM',

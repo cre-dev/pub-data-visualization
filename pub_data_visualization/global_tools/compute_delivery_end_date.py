@@ -11,8 +11,7 @@ def compute_delivery_end_date(delivery_begin_date_local = None,
                               delivery_period_index     = None,
                               ):
     """
-        Computes the localized end 
-        date of a given contract.
+        Computes the localized end date of a given contract.
  
         :param delivery_begin_date_local: The beginning date of the delivery
         :param frequency: The type of delivery contract (year, month, etc.)

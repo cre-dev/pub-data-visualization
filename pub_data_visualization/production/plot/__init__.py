@@ -1,7 +1,6 @@
 
 """
-Module to plot production data
-==============================
+    Module to plot production data.
 
 """
 

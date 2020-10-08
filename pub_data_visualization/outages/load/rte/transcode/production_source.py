@@ -2,6 +2,7 @@
 """
     Correspondances between the names of the energy production sources 
     used by RTE and the user defined names.
+    
 """
 
 from ..... import global_var
