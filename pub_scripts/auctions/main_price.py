@@ -6,6 +6,7 @@ The script allows the user to draw
 the auction prices for a given bidding zone.
 """
 
+import pandas as pd
 #
 from pub_data_visualization import auctions, global_var
 
