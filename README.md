@@ -159,7 +159,7 @@ The data have to be downloaded manually from ENTSO-E or RTE platforms.
 This figure is obtained by running `pub_scripts/outages/main_regression_delays.py`.
 The data have to be downloaded manually from ENTSO-E or RTE platforms.
 It displays a linear fit between the initially announced and the finally observed length of the outages.
-The coefficient being obtained with the minimization of a squared error, outliers have a large effect.
+The coefficient being obtained with the minimization of a squared error, outliers have a significant effect.
 
 
 ## Production data
