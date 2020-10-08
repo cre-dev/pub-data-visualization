@@ -29,10 +29,10 @@ __pycache__/
 .___init__.py
 
 # Sphinx
-doc/.doctrees/
-doc/_sources/
-doc/.buildinfo
-doc/objects.inv
-doc/searchindex.js
+pub_doc/.doctrees/
+pub_doc/_sources/
+pub_doc/.buildinfo
+pub_doc/objects.inv
+pub_doc/searchindex.js
 
 
