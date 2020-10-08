@@ -6,7 +6,7 @@ To obtain the proposed interactive visualizations, the user should :
 * download the input data,
 * run one of the scripts with ipython and her own choice of parameters.
 
-All suggestions are welcome at <opensource@cre.fr>.
+All suggestions are welcome at [opensource\[at\]cre.fr](opensource@cre.fr).
 
 # Installation
 It can be installed with :
