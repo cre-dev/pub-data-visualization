@@ -13,5 +13,7 @@ def format_latex(ss):
         :return: The formatted string
         :rtype: string
     """
-    tt = ss.replace('_', ' ').replace('%', '\%')
+    tt = (ss.replace('_', ' ')
+            .replace('%', '\%')
+            )
     return tt
