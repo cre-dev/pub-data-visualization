@@ -31,6 +31,7 @@ def load(map_code = None):
         print('Load df and dikt - ', end = '')
         df = pd.read_csv(df_path,
                          sep = ';',
+                         low_memory = False,
                          )
         with open(dikt_incoherences_path, 'rb') as f:
             dikt_incoherences = pickle.load(f)
