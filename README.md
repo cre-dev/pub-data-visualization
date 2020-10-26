@@ -208,7 +208,6 @@ An html documentation generated with Sphinx can be found in ./pub_doc/pub_data_v
 | Variable name                  | Type                            | Possible values                                                 | Purpose                                       |
 | ---                            | ---                             | ---                                                             | ---                                           |
 | close                          | bool                            | True; False	                                             | Close the figure after saving                 |
-| company_outages                | None or string                  | any company that publishes                                      | -                                             |
 | contract_delivery_begin_year   | int                             | 2018; …                                                         | -                                             |
 | contract_delivery_period_index | int	                           | depends on the selected contract_product                        | -                                             |
 | contract_frequency             | string	                   | "M"; "Q"; …	                                             | -                                             |
@@ -224,17 +223,17 @@ An html documentation generated with Sphinx can be found in ./pub_doc/pub_data_v
 | figsize                        | (int,int)                       | (8,6)                                                           | Figure size                                   |
 | folder_out                     | path                            | global_var.path_plots                                           | Plots output                                  |
 | load_nature                    | string                          | "load forecast D-1 (GW)";"load forecast D-0 (GW)"; "load (GW)"  | -                                             |
-| map_code                       | string                          | "FR"; …                                                         | -                                             |
-| map_code_auctions              | list of strings                 | ["FR", "GB", "BE"…]                                             | -                                             |
+| map_code                       | string or list of strings       | "FR"; … or ["FR", "GB", "BE"…]                                  | -                                             |
+| producer_outages               | None or string                  | any producer that publishes                                     | -                                             |
 | production_nature              | string                          | "production (GW)"                                               | -                                             |
 | production_source              | None or string                  | "biomass"; "solar"; …                                           | -                                             |
-| publication_dt_extrapolate     | list of localized pd.Timestamp  | -                                                               | Availability plotted as seen from these dates |
 | publication_dt_max             | None or localized pd.Timestamp  | -                                                               | -                                             |
 | publication_dt_min             | None or localized pd.Timestamp  | -                                                               | -                                             |
 | smoother                       | string or pd.Timedelta          | "basic";                                                        | For aesthetic purposes                        |
 | unit_name                      | None or string                  | any production unit                                             | -                                             |
+| viewpoint_dt_extrapolate       | list of localized pd.Timestamp  | -                                                               | Position plotted as seen from these dates     |
 | weather_nature                 | string                          | "observation"                                                   | -                                             |
-| weather_quantity               | string                          | "nebulosity (%)"; '"temperature (°C)"; "wind_speed (m/s)"        | -                                             |
+| weather_quantity               | string                          | "nebulosity (%)"; '"temperature (°C)"; "wind_speed (m/s)"       | -                                             |
 
 
 
