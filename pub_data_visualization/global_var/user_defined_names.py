@@ -449,6 +449,7 @@ trade_seller                        = 'trade_seller'
 trade_seller_country                = 'trade_seller_country'
 trade_seller_info                   = 'trade_seller_info'
 trade_source                        = 'trade_source'
+trade_suspicion_level               = 'trade_volume_suspect ($\\text{MWh}^2.\\text{h}$)'
 trade_time_local                    = 'trade_time (local)'
 trade_time_UTC                      = 'trade_time (UTC)'
 trade_trader_id                     = 'trader_id'
@@ -460,7 +461,6 @@ trade_valuation_prev_price_euro_mw  = 'trade_valuation_prev_price_euro_mw'
 trade_volume_mwh                    = 'trade_volume (MWh)' # Trades volumes are multiples of contracts volumes
 trade_volume_gwh                    = 'trade_volume (GWh)'
 trade_volume_signed_mwh             = 'trade_volume_signed (MWh)'
-trade_volume_suspect_mwh            = 'trade_volume_suspect (MWh)'
 
 ### Units Production
 unit_eic                = 'unit_eic'
