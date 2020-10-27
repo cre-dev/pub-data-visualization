@@ -13,12 +13,12 @@ from pub_data_visualization import global_var, outages, production, multiplots
 
 ###############################################################################
 map_code               = global_var.geography_map_code_france
-unit_name              = 'DAMPIERRE 4'
-date_min               = None
-date_max               = None
+unit_name              = 'PALUEL 2'
+date_min               = None #pd.Timestamp('2016-12-01').tz_localize('CET')
+date_max               = None #pd.Timestamp('2018-07-01').tz_localize('CET')
 #
 data_source_outages    = global_var.data_source_rte
-company_outages        = None
+producer_outages       = None
 #
 data_source_production = global_var.data_source_rte
 production_source      = None
@@ -35,10 +35,10 @@ df_production = production.load(source   = data_source_production,
                                 )
 
 ### Outages
-df = outages.load(source    = data_source_outages,
-                  map_code  = map_code,
-                  company   = company_outages,
-                  unit_name = unit_name,
+df = outages.load(source            = data_source_outages,
+                  map_code          = map_code,
+                  producer          = producer_outages,
+                  unit_name         = unit_name,
                   production_source = production_source,
                   )
 dikt_programs, _   = outages.tools.compute_all_programs(df)

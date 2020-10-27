@@ -20,7 +20,7 @@ def evolution_mean_availability(df_power_tot,
                                 date_max          = None,
                                 source            = None, 
                                 map_code          = None,
-                                company           = None,
+                                producer          = None,
                                 production_source = None,
                                 unit_name         = None,
                                 power_unit        = global_var.quantity_unit_gw,
@@ -42,7 +42,7 @@ def evolution_mean_availability(df_power_tot,
         :param date_max: The right bound
         :param source: The data source
         :param map_code: The delivery zone
-        :param company: The operating company
+        :param producer: The operating producer
         :param production_source: The energy production source
         :param unit_name: The name of the production asset
         :param power_unit: The power unit for the plot (MW or GW)
@@ -57,7 +57,7 @@ def evolution_mean_availability(df_power_tot,
         :type date_max: pd.Timestamp
         :type source: string
         :type map_code: string
-        :type company: string
+        :type producer: string
         :type production_source: string
         :type unit_name: string
         :type power_unit: string
@@ -111,13 +111,13 @@ def evolution_mean_availability(df_power_tot,
     title = ' - '.join(filter(None, [
                                      'source_outages = {source_outages}'       if source            else '',
                                      'map_code = {map_code}'                   if map_code          else '',
-                                     'company = {company}'                     if company           else '',
+                                     'producer= {producer}'                    if producer          else '',
                                      'production_source = {production_source}' if production_source else '',
                                      'unit_name = {unit_name}'                 if unit_name         else '',
                                      'contract_name = {contract_name}'         if contract_name     else '',
                                      ])).format(source_outages    = source,
                                                 map_code          = map_code,
-                                                company           = company,
+                                                producer          = producer,
                                                 production_source = production_source,
                                                 unit_name         = unit_name,
                                                 contract_name     = contract_name,

@@ -18,9 +18,9 @@ from matplotlib.widgets import Slider
 def animated_availability(dh,
                           production_dt_min = None,
                           production_dt_max = None,
-                          source_outages    = None,
+                          data_source       = None,
                           map_code          = None,
-                          company_outages   = None,
+                          producer          = None,
                           production_source = None,
                           unit_name         = None,
                           figsize           = global_var.figsize_horizontal,
@@ -34,9 +34,9 @@ def animated_availability(dh,
         :param dh: The expected availability at different dates
         :param production_dt_min: The left bound
         :param production_dt_max: The right bound
-        :param source_outages: The data source
+        :param data_source: The data source
         :param map_code: The delivery zone
-        :param company_outages: The operating company
+        :param producer: The operating company
         :param production_source: The energy production source
         :param unit_name: The name of the production asset
         :param figsize: Desired size of the figure
@@ -45,9 +45,9 @@ def animated_availability(dh,
         :type dh: pd.DataFrame
         :type production_dt_min: pd.Timestamp
         :type production_dt_max: pd.Timestamp
-        :type source_outages: string
+        :type data_source: string
         :type map_code: string
-        :type company_outages: string
+        :type producer: string
         :type production_source: string
         :type unit_name: string
         :type figsize: (int,int)
@@ -159,14 +159,14 @@ def animated_availability(dh,
                     
     ### Finalize
     title = ' - '.join(filter(None, [
-                                     'source_outages = {source_outages}'       if source_outages    else '',
+                                     'data_source = {data_source}'             if data_source       else '',
                                      'map_code = {map_code}'                   if map_code          else '',
-                                     'company = {company_outages}'             if company_outages   else '',
+                                     'company = {producer}'                    if producer          else '',
                                      'production_source = {production_source}' if production_source else '',
                                      'unit_name = {unit_name}'                 if unit_name         else '',
-                                     ])).format(source_outages    = source_outages,
+                                     ])).format(data_source       = data_source,
                                                 map_code          = map_code,
-                                                company_outages   = company_outages,
+                                                producer          = producer,
                                                 production_source = production_source,
                                                 unit_name         = unit_name,
                                                 )

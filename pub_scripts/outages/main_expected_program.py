@@ -14,7 +14,7 @@ from pub_data_visualization import global_var, outages
 ###############################################################################
 data_source_outages = global_var.data_source_rte
 map_code            = global_var.geography_map_code_france
-company             = None
+producer_outages    = None
 production_source   = global_var.production_source_nuclear
 unit_name           = 'BELLEVILLE 1'
 date_min            = None
@@ -28,7 +28,7 @@ close      = False
 ### Load
 df = outages.load(source    = data_source_outages,
                   map_code  = map_code,
-                  company   = company,
+                  producer  = producer_outages,
                   unit_name = unit_name,
                   production_source = production_source,
                   )
@@ -46,7 +46,7 @@ outages.plot.expected_program(df_expected_program,
                               #
                               source            = data_source_outages,
                               map_code          = map_code,
-                              company           = company,
+                              producer          = producer_outages,
                               production_source = production_source,
                               unit_name         = unit_name,
                               figsize           = figsize,

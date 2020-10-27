@@ -12,14 +12,14 @@ import pandas as pd
 from pub_data_visualization import global_tools, global_var, outages
 
 ###############################################################################
-contrat_delivery_begin_year    = 2018
+contract_delivery_begin_year   = 2018
 contract_frequency             = global_var.contract_frequency_month
 contract_delivery_period_index = 10
 contract_profile               = global_var.contract_profile_base
 #
 date_source_outages = global_var.data_source_rte
 map_code            = global_var.geography_map_code_france
-company_outages     = None
+producer_outages    = None
 production_source   = None
 unit_name           = None
 date_min            = None
@@ -30,18 +30,24 @@ folder_out = global_var.path_plots
 close      = False
 ###############################################################################
 
+### Contract name
+contract_name  = global_tools.format_contract_name(contract_delivery_begin_year,
+                                                   contract_frequency,
+                                                   contract_delivery_period_index,
+                                                   contract_profile,
+                                                   )
 
 ### Load
-df = outages.load(source    = date_source_outages,
-                  map_code  = map_code,
-                  company   = company_outages,
-                  unit_name = unit_name,
+df = outages.load(source            = date_source_outages,
+                  map_code          = map_code,
+                  producer          = producer_outages,
+                  unit_name         = unit_name,
                   production_source = production_source,
                   )
 
 ### Transform
 dikt_programs, _ = outages.tools.compute_all_programs(df)
-product_delivery_windows = global_tools.compute_delivery_windows(delivery_begin_year_local = contrat_delivery_begin_year, 
+product_delivery_windows = global_tools.compute_delivery_windows(delivery_begin_year_local = contract_delivery_begin_year, 
                                                                  frequency                 = contract_frequency, 
                                                                  delivery_period_index     = contract_delivery_period_index, 
                                                                  profile                   = contract_profile, 
@@ -52,11 +58,6 @@ df_energy_tot  = outages.tools.compute_missing_energy(product_delivery_windows,
                                                       dikt_programs,
                                                       )
 df_power_tot   = df_energy_tot/nb_hours
-contract_name  = global_tools.format_contract_name(contrat_delivery_begin_year,
-                                                   contract_frequency,
-                                                   contract_delivery_period_index,
-                                                   contract_profile,
-                                                   )
 ### Plot
 outages.plot.evolution_mean_availability(df_power_tot,
                                          contract_name     = contract_name,
@@ -65,7 +66,7 @@ outages.plot.evolution_mean_availability(df_power_tot,
                                          date_max          = date_max,
                                          source            = date_source_outages,
                                          map_code          = map_code,
-                                         company           = company_outages,
+                                         producer          = producer_outages,
                                          production_source = production_source,
                                          unit_name         = unit_name,
                                          figsize           = figsize,

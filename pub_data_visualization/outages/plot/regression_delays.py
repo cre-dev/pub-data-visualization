@@ -18,7 +18,7 @@ import matplotlib.patches as mpatches
 
 def regression_delays(df,
                       source            = None,
-                      company           = None,
+                      producer          = None,
                       production_source = None,
                       unit_name         = None,
                       figsize           = global_var.figsize_horizontal,
@@ -33,7 +33,7 @@ def regression_delays(df,
  
         :param df: The outages dataframe
         :param source: The data source
-        :param company: The operating company
+        :param producer: The operating producer
         :param production_source: The energy production source
         :param unit_name: The name of the production asset
         :param figsize: Desired size of the figure
@@ -41,7 +41,7 @@ def regression_delays(df,
         :param close: Boolean to close the figure after it is saved
         :type df: pd.DataFrame
         :type source: string
-        :type company: string
+        :type producer: string
         :type production_source: string
         :type unit_name: string
         :type figsize: (int,int)
@@ -79,14 +79,14 @@ def regression_delays(df,
     
     ### Finalize 
     title = ' - '.join(filter(None, [
-                                     'source_outages = {source_outages}' if source else '',
-                                     'company = {company}' if company else '',
+                                     'source_outages = {source_outages}'       if source            else '',
+                                     'producer = {producer}'                   if producer          else '',
                                      'production_source = {production_source}' if production_source else '',
-                                     'unit_name = {unit_name}' if unit_name else '',
-                                     ])).format(source_outages = source,
-                                                company        = company,
+                                     'unit_name = {unit_name}'                 if unit_name         else '',
+                                     ])).format(source_outages    = source,
+                                                producer          = producer,
                                                 production_source = production_source,
-                                                unit_name      = unit_name,
+                                                unit_name         = unit_name,
                                                 )
     fig.suptitle(global_tools.format_latex(title))
     plt.tight_layout(rect = [0, 0.01, 1, 0.95])

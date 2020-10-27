@@ -224,6 +224,7 @@ An html documentation generated with Sphinx can be found in ./pub_doc/pub_data_v
 | folder_out                     | path                            | global_var.path_plots                                           | Plots output                                  |
 | load_nature                    | string                          | "load forecast D-1 (GW)";"load forecast D-0 (GW)"; "load (GW)"  | -                                             |
 | map_code                       | string or list of strings       | "FR"; … or ["FR", "GB", "BE"…]                                  | -                                             |
+| map_code_auctions              | string or list of strings       | "FR"; … or ["FR", "GB", "BE"…]                                  | -                                             |
 | producer_outages               | None or string                  | any producer that publishes                                     | -                                             |
 | production_nature              | string                          | "production (GW)"                                               | -                                             |
 | production_source              | None or string                  | "biomass"; "solar"; …                                           | -                                             |

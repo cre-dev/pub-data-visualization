@@ -22,7 +22,7 @@ def incremental_programs(df_programs,
                          smoother          = None,
                          source_outages    = None,
                          map_code          = None,
-                         company_outages   = None,
+                         producer          = None,
                          production_source = None,
                          unit_name         = None,
                          figsize           = global_var.figsize_horizontal,
@@ -42,7 +42,7 @@ def incremental_programs(df_programs,
         :param smoother: Boolean to draw oblique instead of vertical steps
         :param source_outages: The data source
         :param map_code: The delivery zone
-        :param company_outages: The operating company
+        :param producer: The operating company
         :param production_source: The energy production source
         :param unit_name: The name of the production asset
         :param figsize: Desired size of the figure
@@ -55,7 +55,7 @@ def incremental_programs(df_programs,
         :type diff_init: bool
         :type smoother: bool
         :type map_code: string
-        :type company_outages: string
+        :type producer: string
         :type production_source: string
         :type unit_name: string
         :type figsize: (int,int)
@@ -115,12 +115,12 @@ def incremental_programs(df_programs,
     title = ' - '.join(filter(None, [
                                      'source_outages = {source_outages}'       if source_outages    else '',
                                      'map_code = {map_code}'                   if map_code          else '',
-                                     'company = {company_outages}'             if company_outages   else '',
+                                     'company = {producer}'                    if producer          else '',
                                      'production_source = {production_source}' if production_source else '',
                                      'unit_name = {unit_name}'                 if unit_name         else '',
                                      ])).format(source_outages    = source_outages,
                                                 map_code          = map_code,
-                                                company_outages   = company_outages,
+                                                producer          = producer,
                                                 production_source = production_source,
                                                 unit_name         = unit_name,
                                                 )

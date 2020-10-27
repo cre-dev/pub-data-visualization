@@ -7,7 +7,7 @@ from . import entsoe, rte
 
 def load(source             = None,
          map_code           = None,
-         company            = None,
+         producer           = None,
          unit_name          = None,
          production_source  = None,
          publication_dt_min = None,
@@ -18,14 +18,14 @@ def load(source             = None,
  
         :param source: The data source
         :param map_code: The delivery zone
-        :param company: The operator of the production assets
+        :param producer: The operator of the production assets
         :param unit_name: The names of the production assets
         :param production_source: The energy source of the production assets
         :param publication_dt_min: The left bound of the publications
         :param publication_dt_max: The right bound of the publications
         :type source: string
         :type map_code: string
-        :type company: string
+        :type producer: string
         :type unit_name: string
         :type production_source: string
         :type publication_dt_min: pd.Timestamp
@@ -53,7 +53,7 @@ def load(source             = None,
     df = df[col_order]
     
     dg = df.loc[  pd.Series(True, index = df.index)
-                & ((df[global_var.producer_name]    .isin([company]           if type(company)           == str else company))           if bool(company)            else True)
+                & ((df[global_var.producer_name]    .isin([producer]          if type(producer)          == str else producer))          if bool(producer)            else True)
                 & ((df[global_var.production_source].isin([production_source] if type(production_source) == str else production_source)) if bool(production_source)  else True)
                 & ((df[global_var.unit_name]        .isin([unit_name]         if type(unit_name)         == str else unit_name))         if bool(unit_name)          else True)
                 & ((df[global_var.publication_dt_UTC] >= publication_dt_min)                                                             if bool(publication_dt_min) else True)

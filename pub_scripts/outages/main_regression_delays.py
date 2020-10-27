@@ -14,7 +14,7 @@ from pub_data_visualization import global_var, outages
 ###############################################################################
 data_source_outages = global_var.data_source_rte
 map_code            = global_var.geography_map_code_france
-company_outages     = None
+producer_outages    = None
 production_source   = global_var.production_source_nuclear
 unit_name           = 'CHINON 2'
 date_min            = None
@@ -28,7 +28,7 @@ close      = False
 ### Load
 df = outages.load(source    = data_source_outages,
                   map_code  = map_code,
-                  company   = company_outages,
+                  producer  = producer_outages,
                   unit_name = unit_name,
                   production_source  = production_source,
                   publication_dt_min = date_min,
@@ -38,7 +38,7 @@ df = outages.load(source    = data_source_outages,
 ### Plot
 outages.plot.regression_delays(df,
                                source            = data_source_outages,
-                               company           = company_outages,
+                               producer          = producer_outages,
                                production_source = production_source,
                                unit_name         = unit_name,
                                figsize           = figsize,

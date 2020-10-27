@@ -14,23 +14,23 @@ from pub_data_visualization import global_var, weather, production, load, outage
 
 ###############################################################################
 map_code          = global_var.geography_map_code_france
-date_min          = pd.to_datetime('2017-12-01 00:00').tz_localize(global_var.dikt_tz[map_code])
-date_max          = pd.to_datetime('2018-02-01 00:00').tz_localize(global_var.dikt_tz[map_code])
+date_min          = pd.Timestamp('2017-12-01 00:00').tz_localize(global_var.dikt_tz[map_code])
+date_max          = pd.Timestamp('2018-02-01 00:00').tz_localize(global_var.dikt_tz[map_code])
 #
 data_source_weather = global_var.data_source_meteofrance
 weather_nature      = global_var.weather_nature_observation
 #
-production_nature      = global_var.production_nature_observation_gw
 data_source_production = global_var.data_source_eco2mix
+production_nature      = global_var.production_nature_observation_gw
 #
 data_source_load = global_var.data_source_eco2mix
 load_nature      = global_var.load_nature_observation_gw
 #
-company_outages            = None
-data_source_outages        = global_var.data_source_rte
-publication_dt_extrapolate = [date_min,
-                              date_max,
-                              ]
+data_source_outages      = global_var.data_source_rte
+producer_outages         = None
+viewpoint_dt_extrapolate = [date_min,
+                            date_max,
+                            ]
 #
 data_source_auctions = global_var.data_source_entsoe
 map_code_auctions    = [global_var.geography_map_code_france,
@@ -67,11 +67,11 @@ dg_load = load.load(source   = data_source_load,
 ### Outages
 df_outages = outages.load(source    = data_source_outages,
                           map_code  = map_code,
-                          company   = company_outages,
+                          producer  = producer_outages,
                           )
 dikt_programs, _ = outages.tools.compute_all_programs(df_outages)
 df_extrapolated_programs = outages.tools.extrapolate_programs(dikt_programs,
-                                                              publication_dt_extrapolate,
+                                                              viewpoint_dt_extrapolate,
                                                               production_dt_min = date_min,
                                                               production_dt_max = date_max,
                                                               )

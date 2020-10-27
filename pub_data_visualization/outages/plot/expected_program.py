@@ -20,7 +20,7 @@ def expected_program(df,
                      date_max   = None,
                      source     = None,
                      map_code   = None,
-                     company    = None,
+                     producer   = None,
                      production_source = None,
                      unit_name  = None,
                      figsize    = global_var.figsize_horizontal,
@@ -37,7 +37,7 @@ def expected_program(df,
         :param date_max: The right bound
         :param source: The data source
         :param map_code: The delivery zone
-        :param company: The operating company
+        :param producer: The operating producer
         :param production_source: The energy production source
         :param unit_name: The name of the production asset
         :param figsize: Desired size of the figure
@@ -48,7 +48,7 @@ def expected_program(df,
         :type date_max: pd.Timestamp
         :type source: string
         :type map_code: string
-        :type company: string
+        :type producer: string
         :type production_source: string
         :type unit_name: string
         :type figsize: (int,int)
@@ -99,15 +99,15 @@ def expected_program(df,
               )
                     
     ### Finalize
-    title = global_tools.format_latex((  ('source = {source}' if source else '')
-                                       + (' - map_code = {map_code}' if map_code else '')
-                                       + (' - company = {company}' if company else '')
+    title = global_tools.format_latex((  ('source = {source}'          if source    else '')
+                                       + (' - map_code = {map_code}'   if map_code  else '')
+                                       + (' - producer = {producer}'   if producer  else '')
                                        + (' - unit_name = {unit_name}' if unit_name else '')
-                                       ).format(source    = source,
-                                                map_code  = map_code,
-                                                company   = company,
+                                       ).format(source            = source,
+                                                map_code          = map_code,
+                                                producer          = producer,
                                                 production_source = production_source,
-                                                unit_name = unit_name,
+                                                unit_name         = unit_name,
                                                 ))
     fig.suptitle(title)
 
