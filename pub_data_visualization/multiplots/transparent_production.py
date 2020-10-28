@@ -87,7 +87,7 @@ def transparent_production(program,
                              ))
     outages_subplot.expected_program(ax,
                                      program.squeeze(),
-                                     label = 'last publications',
+                                     label = global_tools.format_latex(program.squeeze().name),
                                      )
 
     ### Ticks
