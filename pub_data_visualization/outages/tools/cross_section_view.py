@@ -16,8 +16,6 @@ def cross_section_view(df_program,
         :rtype: pd.Series
     """
     
-    assert type(tolerated_delay) == pd.Timedelta
-    
     publications_dt = df_program.index
     publications_minus_delay_dt = [d - tolerated_delay
                                    for d in publications_dt
@@ -29,10 +27,10 @@ def cross_section_view(df_program,
                                                 )),
                                     name = df_program.columns.name,
                                     )
-    index_delays  = pd.Index(tolerated_delay
-                             if type(tolerated_delay) == list
+    index_delays  = pd.Index(['last publications']
+                             if tolerated_delay is None
                              else
-                             ['final']
+                             ['expected_program (tolerated_delay = {0} min)'.format(int(tolerated_delay.total_seconds()/60))]
                              )
     
     viewed_series = pd.DataFrame(data    = 0,
@@ -41,12 +39,15 @@ def cross_section_view(df_program,
                                  )
     
     for timestamp in viewed_series.index:
-        if tolerated_delay:
+        if type(tolerated_delay) == pd.Timedelta:
             publi_idx = df_program.index.get_loc(timestamp + tolerated_delay,
                                                  'ffill',
                                                  )
-        else:
+        elif tolerated_delay is None:
             publi_idx = -1
+        else:
+            raise TypeError
+            
         prod_idx  = df_program.columns.get_loc(timestamp,
                                                'ffill',
                                                )
