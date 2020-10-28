@@ -46,7 +46,7 @@
 <span id="pub-data-visualization-outages-plot-subplot-evolution-mean-availability-module"></span><h2>pub_data_visualization.outages.plot.subplot.evolution_mean_availability module<a class="headerlink" href="#module-pub_data_visualization.outages.plot.subplot.evolution_mean_availability" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="pub_data_visualization.outages.plot.subplot.evolution_mean_availability.evolution_mean_availability">
-<code class="sig-prename descclassname">pub_data_visualization.outages.plot.subplot.evolution_mean_availability.</code><code class="sig-name descname">evolution_mean_availability</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">step</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pub_data_visualization.outages.plot.subplot.evolution_mean_availability.evolution_mean_availability" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">pub_data_visualization.outages.plot.subplot.evolution_mean_availability.</code><code class="sig-name descname">evolution_mean_availability</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ax</span></em>, <em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">step</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">diff_init</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pub_data_visualization.outages.plot.subplot.evolution_mean_availability.evolution_mean_availability" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws in a subplot the evolution of the mean unavailbility 
 of a set of production assets.</p>
 <dl class="field-list simple">
@@ -57,6 +57,7 @@ of a set of production assets.</p>
 <li><p><strong>unit</strong> (<em>string</em>) – The power unit for the plot (MW or GW)</p></li>
 <li><p><strong>color</strong> (<em>string</em>) – The color to plot the series</p></li>
 <li><p><strong>step</strong> (<em>bool</em>) – Boolean to interpolate linearly or piecewise constantly</p></li>
+<li><p><strong>diff_init</strong> (<em>bool</em>) – Bool to plot relative differences</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
