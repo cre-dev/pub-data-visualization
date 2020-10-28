@@ -12,6 +12,7 @@ def evolution_mean_availability(ax,
                                 unit  = None,
                                 color = None,
                                 step  = False,
+                                diff_init = False,
                                 ):
     """
         Draws in a subplot the evolution of the mean unavailbility 
@@ -22,18 +23,24 @@ def evolution_mean_availability(ax,
         :param unit: The power unit for the plot (MW or GW)
         :param color: The color to plot the series
         :param step: Boolean to interpolate linearly or piecewise constantly
+        :param diff_init: Bool to plot relative differences
         :type ax: matplotlib.axes._subplots.AxesSubplot
         :type df: pd.Series
         :type unit: string
         :type color: string
         :type step: bool
+        :type diff_init: bool
         :return: None
         :rtype: None
     """ 
     
+    if diff_init:
+        df = df - df.iloc[0]
+    
     X, Y = global_tools.piecewise_constant_interpolators(df.index, 
                                                          df.values,
                                                          )
+    
     if   unit == global_var.quantity_unit_gw:
         Y /= 1e3
     elif unit == global_var.quantity_unit_mw:
@@ -45,7 +52,9 @@ def evolution_mean_availability(ax,
         ax.step(X,
                 Y,
                 where = 'post',
-                label = 'mean unavailable power {0}'.format(unit),
+                label = '{0}mean unavailable power {1}'.format('$\Delta$ ' if diff_init else '',
+                                                               unit,
+                                                               ),
                 color = (global_var.colors[9]
                          if color is None
                          else
