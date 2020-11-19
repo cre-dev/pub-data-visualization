@@ -59,7 +59,7 @@ contract_delivery_end_dt_local         = 'delivery_end_dt (local)'
 contract_delivery_end_dt_UTC           = 'delivery_end_dt (UTC)'
 contract_delivery_end_hour_local       = 'delivery_end_hour (local)'
 contract_delivery_nb_hours             = 'delivery_nb_hours'
-contract_delivery_period_calendar      = 'delivery_period_calendar'
+# contract_delivery_period_calendar      = 'delivery_period_calendar'
 contract_delivery_period_index         = 'delivery_period_index'
 contract_delivery_period_index_NA      = 0
 contract_delivery_period_index_summer  = 1
@@ -391,7 +391,7 @@ quantity_unit_mw = '(MW)'
 
 ### Time
 time_date_UTC            = 'time_date (UTC)'
-time_dt_UTC              = 'time_dt (UTC)'
+time_dt_UTC              = 'dt (UTC)'
 time_hour_UTC            = 'hour (UTC)'
 time_hours_covered_nb    = 'nb_covered_hours'
 time_hours_covered_ratio = 'ratio_covered_hours'
