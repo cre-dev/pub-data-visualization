@@ -46,7 +46,7 @@ def extrapolate_programs(dikt_programs,
     for dd in dates_to_extrapolate:
         program_plants = pd.DataFrame({plant_name : programs.iloc[programs.index.get_loc(dd,
                                                                                          'ffill',
-                                                                                         )].reindex(index = selected_production_steps,
+                                                                                         )].reindex(index  = selected_production_steps,
                                                                                                     method = 'ffill',
                                                                                                     )
                                        for plant_name, programs in dikt_programs.items()
