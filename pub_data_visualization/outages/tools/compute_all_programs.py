@@ -123,8 +123,7 @@ def compute_program(dg,
     ### Include all updates
     for ii, ((publi_id, version, publi_dt), publi) in enumerate(dg.iterrows()):
         if publi_id in dikt_active:
-            ### Delete effect of the previous version
-            ### Identify where previous publication is still the most recent
+            ### Get previous version of publication
             prev                     = dikt_active[publi_id]
             prev_outage_begin        = prev[global_var.outage_begin_dt_UTC]
             prev_outage_end          = prev[global_var.outage_end_dt_UTC]
@@ -132,7 +131,7 @@ def compute_program(dg,
             prev_nameplate_capacity = prev[global_var.unit_nameplate_capacity]
             if np.isnan(prev_nameplate_capacity):
                 prev_nameplate_capacity = nameplate_capacity_max
-            ### Look where the publication was still active
+            ### Identify where previous publication is still the most recent
             active_outage_window = active_publication_dt.loc[prev_outage_begin:prev_outage_end].iloc[:-1]
             prev_outage_active   = active_outage_window.loc[(active_outage_window.values == publi_id)].index
             ### Reset the capacity
