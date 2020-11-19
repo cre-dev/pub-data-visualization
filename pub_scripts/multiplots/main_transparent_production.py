@@ -14,8 +14,8 @@ from pub_data_visualization import global_var, outages, production, multiplots
 ###############################################################################
 map_code               = global_var.geography_map_code_france
 unit_name              = 'PALUEL 2'
-date_min               = None #pd.Timestamp('2016-12-01').tz_localize('CET')
-date_max               = None #pd.Timestamp('2018-07-01').tz_localize('CET')
+date_min               = None
+date_max               = None
 #
 data_source_outages    = global_var.data_source_rte
 producer_outages       = None
@@ -43,7 +43,9 @@ df = outages.load(source            = data_source_outages,
                   )
 dikt_programs, _   = outages.tools.compute_all_programs(df)
 df_program         = dikt_programs[unit_name]
-df_awaited_program = outages.tools.cross_section_view(df_program)
+df_awaited_program = outages.tools.cross_section_view(df_program,
+                                                      tolerated_delay = pd.Timedelta(minutes = 0),
+                                                      )
     
 ### Plot program and production
 multiplots.transparent_production(df_awaited_program,
@@ -52,14 +54,14 @@ multiplots.transparent_production(df_awaited_program,
                                   source_production = data_source_production,
                                   map_code          = map_code,
                                   unit_name         = unit_name,
-                                  date_min          = date_min, 
-                                  date_max          = date_max, 
+                                  date_min          = date_min,
+                                  date_max          = date_max,
                                   production_source = production_source,
                                   production_nature = production_nature,
                                   figsize           = figsize,
                                   folder_out        = folder_out,
                                   close             = close,
-                                  )  
+                                  )
 
 
 
