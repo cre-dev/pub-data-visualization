@@ -96,8 +96,9 @@ def transparent_production(program,
     if date_min and date_max:
         ax.set_xlim(date_min, date_max)
     
-    ### labels                
-    ax.set_ylabel(production_nature)
+    ### labels  
+    ax.set_xlabel(global_tools.format_latex(df_prod.index.name))           
+    ax.set_ylabel(global_tools.format_latex(production_nature))
     
     ### Add legend
     lns01, labs01 = ax.get_legend_handles_labels()
