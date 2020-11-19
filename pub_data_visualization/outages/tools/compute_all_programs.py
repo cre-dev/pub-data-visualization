@@ -80,38 +80,29 @@ def compute_program(dg,
     """
 
     dg     = dg.sort_index(level = global_var.publication_dt_UTC)
-    nb_pub = dg.shape[0]
     
     ### Checks
-    assert nb_pub
+    assert dg.shape[0] > 0
     assert len(dg[global_var.unit_name].unique()) == 1
     
     ### Publication dates
-    dt_start        = min(dg.index.get_level_values(global_var.publication_dt_UTC).min() - np.timedelta64(1, 'h'),
-                          pd.to_datetime('2000-01-01 00:00').tz_localize('UTC'),
+    pub_dt_start    = min(dg.index.get_level_values(global_var.publication_dt_UTC).min() - np.timedelta64(1, 'h'),
+                          pd.to_datetime('2010-01-01 00:00').tz_localize('UTC'),
                           )
-    dt_publications  = pd.DatetimeIndex([dt_start]).union(dg.index.get_level_values(global_var.publication_dt_UTC))
+    dt_publications = pd.DatetimeIndex(  [pub_dt_start]
+                                       + list(dg.index.get_level_values(global_var.publication_dt_UTC)),
+                                       name = global_var.publication_dt_UTC,
+                                       )
     
     ### Production Steps
-    time_changes     = np.sort(np.unique(dg[[global_var.outage_begin_dt_UTC,
+    prod_timesteps   = np.sort(np.unique(dg[[global_var.outage_begin_dt_UTC,
                                              global_var.outage_end_dt_UTC,
                                              ]]))    
-    idx_to_timesteps = pd.concat([pd.DataFrame([time_changes.min() - np.timedelta64(1, 'h')], 
-                                                index = ['initial'],
-                                                ), 
-                                  pd.DataFrame(time_changes,
-                                               index = range(1, len(time_changes) + 1),
-                                               ), 
-                                  pd.DataFrame([time_changes.max() + np.timedelta64(1, 'h')], 
-                                                index = ['final'],
-                                                ), 
-                                  ],
-                                 axis = 0,
-                                 )
-    idx_to_timesteps.columns = [global_var.production_step_dt_UTC]
-    timesteps_to_idx = {ts:ii 
-                        for ii, ts in enumerate(idx_to_timesteps[global_var.production_step_dt_UTC])
-                        }
+    production_steps = pd.DatetimeIndex(  [prod_timesteps.min() - np.timedelta64(1, 'h')]
+                                        + list(prod_timesteps)
+                                        + [prod_timesteps.max() + np.timedelta64(1, 'h')],
+                                        name = global_var.production_step_dt_UTC,
+                                        )
 
     ### Capacity
     nameplate_capacity_max = max(dg[global_var.unit_nameplate_capacity])
@@ -119,32 +110,40 @@ def compute_program(dg,
 
     # Init program    
     dikt_active = {}
-    program     = nameplate_capacity_max * np.ones((nb_pub + 1, idx_to_timesteps.shape[0]))
+    program     = pd.DataFrame(nameplate_capacity_max,
+                               index   = dt_publications,
+                               columns = production_steps,
+                               )                               
     bad_publications       = []
     cancelled_publications = []
-    active_publication_dt  = pd.Series(index = time_changes)
+    active_publication_dt  = pd.Series(index = production_steps,
+                                       dtype = str,
+                                       )
     
-    # Include all updates
+    ### Include all updates
     for ii, ((publi_id, version, publi_dt), publi) in enumerate(dg.iterrows()):
-        #    
         if publi_id in dikt_active:
-            # Delete effect of the previous version
+            ### Delete effect of the previous version
+            ### Identify where previous publication is still the most recent
             prev                     = dikt_active[publi_id]
             prev_outage_begin        = prev[global_var.outage_begin_dt_UTC]
             prev_outage_end          = prev[global_var.outage_end_dt_UTC]
-            prev_name_plate_capacity = prev[global_var.unit_nameplate_capacity]
-            if np.isnan(prev_name_plate_capacity):
-                prev_name_plate_capacity = nameplate_capacity_max
-            active_outage_window     = active_publication_dt.loc[prev_outage_begin:prev_outage_end]
-            bool_prev_active         = (active_outage_window == publi_id)
-            prev_outage_active       = active_outage_window.loc[bool_prev_active].index
+            ### Get the nameplate capacity
+            prev_nameplate_capacity = prev[global_var.unit_nameplate_capacity]
+            if np.isnan(prev_nameplate_capacity):
+                prev_nameplate_capacity = nameplate_capacity_max
+            ### Look where the publication was still active
+            active_outage_window = active_publication_dt.loc[prev_outage_begin:prev_outage_end].iloc[:-1]
+            prev_outage_active   = active_outage_window.loc[(active_outage_window.values == publi_id)].index
+            ### Reset the capacity
             if not prev_outage_active.empty:
-                prev_idx_correction = slice(timesteps_to_idx[prev_outage_active.min()],
-                                            timesteps_to_idx[prev_outage_active.max()],
-                                            )
-                program[ii+1:,prev_idx_correction] = prev_name_plate_capacity
+                prev_still_active = [program.columns.get_loc(dd)
+                                     for dd in prev_outage_active
+                                     ]
+                program.iloc[ii+1:,prev_still_active] = prev_nameplate_capacity
             del dikt_active[publi_id]
         else: 
+            ### Check coherence
             first_version       = (version == 1)
             publi_was_cancelled = (publi_id in cancelled_publications)
             publi_being_created = (publi[global_var.publication_creation_dt_UTC] == publi_dt)
@@ -152,7 +151,6 @@ def compute_program(dg,
                     or publi_was_cancelled
                     or publi_being_created
                     ):
-                ### Store incoherences
                 reasons = '+'.join([pb 
                                     for (pb, correct) in [('pb_version',         first_version),
                                                           ('pb_cancelled_publi', publi_was_cancelled),
@@ -163,36 +161,29 @@ def compute_program(dg,
                 bad_publications.append((reasons, publi))
 
         ### Add effect of the new publication
-        remaining_power_mw   = publi[global_var.outage_remaining_power_mw]           
-        correction_begin     = publi[global_var.outage_begin_dt_UTC]
-        correction_end       = publi[global_var.outage_end_dt_UTC]
-        nameplate_capacity   = publi[global_var.unit_nameplate_capacity]
-        if np.isnan(nameplate_capacity):
-            nameplate_capacity = nameplate_capacity_max
-        idx_correction_begin = timesteps_to_idx[correction_begin]
-        cond_capacity_end    = (    bool(capacity_end_date)
-                                and correction_end >= capacity_end_date
-                                )
         if publi[global_var.outage_status] == global_var.outage_status_cancelled:
             cancelled_publications.append(publi_id)
         else:
+            remaining_power_mw   = publi[global_var.outage_remaining_power_mw]           
+            correction_begin     = publi[global_var.outage_begin_dt_UTC]
+            correction_end       = publi[global_var.outage_end_dt_UTC]
+            nameplate_capacity   = publi[global_var.unit_nameplate_capacity]
+            if np.isnan(nameplate_capacity):
+                nameplate_capacity = nameplate_capacity_max
+            cond_capacity_end    = (    bool(capacity_end_date)
+                                    and correction_end >= capacity_end_date
+                                    )
             if cond_capacity_end and (nameplate_capacity == 0):
-                slice_correction = slice(idx_correction_begin,
+                slice_correction = slice(program.columns.get_loc(correction_begin),
                                          None,
                                          )
             else:
-                slice_correction = slice(idx_correction_begin,
-                                         timesteps_to_idx[correction_end],
+                slice_correction = slice(program.columns.get_loc(correction_begin),
+                                         program.columns.get_loc(correction_end),
                                          )
-            program[ii+1:,slice_correction] = remaining_power_mw
+            program.iloc[ii+1:,slice_correction]         = remaining_power_mw
+            active_publication_dt.iloc[slice_correction] = publi_id
             dikt_active[publi_id] = publi
-            active_publication_dt.loc[correction_begin:correction_end] = publi_id
-    program = pd.DataFrame(program, 
-                           index   = dt_publications, 
-                           columns = idx_to_timesteps[global_var.production_step_dt_UTC],
-                           )
-    program.index.name   = global_var.publication_dt_UTC
-    program.columns.name = global_var.production_step_dt_UTC
     
     ### Eliminate the first of simultaneous publications
     program = program.groupby(global_var.publication_dt_UTC).tail(1)
