@@ -77,7 +77,7 @@ def expected_program(df,
     for dd, date_update in enumerate(df.columns):
         subplot.expected_program(ax,
                                  df.loc[:,date_update],
-                                 label = date_update,
+                                 label = global_tools.format_latex(date_update),
                                  )  
 
 
