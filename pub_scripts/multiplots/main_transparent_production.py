@@ -3,8 +3,8 @@
 
 """
 The script allows the user to plot the observed production and 
-the production expected from the transpranecy publications 
-for a given set of production units.
+the production expected from the transpranecy publications for
+a given set of production units.
 """
 
 import pandas as pd
