@@ -13,7 +13,7 @@ from pub_data_visualization import global_var, outages, production, multiplots
 
 ###############################################################################
 map_code               = global_var.geography_map_code_france
-unit_name              = 'BOUCHAIN 7'
+unit_name              = 'PALUEL 2'
 date_min               = None
 date_max               = None
 #
