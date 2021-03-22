@@ -26,6 +26,8 @@ close      = False
 ### Load
 df = production.load(source   = data_source_production,
                      map_code = map_code,
+                     date_min = date_min,
+                     date_max = date_max,
                      )
 
 ### plot
