@@ -16,10 +16,10 @@ map_code            = global_var.geography_map_code_france
 producer_outages    = None
 production_source   = global_var.production_source_nuclear
 unit_name           = None
-production_dt_min   = pd.Timestamp("2020-01-01").tz_localize(global_var.dikt_tz[map_code])
-production_dt_max   = pd.Timestamp("2021-01-01").tz_localize(global_var.dikt_tz[map_code])
-publication_dt_min  = pd.Timestamp("2020-01-01").tz_localize(global_var.dikt_tz[map_code])
-publication_dt_max  = pd.Timestamp("2021-01-01").tz_localize(global_var.dikt_tz[map_code])
+production_dt_min   = pd.Timestamp("2017-09-20").tz_localize(global_var.dikt_tz[map_code])
+production_dt_max   = pd.Timestamp("2017-09-30").tz_localize(global_var.dikt_tz[map_code])
+publication_dt_min  = pd.Timestamp("2017-09-20").tz_localize(global_var.dikt_tz[map_code])
+publication_dt_max  = pd.Timestamp("2017-09-30").tz_localize(global_var.dikt_tz[map_code])
 ###############################################################################
 figsize    = global_var.figsize_horizontal_ppt
 folder_out = global_var.path_plots
