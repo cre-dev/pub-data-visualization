@@ -2,12 +2,12 @@
 
 import pandas as pd
 import os
+import urllib
 import datetime as dt
 #
 from .... import global_tools, global_var
-from . import transcode
-from .paths    import fpath_load_tmp
 from .load_raw import load_raw
+from . import transcode, paths
 
 def load(map_code = None,
          date_min = None,
@@ -27,9 +27,9 @@ def load(map_code = None,
     """
     
     assert map_code == global_var.geography_map_code_france
-    df_path         = fpath_load_tmp.format(date_min.year,
-                                            (date_max-pd.DateOffset(nanosecond = 1)).year,
-                                            )
+    df_path         = paths.fpath_load_tmp.format(date_min.year,
+                                                  (date_max-pd.DateOffset(nanosecond = 1)).year,
+                                                  )
     try:
         print('Load df - ', end = '')
         df = pd.read_csv(df_path,
