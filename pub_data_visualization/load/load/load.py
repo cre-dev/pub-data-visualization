@@ -7,8 +7,8 @@ from . import eco2mix, entsoe
 
 def load(source      = None,
          map_code    = None,
-         date_min    = pd.Timestamp('2012').tz_localize('CET'),
-         date_max    = pd.Timestamp('2019').tz_localize('CET'),
+         date_min    = None,
+         date_max    = None,
          ):
     """
         Calls the appropriate loader of the load data
@@ -29,9 +29,9 @@ def load(source      = None,
     """
     
     if source == global_var.data_source_eco2mix:
-        df = eco2mix.load(date_min = date_min,
+        df = eco2mix.load(map_code = map_code,
+                          date_min = date_min,
                           date_max = date_max,
-                          map_code = map_code,
                           )
     
     elif source == global_var.data_source_entsoe:

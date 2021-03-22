@@ -2,6 +2,8 @@
 
 import pandas as pd
 import os
+import urllib
+import datetime as dt
 #
 from .... import global_tools, global_var
 from ....load.load.eco2mix.load_raw import load_raw
@@ -27,8 +29,8 @@ def load(date_min = None,
     """
     
     assert map_code == global_var.geography_map_code_france
-    fpath_csv = paths.fpath_tmp.format(date_min.year,
-                                       (date_max-pd.DateOffset(nanosecond = 1)).year,
+    fpath_csv = paths.fpath_tmp.format(date_min.year if bool(date_min) else 'None',
+                                       (date_max - pd.DateOffset(nanosecond = 1)).year if bool(date_max) else 'None',
                                        )
     try:
         print('Load df - ', end = '')
@@ -41,8 +43,8 @@ def load(date_min = None,
     except:
         print('fail - has to read raw data')
         dikt_production = {}
-        range_years     = range(date_min.year,
-                                (date_max-pd.DateOffset(nanosecond = 1)).year+1,
+        range_years     = range(date_min.year if bool(date_min) else 2012,
+                                ((date_max-pd.DateOffset(nanosecond = 1)).year+1) if bool(date_max) else dt.datetime.now().year,
                                 )
         for ii, year in enumerate(range_years):
             print('\r{0:3}/{1:3} - {2}'.format(ii,
@@ -51,7 +53,13 @@ def load(date_min = None,
                                                ),
                   end = '',
                   )
-            df = load_raw(year)
+            try:
+                df = load_raw(year)
+            except urllib.error.HTTPError:
+                print('\nDownloads failed and stopped at year {}'.format(year),
+                      end = '',
+                      )
+                break
             df = df.rename(transcode.columns,
                            axis = 1,
                            )

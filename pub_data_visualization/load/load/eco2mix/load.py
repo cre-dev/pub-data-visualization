@@ -2,25 +2,26 @@
 
 import pandas as pd
 import os
+import datetime as dt
 #
 from .... import global_tools, global_var
 from . import transcode
 from .paths    import fpath_load_tmp
 from .load_raw import load_raw
 
-def load(date_min = None,
+def load(map_code = None,
+         date_min = None,
          date_max = None,
-         map_code = None,
          ):
     """
         Loads the load data provided by eCO2mix.
  
+        :param map_code: The delivery zone
         :param date_min: The left bound
         :param date_max: The right bound
-        :param map_code: The delivery zone
+        :type map_code: string
         :type date_min: pd.Timestamp
         :type date_max: pd.Timestamp
-        :type map_code: string
         :return: The load data
         :rtype: pd.DataFrame
     """
@@ -40,8 +41,8 @@ def load(date_min = None,
     except:
         print('fail - has to read raw data')
         dikt_load   = {}
-        range_years = range(date_min.year,
-                            (date_max-pd.DateOffset(nanosecond = 1)).year+1,
+        range_years = range(date_min.year if bool(date_min) else 2012,
+                            ((date_max-pd.DateOffset(nanosecond = 1)).year+1) if bool(date_max) else dt.datetime.now().year,
                             )
         for ii, year in enumerate(range_years):
             print('\r{0:3}/{1:3} - {2}'.format(ii,
@@ -50,7 +51,13 @@ def load(date_min = None,
                                                ),
                   end = '',
                   )
-            df = load_raw(year)
+            try:
+                df = load_raw(year)
+            except urllib.error.HTTPError:
+                print('\nDownloads from eCO2mix failed and stopped at year {}'.format(year),
+                      end = '',
+                      )
+                break
             df = df.rename(transcode.columns,
                            axis = 1,
                            )
