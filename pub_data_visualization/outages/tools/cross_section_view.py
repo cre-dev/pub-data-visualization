@@ -11,13 +11,17 @@ def cross_section_view(df_program,
         :param df_program: The expected availabilty programs
         :param tolerated_delay: The tolerated delay for publication
         :type df_program: pd.DataFrame
-        :type program: pd.Timedelta
+        :type tolerated_delay: pd.Timedelta
         :return: The expected availability given the publications
         :rtype: pd.Series
     """
     
     publications_dt = df_program.index
-    publications_minus_delay_dt = [d - tolerated_delay
+    publications_minus_delay_dt = [d - (pd.Timedelta(minutes = 0) # last publication date is selected below
+                                        if tolerated_delay is None
+                                        else
+                                        tolerated_delay
+                                        )
                                    for d in publications_dt
                                    ]
         
@@ -27,10 +31,11 @@ def cross_section_view(df_program,
                                                 )),
                                     name = df_program.columns.name,
                                     )
-    index_delays  = pd.Index(['last publications']
-                             if tolerated_delay is None
-                             else
-                             ['expected_program (tolerated_delay = {0} min)'.format(int(tolerated_delay.total_seconds()/60))]
+    index_delays  = pd.Index(['last publications'
+                              if tolerated_delay is None
+                              else
+                              'expected_program (tolerated_delay = {0} min)'.format(int(tolerated_delay.total_seconds()/60))
+                              ]
                              )
     
     viewed_series = pd.DataFrame(data    = 0,
