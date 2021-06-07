@@ -8,7 +8,7 @@ from . import meteofrance
 def load(source   = global_var.data_source_meteofrance,
          zone     = global_var.geography_zone_france,
          date_min = pd.Timestamp('2015').tz_localize('CET'),
-         date_max = pd.Timestamp('2020').tz_localize('CET'),
+         date_max = pd.Timestamp('{}'.format(pd.Timestamp.now().year)).tz_localize('CET'),
          ):
     """
         Calls the appropriate loader of the weather data
