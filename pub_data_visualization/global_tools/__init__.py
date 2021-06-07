@@ -16,6 +16,7 @@ from .dt_exists_in_tz                   import *
 from .format_contract_name              import *
 from .format_latex                      import *
 from .format_unit_name                  import *
+from .heatmap                           import *
 from .piecewise_constant_interpolators  import *
 from .set_mpl                           import *
 
