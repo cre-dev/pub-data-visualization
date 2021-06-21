@@ -12,7 +12,7 @@ All suggestions are welcome at [opensource\[at\]cre.fr](mailto:opensource@cre.fr
 It can be installed with :
 ```
 cd ~/Downloads
-git clone https://github.com/cre-os/pub-data-visualization.git
+git clone https://github.com/cre-dev/pub-data-visualization.git
 cd pub-data-visualization
 conda create --name visu python=3.8 pip
 conda activate visu

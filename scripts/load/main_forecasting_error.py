@@ -21,7 +21,7 @@ folder_out = global_var.path_plots
 close      = False
 ###############################################################################
 
-if (   data_source_load != global_var.data_source_eco2mix
+if (   data_source_load != global_var.data_source_load_eco2mix
     or map_code         != global_var.geography_map_code_france
     ):
     raise NotImplementedError
