@@ -59,7 +59,7 @@ def compute_delivery_period_index(frequency               = None,
         bloc_match = re.compile(global_var.contract_profile_bloc_pattern).match(profile)
         hour1      = int(bloc_match.group(1))
         hour2      = int(bloc_match.group(2))
-        assert hour1 < hour2
+        assert hour1 < hour2 or hour2 == 0
         ans = int('{0:0>2}{1:0>2}{2:0>2}{3:0>2}'.format(delivery_begin_dt_local.month,
                                                         delivery_begin_dt_local.day,
                                                         hour1,

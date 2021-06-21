@@ -21,7 +21,7 @@ def compute_all_programs(df_outage,
     """  
     
     try:
-        capacity_end = capacity.unit.load(source     = global_var.data_source_rte,
+        capacity_end = capacity.unit.load(source     = global_var.data_source_capacity_rte,
                                           map_code   = 'FR',
                                           )
         capacity_end = {k:v

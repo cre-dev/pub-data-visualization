@@ -68,8 +68,10 @@ def load(map_code = None):
         df = df.loc[df[global_var.capacity_end_date_local].dropna().index]
         df.loc[:,global_var.publication_creation_dt_local] = pd.to_datetime(df[global_var.publication_creation_dt_local]).dt.tz_localize(global_var.dikt_tz[map_code])
         df.loc[:,global_var.capacity_end_date_local]       = pd.to_datetime(df[global_var.capacity_end_date_local]).dt.tz_localize(global_var.dikt_tz[map_code])
-        df.loc[:,global_var.publication_creation_dt_UTC]   = df[global_var.publication_creation_dt_local].dt.tz_convert('UTC')
-        df.loc[:,global_var.capacity_end_date_UTC]         = df[global_var.capacity_end_date_local].dt.tz_convert('UTC')
+        df[global_var.publication_creation_dt_UTC]         = df[global_var.publication_creation_dt_local].dt.tz_convert('UTC')
+        df[global_var.capacity_end_date_UTC]               = df[global_var.capacity_end_date_local].dt.tz_convert('UTC')
+        df[global_var.commodity]                           = global_var.commodity_electricity
+
         # Save
         print('Save')
         os.makedirs(os.path.dirname(df_path),

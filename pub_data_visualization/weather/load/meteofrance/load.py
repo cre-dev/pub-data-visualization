@@ -80,7 +80,10 @@ def read_raw_weather_data(year  = None,
                        )
     df = df.set_index([global_var.weather_dt_UTC, global_var.weather_site_id])
     df[global_var.weather_temperature_celsius] = df[global_var.weather_temperature_kelvin] - 273.15
-    df = df[[global_var.weather_temperature_celsius, global_var.weather_nebulosity, global_var.weather_wind_speed]]
+    df = df[[global_var.weather_temperature_celsius,
+             global_var.weather_nebulosity,
+             global_var.weather_wind_speed,
+             ]]
     df = df.astype(float)
     df = df.unstack()
     df = df.swaplevel(0,1, axis = 1)

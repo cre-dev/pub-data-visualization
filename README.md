@@ -118,12 +118,6 @@ The parameters therein can be modified by the user.
 This figure, that represents the fixing prices of the day-ahead auctions, is obtained by running `scripts/auctions/main_price.py`.
 The data, provided by ENTSO-E, currently have to be downloaded manually.
 
-### Correlations of the variations of the day-ahead fixing prices
-![Day-ahead daily correlations](examples/auctions/price_diff_correlations.png)
-This figure, that represents the correlation of the daily variations of the day-ahead price, is obtained by running `scripts/auctions/main_price_diff_correlations.py`.
-The choice of these variables is guided by the available set of data.
-The data, provided by ENTSO-E, currently have to be downloaded manually.
-
 ## Load
 
 ### Load curve
