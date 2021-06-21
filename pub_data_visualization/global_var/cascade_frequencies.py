@@ -21,6 +21,7 @@ cascade_frequencies = [global_var.contract_frequency_year,
                        global_var.contract_frequency_day,
                        global_var.contract_frequency_bloc,
                        global_var.contract_frequency_hour,
+                       global_var.contract_frequency_half_hour,
                        ]
 
 
