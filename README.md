@@ -109,7 +109,7 @@ The data have to be stored as follows :
 # How-to : ready-to-run examples
 In this repository, we propose a set of modules that read, format, transform and plot the input data from different public sources.
 We also provide ready-to-run visualization scripts as illustrated below.
-The parameters therein can be modified by the user, with possible values provided below.
+The parameters therein can be modified by the user.
 
 ## Auctions
 
