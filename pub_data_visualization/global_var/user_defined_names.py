@@ -7,6 +7,7 @@
 import pandas as pd
 
 ### Auctions
+auction_company        = 'auction day-ahead'
 auction_dt_local       = 'auction_dt (local)'
 auction_dt_UTC         = 'auction_dt (UTC)'
 auction_price_euro_mwh = 'auction price (€/MWh)'
@@ -26,8 +27,14 @@ capacity_end_date_local = 'capacity_end_date (local)'
 capacity_end_date_UTC   = 'capacity_end_date (UTC)'
 capacity_flag_deleted   = 'capacity_flag_deleted'
 capacity_month_UTC      = 'capacity month (UTC)'
+capacity_gw             = 'capacity (GW)'
 capacity_mw             = 'capacity (MW)'
 capacity_year_UTC       = 'capacity year (UTC)'
+
+### Commodities
+commodity             = 'commodity'
+commodity_electricity = 'EL'
+commodity_gas         = 'NG'
 
 ### Companies (Trading)
 company_id           = 'company_id'
@@ -38,7 +45,6 @@ company_name_unknown = 'company_unknown'
 ### Contracts
 contract                               = 'contract'
 contract_code                          = 'contract_code'
-contract_commodity                     = 'commodity'
 contract_delivery_begin_date_local     = 'delivery_begin_date (local)'
 contract_delivery_begin_date_UTC       = 'delivery_begin_date (UTC)'
 contract_delivery_begin_day_local      = 'delivery_begin_day (local)'
@@ -132,11 +138,26 @@ currency          = 'currency'
 currency_per_unit = 'currency_per_unit'
 
 ### Data sources
-data_source             = 'source'
-data_source_eco2mix     = 'eCO2mix'
-data_source_entsoe      = 'ENTSOE'
-data_source_meteofrance = 'MétéoFrance'
-data_source_rte         = 'RTE'
+data_source_auctions            = 'data_source_auctions'
+data_source_auctions_entsoe     = 'ENTSO-E'
+data_source_capacity            = 'data_source_capacity'
+data_source_capacity_entsoe     = 'ENTSO-E'
+data_source_capacity_rte        = 'RTE'
+data_source_indices             = 'data_source_indices'
+data_source_load                = 'data_source_load'
+data_source_load_eco2mix        = 'eCO2mix'
+data_source_load_entsoe         = 'ENTSOE'
+data_source_orders              = 'data_source_orders'
+data_source_outages             = 'data_source_outages'
+data_source_outages_rte         = 'RTE'
+data_source_outages_entsoe      = 'ENTSO-E'
+data_source_production          = 'data_source_production'
+data_source_production_eco2mix  = 'eCO2mix'
+data_source_production_entsoe   = 'ENTSOE'
+data_source_production_rte      = 'RTE'
+data_source_trades              = 'data_source_trades'
+data_source_weather             = 'data_source_weather'
+data_source_weather_meteofrance = 'MétéoFrance'
 
 ### Files
 file_info   = 'file_info'
@@ -271,7 +292,6 @@ order_rate_mw_day                  = 'order_rate (MW/day)'
 order_side                         = 'order_side'
 order_side_buy                     = 'buy'
 order_side_sell                    = 'sell'
-order_source                       = 'order_source'
 order_status                       = 'order_status'
 order_trader_id                    = 'order_trader_id'
 order_trader_name                  = 'order_trader_name'
@@ -386,8 +406,8 @@ publication_version           = 'version'
 ### Quantity
 quantity_value   = 'quantity_value'
 quantity_unit    = 'quantity_unit'
-quantity_unit_gw = '(GW)'
-quantity_unit_mw = '(MW)'
+#quantity_unit_gw = '(GW)'
+#quantity_unit_mw = '(MW)'
 
 ### Time
 time_date_UTC            = 'time_date (UTC)'
@@ -450,7 +470,6 @@ trade_pricing                       = 'trade_pricing'
 trade_seller                        = 'trade_seller'
 trade_seller_country                = 'trade_seller_country'
 trade_seller_info                   = 'trade_seller_info'
-trade_source                        = 'trade_source'
 trade_suspicion_level               = 'trade_volume_suspect ($\\text{MWh}^2.\\text{h}$)'
 trade_time_local                    = 'trade_time (local)'
 trade_time_UTC                      = 'trade_time (UTC)'
@@ -463,6 +482,7 @@ trade_valuation_prev_price_euro_mw  = 'trade_valuation_prev_price_euro_mw'
 trade_volume_mwh                    = 'trade_volume (MWh)' # Trades volumes are multiples of contracts volumes
 trade_volume_gwh                    = 'trade_volume (GWh)'
 trade_volume_signed_mwh             = 'trade_volume_signed (MWh)'
+trade_wh_local                      = 'trade_wh (local)'
 
 ### Units Production
 unit_eic                = 'unit_eic'

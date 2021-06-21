@@ -64,6 +64,7 @@ def load(map_code = None):
                        axis = 0,
                        )
         df.loc[:,global_var.production_source] = df[global_var.production_source].astype(str).replace(transcode.production_source)
+        df[global_var.commodity] = global_var.commodity_electricity
 
         # Save
         print('Save')

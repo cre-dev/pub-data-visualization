@@ -83,6 +83,7 @@ def load():
                        axis = 0,
                        )
         df[global_var.geography_map_code] = global_var.geography_map_code_france
+        df[global_var.commodity] = global_var.commodity_electricity
 
         # Save
         print('\nSave')

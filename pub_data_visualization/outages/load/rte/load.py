@@ -98,7 +98,7 @@ def load(map_code = None):
                                    (global_var.outage_end_dt_local,           global_var.outage_end_dt_UTC),
                                    ]:
             df.loc[:,col_local] = pd.to_datetime(df[col_local], format = '%d/%m/%Y %H:%M').dt.tz_localize('CET', ambiguous = True)
-            df.loc[:,col_UTC]   = df[col_local].dt.tz_convert('UTC')
+            df[col_UTC]         = df[col_local].dt.tz_convert('UTC')
             df = df.drop(col_local, axis = 1)        
         
         
@@ -117,6 +117,7 @@ def load(map_code = None):
         for unit_name in df[global_var.unit_name].unique():
             if pd.isnull(df.loc[df[global_var.unit_name] == unit_name][global_var.unit_nameplate_capacity]).all() > 0:
                 df.loc[df[global_var.unit_name] == unit_name][global_var.unit_nameplate_capacity] = transcode.capacity[unit_name]
+        df[global_var.commodity] = global_var.commodity_electricity
             
         
         print('Save')

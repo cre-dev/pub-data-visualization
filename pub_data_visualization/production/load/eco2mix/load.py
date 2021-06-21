@@ -108,6 +108,7 @@ def load(date_min = None,
                         ],
                        axis = 0,
                        )
+        df[global_var.commodity] = global_var.commodity_electricity
 
         # Save
         print('Save')

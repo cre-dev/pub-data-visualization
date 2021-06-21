@@ -60,7 +60,8 @@ def load(map_code = None):
                      global_var.contract_delivery_begin_dt_UTC,
                      global_var.auction_price_euro_mwh,
                      ]]
-            dg = dg[dg[global_var.geography_map_code].isin([map_code] if type(map_code) == str else map_code)]
+            if map_code is not None:
+                dg = dg[dg[global_var.geography_map_code].isin([map_code] if type(map_code) == str else map_code)]
             if dg.empty:
                 continue
             dg[global_var.contract_delivery_begin_dt_UTC]     = pd.to_datetime(dg[global_var.contract_delivery_begin_dt_UTC]).dt.tz_localize('UTC')
@@ -90,6 +91,8 @@ def load(map_code = None):
                             axis = 0,
                             )
         df = df.reset_index(drop = True)
+        df[global_var.commodity] = global_var.commodity_electricity
+
         # Save
         print('Save')
         os.makedirs(os.path.dirname(df_path),

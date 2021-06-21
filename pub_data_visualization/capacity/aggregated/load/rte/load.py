@@ -69,6 +69,7 @@ def load(map_code = None):
                        )
         df = df.reset_index()
         df[global_var.geography_map_code] = map_code
+        df[global_var.commodity] = global_var.commodity_electricity
 
         # Save
         print('Save')

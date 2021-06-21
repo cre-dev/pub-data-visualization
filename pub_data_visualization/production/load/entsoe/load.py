@@ -84,6 +84,8 @@ def load(map_code = None):
                         ],
                        axis = 0,
                        )
+        df[global_var.commodity] = global_var.commodity_electricity
+
 
         # Save
         print('Save')
