@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pub_data_visualization.weather.plot package &#8212; energy-data-visualization 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">energy-data-visualization 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">pub_data_visualization.weather.plot package</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pub-data-visualization-weather-plot-package">
+<h1>pub_data_visualization.weather.plot package<a class="headerlink" href="#pub-data-visualization-weather-plot-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pub_data_visualization.weather.plot.subplot.html">pub_data_visualization.weather.plot.subplot package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pub_data_visualization.weather.plot.subplot.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pub_data_visualization.weather.plot.subplot.html#module-pub_data_visualization.weather.plot.subplot.curve">pub_data_visualization.weather.plot.subplot.curve module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pub_data_visualization.weather.plot.subplot.html#module-pub_data_visualization.weather.plot.subplot.distribution">pub_data_visualization.weather.plot.subplot.distribution module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pub_data_visualization.weather.plot.subplot.html#module-pub_data_visualization.weather.plot.subplot">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pub_data_visualization.weather.plot.curve">
+<span id="pub-data-visualization-weather-plot-curve-module"></span><h2>pub_data_visualization.weather.plot.curve module<a class="headerlink" href="#module-pub_data_visualization.weather.plot.curve" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="pub_data_visualization.weather.plot.curve.curve">
+<code class="sig-prename descclassname">pub_data_visualization.weather.plot.curve.</code><code class="sig-name descname">curve</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">date_min</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">date_max</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nature</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">physical_quantity</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">folder_out</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">close</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">figsize</span><span class="o">=</span><span class="default_value">18, 10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pub_data_visualization.weather.plot.curve.curve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the weather data by creating a figure and
+calling the function to fill the subplot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – The weather data</p></li>
+<li><p><strong>date_min</strong> (<em>pd.Timestamp</em>) – The left bound</p></li>
+<li><p><strong>date_max</strong> (<em>pd.Timestamp</em>) – The right bound</p></li>
+<li><p><strong>nature</strong> (<em>string</em>) – The nature of the weather data to plot</p></li>
+<li><p><strong>source</strong> (<em>string</em>) – The source of the weather data to plot</p></li>
+<li><p><strong>physical_quantity</strong> (<em>string</em>) – The weather quantity to plot</p></li>
+<li><p><strong>folder_out</strong> – The folder where the figure is saved</p></li>
+<li><p><strong>close</strong> – Boolean to close the figure after it is saved</p></li>
+<li><p><strong>figsize</strong> – Desired size of the figure</p></li>
+<li><p><strong>folder_out</strong> – string</p></li>
+<li><p><strong>close</strong> – bool</p></li>
+<li><p><strong>figsize</strong> – (int,int)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pub_data_visualization.weather.plot.distribution">
+<span id="pub-data-visualization-weather-plot-distribution-module"></span><h2>pub_data_visualization.weather.plot.distribution module<a class="headerlink" href="#module-pub_data_visualization.weather.plot.distribution" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="pub_data_visualization.weather.plot.distribution.distribution">
+<code class="sig-prename descclassname">pub_data_visualization.weather.plot.distribution.</code><code class="sig-name descname">distribution</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em>, <em class="sig-param"><span class="n">nature</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">source</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">physical_quantity</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">folder_out</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">close</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">figsize</span><span class="o">=</span><span class="default_value">10, 18</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pub_data_visualization.weather.plot.distribution.distribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the boxplots of the weather data by creating a figure and
+calling the function to fill the subplot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – The weather data</p></li>
+<li><p><strong>nature</strong> (<em>string</em>) – The nature of the weather data to plot</p></li>
+<li><p><strong>source</strong> (<em>string</em>) – The source of the weather data to plot</p></li>
+<li><p><strong>physical_quantity</strong> (<em>string</em>) – The weather quantity to plot</p></li>
+<li><p><strong>folder_out</strong> – The folder where the figure is saved</p></li>
+<li><p><strong>close</strong> – Boolean to close the figure after it is saved</p></li>
+<li><p><strong>figsize</strong> – Desired size of the figure</p></li>
+<li><p><strong>folder_out</strong> – string</p></li>
+<li><p><strong>close</strong> – bool</p></li>
+<li><p><strong>figsize</strong> – (int,int)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pub_data_visualization.weather.plot">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pub_data_visualization.weather.plot" title="Permalink to this headline">¶</a></h2>
+<p>Module to plot the weather data.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">pub_data_visualization.weather.plot package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pub_data_visualization.weather.plot.curve">pub_data_visualization.weather.plot.curve module</a></li>
+<li><a class="reference internal" href="#module-pub_data_visualization.weather.plot.distribution">pub_data_visualization.weather.plot.distribution module</a></li>
+<li><a class="reference internal" href="#module-pub_data_visualization.weather.plot">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pub_data_visualization.weather.plot.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">energy-data-visualization 0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">pub_data_visualization.weather.plot package</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Commission de Régulation de l&#39;Energie.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>
