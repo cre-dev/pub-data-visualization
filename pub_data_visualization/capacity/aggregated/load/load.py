@@ -21,10 +21,10 @@ def load(source   = None,
         :rtype: pd.DataFrame
     """
     
-    if source == global_var.data_source_entsoe:
+    if source == global_var.data_source_capacity_entsoe:
         df = entsoe.load(map_code = map_code)
     
-    elif source == global_var.data_source_rte:
+    elif source == global_var.data_source_capacity_rte:
         df = rte.load(map_code = map_code)
     
     else: 

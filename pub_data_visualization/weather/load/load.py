@@ -5,7 +5,7 @@ from ... import global_var
 from . import meteofrance
 
 
-def load(source   = global_var.data_source_meteofrance,
+def load(source   = global_var.data_source_weather_meteofrance,
          zone     = global_var.geography_zone_france,
          date_min = pd.Timestamp('2015').tz_localize('CET'),
          date_max = pd.Timestamp('{}'.format(pd.Timestamp.now().year)).tz_localize('CET'),
@@ -26,7 +26,7 @@ def load(source   = global_var.data_source_meteofrance,
         :rtype: pd.DataFrame
     """
     
-    if source == global_var.data_source_meteofrance:
+    if source == global_var.data_source_weather_meteofrance:
         df, coordinates_weather, trash_weather = meteofrance.load(zone     = zone,
                                                                   date_min = date_min,
                                                                   date_max = date_max,

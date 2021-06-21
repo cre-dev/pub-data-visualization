@@ -28,13 +28,13 @@ def load(source      = None,
         :rtype: pd.DataFrame
     """
     
-    if source == global_var.data_source_eco2mix:
+    if source == global_var.data_source_load_eco2mix:
         df = eco2mix.load(map_code = map_code,
                           date_min = date_min,
                           date_max = date_max,
                           )
     
-    elif source == global_var.data_source_entsoe:
+    elif source == global_var.data_source_load_entsoe:
         df = entsoe.load(map_code = map_code)
     
     else: 

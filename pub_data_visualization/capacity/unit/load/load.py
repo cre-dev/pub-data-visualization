@@ -20,7 +20,7 @@ def load(source   = None,
         :rtype: pd.DataFrame
     """
     
-    if source == global_var.data_source_rte:
+    if source == global_var.data_source_capacity_rte:
         df = rte.load(map_code = map_code)
     
     else: 

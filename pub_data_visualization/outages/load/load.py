@@ -34,10 +34,10 @@ def load(source             = None,
         :rtype: pd.DataFrame
     """
     
-    if source == global_var.data_source_rte:
+    if source == global_var.data_source_outages_rte:
         df, dikt_incoherences = rte.load(map_code = map_code)
         
-    elif source == global_var.data_source_entsoe:
+    elif source == global_var.data_source_outages_entsoe:
         df = entsoe.load(map_code = map_code)
     
     else: 
