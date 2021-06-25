@@ -43,11 +43,11 @@ def compute_delivery_period_index(frequency               = None,
                                                    )
 
     if frequency == global_var.contract_frequency_half_hour:
-        ans = int('{0:0>2}{1:0>2}{2:0>2}'.format(delivery_begin_dt_local.month,
-                                                 delivery_begin_dt_local.day,
-                                                 delivery_begin_dt_local.hour,
-                                                 delivery_begin_dt_local.minute,
-                                                 ))
+        ans = int('{0:0>2}{1:0>2}{2:0>2}{3:0>2}'.format(delivery_begin_dt_local.month,
+                                                        delivery_begin_dt_local.day,
+                                                        delivery_begin_dt_local.hour,
+                                                        delivery_begin_dt_local.minute,
+                                                        ))
 
     elif frequency == global_var.contract_frequency_hour:
         ans = int('{0:0>2}{1:0>2}{2:0>2}'.format(delivery_begin_dt_local.month,
