@@ -65,7 +65,6 @@ contract_delivery_end_dt_local         = 'delivery_end_dt (local)'
 contract_delivery_end_dt_UTC           = 'delivery_end_dt (UTC)'
 contract_delivery_end_hour_local       = 'delivery_end_hour (local)'
 contract_delivery_nb_hours             = 'delivery_nb_hours'
-# contract_delivery_period_calendar      = 'delivery_period_calendar'
 contract_delivery_period_index         = 'delivery_period_index'
 contract_delivery_period_index_NA      = 0
 contract_delivery_period_index_summer  = 1
