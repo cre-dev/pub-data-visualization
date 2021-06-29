@@ -5,7 +5,9 @@ from .. import global_var
 def format_contract_name(year,
                          product,
                          delivery_period,
-                         profile,
+                         profile   = None,
+                         map_code  = None,
+                         commodity = None,
                          ):
     """
         Returns a generic name for a given contract.
@@ -27,10 +29,14 @@ def format_contract_name(year,
     assert profile in {global_var.contract_profile_base,
                        global_var.contract_profile_ofpk,
                        global_var.contract_profile_peak,
+                       None,
                        }
-    return '{year}.{product}{delivery_period}.{profile}'.format(year            = year,
-                                                                product         = product,
-                                                                delivery_period = delivery_period,
-                                                                profile         = profile,
-                                                                )
+    return '.'.join(filter(None, ['{year}{product}{delivery_period}'.format(year            = year,
+                                                                            product         = product,
+                                                                            delivery_period = delivery_period,
+                                                                            ),
+                                  profile,
+                                  map_code,
+                                  commodity,
+                                  ]))
     

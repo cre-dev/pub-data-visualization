@@ -76,6 +76,12 @@ def compute_delivery_period_index(frequency               = None,
                                                   - delivery_begin_dt_local.replace(hour = 0, minute = 0)
                                                   ).total_seconds()/(3600*24)),
                                              ))
+                                             
+    elif frequency == global_var.contract_frequency_weekbgn:
+        ans = int('{0:0>2}{1:0>2}'.format(delivery_begin_dt_local.month,
+                                          delivery_begin_dt_local.day,
+                                          ))
+        
     elif frequency == global_var.contract_frequency_weekend:
         ans = int('{0:0>2}{1:0>2}'.format(delivery_begin_dt_local.month,
                                           delivery_begin_dt_local.day,
@@ -112,6 +118,9 @@ def compute_delivery_period_index(frequency               = None,
 
     elif frequency == global_var.contract_frequency_year:
         ans = global_var.contract_delivery_period_index_year
+
+    elif frequency == global_var.contract_frequency_gas_year:
+        ans = global_var.contract_delivery_period_index_gas_year
 
     else:
         raise NotImplementedError(frequency, delivery_begin_dt_local)
