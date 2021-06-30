@@ -37,13 +37,14 @@ def compute_delivery_windows(frequency                 = None,
                            global_var.contract_profile_peak,
                            global_var.contract_profile_ofpk,
                            global_var.contract_profile_hour,
+                           global_var.contract_profile_half_hour,
                            global_var.contract_profile_wday2024,
                            global_var.contract_profile_wday1620,
                            global_var.contract_profile_wend2024,
                            ]
             or bloc_match
             ):
-        raise NotImplementedError
+        raise NotImplementedError('profile = {0}'.format(profile))
         
     if not delivery_begin_date_local:
         assert frequency not in [global_var.contract_frequency_hour,
@@ -98,16 +99,25 @@ def compute_delivery_windows(frequency                 = None,
                 ]
 
     elif profile == global_var.contract_profile_hour:
-        return [(delivery_begin_date_local + pd.DateOffset(hours = delivery_period_index - 1),
-                 delivery_begin_date_local + pd.DateOffset(hours = delivery_period_index),
+        hour_match = re.compile(global_var.contract_delivery_period_index_hour_pattern).match(str(delivery_period_index))
+        hour       = int(hour_match.group(3))
+        return [(delivery_begin_date_local + pd.DateOffset(hours = hour),
+                 delivery_begin_date_local + pd.DateOffset(hours = hour + 1),
                  )]
 
-    elif bloc_match:
-        begin      = int(bloc_match.group(1))
-        end        = int(bloc_match.group(2))
-        assert begin < end
-        return [(delivery_begin_date_local + pd.DateOffset(hours = begin),
-                 delivery_begin_date_local + pd.DateOffset(hours = end),
+    elif profile == global_var.contract_profile_half_hour:
+        half_hour_match = re.compile(global_var.contract_delivery_period_index_half_hour_pattern).match(str(delivery_period_index))
+        hour            = int(half_hour_match.group(3))
+        minute          = int(half_hour_match.group(4))
+        return [(delivery_begin_date_local + pd.DateOffset(hours = hour, minutes = minute),
+                 delivery_begin_date_local + pd.DateOffset(hours = hour, minutes = minute + 30),
+                 )]
+
+    elif bool(bloc_match):
+        hour_begin = int(bloc_match.group(1))
+        hour_end   = int(bloc_match.group(2))
+        return [(delivery_begin_date_local + pd.DateOffset(hours = hour_begin),
+                 delivery_begin_date_local + pd.DateOffset(hours = hour_end),
                  )]
     
     elif profile == global_var.contract_profile_wday2024:

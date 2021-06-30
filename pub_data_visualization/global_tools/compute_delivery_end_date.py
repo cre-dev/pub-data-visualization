@@ -59,17 +59,22 @@ def compute_delivery_end_date(delivery_begin_date_local = None,
             delivery_end_date_local = delivery_begin_date_local + pd.DateOffset(days = 2)
     
         elif frequency == global_var.contract_frequency_days:
-            days_match = re.compile(r"^(\d{1,2})(\d{2})(\d{1})$").match(str(delivery_period_index))
-            assert delivery_begin_date_local.month == int(days_match.group(1))
-            assert delivery_begin_date_local.day   == int(days_match.group(2))
+            days_match = re.compile(global_var.contract_delivery_period_index_days_pattern).match(str(delivery_period_index))
+            month   = int(days_match.group(1))
+            day     = int(days_match.group(2))
             nb_days = int(days_match.group(3))
+            assert delivery_begin_date_local.month == month
+            assert delivery_begin_date_local.day   == day
             delivery_end_date_local = delivery_begin_date_local + pd.DateOffset(days = nb_days)
     
         elif frequency == global_var.contract_frequency_day:
             delivery_end_date_local = delivery_begin_date_local + pd.DateOffset(days = 1)
     
         elif frequency == global_var.contract_frequency_hour:
-            delivery_end_date_local = (delivery_begin_date_local + pd.DateOffset(hours = delivery_period_index)).replace(hour = 0, minute = 0) 
+            delivery_end_date_local = (delivery_begin_date_local + pd.DateOffset(hours = 1)).replace(hour = 0, minute = 0) 
+    
+        elif frequency == global_var.contract_frequency_half_hour:
+            delivery_end_date_local = (delivery_begin_date_local + pd.DateOffset(minutes = 30)).replace(hour = 0, minute = 0) 
     
         elif frequency == global_var.contract_frequency_unknown:
             delivery_end_date_local = global_var.contract_delivery_end_date_unknown 

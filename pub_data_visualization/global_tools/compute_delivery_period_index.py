@@ -43,67 +43,67 @@ def compute_delivery_period_index(frequency               = None,
                                                    )
 
     if frequency == global_var.contract_frequency_half_hour:
-        ans = int('{0:0>2}{1:0>2}{2:0>2}{3:0>2}'.format(delivery_begin_dt_local.month,
-                                                        delivery_begin_dt_local.day,
-                                                        delivery_begin_dt_local.hour,
-                                                        delivery_begin_dt_local.minute,
-                                                        ))
+        ans = int(global_var.contract_delivery_period_index_half_hour.format(month  = delivery_begin_dt_local.month,
+                                                                             day    = delivery_begin_dt_local.day,
+                                                                             hour   = delivery_begin_dt_local.hour,
+                                                                             minute = delivery_begin_dt_local.minute,
+                                                                             ))
 
     elif frequency == global_var.contract_frequency_hour:
-        ans = int('{0:0>2}{1:0>2}{2:0>2}'.format(delivery_begin_dt_local.month,
-                                                 delivery_begin_dt_local.day,
-                                                 delivery_begin_dt_local.hour,
-                                                 ))
+        ans = int(global_var.contract_delivery_period_index_hour.format(month = delivery_begin_dt_local.month,
+                                                                        day   = delivery_begin_dt_local.day,
+                                                                        hour  = delivery_begin_dt_local.hour,
+                                                                        ))
 
     elif frequency == global_var.contract_frequency_bloc:
         bloc_match = re.compile(global_var.contract_profile_bloc_pattern).match(profile)
-        hour1      = int(bloc_match.group(1))
-        hour2      = int(bloc_match.group(2))
-        assert hour1 < hour2 or hour2 == 0
-        ans = int('{0:0>2}{1:0>2}{2:0>2}{3:0>2}'.format(delivery_begin_dt_local.month,
-                                                        delivery_begin_dt_local.day,
-                                                        hour1,
-                                                        hour2,
-                                                        ))
+        hour_begin = int(bloc_match.group(1))
+        hour_end   = int(bloc_match.group(2))
+        assert hour_begin < hour_end or hour_end == 0
+        ans = int(global_var.contract_delivery_period_index_bloc.format(month      = delivery_begin_dt_local.month,
+                                                                        day        = delivery_begin_dt_local.day,
+                                                                        hour_begin = hour_begin,
+                                                                        hour_end   = hour_end,
+                                                                        ))
     elif frequency == global_var.contract_frequency_day:
-        ans = int('{0:0>2}{1:0>2}'.format(delivery_begin_dt_local.month,
-                                          delivery_begin_dt_local.day,
-                                          ))
+        ans = int(global_var.contract_delivery_period_index_day.format(month = delivery_begin_dt_local.month,
+                                                                       day   = delivery_begin_dt_local.day,
+                                                                       ))
     elif frequency == global_var.contract_frequency_days:
-        ans = int('{0:0>2}{1:0>2}{2}'.format(delivery_begin_dt_local.month,
-                                             delivery_begin_dt_local.day,
-                                             int((  delivery_end_date_local
-                                                  - delivery_begin_dt_local.replace(hour = 0, minute = 0)
-                                                  ).total_seconds()/(3600*24)),
-                                             ))
+        ans = int(global_var.contract_delivery_period_index_days.format(month   = delivery_begin_dt_local.month,
+                                                                        day     = delivery_begin_dt_local.day,
+                                                                        nb_days = int((  delivery_end_date_local
+                                                                                       - delivery_begin_dt_local.replace(hour = 0, minute = 0)
+                                                                                       ).total_seconds()/(3600*24)),
+                                                                        ))
                                              
     elif frequency == global_var.contract_frequency_weekbgn:
-        ans = int('{0:0>2}{1:0>2}'.format(delivery_begin_dt_local.month,
-                                          delivery_begin_dt_local.day,
-                                          ))
+        ans = int(global_var.contract_delivery_period_index_weekbgn.format(month = delivery_begin_dt_local.month,
+                                                                           day   = delivery_begin_dt_local.day,
+                                                                           ))
         
     elif frequency == global_var.contract_frequency_weekend:
-        ans = int('{0:0>2}{1:0>2}'.format(delivery_begin_dt_local.month,
-                                          delivery_begin_dt_local.day,
-                                          ))
+        ans = int(global_var.contract_delivery_period_index_weekend.format(month = delivery_begin_dt_local.month,
+                                                                           day   = delivery_begin_dt_local.day,
+                                                                           ))
 
     elif frequency == global_var.contract_frequency_week:
-        ans = int('{0:0>2}{1:0>2}'.format(delivery_begin_dt_local.month,
-                                          delivery_begin_dt_local.day,
-                                          ))
+        ans = int(global_var.contract_delivery_period_index_week.format(month = delivery_begin_dt_local.month,
+                                                                        day   = delivery_begin_dt_local.day,
+                                                                        ))
 
     elif frequency == global_var.contract_frequency_bow:
-        ans = int('{0:0>2}{1:0>2}'.format(delivery_begin_dt_local.month,
-                                          delivery_begin_dt_local.day,
-                                          ))
+        ans = int(global_var.contract_delivery_period_index_bow.format(month = delivery_begin_dt_local.month,
+                                                                       day   = delivery_begin_dt_local.day,
+                                                                       ))
 
     elif frequency == global_var.contract_frequency_month:
         ans = delivery_begin_dt_local.month
 
     elif frequency == global_var.contract_frequency_bom:
-        ans = int('{0:0>2}{1:0>2}'.format(delivery_begin_dt_local.month,
-                                          delivery_begin_dt_local.day,
-                                          ))
+        ans = int(global_var.contract_delivery_period_index_bom.format(month = delivery_begin_dt_local.month,
+                                                                       day   = delivery_begin_dt_local.day,
+                                                                       ))
 
     elif frequency == global_var.contract_frequency_quarter:
         ans = (delivery_begin_dt_local.month//3)+1
@@ -123,7 +123,7 @@ def compute_delivery_period_index(frequency               = None,
         ans = global_var.contract_delivery_period_index_gas_year
 
     else:
-        raise NotImplementedError(frequency, delivery_begin_dt_local)
+        raise NotImplementedError('frequency = {0} - delivery_begin_dt_local = {1}'.format(frequency, delivery_begin_dt_local))
 
     return ans
 
