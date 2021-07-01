@@ -29,6 +29,8 @@ def format_contract_name(year,
     assert profile in {global_var.contract_profile_base,
                        global_var.contract_profile_ofpk,
                        global_var.contract_profile_peak,
+                       global_var.contract_profile_hour,
+                       global_var.contract_profile_half_hour,
                        None,
                        }
     return '.'.join(filter(None, ['{year}{product}{delivery_period}'.format(year            = year,

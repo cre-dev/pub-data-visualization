@@ -7,8 +7,7 @@
     
 """
 
-from .compute_delivery_begin_date_local import *
-from .compute_delivery_end_date         import *
+from .compute_delivery_dates            import *
 from .compute_delivery_period_index     import *
 from .compute_delivery_windows          import *
 from .compute_nb_hours                  import *

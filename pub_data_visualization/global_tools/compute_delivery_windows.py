@@ -4,7 +4,7 @@ import pandas as pd
 import re
 #
 from .. import global_var
-from . import compute_delivery_begin_date_local, compute_delivery_end_date
+from . import compute_delivery_dates
 
 
 def compute_delivery_windows(frequency                 = None,
@@ -47,24 +47,19 @@ def compute_delivery_windows(frequency                 = None,
         raise NotImplementedError('profile = {0}'.format(profile))
         
     if not delivery_begin_date_local:
-        assert frequency not in [global_var.contract_frequency_hour,
-                                 global_var.contract_frequency_bloc,
-                                 ]
-        delivery_begin_date_local = compute_delivery_begin_date_local(delivery_begin_year_local = delivery_begin_year_local,
-                                                                      frequency                 = frequency,
-                                                                      delivery_period_index     = delivery_period_index,
-                                                                      local_tz                  = tz_local,
-                                                                      )
-    elif type(delivery_begin_date_local) == pd.Timestamp:
-        assert delivery_begin_date_local.minute == 0
-        assert delivery_begin_date_local.hour   == 0
+        delivery_begin_date_local, delivery_end_date_local = compute_delivery_dates(delivery_begin_year   = delivery_begin_year_local,
+                                                                                    frequency             = frequency,
+                                                                                    delivery_period_index = delivery_period_index,
+                                                                                    local_tz              = tz_local,
+                                                                                    )
     else:
-        raise ValueError('Incorrect begin_date : {0}'.format(delivery_begin_date_local))
-        
-    delivery_end_date_local = compute_delivery_end_date(delivery_begin_date_local = delivery_begin_date_local,
-                                                        frequency                 = frequency,
-                                                        delivery_period_index     = delivery_period_index,
-                                                        )    
+        dd, delivery_end_date_local = compute_delivery_dates(delivery_begin_year   = delivery_begin_year_local,
+                                                             delivery_begin_date   = delivery_begin_date_local,
+                                                             frequency             = frequency,
+                                                             delivery_period_index = delivery_period_index,
+                                                             local_tz              = tz_local,
+                                                             )
+        assert dd == delivery_begin_date_local, 'Incorrect begin_date : {0}'.format(delivery_begin_date_local)   
         
     if   profile == global_var.contract_profile_base:
         return [(delivery_begin_date_local,
