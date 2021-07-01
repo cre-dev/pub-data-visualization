@@ -48,7 +48,7 @@ def incremental_programs(ax,
     for ii, (dd, ds_program) in itertools.islice(enumerate(df_programs.items()), int(diff_init), None):
         X, Y = global_tools.piecewise_constant_interpolators(ds_program.index, 
                                                              ds_program,
-                                                             smoother  = smoother,
+                                                             smoother = smoother,
                                                              )
         ax.plot(X,
                 Y, 
