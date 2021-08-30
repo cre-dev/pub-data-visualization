@@ -141,8 +141,8 @@ def compute_delivery_dates(delivery_begin_year   = None,
                                                                            month = days_match.group(1),
                                                                            day   = days_match.group(2),
                                                                            ),
-                                                   format = "%d/%m/%Y",
-                                                   )
+                                             format = "%d/%m/%Y",
+                                             )
         delivery_end_date = delivery_begin_date + pd.DateOffset(days = days_match.group(3))
             
     elif frequency == global_var.contract_frequency_hour:
@@ -156,15 +156,15 @@ def compute_delivery_dates(delivery_begin_year   = None,
         delivery_end_date = (delivery_begin_date + pd.DateOffset(hours = int(hour_match.group(3)) + 1)).replace(hour = 0, minute = 0) 
             
     elif frequency == global_var.contract_frequency_half_hour:
-        half_hour_match = re.compile(global_var.contract_delivery_period_index_hour_pattern).match(str(delivery_period_index))
-        delivery_begin_date = pd.to_datetime("{day}/{month}/{year} {hour}:{minute}".format(year   = delivery_begin_year,
-                                                                                           month  = half_hour_match.group(1),
-                                                                                           day    = half_hour_match.group(2),
-                                                                                           ),
+        half_hour_match = re.compile(global_var.contract_delivery_period_index_half_hour_pattern).match(str(delivery_period_index))
+        delivery_begin_date = pd.to_datetime("{day}/{month}/{year}".format(year   = delivery_begin_year,
+                                                                           month  = half_hour_match.group(1),
+                                                                           day    = half_hour_match.group(2),
+                                                                           ),
                                              format = "%d/%m/%Y",
                                              )
-        delivery_end_date = (delivery_begin_date + pd.DateOffset(hours  = int(half_hour_match.group(3)),
-                                                                 minute = int(half_hour_match.group(4)) + 30,
+        delivery_end_date = (delivery_begin_date + pd.DateOffset(hours  = int(half_hour_match.group(3)) + (int(half_hour_match.group(4)) + 30) // 60,
+                                                                 minute = (int(half_hour_match.group(4)) + 30) % 60,
                                                                  )).replace(hour = 0, minute = 0)
         
     else:

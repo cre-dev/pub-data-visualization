@@ -59,7 +59,10 @@ def compute_delivery_windows(frequency                 = None,
                                                              delivery_period_index = delivery_period_index,
                                                              local_tz              = tz_local,
                                                              )
-        assert dd == delivery_begin_date_local, 'Incorrect begin_date : {0}'.format(delivery_begin_date_local)   
+        if not dd == delivery_begin_date_local:
+            assert profile == global_var.contract_profile_peak, 'Incorrect begin_date, profile : {0}, {1}'.format(delivery_begin_date_local,
+                                                                                                                  profile,
+                                                                                                                  )   
         
     if   profile == global_var.contract_profile_base:
         return [(delivery_begin_date_local,
