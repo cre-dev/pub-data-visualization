@@ -21,7 +21,8 @@ def transparent_production(program,
                            map_code          = None,
                            unit_name         = None,
                            date_min          = None,
-                           date_max          = None, 
+                           date_max          = None,
+                           local_tz          = None,
                            production_nature = None,
                            production_source = None,
                            figsize           = global_var.figsize_horizontal,
@@ -73,7 +74,11 @@ def transparent_production(program,
     fig, ax = plt.subplots(figsize = figsize,
                            nrows = 1, 
                            ncols = 1, 
-                           )     
+                           ) 
+
+    if bool(local_tz):
+        mpl.rcParams['timezone'] = local_tz
+    
     ### Subplots
     production_subplot.power(ax,
                              df_prod,
@@ -97,7 +102,10 @@ def transparent_production(program,
         ax.set_xlim(date_min, date_max)
     
     ### labels  
-    ax.set_xlabel(global_tools.format_latex(df_prod.index.name))           
+    if bool(local_tz):
+        ax.set_xlabel(global_tools.format_latex(global_var.production_dt_tz.format(tz = local_tz)))
+    else:
+        ax.set_xlabel(global_tools.format_latex(df_prod.index.name))           
     ax.set_ylabel(global_tools.format_latex(production_nature))
     
     ### Add legend

@@ -23,6 +23,7 @@ producer_outages       = None
 data_source_production = global_var.data_source_production_rte
 production_source      = None
 production_nature      = global_var.production_nature_observation_mw
+local_tz               = 'CET'
 ###############################################################################
 figsize    = global_var.figsize_horizontal_ppt
 folder_out = global_var.path_plots
@@ -60,6 +61,7 @@ multiplots.transparent_production(df_awaited_program,
                                   date_max          = date_max,
                                   production_source = production_source,
                                   production_nature = production_nature,
+                                  local_tz          = local_tz,
                                   figsize           = figsize,
                                   folder_out        = folder_out,
                                   close             = close,
