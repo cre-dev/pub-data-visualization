@@ -56,15 +56,18 @@ def compute_delivery_period_index(frequency               = None,
                                                                         ))
 
     elif frequency == global_var.contract_frequency_bloc:
-        bloc_match = re.compile(global_var.contract_profile_bloc_pattern).match(profile)
-        hour_begin = int(bloc_match.group(1))
-        hour_end   = int(bloc_match.group(2))
-        assert hour_begin < hour_end or hour_end == 0
-        ans = int(global_var.contract_delivery_period_index_bloc.format(month      = delivery_begin_dt_local.month,
-                                                                        day        = delivery_begin_dt_local.day,
-                                                                        hour_begin = hour_begin,
-                                                                        hour_end   = hour_end,
-                                                                        ))
+        if profile == global_var.contract_profile_unknown:
+            ans = global_var.contract_delivery_period_index_unknown
+        else:
+            bloc_match = re.compile(global_var.contract_profile_bloc_pattern).match(profile)
+            hour_begin = int(bloc_match.group(1))
+            hour_end   = int(bloc_match.group(2))
+            assert hour_begin < hour_end or hour_end == 0
+            ans = int(global_var.contract_delivery_period_index_bloc.format(month      = delivery_begin_dt_local.month,
+                                                                            day        = delivery_begin_dt_local.day,
+                                                                            hour_begin = hour_begin,
+                                                                            hour_end   = hour_end,
+                                                                            ))
     elif frequency == global_var.contract_frequency_day:
         ans = int(global_var.contract_delivery_period_index_day.format(month = delivery_begin_dt_local.month,
                                                                        day   = delivery_begin_dt_local.day,
@@ -100,6 +103,13 @@ def compute_delivery_period_index(frequency               = None,
     elif frequency == global_var.contract_frequency_month:
         ans = delivery_begin_dt_local.month
 
+    elif frequency == global_var.contract_frequency_months:
+        ans = int(global_var.contract_delivery_period_index_months.format(month     = delivery_begin_dt_local.month,
+                                                                          nb_months = (  12*(delivery_end_date_local.year - delivery_begin_dt_local.year)
+                                                                                       + delivery_end_date_local.month - delivery_begin_dt_local.month
+                                                                                       ),
+                                                                          ))
+
     elif frequency == global_var.contract_frequency_bom:
         ans = int(global_var.contract_delivery_period_index_bom.format(month = delivery_begin_dt_local.month,
                                                                        day   = delivery_begin_dt_local.day,
@@ -118,6 +128,9 @@ def compute_delivery_period_index(frequency               = None,
 
     elif frequency == global_var.contract_frequency_year:
         ans = global_var.contract_delivery_period_index_year
+
+    elif frequency == global_var.contract_frequency_years:
+        ans = int(global_var.contract_delivery_period_index_years.format(nb_years = delivery_end_date_local.year - delivery_begin_dt_local.year))
 
     elif frequency == global_var.contract_frequency_gas_year:
         ans = global_var.contract_delivery_period_index_gas_year

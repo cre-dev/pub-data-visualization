@@ -145,6 +145,23 @@ def compute_delivery_dates(delivery_begin_year   = None,
                                              )
         delivery_end_date = delivery_begin_date + pd.DateOffset(days = days_match.group(3))
             
+    elif frequency == global_var.contract_frequency_bloc:
+        hour_match = re.compile(global_var.contract_delivery_period_index_bloc_pattern).match(str(delivery_period_index))
+        delivery_begin_date = pd.to_datetime("{day}/{month}/{year}".format(year  = delivery_begin_year,
+                                                                           month = hour_match.group(1),
+                                                                           day   = hour_match.group(2),
+                                                                           ),
+                                             format = "%d/%m/%Y",
+                                             )
+        delivery_end_date = (  delivery_begin_date
+                             + pd.DateOffset(hours = (  int(hour_match.group(3))
+                                                      + ((int(hour_match.group(4)) - int(hour_match.group(3))) % 24)
+                                                      )
+                                             )
+                             ).replace(hour   = 0,
+                                       minute = 0,
+                                       )
+            
     elif frequency == global_var.contract_frequency_hour:
         hour_match = re.compile(global_var.contract_delivery_period_index_hour_pattern).match(str(delivery_period_index))
         delivery_begin_date = pd.to_datetime("{day}/{month}/{year}".format(year  = delivery_begin_year,
