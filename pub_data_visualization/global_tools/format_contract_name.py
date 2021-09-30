@@ -1,5 +1,6 @@
 
-
+import re
+#
 from .. import global_var
 
 def format_contract_name(year,
@@ -26,13 +27,16 @@ def format_contract_name(year,
     assert len(str(year)) == 4
     assert str(year).isdigit()
     assert type(frequency) == str
-    assert profile in {global_var.contract_profile_base,
-                       global_var.contract_profile_ofpk,
-                       global_var.contract_profile_peak,
-                       global_var.contract_profile_hour,
-                       global_var.contract_profile_half_hour,
-                       None,
-                       }
+    assert (   re.compile(global_var.contract_profile_bloc_pattern).match(profile)
+            or profile in {global_var.contract_profile_gas,
+                           global_var.contract_profile_base,
+                           global_var.contract_profile_ofpk,
+                           global_var.contract_profile_peak,
+                           global_var.contract_profile_hour,
+                           global_var.contract_profile_half_hour,
+                           }
+            )
+    
     return '.'.join(filter(None, [map_code,
                                   commodity,
                                   '{year}{frequency}{delivery_period}'.format(year            = year,
@@ -40,7 +44,8 @@ def format_contract_name(year,
                                                                               delivery_period = delivery_period,
                                                                               ),
                                   (profile
-                                   if profile not in [global_var.contract_profile_hour,
+                                   if profile not in [global_var.contract_profile_gas,
+                                                      global_var.contract_profile_hour,
                                                       global_var.contract_profile_half_hour,
                                                       global_var.contract_profile_bloc,
                                                       ]
