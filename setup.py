@@ -2,7 +2,7 @@ import setuptools
 from distutils.core import setup
 
 setup(
-      name             = 'energy-data-visualization',
+      name             = 'pub-data-visualization',
       version          = '0.1.dev0',
       packages         = setuptools.find_packages(),
       scripts          = [],
