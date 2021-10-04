@@ -10,6 +10,7 @@
 from .compute_delivery_dates            import *
 from .compute_delivery_period_index     import *
 from .compute_delivery_windows          import *
+from .compute_maturity                  import *
 from .compute_nb_hours                  import *
 from .dt_exists_in_tz                   import *
 from .format_contract_name              import *
