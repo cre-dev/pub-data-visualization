@@ -340,6 +340,7 @@ order_status                       = 'order_status'
 order_trader_id                    = 'order_trader_id'
 order_trader_name                  = 'order_trader_name'
 order_volume_mwh                   = 'order_volume (MWh)'
+order_wh_local                     = 'order_wh (local)'
 
 ### Outages
 outage_begin_date_local               = 'outage_begin_date (local)'

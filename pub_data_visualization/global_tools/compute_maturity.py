@@ -115,7 +115,9 @@ def compute_maturity(dt                  = None,
         assert nb_years >= 0
         return global_var.maturity_gas_year.format(nb_years = nb_years)
     
-    elif frequency == global_var.contract_frequency_unknown:
+    elif frequency in [global_var.contract_frequency_unknown,
+                       global_var.contract_frequency_spread,
+                       ]:
         return global_var.maturity_unknown
     
     else:

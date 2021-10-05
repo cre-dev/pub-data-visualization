@@ -12,6 +12,9 @@ def compute_nb_hours(product_delivery_windows):
         :return: The number of hours of the contract
         :rtype: int
     """
+    if product_delivery_windows is None:
+        return None
+    
     for beginning, end in product_delivery_windows:
         assert type(beginning) == pd.Timestamp
         assert type(end)       == pd.Timestamp

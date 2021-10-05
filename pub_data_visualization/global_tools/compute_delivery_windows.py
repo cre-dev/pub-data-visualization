@@ -44,7 +44,7 @@ def compute_delivery_windows(frequency                 = None,
                            ]
             or bloc_match
             ):
-        raise NotImplementedError('profile = {0}'.format(profile))
+        return None
         
     if not delivery_begin_date_local:
         delivery_begin_date_local, delivery_end_date_local = compute_delivery_dates(delivery_begin_year   = delivery_begin_year_local,
