@@ -33,19 +33,22 @@ def compute_delivery_windows(frequency                 = None,
         :rtype: list of pairs of pd.Timestamp
     """
     bloc_match = re.compile(global_var.contract_profile_bloc_pattern).match(profile)
-    if not (   profile in [global_var.contract_profile_base,
-                           global_var.contract_profile_peak,
-                           global_var.contract_profile_ofpk,
-                           global_var.contract_profile_hour,
-                           global_var.contract_profile_half_hour,
-                           global_var.contract_profile_wday2024,
-                           global_var.contract_profile_wday1620,
-                           global_var.contract_profile_wend2024,
-                           ]
-            or bloc_match
-            ):
+    if (   frequency == global_var.contract_frequency_unknown
+        or not (   bloc_match
+                or profile in [global_var.contract_profile_gas,
+                               global_var.contract_profile_base,
+                               global_var.contract_profile_peak,
+                               global_var.contract_profile_ofpk,
+                               global_var.contract_profile_hour,
+                               global_var.contract_profile_half_hour,
+                               global_var.contract_profile_wday2024,
+                               global_var.contract_profile_wday1620,
+                               global_var.contract_profile_wend2024,
+                               ]
+                )
+        ):
         return None
-        
+    
     if not delivery_begin_date_local:
         delivery_begin_date_local, delivery_end_date_local = compute_delivery_dates(delivery_begin_year   = delivery_begin_year_local,
                                                                                     frequency             = frequency,
@@ -64,7 +67,12 @@ def compute_delivery_windows(frequency                 = None,
                                                                                                                   profile,
                                                                                                                   )   
         
-    if   profile == global_var.contract_profile_base:
+    if   profile == global_var.contract_profile_gas:
+        return [(delivery_begin_date_local.replace(hour = 6),
+                 delivery_end_date_local.replace(hour = 6),
+                 )]
+        
+    elif   profile == global_var.contract_profile_base:
         return [(delivery_begin_date_local,
                  delivery_end_date_local,
                  )]

@@ -100,7 +100,7 @@ def compute_delivery_dates(delivery_begin_year   = None,
 
     elif frequency == global_var.contract_frequency_bow:
         if bool(delivery_begin_date):
-            delivery_end_date = delivery_begin_date + 7 - pd.to_timedelta(delivery_begin_date.dt.dayofweek, unit='d')
+            delivery_end_date = delivery_begin_date.floor('D') + pd.to_timedelta(7 - delivery_begin_date.dayofweek, unit='d')
         else:
             delivery_begin_date = pd.NaT
             delivery_end_date   = pd.NaT
@@ -183,13 +183,17 @@ def compute_delivery_dates(delivery_begin_year   = None,
         delivery_end_date = (delivery_begin_date + pd.DateOffset(hours  = int(half_hour_match.group(3)) + (int(half_hour_match.group(4)) + 30) // 60,
                                                                  minute = (int(half_hour_match.group(4)) + 30) % 60,
                                                                  )).replace(hour = 0, minute = 0)
+
+    elif frequency == global_var.contract_frequency_unknown:
+        delivery_begin_date = pd.NaT
+        delivery_end_date   = pd.NaT
         
     else:
         raise NotImplementedError('frequency = {frequency}'.format(frequency = frequency))
     
-    if delivery_begin_date.tz is None:
+    if bool(delivery_begin_date) and delivery_begin_date.tz is None:
         delivery_begin_date = delivery_begin_date.tz_localize(local_tz)
-    if delivery_end_date.tz   is None:
+    if bool(delivery_end_date) and delivery_end_date.tz   is None:
         delivery_end_date   = delivery_end_date.tz_localize(local_tz)
         
     return delivery_begin_date, delivery_end_date
