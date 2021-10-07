@@ -539,6 +539,7 @@ trade_volume_mwh                    = 'trade_volume (MWh)' # Trades volumes are 
 trade_volume_gwh                    = 'trade_volume (GWh)'
 trade_volume_signed_mwh             = 'trade_volume_signed (MWh)'
 trade_wh_local                      = 'trade_wh (local)'
+trade_year_local                    = 'trade_year (local)'
 
 ### Units Production
 unit_eic                = 'unit_eic'
