@@ -123,7 +123,7 @@ def compute_delivery_windows(frequency                 = None,
         hour_begin = int(bloc_match.group(1))
         hour_end   = int(bloc_match.group(2))
         return [(delivery_begin_date_local + pd.DateOffset(hours = hour_begin),
-                 delivery_begin_date_local + pd.DateOffset(hours = hour_end),
+                 delivery_begin_date_local + pd.DateOffset(hours = hour_end, days = int(hour_end < hour_begin)),
                  )]
     
     elif profile == global_var.contract_profile_wday2024:

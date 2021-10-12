@@ -6,7 +6,7 @@
 
 from . import user_defined_names as global_var
 
-h_max = 20
+h_max = 30
 
 cascade_maturities = [
                       *[global_var.maturity_gas_year.format(nb_years = ii) for ii in range(h_max,-1,-1)],
