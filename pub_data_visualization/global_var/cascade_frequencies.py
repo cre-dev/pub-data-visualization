@@ -6,12 +6,14 @@
 
 from . import user_defined_names as global_var
 
-cascade_frequencies = [global_var.contract_frequency_year,
+cascade_frequencies = [global_var.contract_frequency_years,
+                       global_var.contract_frequency_year,
                        global_var.contract_frequency_boy,
                        global_var.contract_frequency_season,
                        global_var.contract_frequency_bos,
                        global_var.contract_frequency_quarter,
                        global_var.contract_frequency_boq,
+                       global_var.contract_frequency_months,
                        global_var.contract_frequency_month,
                        global_var.contract_frequency_bom,
                        global_var.contract_frequency_week,
