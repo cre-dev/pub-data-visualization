@@ -49,8 +49,10 @@ def compute_maturity(dt                  = None,
         action_floor   = action_date - pd.DateOffset(days = action_date.timetuple().tm_wday)
         delivery_floor = delivery_date - - pd.DateOffset(days = action_date.timetuple().tm_wday)
         nb_weeks = int(round((delivery_floor - action_floor).total_seconds()//(3600*24*7)))
-        assert nb_weeks >= 0
-        return global_var.maturity_weekend.format(nb_weeks = nb_weeks)
+        if nb_weeks >= 0:
+            return global_var.maturity_weekend.format(nb_weeks = nb_weeks)
+        else:
+            return global_var.maturity_unknown
     
     ### W+X
     elif frequency in [global_var.contract_frequency_bow,
@@ -88,8 +90,8 @@ def compute_maturity(dt                  = None,
     elif frequency in [global_var.contract_frequency_bos,
                        global_var.contract_frequency_season,
                        ]:
-        action_floor   = action_date.replace(day = 1, month = 4 + 6*((action_date.month - 4)//6) % 12) - pd.DateOffset(years = 1)*(action_date.month <= 3)
-        delivery_floor = delivery_date.replace(day = 1, month = 4 + 6*((delivery_date.month - 4)//6) % 12) - pd.DateOffset(years = 1)*(delivery_date.month <= 3)
+        action_floor   = action_date.replace(day = 1, month = 4 + 6*((action_date.month - 4)//6) % 12) - pd.DateOffset(years = int(action_date.month <= 3))
+        delivery_floor = delivery_date.replace(day = 1, month = 4 + 6*((delivery_date.month - 4)//6) % 12) - pd.DateOffset(years = int(delivery_date.month <= 3))
         nb_seasons     = (delivery_floor.month - action_floor.month)//6 + 2*(delivery_floor.year - action_floor.year)
         assert nb_seasons >= 0
         return global_var.maturity_season.format(nb_seasons = nb_seasons)
