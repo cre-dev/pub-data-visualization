@@ -93,7 +93,7 @@ def forecasting_error(df,
                                )
             
     ### Ticks
-    ax.xaxis.set_major_formatter(mdates.DateFormatter("%a %d/%m/%Y %H:%M"))
+    ax.xaxis.set_major_formatter(mdates.DateFormatter(global_var.dt_formatter))
     fig.autofmt_xdate()
     if date_min and date_max:
         ax.set_xlim(date_min, date_max)

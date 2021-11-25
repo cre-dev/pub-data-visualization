@@ -102,7 +102,7 @@ def animated_availability(dh,
                     )
 
     ### Ticks
-    ax[0].xaxis.set_major_formatter(mdates.DateFormatter("%a %d/%m/%Y %H:%M"))
+    ax[0].xaxis.set_major_formatter(mdates.DateFormatter(global_var.dt_formatter))
     _ = plt.setp(ax[0].get_xticklabels(), rotation=30, horizontalalignment='right')
     
     ymin = dh.min().min()

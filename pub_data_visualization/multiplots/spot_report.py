@@ -131,7 +131,7 @@ def spot_report(dg_weather,
 
 
     ### Ticks
-    ax[3].xaxis.set_major_formatter(mdates.DateFormatter("%a %d/%m/%Y %H:%M"))
+    ax[3].xaxis.set_major_formatter(mdates.DateFormatter(global_var.dt_formatter))
     fig.autofmt_xdate()
     if date_min and date_max:
         ax[3].set_xlim(date_min, date_max)

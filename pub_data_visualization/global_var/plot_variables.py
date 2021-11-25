@@ -6,6 +6,9 @@
 
 import matplotlib.cm as cm
 
+dt_formatter   = "%a\ %d/%m/%Y\ %H{:}%M"
+date_formatter = "%a\ %d/%m/%Y"
+
 colors     = cm.tab10.colors
 linestyles = ['-', '--', '-.', ':']
 markers    = ["o", "^", ">", "<", "v", 'd', 'x']
