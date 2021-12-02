@@ -90,7 +90,7 @@ def load(map_code = None):
         df = df.reset_index(drop = True)
         
         print('Localize and convert')
-        df[global_var.geography_map_code]        = map_code
+        df[global_var.geography_map_code]    = map_code
         df[global_var.capacity_available_gw] = df[global_var.capacity_available_mw]/1e3
         for col_local, col_UTC in [(global_var.publication_creation_dt_local, global_var.publication_creation_dt_UTC),
                                    (global_var.publication_dt_local,          global_var.publication_dt_UTC),
@@ -100,10 +100,9 @@ def load(map_code = None):
             df.loc[:,col_local] = pd.to_datetime(df[col_local], format = '%d/%m/%Y %H:%M').dt.tz_localize('CET', ambiguous = True)
             df[col_UTC]         = df[col_local].dt.tz_convert('UTC')
             df = df.drop(col_local, axis = 1)        
-        
-        
+
         print('Transcode')
-        df.loc[:,global_var.unit_name]         = df[global_var.unit_name].replace(transcode.unit_name).apply(global_tools.format_unit_name)
+        df.loc[:,global_var.unit_name]         = df[global_var.unit_name].replace(transcode.eic_code).apply(global_tools.format_unit_name)
         df.loc[:,global_var.producer_name]     = df[global_var.producer_name].replace(transcode.producer_name)
         df.loc[:,global_var.outage_type]       = df[global_var.outage_type].replace(transcode.outage_type)
         df.loc[:,global_var.unit_type]         = df[global_var.unit_type].replace(transcode.unit_type)

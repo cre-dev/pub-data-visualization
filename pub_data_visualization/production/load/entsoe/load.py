@@ -3,7 +3,7 @@
 import pandas as pd
 import os
 #
-from .... import global_var
+from .... import global_tools, global_var
 from . import paths, transcode
 
 def load(map_code = None):
@@ -63,19 +63,21 @@ def load(map_code = None):
                            )
             
             df[global_var.production_power_mw] = (  df[global_var.production_positive_part_mw].fillna(0)
-                                             - df[global_var.production_negative_part_mw].fillna(0) 
-                                             )
+                                                  - df[global_var.production_negative_part_mw].fillna(0)
+                                                  )
             df[global_var.production_nature] = global_var.production_nature_observation
             df.loc[:,global_var.production_dt_UTC] = pd.to_datetime(df[global_var.production_dt_UTC]).dt.tz_localize('UTC')
-            df = df[[
-                     global_var.production_dt_UTC,
+            df = df[[global_var.production_dt_UTC,
                      global_var.geography_map_code,
                      global_var.unit_name,
                      global_var.production_source,
                      global_var.production_power_mw,
                      global_var.production_nature,
                      ]]
-            df = df[df[global_var.geography_map_code] == map_code]
+            df[global_var.unit_name]                 = df[global_var.unit_name].apply(global_tools.format_unit_name)
+            df.loc[:, global_var.geography_map_code] = df[global_var.geography_map_code].apply(transcode.map_code)
+            if bool(map_code):
+                df = df[df[global_var.geography_map_code] == map_code]
             dikt_production[fname] = df
         print()
         

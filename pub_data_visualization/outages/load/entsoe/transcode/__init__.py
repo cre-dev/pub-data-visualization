@@ -5,6 +5,7 @@
 """
 
 from .columns import *
+from .map_code import *
 from .outage_status import *
 from .outage_type import *
 from .production_source import *

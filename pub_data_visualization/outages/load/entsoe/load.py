@@ -64,15 +64,9 @@ def load(map_code = None):
                 df = df.rename(transcode.columns,
                                axis = 1,
                                )
+                df.loc[:, global_var.geography_map_code] = df[global_var.geography_map_code].apply(transcode.map_code)
                 df = df.loc[df[global_var.geography_map_code] == map_code]
                 df[global_var.file_name] = os.path.basename(fname)
-                match_unit_type = re.compile(r"^(\d{4})_(\d{1,2})_UnavailabilityOf(Generation|Production)Units_15.1.(A_B|C_D).csv$").match(fname)
-                # assert match_unit_type.group(3) in ['G','P']
-                # df[global_var.unit_type] = (global_var.unit_type_group
-                #                             if match_unit_type.group(3) == 'G'
-                #                             else
-                #                             global_var.unit_type_plant
-                #                             )
                 # Localize and Convert
                 for col in [global_var.publication_dt_UTC,
                             global_var.outage_begin_dt_UTC,

@@ -10,7 +10,7 @@ import pandas as pd
 from pub_data_visualization import global_var, load
 
 ###############################################################################
-data_source_load = global_var.data_source_load_eco2mix
+data_source_load = global_var.data_source_load_entsoe
 map_code         = global_var.geography_map_code_france
 load_nature      = global_var.load_nature_observation
 load_power_unit  = global_var.load_power_gw

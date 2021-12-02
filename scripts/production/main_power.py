@@ -10,7 +10,7 @@ of a given set of production units.
 from pub_data_visualization import global_var, production
 
 ###############################################################################
-data_source_production = global_var.data_source_production_rte
+data_source_production = global_var.data_source_production_entsoe
 map_code               = global_var.geography_map_code_france
 production_nature      = global_var.production_nature_observation
 production_unit        = global_var.production_power_gw

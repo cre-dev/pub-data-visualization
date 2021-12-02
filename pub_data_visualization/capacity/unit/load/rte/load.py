@@ -3,7 +3,7 @@
 import pandas as pd
 import os
 #
-from ..... import global_var
+from ..... import global_tools, global_var
 from . import paths, transcode
 
 
@@ -56,6 +56,7 @@ def load(map_code = None):
             df = df.rename(transcode.columns, 
                            axis = 1,
                            )
+            df.loc[:, global_var.unit_name]        = df[global_var.unit_name].apply(global_tools.format_unit_name)
             df.loc[:,global_var.production_source] = df[global_var.production_source].astype(str).replace(transcode.columns)
             df[global_var.geography_map_code]      = map_code
             dikt_capacity[fname]                   = df
