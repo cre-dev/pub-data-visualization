@@ -16,13 +16,13 @@ def load():
     """
     df_path = paths.fpath_production_rte_tmp + '.csv'
     try:
-        print('Load df - ', end = '')
+        print('Load production/rte - ', end = '')
         df = pd.read_csv(df_path,
                          header = [0],
                          sep = ';',
                          )
         df.loc[:,global_var.production_dt_UTC] = pd.to_datetime(df[global_var.production_dt_UTC])
-        print('Loaded df') 
+        print('Loaded')
     except Exception as e:
         print('fail')
         print(e)
@@ -43,7 +43,7 @@ def load():
                   )
             raise e
         for ii, (folder, fname) in enumerate(list_paths):
-            print('\r{0:3}/{1:3} - {2:<35}'.format(ii,
+            print('\r{0:3}/{1:3} - {2:<35}'.format(ii+1,
                                                    len(list_paths),
                                                    fname,
                                                    ),
@@ -66,16 +66,12 @@ def load():
             df               = df.loc[df.index.dropna()]
             df.columns.names = [global_var.production_source, global_var.unit_name]
             df.columns       = df.columns.remove_unused_levels()
-            df = df.stack([0,1])
-            df = df.apply(lambda x : float(x.replace(',', '.')) if type(x) == str else x)
-            df.name = global_var.quantity_value
-            df = df.reset_index()
-            df[global_var.production_nature] = global_var.production_nature_observation_mw
-            df[global_var.unit_name] = [global_tools.format_unit_name(e)
-                                        for e in 
-                                        df[global_var.unit_name]
-                                        ]
-            dikt_production[fname] = df
+            ds = df.stack([0,1])
+            ds = ds.apply(lambda x : float(x.replace(',', '.')) if type(x) == str else x)
+            ds.name = global_var.production_power_mw
+            dg = ds.reset_index()
+            dg[global_var.unit_name] = dg[global_var.unit_name].apply(global_tools.format_unit_name)
+            dikt_production[fname]   = dg
     
         df = pd.concat([dikt_production[key]
                         for key in dikt_production.keys()
@@ -83,7 +79,8 @@ def load():
                        axis = 0,
                        )
         df[global_var.geography_map_code] = global_var.geography_map_code_france
-        df[global_var.commodity] = global_var.commodity_electricity
+        df[global_var.production_nature]  = global_var.production_nature_observation
+        df[global_var.commodity]          = global_var.commodity_electricity
 
         # Save
         print('\nSave')
@@ -95,6 +92,7 @@ def load():
                   index = False,
                   )
 
+    print('done : df.shape = {0}'.format(df.shape))
     return df
 
 

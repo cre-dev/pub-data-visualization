@@ -4,8 +4,7 @@ import pandas as pd
 import os
 #
 from .... import global_var
-from . import transcode
-from .paths import folder_load_entsoe_raw, fpath_load_entsoe_tmp
+from . import transcode, paths
 
 def load(map_code = None):
     """
@@ -17,42 +16,42 @@ def load(map_code = None):
         :rtype: pd.DataFrame
     """
     
-    df_path = fpath_load_entsoe_tmp.format(map_code = map_code) + '.csv'
+    df_path = paths.fpath_tmp.format(map_code = map_code) + '.csv'
     try:
-        print('Loaded df - ', end = '')
+        print('Load load/entsoe - ', end = '')
         df = pd.read_csv(df_path,
                          header = [0],
                          sep = ';',
                          )
         df.loc[:,global_var.load_dt_UTC] = pd.to_datetime(df[global_var.load_dt_UTC])
-        print('Loaded df') 
+        print('Loaded')
     except Exception as e:
         print('fail')
         print(e)
         dikt_load = {}
         try:
-            list_files  = sorted(os.listdir(folder_load_entsoe_raw))
+            list_files  = sorted(os.listdir(paths.folder_raw))
             assert len(list_files) > 0
         except Exception as e:
             print('Files not found.\n'
                   'They can be downloaded with the SFTP share proposed by ENTSOE at \n'
                   'https://transparency.entsoe.eu/content/static_content/Static%20content/knowledge%20base/SFTP-Transparency_Docs.html\n'
                   'and stored in\n'
-                  '{0}'.format(folder_load_entsoe_raw)
+                  '{0}'.format(paths.folder_raw)
                   )
             raise e
         for ii, fname in enumerate(list_files):
             if os.path.splitext(fname)[1] == '.csv':
-                print('\r{0:3}/{1:3} - {2:<28}'.format(ii,
+                print('\r{0:3}/{1:3} - {2:<28}'.format(ii+1,
                                                    len(list_files),
                                                    fname,
                                                    ),
                       end = '',
                       )
-                df = pd.read_csv(os.path.join(folder_load_entsoe_raw,
+                df = pd.read_csv(os.path.join(paths.folder_raw,
                                               fname,
                                               ),
-                                 encoding   = 'UTF-16 LE',
+                                 encoding   = 'UTF-8',
                                  sep        = '\t',
                                  decimal    = '.',
                                  )
@@ -61,21 +60,19 @@ def load(map_code = None):
                                )
                 df[global_var.load_dt_UTC] = pd.to_datetime(df[global_var.load_dt_UTC]).dt.tz_localize('UTC') 
                 df = df[df[global_var.geography_map_code] == map_code]
-                df = df[[
-                         global_var.load_dt_UTC,
+                df = df[[global_var.load_dt_UTC,
                          global_var.geography_map_code,
-                         global_var.load_nature_observation_mw,
+                         global_var.load_power_mw,
                          ]]
                 df = df.set_index([global_var.load_dt_UTC,
                                    global_var.geography_map_code,
                                    ])
-                df.columns.name = global_var.load_nature
-                df[global_var.load_nature_observation_gw] = df[global_var.load_nature_observation_mw]/1e3
+                #df.columns.name = global_var.load_nature
                 df      = df.dropna(axis = 0,
                                     how  = 'all',
                                     )
-                df      = df.stack(0)
-                df.name = global_var.quantity_value
+                #df      = df.stack(0)
+                #df.name = global_var.quantity_value
                 df = df.reset_index()
                 dikt_load[fname] = df
         print()
@@ -84,7 +81,10 @@ def load(map_code = None):
                         ],
                        axis = 0,
                        )
-        df[global_var.commodity] = global_var.commodity_electricity
+        df[global_var.commodity]     = global_var.commodity_electricity
+        df[global_var.load_nature]   = global_var.load_nature_observation
+        df[global_var.load_power_gw] = df[global_var.load_power_mw]/1e3
+        df = df[~df[global_var.load_dt_UTC].duplicated(keep='first')]
 
         # Save
         print('Save')
@@ -98,7 +98,3 @@ def load(map_code = None):
         
     print('done')
     return df
-
-
-    
-    

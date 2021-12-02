@@ -12,7 +12,7 @@ import pandas as pd
 from pub_data_visualization import global_var, outages
 
 ###############################################################################
-data_source_outages = global_var.data_source_outages_rte
+data_source_outages = global_var.data_source_outages_entsoe
 map_code            = global_var.geography_map_code_france
 producer_outages    = None
 production_source   = global_var.production_source_nuclear
@@ -40,10 +40,8 @@ df_expected_program = outages.tools.cross_section_view(df_program)
     
 ### Plot
 outages.plot.expected_program(df_expected_program,
-                              #
-                              date_min = date_min,
-                              date_max = date_max,
-                              #
+                              date_min          = date_min,
+                              date_max          = date_max,
                               source            = data_source_outages,
                               map_code          = map_code,
                               producer          = producer_outages,

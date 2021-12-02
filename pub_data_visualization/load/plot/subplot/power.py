@@ -7,6 +7,7 @@ def power(ax,
           df,
           map_code    = None,
           load_nature = None,
+          load_unit   = None,
           **kwargs,
           ):
     """
@@ -26,17 +27,20 @@ def power(ax,
         :rtype: None
     """ 
     
-    dg = df.xs((map_code,
-                load_nature,
-                ),
-               level = (global_var.geography_map_code,
-                        global_var.load_nature,
-                        ),
-               axis  = 1,
-               )
+    # dg = df.xs((map_code,
+    #             load_nature,
+    #             ),
+    #            level = (global_var.geography_map_code,
+    #                     global_var.load_nature,
+    #                     ),
+    #            axis  = 1,
+    #            )
+    dg = df.loc[  (df[global_var.geography_map_code] == map_code)
+                & (df[global_var.load_nature] == load_nature)
+                ]
                
     dg = dg.dropna()
     ax.plot(dg.index,
-            dg,
+            dg[load_unit],
             **kwargs,
             )

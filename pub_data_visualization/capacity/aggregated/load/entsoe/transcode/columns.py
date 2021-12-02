@@ -7,7 +7,7 @@
 
 from ...... import global_var
 
-columns = {'AggregatedInstalledCapacity' : global_var.capacity_mw,
+columns = {'AggregatedInstalledCapacity' : global_var.capacity_nominal_mw,
            'AreaCode'                    : global_var.geography_area_code,
            'AreaName'                    : global_var.geography_area_name,
            'AreaTypeCode'                : global_var.geography_area_type_code,

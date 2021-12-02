@@ -10,9 +10,10 @@ of a given set of production units.
 from pub_data_visualization import global_var, production
 
 ###############################################################################
-data_source_production = global_var.data_source_production_eco2mix
+data_source_production = global_var.data_source_production_rte
 map_code               = global_var.geography_map_code_france
-production_nature      = global_var.production_nature_observation_gw
+production_nature      = global_var.production_nature_observation
+production_unit        = global_var.production_power_gw
 production_source      = None
 unit_name              = None
 date_min               = None
@@ -36,6 +37,7 @@ production.plot.power(df,
                       unit_name         = unit_name,
                       production_source = production_source,
                       production_nature = production_nature,
+                      production_unit   = production_unit,
                       date_min          = date_min,
                       date_max          = date_max,
                       source            = data_source_production,

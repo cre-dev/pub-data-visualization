@@ -24,17 +24,20 @@ import matplotlib.patches as mpatches
 
 ###############################################################################
 map_code          = global_var.geography_map_code_france
-date_min          = pd.Timestamp('2017-01-01 00:00').tz_localize(global_var.dikt_tz[map_code])
-date_max          = pd.Timestamp('2018-01-01 00:00').tz_localize(global_var.dikt_tz[map_code])
+date_min          = None
+date_max          = None
 #
 data_source_production = global_var.data_source_production_eco2mix
-production_nature      = global_var.production_nature_observation_gw
+production_nature      = global_var.production_nature_observation
+production_unit        = global_var.production_power_gw
 #
 data_source_auctions = global_var.data_source_auctions_entsoe
 map_code_auctions    = [global_var.geography_map_code_france,
                         global_var.geography_map_code_germany_luxembourg,
                         global_var.geography_map_code_spain,
                         ] 
+#
+kernel_plot = False
 ###############################################################################
 figsize    = global_var.figsize_horizontal_ppt
 folder_out = global_var.path_plots
@@ -47,7 +50,7 @@ df_production = production.load(source   = data_source_production,
                                 date_min = date_min,
                                 date_max = date_max,
                                 )
-df_production = df_production.loc[:,global_var.production_nature_observation_gw]
+dg_production = df_production.groupby(df_production.index)[production_unit].sum()
 
 ### Auctions
 df_auctions = auctions.load(date_min = date_min,
@@ -71,11 +74,11 @@ dg_auctions = dg_auctions.sort_index()
 
 
 ### Plot
-common_index = dg_auctions.index.get_level_values(global_var.contract_delivery_begin_dt_UTC).intersection(df_production.index)
+common_index = dg_auctions.index.get_level_values(global_var.contract_delivery_begin_dt_UTC).intersection(dg_production.index)
 X = dg_auctions.loc[(slice(None), slice(None), slice(None), slice(None), slice(None), common_index),:]
-Y = df_production.loc[common_index].sum(axis = 1)
+Y = dg_production.loc[common_index]
 x_label   = global_var.auction_price_euro_mwh
-y_label   = production_nature
+y_label   = dg_production.name
 plot_name = 'scatter_price_production'
 
 multiplots.cloud_2d(X,

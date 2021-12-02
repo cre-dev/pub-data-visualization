@@ -27,7 +27,7 @@ def load(map_code = None):
                                                     file     = 'dikt_incoherences',
                                                     ) + '.pkl'    
     try:
-        print('Load df and dikt - ', end = '')
+        print('Load outages/rte - ', end = '')
         df = pd.read_csv(df_path,
                          sep = ';',
                          low_memory = False,
@@ -38,7 +38,7 @@ def load(map_code = None):
         df.loc[:,global_var.outage_begin_dt_UTC]         = pd.to_datetime(df[global_var.outage_begin_dt_UTC])
         df.loc[:,global_var.outage_end_dt_UTC]           = pd.to_datetime(df[global_var.outage_end_dt_UTC])
         df.loc[:,global_var.publication_creation_dt_UTC] = pd.to_datetime(df[global_var.publication_creation_dt_UTC])
-        print('Loaded df and dikt') 
+        print('Loaded')
     except FileNotFoundError:
         print('fail - FileNotFound')
         
@@ -91,7 +91,7 @@ def load(map_code = None):
         
         print('Localize and convert')
         df[global_var.geography_map_code]        = map_code
-        df[global_var.outage_remaining_power_gw] = df[global_var.outage_remaining_power_mw]/1e3
+        df[global_var.capacity_available_gw] = df[global_var.capacity_available_mw]/1e3
         for col_local, col_UTC in [(global_var.publication_creation_dt_local, global_var.publication_creation_dt_UTC),
                                    (global_var.publication_dt_local,          global_var.publication_dt_UTC),
                                    (global_var.outage_begin_dt_local,         global_var.outage_begin_dt_UTC),
@@ -115,8 +115,8 @@ def load(map_code = None):
         
         print('Complete capacities')
         for unit_name in df[global_var.unit_name].unique():
-            if pd.isnull(df.loc[df[global_var.unit_name] == unit_name][global_var.unit_nameplate_capacity]).all() > 0:
-                df.loc[df[global_var.unit_name] == unit_name][global_var.unit_nameplate_capacity] = transcode.capacity[unit_name]
+            if pd.isnull(df.loc[df[global_var.unit_name] == unit_name][global_var.capacity_nominal_mw]).all() > 0:
+                df.loc[df[global_var.unit_name] == unit_name][global_var.capacity_nominal_mw] = transcode.capacity[unit_name]
         df[global_var.commodity] = global_var.commodity_electricity
             
         
@@ -130,7 +130,8 @@ def load(map_code = None):
                   )
         with open(dikt_incoherences_path, 'wb') as f:
             pickle.dump(dikt_incoherences, f)
-            
+
+    print('done : df.shape = {0}'.format(df.shape))
     return df, dikt_incoherences
 
 

@@ -1,11 +1,7 @@
 
 
-
 from .... import global_tools, global_var
 
-
-
-###############################################################################
 
 def evolution_mean_availability(ax,
                                 df,
@@ -41,9 +37,9 @@ def evolution_mean_availability(ax,
                                                          df.values,
                                                          )
     
-    if   unit == global_var.quantity_unit_gw:
+    if   unit == global_var.capacity_unavailable_gw:
         Y /= 1e3
-    elif unit == global_var.quantity_unit_mw:
+    elif unit == global_var.capacity_unavailable_mw:
         Y = Y
     else:
         raise ValueError
@@ -52,9 +48,9 @@ def evolution_mean_availability(ax,
         ax.step(X,
                 Y,
                 where = 'post',
-                label = '{0}mean unavailable power {1}'.format('$\Delta$ ' if diff_init else '',
-                                                               unit,
-                                                               ),
+                label = '{0}mean {1}'.format('$\Delta$ ' if diff_init else '',
+                                             unit,
+                                             ),
                 color = (global_var.colors[9]
                          if color is None
                          else
@@ -64,7 +60,7 @@ def evolution_mean_availability(ax,
     else:
         ax.plot(X,
                 Y,
-                label = 'mean unavailable power {0}'.format(unit),
+                label = 'mean {0}'.format(unit),
                 color = (global_var.colors[9]
                          if color is None
                          else

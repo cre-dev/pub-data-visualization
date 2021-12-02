@@ -35,25 +35,43 @@ def load(source   = global_var.data_source_weather_meteofrance,
     else: 
         raise ValueError('Incorrect source : {0}'.format(source))
             
-    dg = df.pivot_table(values  = global_var.quantity_value, 
-                        index   = [global_var.weather_dt_UTC], 
-                        columns = [
-                                   global_var.weather_site_name,
-                                   global_var.weather_physical_quantity,
-                                   global_var.weather_nature,
-                                   ],
-                        )
-    
+    # dg = df.pivot_table(values  = global_var.quantity_value,
+    #                     index   = [global_var.weather_dt_UTC],
+    #                     columns = [
+    #                                global_var.weather_site_name,
+    #                                global_var.weather_physical_quantity,
+    #                                global_var.weather_nature,
+    #                                ],
+    #                     )
+
+    assert set(df.columns) == {global_var.weather_physical_quantity,
+                               global_var.weather_physical_quantity_value,
+                               global_var.weather_dt_UTC,
+                               global_var.weather_nature,
+                               global_var.weather_site_name,
+                               }
+
+    # Drop locations and average
+    dg = df.drop(global_var.weather_site_name, axis = 1)
+    dg = dg.groupby([global_var.weather_dt_UTC,
+                     global_var.weather_nature,
+                     global_var.weather_physical_quantity,
+                     ]).mean().reset_index()
+
+    # Format
+    dg = dg.set_index(global_var.weather_dt_UTC)
     dg = dg.reindex(sorted(dg.columns), axis = 1)
     dg = dg.sort_index()
-    
+
+    # Filter
     dh = dg.loc[  pd.Series(True, index = dg.index)
                 & ((dg.index >= date_min) if bool(date_min) else True)
                 & ((dg.index <  date_max) if bool(date_max) else True)
                 ]
-    
+
+    # Checks
     assert dh.shape[0] > 0
-    assert dh.index.is_unique
+    assert not dh.reset_index()[[global_var.weather_dt_UTC,global_var.weather_physical_quantity]].duplicated().sum()
 
     return dh
 

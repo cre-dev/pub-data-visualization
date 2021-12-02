@@ -191,6 +191,11 @@ def load(zone     = None,
         :rtype: pd.DataFrame
     """
 
+    if date_min is None:
+        date_min = pd.Timestamp('2015').tz_localize('UTC')
+    if date_max is None:
+        date_max = pd.Timestamp.utcnow()
+
     fname_weather = os.path.join(paths.fpath_weather_meteofrance_tmp, 
                                  'df_weather_{0}_{1}.csv'.format(date_min.year,
                                                                  (date_max-pd.DateOffset(nanosecond = 1)).year,
@@ -203,14 +208,14 @@ def load(zone     = None,
                                  )
     weather_description = load_weather_description()
     try:
-        print('Load weather_data - ', end = '')
+        print('Load weather/meteofrance - ', end = '')
         df_weather = pd.read_csv(fname_weather,
                                  sep       = ';',
                                  )
         df_weather.loc[:,global_var.weather_dt_UTC] = pd.to_datetime(df_weather[global_var.weather_dt_UTC])
         with open(fname_trash, 'rb') as f:
             trash_weather = pickle.load(f)
-        print('Loaded df_weather and trash_weather')
+        print('Loaded')
     except Exception:
         print('fail - has to read raw data')
         dikt_weather = {}
@@ -255,13 +260,13 @@ def load(zone     = None,
         df_weather[global_var.weather_nature] = global_var.weather_nature_observation 
         df_weather                  = df_weather.set_index(global_var.weather_nature, append = True).unstack(global_var.weather_nature)
         df_weather.columns          = df_weather.columns.remove_unused_levels()
-        df_weather                  = df_weather.stack([0,1,2])
-        df_weather.name             = global_var.quantity_value
-        df_weather                  = df_weather.reset_index()
+        ds_weather                  = df_weather.stack([0,1,2])
+        ds_weather.name             = global_var.weather_physical_quantity_value
+        df_weather                  = ds_weather.reset_index()
+
         # Save
-        os.makedirs(os.path.dirname(fname_weather), exist_ok = True)
-        
         print('Save')
+        os.makedirs(os.path.dirname(fname_weather), exist_ok = True)
         df_weather.to_csv(fname_weather,
                           index = False,
                           sep   = ';',

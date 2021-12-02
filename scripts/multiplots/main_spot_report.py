@@ -21,10 +21,13 @@ data_source_weather = global_var.data_source_weather_meteofrance
 weather_nature      = global_var.weather_nature_observation
 #
 data_source_production = global_var.data_source_production_eco2mix
-production_nature      = global_var.production_nature_observation_gw
+production_nature      = global_var.production_nature_observation
+production_unit        = global_var.production_power_gw
 #
 data_source_load = global_var.data_source_load_eco2mix
-load_nature      = global_var.load_nature_observation_gw
+load_nature      = global_var.load_nature_observation
+load_unit        = global_var.load_power_gw
+load_nature_forecast = global_var.load_nature_forecast_day1
 #
 data_source_outages      = global_var.data_source_outages_rte
 producer_outages         = None
@@ -48,9 +51,6 @@ df_weather = weather.load(source   = data_source_weather,
                           date_min = date_min,
                           date_max = date_max,
                           )
-dg_weather          = df_weather.groupby(level = global_var.weather_physical_quantity,
-                                         axis  = 1,
-                                         ).agg(np.mean)
 
 ### Production
 df_production = production.load(source   = data_source_production,
@@ -100,11 +100,12 @@ dg_auctions = dg_auctions.sort_index()
 
 
 ### Plot
-multiplots.spot_report(dg_weather,
+multiplots.spot_report(df_weather,
                        df_production,
                        dg_load,
                        df_extrapolated_programs,
                        dg_auctions,
+                       load_nature_forecast = load_nature_forecast,
                        map_code   = map_code,
                        date_min   = date_min,
                        date_max   = date_max,

@@ -6,6 +6,7 @@ from .... import global_var
 
 def forecasting_error(ax,
                       df,
+                      load_unit = None,
                       load_observation_nature = None,
                       load_forecast_nature    = None,
                       **kwargs
@@ -16,7 +17,7 @@ def forecasting_error(ax,
         :param ax: The ax to fill
         :param df: The load data
         :param load_observation_nature: The nature of the observation data to plot
-        :param load_forecasts_nature: The nature of the forecasts to plot
+        :param load_forecast_nature: The nature of the forecasts to plot
         :param kwargs: additional parameter for the plt.plot function
         :type ax: matplotlib.axes._subplots.AxesSubplot
         :type df: pd.DataFrame
@@ -25,9 +26,10 @@ def forecasting_error(ax,
         :type kwargs: dict
         :return: None
         :rtype: None
-    """  
-    forecasting_error = (  df.xs(load_observation_nature, level = global_var.load_nature, axis = 1)
-                         - df.xs(load_forecast_nature,    level = global_var.load_nature, axis = 1)
+    """
+
+    forecasting_error = (  df.loc[df[global_var.load_nature] == load_observation_nature][load_unit]
+                         - df.loc[df[global_var.load_nature] == load_forecast_nature][load_unit]
                          )
     forecasting_error = forecasting_error.squeeze().dropna()
     

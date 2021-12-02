@@ -1,11 +1,12 @@
 
 
 #
-from .... import global_tools
+from .... import global_tools, global_var
 
 
 def curve(ax,
           df,
+          nature            = None,
           physical_quantity = None,
           **kwargs,
           ):
@@ -24,12 +25,14 @@ def curve(ax,
         :rtype: None
     """ 
     
-    dg = df[physical_quantity]
-    assert not dg.empty
+    ds = df.loc[  (df[global_var.weather_nature] == nature)
+                & (df[global_var.weather_physical_quantity] == physical_quantity)
+                ][global_var.weather_physical_quantity_value]
+    assert not ds.empty
     
-    ax.plot(dg.index,
-            dg,
-            label = global_tools.format_latex(dg.name),
+    ax.plot(ds.index,
+            ds,
+            label = global_tools.format_latex(physical_quantity),
             **kwargs,
             )
 

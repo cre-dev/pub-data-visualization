@@ -42,16 +42,17 @@ def load(source             = None,
     
     else: 
         raise ValueError('Incorrect source : {0}'.format(source))
-        
+
+    # Format
     df = df.set_index([global_var.publication_id,
                        global_var.publication_version, 
                        global_var.publication_dt_UTC, 
                        ], 
-                      drop = True, 
+                      drop = True,
                       )
-    
+
+    # Filter
     df = df[col_order]
-    
     dg = df.loc[  pd.Series(True, index = df.index)
                 & ((df[global_var.producer_name]    .isin([producer]          if type(producer)          == str else producer))          if bool(producer)            else True)
                 & ((df[global_var.production_source].isin([production_source] if type(production_source) == str else production_source)) if bool(production_source)  else True)
@@ -59,7 +60,8 @@ def load(source             = None,
                 & ((df[global_var.publication_dt_UTC] >= publication_dt_min)                                                             if bool(publication_dt_min) else True)
                 & ((df[global_var.publication_dt_UTC] <= publication_dt_max)                                                             if bool(publication_dt_max) else True)
                 ]
-    
+
+    # Checks
     assert dg.shape[0] > 0
     
     return dg
@@ -69,8 +71,8 @@ col_order = [
 global_var.outage_begin_dt_UTC,
 global_var.outage_end_dt_UTC,
 global_var.unit_name,
-global_var.outage_remaining_power_mw,
-global_var.unit_nameplate_capacity,
+global_var.capacity_available_mw,
+global_var.capacity_nominal_mw,
 global_var.producer_name,
 global_var.geography_map_code,
 global_var.production_source,

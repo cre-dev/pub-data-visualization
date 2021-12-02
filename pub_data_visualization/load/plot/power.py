@@ -17,6 +17,7 @@ global_tools.set_mpl(mpl, plt, FontProperties())
 def power(df,
           source_load = None,
           load_nature = None,
+          load_unit   = None,
           map_code    = None,
           date_min    = None,
           date_max    = None,
@@ -56,10 +57,6 @@ def power(df,
     else:
         plt.ion()
     
-
-    ### Checks
-    assert df.index.is_unique
-    
     ### Figure
     fig, ax = plt.subplots(figsize = figsize,
                            nrows   = 1,
@@ -71,12 +68,17 @@ def power(df,
                   df,
                   map_code    = map_code,
                   load_nature = load_nature,
+                  load_unit   = load_unit,
                   label       = global_tools.format_latex(' - '.join([e
                                                                       for e in [map_code,load_nature]
                                                                       if bool(e)
                                                                       ])),
                   )
-        
+
+    ### Labels
+    ax.set_xlabel(global_tools.format_latex(df.index.name))
+    ax.set_ylabel(global_tools.format_latex(load_unit))
+
     ### Ticks
     ax.xaxis.set_major_formatter(mdates.DateFormatter(global_var.dt_formatter))
     fig.autofmt_xdate()

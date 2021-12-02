@@ -61,7 +61,6 @@ def distribution(df,
                          df,
                          figsize,
                          nature            = nature,
-                         source            = source,
                          physical_quantity = physical_quantity,
                          )
     
@@ -69,10 +68,9 @@ def distribution(df,
     title = ' - '.join(filter(None, [
                                      'source = {source}' if source else '',
                                      'nature = {nature}' if nature else '',
-                                     'physical_quantity = {physical_quantity}' if physical_quantity else '',
                                      ])).format(source            = source,
                                                 nature            = nature,
-                                                physical_quantity = physical_quantity,
+                                                weather_quantity = physical_quantity,
                                                 )    
     fig.suptitle(global_tools.format_latex(title))
     

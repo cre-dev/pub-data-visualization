@@ -153,8 +153,8 @@ def animated_availability(dh,
                      loc = 0,
                      )
     
-    ### labels                
-    ax[0].set_ylabel(global_var.outage_expected_availability_mw)
+    ### Labels
+    ax[0].set_ylabel(global_var.capacity_available_mw)
     
                     
     ### Finalize

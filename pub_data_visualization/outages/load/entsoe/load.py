@@ -23,7 +23,7 @@ def load(map_code = None):
                                      file     = 'df',
                                      ) + '.csv'
     try:
-        print('Load df and dikt - ', end = '')
+        print('Load outages/entsoe - ', end = '')
         df = pd.read_csv(df_path,
                          sep = ';',
                          )
@@ -57,25 +57,24 @@ def load(map_code = None):
                 df        = pd.read_csv(os.path.join(folder,
                                                      fname,
                                                      ),
-                                        encoding   = 'UTF-16 LE',
+                                        encoding   = 'UTF-8',
                                         sep        = '\t',
                                         decimal    = '.',
                                         )
-                df = df.rename(transcode.columns, 
+                df = df.rename(transcode.columns,
                                axis = 1,
                                )
                 df = df.loc[df[global_var.geography_map_code] == map_code]
                 df[global_var.file_name] = os.path.basename(fname)
-                match_unit_type = re.compile(r"^(\d{4})_(\d{1,2})_Outages(G|P)U.csv$").match(fname)
-                assert match_unit_type.group(3) in ['G','P']
-                df[global_var.unit_type] = (global_var.unit_type_group
-                                            if match_unit_type.group(3) == 'G'
-                                            else
-                                            global_var.unit_type_plant
-                                            )
+                match_unit_type = re.compile(r"^(\d{4})_(\d{1,2})_UnavailabilityOf(Generation|Production)Units_15.1.(A_B|C_D).csv$").match(fname)
+                # assert match_unit_type.group(3) in ['G','P']
+                # df[global_var.unit_type] = (global_var.unit_type_group
+                #                             if match_unit_type.group(3) == 'G'
+                #                             else
+                #                             global_var.unit_type_plant
+                #                             )
                 # Localize and Convert
-                for col in [
-                            global_var.publication_dt_UTC,
+                for col in [global_var.publication_dt_UTC,
                             global_var.outage_begin_dt_UTC,
                             global_var.outage_end_dt_UTC,
                             ]:
@@ -99,9 +98,9 @@ def load(map_code = None):
                        sort = False,
                        )
         df = df.reset_index(drop = True)
-        df[global_var.outage_remaining_power_gw] = df[global_var.outage_remaining_power_mw]/1e3
-        df.loc[:,global_var.producer_name]       = global_var.producer_name_unknown
-        df[global_var.commodity] = global_var.commodity_electricity
+        df[global_var.capacity_available_gw] = df[global_var.capacity_available_mw]/1e3
+        df.loc[:,global_var.producer_name]   = global_var.producer_name_unknown
+        df[global_var.commodity]             = global_var.commodity_electricity
         
         print('Transcode')
         df.loc[:,global_var.unit_name]         = df[global_var.unit_name].apply(global_tools.format_unit_name)

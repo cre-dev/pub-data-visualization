@@ -17,12 +17,13 @@ unit_name              = 'DAMPIERRE 3'
 date_min               = None
 date_max               = None
 #
-data_source_outages    = global_var.data_source_outages_rte
+data_source_outages    = global_var.data_source_outages_entsoe
 producer_outages       = None
 #
-data_source_production = global_var.data_source_production_rte
+data_source_production = global_var.data_source_production_entsoe
 production_source      = None
-production_nature      = global_var.production_nature_observation_mw
+production_nature      = global_var.production_nature_observation
+production_unit        = global_var.production_power_mw
 local_tz               = 'CET'
 ###############################################################################
 figsize    = global_var.figsize_horizontal_ppt
@@ -61,6 +62,7 @@ multiplots.transparent_production(df_awaited_program,
                                   date_max          = date_max,
                                   production_source = production_source,
                                   production_nature = production_nature,
+                                  production_unit   = production_unit,
                                   local_tz          = local_tz,
                                   figsize           = figsize,
                                   folder_out        = folder_out,

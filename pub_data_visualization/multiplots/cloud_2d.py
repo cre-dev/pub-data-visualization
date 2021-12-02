@@ -73,8 +73,8 @@ def cloud_2d(X,
         ax.scatter(X, Y)
 
     ### Labels
-    ax.set_xlabel(x_label)
-    ax.set_ylabel(y_label)
+    ax.set_xlabel(global_tools.format_latex(x_label))
+    ax.set_ylabel(global_tools.format_latex(y_label))
                     
     ### Finalize
     title = ' - '.join(filter(None, [

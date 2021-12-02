@@ -11,7 +11,6 @@ def distribution(ax,
                  df,
                  figsize,
                  nature            = None,
-                 source            = None,
                  physical_quantity = None,
                  ):
     """
@@ -21,27 +20,19 @@ def distribution(ax,
         :param df: The production data
         :param figsize: Desired size of the figure
         :param nature: The nature of the weather data to plot
-        :param source: The source of the weather data to plot
-        :param physical_quantity: The weather quantity to plot
+        :param weather_quantity: The weather quantity to plot
         :type ax: matplotlib.axes._subplots.AxesSubplot
         :type df: pd.DataFrame
         :type fig_size: (int,int)
         :type nature: string
-        :type source: string
-        :type physical quantity: string
+        :type weather_quantity: string
         :return: None
         :rtype: None
     """ 
 
-    data = (df.xs(key   = nature,
-                  axis  = 1,
-                  level = global_var.weather_nature,
-                  )
-            .xs(key   = physical_quantity,
-                axis  = 1,
-                level = global_var.weather_physical_quantity,
-                )
-            ).mean(axis = 1)
+    data = df.loc[  (df[global_var.weather_nature] == nature)
+                  & (df[global_var.weather_physical_quantity] == physical_quantity)
+                  ][global_var.weather_physical_quantity_value]
     
     MONTHS = np.unique(data.index.month)
     YEARS  = np.unique(data.index.year)

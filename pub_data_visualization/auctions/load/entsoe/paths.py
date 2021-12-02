@@ -12,10 +12,10 @@ from .... import global_var
 
 folder_raw = os.path.join(global_var.path_public_data,
                           '11_ENTSOE',
-                          'DayAheadPrices',
+                          'DayAheadPrices_12.1.D',
                           )
 fpath_tmp = os.path.join(global_var.path_transformed,
                          'ENTSOE',
                          'DayAheadPrices',
-                         'DayAheadPrices_{map_code}.csv',
+                         'DayAheadPrices_12.1.D_{map_code}.csv',
                          )

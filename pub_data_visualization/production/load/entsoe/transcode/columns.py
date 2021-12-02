@@ -1,6 +1,6 @@
 
 """
-    Correspondances between the names used by ENTSO-E
+    Connections between the names used by ENTSO-E
     and the user defined names.
     
 """
@@ -15,11 +15,11 @@ columns = {'ActualConsumption'       : global_var.production_negative_part_mw,
            'DateTime'                : global_var.production_dt_UTC,
            'Day'                     : global_var.production_day_UTC,
            'GenerationUnitEIC'       : global_var.unit_eic,
-           'InstalledGenCapacity'    : global_var.unit_nameplate_capacity,
+           'InstalledGenCapacity'    : global_var.capacity_nominal_mw,
            'MapCode'                 : global_var.geography_map_code,
            'Month'                   : global_var.production_month_UTC,
            'PowerSystemResourceName' : global_var.unit_name,
-           'ProductionTypeName'      : global_var.production_source,
+           'ProductionType'          : global_var.production_source,
            'ResolutionCode'          : global_var.time_resolution_code,
            'UpdateTime'              : global_var.publication_dt_UTC,
            'Year'                    : global_var.production_year_UTC,

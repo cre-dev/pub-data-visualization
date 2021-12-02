@@ -8,7 +8,7 @@
 from ...... import global_var
 
 
-columns = {'Capacité de production Installée (MW)' : global_var.capacity_mw,
+columns = {'Capacité de production Installée (MW)' : global_var.capacity_nominal_mw,
            'Date de suppression'                   : global_var.capacity_end_date_local,
            'Localisation'                          : global_var.geography_country,
            'Type'                                  : global_var.production_source,

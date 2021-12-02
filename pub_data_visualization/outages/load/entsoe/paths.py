@@ -1,4 +1,3 @@
-
 """
     Folders where the raw outages data provided by ENTSO-E
     and the transformed dataframes are saved.

@@ -13,11 +13,10 @@ from pub_data_visualization import auctions, global_var
 ###############################################################################
 data_source_auctions  = global_var.data_source_auctions_entsoe
 map_code              = [global_var.geography_map_code_france,
-                         global_var.geography_map_code_gb,
                          global_var.geography_map_code_belgium,
                          ]
+delivery_end_dt_min   = None
 delivery_begin_dt_max = None
-delivery_end_dt_min   = None 
 ###############################################################################
 figsize    = global_var.figsize_horizontal_ppt
 folder_out = global_var.path_plots

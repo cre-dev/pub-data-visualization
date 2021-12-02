@@ -68,22 +68,22 @@ The data have to be stored as follows :
 ```
 ~/_energy_public_data/
 ├── 11_ENTSOE/
-│  ├── ActualGenerationOutputPerUnit/
-│  │  ├── 2014_12_ActualGenerationOutputPerUnit.csv
+│  ├── ActualGenerationOutputPerGenerationUnit_16.1.A/
+│  │  ├── 2021_01_ActualGenerationOutputPerGenerationUnit_16.1.A.csv
 │  │  ├── …	 
-│  ├── ActualTotalLoad/
-│  │  ├── 2014_12_ActualTotalLoad.csv
+│  ├── ActualTotalLoad_6.1.A/
+│  │  ├── 2021_01_ActualTotalLoad_6.1.A.csv
 │  │  ├── …	 
-│  ├── DayAheadPrices/	 
-│  │  ├── 2014_12_DayAheadPrices.csv
+│  ├── DayAheadPrices_12.1.D/	 
+│  │  ├── 2021_01_DayAheadPrices_12.1.D.csv
 │  │  ├── …	 
 │  ├── Outages/	 	 
-│  │  ├── OutagesGU/	 
-│  │  │  ├── 2014_12_OutagesGU.csv
-│  │  │  ├── …
-│  │  ├── OutagesPU/	 
-│  │  │  ├── 2014_12_OutagesPU.csv
-│  │  │  ├── …
+│  │  ├── UnavailabilityOfGenerationUnits_15.1.A_B/	 
+│  │  │  ├── 2021_01_UnavailabilityOfGenerationUnits_15.1.A_B.csv
+│  │  │  ├── …	 
+│  │  ├── UnavailabilityOfProductionUnits_15.1.C_D/	 
+│  │  │  ├── 2021_01_UnavailabilityOfProductionUnits_15.1.C_D.csv
+│  │  │  ├── …	 
 ├──20_MeteoFrance/	 	 
 │  ├── synop/	 	 
 │  │  ├── postesSynop.csv

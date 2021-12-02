@@ -19,12 +19,12 @@ def load(map_code = None):
     """
     df_path = paths.fpath_tmp.format(map_code = map_code) + '.csv'
     try:
-        print('Loaded df - ', end = '')
+        print('Load capacity/entsoe - ', end = '')
         df = pd.read_csv(df_path,
                          header = [0],
                          sep = ';',
                          )
-        print('Loaded df') 
+        print('Loaded')
     except Exception as e:
         print('fail')
         print(e)
@@ -39,7 +39,7 @@ def load(map_code = None):
                                      '{0}'.format(paths.folder_raw)
                                      )
         for ii, fname in enumerate(list_files):
-                print('\r{0:3}/{1:3} - {2}'.format(ii,
+                print('\r{0:3}/{1:3} - {2}'.format(ii+1,
                                                    len(list_files),
                                                    fname,
                                                    ),
@@ -48,7 +48,7 @@ def load(map_code = None):
                 df = pd.read_csv(os.path.join(paths.folder_raw,
                                               fname,
                                               ),
-                                 encoding   = 'UTF-16 LE',
+                                 encoding   = 'UTF-8',
                                  sep        = '\t',
                                  decimal    = '.',
                                  )

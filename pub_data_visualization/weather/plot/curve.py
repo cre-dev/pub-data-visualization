@@ -66,6 +66,7 @@ def curve(df,
     ### Subplot
     subplot.curve(ax,
                   df,
+                  nature            = nature,
                   physical_quantity = physical_quantity,
                   )
     
@@ -90,7 +91,6 @@ def curve(df,
     ### Finalize
     title = ' - '.join(filter(None, ['source = {source}'if source else '',
                                      'nature = {nature}' if nature else '',
-                                     'physical_quantity = {physical_quantity}' if physical_quantity else '',
                                      ])).format(nature            = nature,
                                                 source            = source,
                                                 physical_quantity = physical_quantity,

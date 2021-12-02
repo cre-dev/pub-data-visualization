@@ -23,17 +23,15 @@ import matplotlib.patches as mpatches
 
 ###############################################################################
 map_code          = global_var.geography_map_code_france
-date_min          = pd.Timestamp('2017-01-01 00:00').tz_localize(global_var.dikt_tz[map_code])
-date_max          = pd.Timestamp('2018-01-01 00:00').tz_localize(global_var.dikt_tz[map_code])
+date_min          = None
+date_max          = None
 #
 data_source_weather = global_var.data_source_weather_meteofrance
-weather_quantity    = global_var.weather_temperature_celsius
+weather_nature      = global_var.weather_nature_observation
+physical_quantity   = global_var.weather_temperature_celsius
 #
 data_source_auctions = global_var.data_source_auctions_entsoe
-map_code_auctions    = [global_var.geography_map_code_france,
-                        global_var.geography_map_code_germany_luxembourg,
-                        global_var.geography_map_code_spain,
-                        ] 
+map_code_auctions    = global_var.geography_map_code_france
 #
 kernel_plot = False
 ###############################################################################
@@ -47,10 +45,9 @@ df = weather.load(source   = data_source_weather,
                   date_min = date_min,
                   date_max = date_max,
                   )
-dg = df.groupby(level = global_var.weather_physical_quantity,
-                axis  = 1,
-                ).agg(np.mean)
-df_weather = dg.loc[:,weather_quantity]
+ds_weather = df.loc[  (df[global_var.weather_physical_quantity] == physical_quantity)
+                    & (df[global_var.weather_nature]            == weather_nature)
+                    ][global_var.weather_physical_quantity_value]
 
 ### Auctions
 df_auctions = auctions.load(date_min = date_min,
@@ -73,11 +70,11 @@ dg_auctions = df_auctions.pivot_table(values = global_var.auction_price_euro_mwh
 dg_auctions = dg_auctions.sort_index()
 
 ### Plot
-common_index = dg_auctions.index.get_level_values(global_var.contract_delivery_begin_dt_UTC).intersection(df_weather.index)
+common_index = dg_auctions.index.get_level_values(global_var.contract_delivery_begin_dt_UTC).intersection(ds_weather.index)
 X = dg_auctions.loc[(slice(None), slice(None), slice(None), slice(None), slice(None), common_index),:]
-Y = df_weather.loc[common_index]
+Y = ds_weather.loc[common_index]
 x_label   = global_var.auction_price_euro_mwh
-y_label   = weather_quantity
+y_label   = physical_quantity
 plot_name = 'scatter_price_weather'
 
 multiplots.cloud_2d(X,

@@ -17,6 +17,7 @@ def power(df,
           map_code          = None,
           production_source = None,
           production_nature = None,
+          production_unit   = None,
           unit_name         = None,
           date_min          = None,
           date_max          = None,
@@ -74,8 +75,11 @@ def power(df,
                   unit_name         = unit_name,
                   production_source = production_source,
                   production_nature = production_nature,
+                  production_unit   = production_unit,
                   label             = global_tools.format_latex(' - '.join([e
-                                                                            for e in [map_code,unit_name,production_nature]
+                                                                            for e in [map_code,
+                                                                                      unit_name,
+                                                                                      production_nature]
                                                                             if bool(e)
                                                                             ])),
                    )
@@ -86,9 +90,10 @@ def power(df,
     if date_min and date_max:
         ax.set_xlim(date_min, date_max)
     
-    ### labels                
+    ### Labels
     ax.set_xlabel(global_tools.format_latex(df.index.name))
-    
+    ax.set_ylabel(global_tools.format_latex(production_unit))
+
     ### Add legend
     lns01, labs01 = ax.get_legend_handles_labels()
     by_label0 = dict(zip(labs01, lns01))

@@ -33,13 +33,13 @@ def load(date_min = None,
                                        (date_max - pd.DateOffset(nanosecond = 1)).year if bool(date_max) else 'None',
                                        )
     try:
-        print('Load df - ', end = '')
+        print('Load production/eco2mix - ', end = '')
         df = pd.read_csv(fpath_csv,
                          header = [0],
                          sep = ';',
                          )
         df.loc[:,global_var.production_dt_UTC] = pd.to_datetime(df[global_var.production_dt_UTC])
-        print('Loaded df') 
+        print('Loaded')
     except:
         print('fail - has to read raw data')
         dikt_production = {}
@@ -47,7 +47,7 @@ def load(date_min = None,
                                 ((date_max-pd.DateOffset(nanosecond = 1)).year+1) if bool(date_max) else dt.datetime.now().year,
                                 )
         for ii, year in enumerate(range_years):
-            print('\r{0:3}/{1:3} - {2}'.format(ii,
+            print('\r{0:3}/{1:3} - {2}'.format(ii+1,
                                                len(range_years),
                                                year,
                                                ),
@@ -72,9 +72,9 @@ def load(date_min = None,
             df.loc[:,global_var.production_dt_local] = df[global_var.production_dt_local].dt.tz_localize('CET', ambiguous = True)
             df[global_var.production_dt_UTC]         = df[global_var.production_dt_local].dt.tz_convert('UTC')
             df = df.drop([global_var.file_info,
-                          global_var.load_nature_forecast_day0_mw,
-                          global_var.load_nature_forecast_day1_mw,
-                          global_var.load_nature_observation_mw,
+                          global_var.load_nature_forecast_day0,
+                          global_var.load_nature_forecast_day1,
+                          global_var.load_nature_observation,
                           global_var.production_date_local,
                           global_var.production_time_local,
                           global_var.geography_area_name,
@@ -96,19 +96,20 @@ def load(date_min = None,
                                ])
             df.columns.name = global_var.production_source
             df = df.dropna(axis = 0, how = 'all')
-            df = df.stack(0)
-            df.name = global_var.quantity_value
-            df = df.reset_index()
-            df[global_var.unit_name] = 'agg'
-            df[global_var.production_nature] = global_var.production_nature_observation_mw
-            dikt_production[year] = df
+            ds = df.stack(0)
+            ds.name = global_var.production_power_mw
+            dg = ds.reset_index()
+            dg[global_var.unit_name] = dg[global_var.production_source] + ' - agg'
+            dikt_production[year] = dg
         print()
+
         df = pd.concat([dikt_production[key]
                         for key in dikt_production.keys()
                         ],
                        axis = 0,
                        )
-        df[global_var.commodity] = global_var.commodity_electricity
+        df[global_var.commodity]         = global_var.commodity_electricity
+        df[global_var.production_nature] = global_var.production_nature_observation
 
         # Save
         print('Save')

@@ -39,24 +39,36 @@ def load(source      = None,
     
     else: 
         raise ValueError('Incorrect source : {0}'.format(source))
-    
-    ### Pivot
-    dg = df.pivot_table(values  = global_var.quantity_value, 
-                        index   = global_var.load_dt_UTC, 
-                        columns = [global_var.geography_map_code,
-                                   global_var.load_nature,
-                                   ],
-                        )
-    dg = dg.reindex(sorted(dg.columns), axis = 1)
-    dg = dg.sort_index()
 
+    # At this point, df has columns
+    # global_var.commodity
+    # global_var.load_dt_UTC
+    #  (values are e.g. observation or forecast)
+    #
+    #
+    #
+
+    # Checks
+    assert set(df.columns) == {global_var.commodity,
+                               global_var.load_dt_UTC,
+                               global_var.load_nature,
+                               global_var.load_power_gw,
+                               global_var.load_power_mw,
+                               global_var.geography_map_code,
+                               }
+
+    # Sort
+    dg = df.set_index(global_var.load_dt_UTC)
+    dg = dg.sort_index()
+    dg = dg.reindex(sorted(dg.columns), axis = 1)
+
+    # Filter
     dh = dg.loc[  pd.Series(True, index = dg.index)
                 & ((dg.index >= date_min) if bool(date_min) else True)
                 & ((dg.index <  date_max) if bool(date_max) else True)
                 ]
     
     assert dh.shape[0] > 0
-    assert dh.index.is_unique
+    assert not dh.reset_index()[[global_var.load_dt_UTC,global_var.load_nature]].duplicated().sum()
 
     return dh
-

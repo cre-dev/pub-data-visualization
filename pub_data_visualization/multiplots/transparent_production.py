@@ -25,6 +25,7 @@ def transparent_production(program,
                            local_tz          = None,
                            production_nature = None,
                            production_source = None,
+                           production_unit   = None,
                            figsize           = global_var.figsize_horizontal,
                            folder_out        = None, 
                            close             = True,
@@ -86,6 +87,7 @@ def transparent_production(program,
                              unit_name = unit_name,
                              production_nature = production_nature,
                              production_source = production_source,
+                             production_unit   = production_unit,
                              label     = global_tools.format_latex('{0} - {1}'.format(map_code,
                                                                                       unit_name,
                                                                                       )
@@ -106,7 +108,7 @@ def transparent_production(program,
         ax.set_xlabel(global_tools.format_latex(global_var.production_dt_tz.format(tz = local_tz)))
     else:
         ax.set_xlabel(global_tools.format_latex(df_prod.index.name))           
-    ax.set_ylabel(global_tools.format_latex(production_nature))
+    ax.set_ylabel(global_tools.format_latex(production_unit))
     
     ### Add legend
     lns01, labs01 = ax.get_legend_handles_labels()
@@ -120,13 +122,15 @@ def transparent_production(program,
                     
     ### Finalize
     title = ' - '.join(filter(None, [
-                                     'source_outages = {source_outages}' if source_outages else '',
-                                     'map_code = {map_code}'if map_code else '',
-                                     'unit_name = {unit_name}' if unit_name else '',
+                                     'data_outages = {source_outages}' if source_outages else '',
+                                     'data_production = {source_production}' if source_production else '',
+                                     'map_code = {map_code}'if (map_code and not unit_name) else '',
                                      'production_source = {production_source}' if production_source else '',
+                                     'unit_name = {unit_name}' if unit_name else '',
                                      ])).format(source_outages = source_outages,
                                                 map_code       = map_code,
                                                 unit_name      = unit_name,
+                                                source_production = source_production,
                                                 production_source = production_source,
                                                 )
     fig.suptitle(global_tools.format_latex(title))

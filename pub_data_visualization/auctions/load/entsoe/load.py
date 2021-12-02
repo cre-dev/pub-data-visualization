@@ -17,7 +17,7 @@ def load(map_code = None):
     
     df_path = paths.fpath_tmp.format(map_code = map_code)
     try:
-        print('Load auctions - ', end = '')
+        print('Load auctions/entsoe - ', end = '')
         df = pd.read_csv(df_path,
                          sep = ';',
                          )
@@ -38,7 +38,7 @@ def load(map_code = None):
                                      '{0}'.format(paths.folder_raw)
                                      )
         for ii, fname in enumerate(list_files):
-            print('\r{0:4}/{1:4} - {2}'.format(ii,
+            print('\r{0:4}/{1:4} - {2}'.format(ii+1,
                                                len(list_files),
                                                fname,
                                                ),
@@ -48,7 +48,7 @@ def load(map_code = None):
                                  fname,
                                  )
             dg = pd.read_csv(fpath,
-                             encoding   = 'UTF-16 LE',
+                             encoding   = 'UTF-8',
                              sep        = '\t',
                              decimal    = '.',
                              )

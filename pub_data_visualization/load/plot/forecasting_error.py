@@ -16,8 +16,8 @@ global_tools.set_mpl(mpl, plt, FontProperties())
         
 def forecasting_error(df,
                       source_load             = None,
-                      load_observation_nature = None,
-                      load_forecast_nature    = None,
+                      load_unit               = None,
+                      load_nature_forecast    = None,
                       map_code                = None,
                       date_min                = None,
                       date_max                = None,
@@ -59,9 +59,6 @@ def forecasting_error(df,
     else:
         plt.ion()
     
-    ### Checks
-    assert df.index.is_unique
-    
     ### Plots
     fig, ax = plt.subplots(figsize = figsize, 
                            nrows   = 1,
@@ -72,25 +69,31 @@ def forecasting_error(df,
     subplot.power(ax,
                   df,
                   map_code    = map_code,
-                  load_nature = load_observation_nature,
+                  load_unit   = load_unit,
+                  load_nature = global_var.load_nature_observation,
                   label       = global_tools.format_latex(' - '.join([e
                                                                       for e in [map_code,
-                                                                                load_observation_nature,
+                                                                                global_var.load_nature_observation,
                                                                                 ]
                                                                       if bool(e)
                                                                       ])),
                   )
     subplot.forecasting_error(ax,
                               df,
-                              load_observation_nature = load_observation_nature,
-                              load_forecast_nature    = load_forecast_nature,
+                              load_unit = load_unit,
+                              load_observation_nature = global_var.load_nature_observation,
+                              load_forecast_nature    = load_nature_forecast,
                               color     = 'b',
                               linewidth = 0.5,
                               label     = global_tools.format_latex(' - '.join([e
-                                                                                for e in [map_code,load_forecast_nature]
+                                                                                for e in [map_code,load_nature_forecast]
                                                                                 if bool(e)
                                                                                 ]) + ' error'),
                                )
+
+    ### Labels
+    ax.set_xlabel(global_tools.format_latex(df.index.name))
+    ax.set_ylabel(global_tools.format_latex(load_unit))
             
     ### Ticks
     ax.xaxis.set_major_formatter(mdates.DateFormatter(global_var.dt_formatter))

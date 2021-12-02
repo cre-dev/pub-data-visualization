@@ -13,7 +13,7 @@ from pub_data_visualization import global_var, weather
 ###############################################################################
 data_source_weather = global_var.data_source_weather_meteofrance
 weather_nature      = global_var.weather_nature_observation
-weather_quantity    = global_var.weather_temperature_celsius
+physical_quantity   = global_var.weather_temperature_celsius
 date_min            = pd.Timestamp('2016').tz_localize('CET')
 date_max            = pd.Timestamp('2021').tz_localize('CET')
 ###############################################################################
@@ -32,7 +32,7 @@ df = weather.load(source   = data_source_weather,
 weather.plot.distribution(df, 
                           source            = data_source_weather,
                           nature            = weather_nature,
-                          physical_quantity = weather_quantity,
+                          physical_quantity = physical_quantity,
                           folder_out        = folder_out,
                           close             = close,
                           figsize           = figsize,

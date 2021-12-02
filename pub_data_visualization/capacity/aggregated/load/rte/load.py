@@ -18,7 +18,7 @@ def load(map_code = None):
     assert map_code == global_var.geography_map_code_france
     df_path         = paths.fpath_tmp.format(map_code = map_code) + '.csv'
     try:
-        print('Load df - ', end = '')
+        print('Load capacity/rte - ', end = '')
         df = pd.read_csv(df_path,
                          header = [0],
                          sep = ';',
@@ -35,7 +35,7 @@ def load(map_code = None):
                                 if os.path.splitext(fname)[1] == '.xls'
                                 ])
         for ii, fname in enumerate(list_files):
-            print('\r{0:3}/{1:3} - {2}'.format(ii,
+            print('\r{0:3}/{1:3} - {2}'.format(ii+1,
                                                len(list_files),
                                                fname,
                                                ),

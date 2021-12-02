@@ -39,7 +39,7 @@ def compute_all_programs(df_outage,
     dikt_programs         = {}
     dikt_bad_publications = {}
     for ii, unit_name in enumerate(list_plants):
-        print('\rCompute program - {0:3}/{1:3} - {2:20}'.format(ii, 
+        print('\rCompute program - {0:3}/{1:3} - {2:20}'.format(ii+1,
                                                                 len(list_plants),
                                                                 unit_name,
                                                                 ),
@@ -105,7 +105,7 @@ def compute_program(dg,
                                         )
 
     ### Capacity
-    nameplate_capacity_max = max(dg[global_var.unit_nameplate_capacity])
+    nameplate_capacity_max = max(dg[global_var.capacity_nominal_mw])
     assert not np.isnan(nameplate_capacity_max)
 
     # Init program    
@@ -128,7 +128,7 @@ def compute_program(dg,
             prev_outage_begin        = prev[global_var.outage_begin_dt_UTC]
             prev_outage_end          = prev[global_var.outage_end_dt_UTC]
             ### Get the nameplate capacity
-            prev_nameplate_capacity = prev[global_var.unit_nameplate_capacity]
+            prev_nameplate_capacity = prev[global_var.capacity_nominal_mw]
             if np.isnan(prev_nameplate_capacity):
                 prev_nameplate_capacity = nameplate_capacity_max
             ### Identify where previous publication is still the most recent
@@ -163,10 +163,10 @@ def compute_program(dg,
         if publi[global_var.outage_status] == global_var.outage_status_cancelled:
             cancelled_publications.append(publi_id)
         else:
-            remaining_power_mw   = publi[global_var.outage_remaining_power_mw]           
+            remaining_power_mw   = publi[global_var.capacity_available_mw]
             correction_begin     = publi[global_var.outage_begin_dt_UTC]
             correction_end       = publi[global_var.outage_end_dt_UTC]
-            nameplate_capacity   = publi[global_var.unit_nameplate_capacity]
+            nameplate_capacity   = publi[global_var.capacity_nominal_mw]
             if np.isnan(nameplate_capacity):
                 nameplate_capacity = nameplate_capacity_max
             cond_capacity_end    = (    bool(capacity_end_date)

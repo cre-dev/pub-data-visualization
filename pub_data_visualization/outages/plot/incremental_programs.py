@@ -100,8 +100,9 @@ def incremental_programs(df_programs,
         ax.set_xlim(date_min, date_max)
     
     ### labels                
-    ax.set_ylabel(global_var.outage_expected_availability_mw)
-    
+    ax.set_xlabel(global_tools.format_latex(df_programs.index.name))
+    ax.set_ylabel(global_tools.format_latex(global_var.capacity_available_mw))
+
     
     ### Add legend
     lns01, labs01 = ax.get_legend_handles_labels()
