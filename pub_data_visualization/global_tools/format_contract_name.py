@@ -3,12 +3,12 @@ import re
 #
 from .. import global_var
 
-def format_contract_name(year,
-                         frequency,
-                         delivery_period,
-                         profile   = None,
+def format_contract_name(commodity = None,
                          map_code  = None,
-                         commodity = None,
+                         year      = None,
+                         frequency = None,
+                         delivery_period = None,
+                         profile   = None,
                          ):
     """
         Returns a generic name for a given contract.

@@ -45,7 +45,7 @@ dikt = {
     "COMBIGOLFE CCG"      : "COMBIGOLFE",
     "CYCOFOS PL"          : "CYCOFOS ",
     "DAMPIERRE EN BURLY"  : "DAMPIERRE",
-    "FR GA MORANT1"       : "MORANT",
+    "FR GA MORANT1"       : "BAYET",
     "FR CPCU COGEVITRY"   : "COGEVITRY",
     "FR CPCU SAINT OUEN"  : "ST OUEN",
     "FR LA STPIERRE G"    : "ST PIERRE",

@@ -31,10 +31,16 @@ def compute_delivery_dates(delivery_begin_year   = None,
     """
 
     if frequency == global_var.contract_frequency_year:
-        delivery_begin_date = pd.to_datetime("01/01/{year}".format(year = delivery_begin_year),
-                                             format = "%d/%m/%Y",
+        delivery_begin_date = pd.to_datetime("01/01/{year}".format(year=delivery_begin_year),
+                                             format="%d/%m/%Y",
                                              )
-        delivery_end_date   = delivery_begin_date + pd.DateOffset(years = 1)
+        delivery_end_date = delivery_begin_date + pd.DateOffset(years=1)
+
+    elif frequency == global_var.contract_frequency_gas_year:
+        delivery_begin_date = pd.to_datetime("01/10/{year}".format(year=delivery_begin_year),
+                                             format="%d/%m/%Y",
+                                             )
+        delivery_end_date = delivery_begin_date + pd.DateOffset(years=1)
 
     elif frequency == global_var.contract_frequency_boy:
         if bool(delivery_begin_date):

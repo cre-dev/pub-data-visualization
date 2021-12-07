@@ -111,8 +111,8 @@ def compute_maturity(dt                  = None,
     ### GY+X
     elif frequency in [global_var.contract_frequency_gas_year,
                        ]:
-        action_floor   = action_date.replace(day = 1, month = 10) - pd.DateOffset(years = 1)*(action_date.month <= 10)
-        delivery_floor = delivery_date.replace(day = 1, month = 10) - pd.DateOffset(years = 1)*(delivery_date.month <= 10)
+        action_floor   = action_date.replace(day = 1, month = 10) - pd.DateOffset(years = 1)*int(action_date.month <= 10)
+        delivery_floor = delivery_date.replace(day = 1, month = 10) - pd.DateOffset(years = 1)*int(delivery_date.month <= 10)
         nb_years       = (delivery_floor.year - action_floor.year)
         assert nb_years >= 0
         return global_var.maturity_gas_year.format(nb_years = nb_years)

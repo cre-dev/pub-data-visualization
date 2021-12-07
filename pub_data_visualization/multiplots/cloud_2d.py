@@ -17,7 +17,8 @@ def cloud_2d(X,
              Y,
              x_label     = None,
              y_label     = None,
-             kernel_plot = None,
+             kernel_plot    = False,
+             display_linreg = False,
              plot_name   = None,
              date_min    = None,
              date_max    = None, 
@@ -71,10 +72,28 @@ def cloud_2d(X,
         subplot.kernel()
     else:
         ax.scatter(X, Y)
+        if display_linreg:
+            xm = X.mean()
+            ym = Y.mean()
+            x = X - xm
+            y = Y - ym
+            a = x.T.dot(y)/x.T.dot(x)
+            b = ym - a*xm
+            def f(t):
+                return a*t + b
+            ax.plot([X.min(), X.max()],
+                    [f(X.min()), f(X.max())],
+                    c = 'k',
+                    ls = '--',
+                    label = 'f(t) = {0:.2f}.t + {1:.2f}'.format(a, b),
+                    )
 
     ### Labels
     ax.set_xlabel(global_tools.format_latex(x_label))
     ax.set_ylabel(global_tools.format_latex(y_label))
+
+    # Legend
+    ax.legend()
                     
     ### Finalize
     title = ' - '.join(filter(None, [

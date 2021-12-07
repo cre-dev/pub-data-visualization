@@ -32,6 +32,7 @@ def compute_delivery_windows(frequency                 = None,
         :return: The delivery windows as list of intervals
         :rtype: list of pairs of pd.Timestamp
     """
+
     bloc_match = re.compile(global_var.contract_profile_bloc_pattern).match(profile)
     if (   frequency == global_var.contract_frequency_unknown
         or not (   bloc_match
