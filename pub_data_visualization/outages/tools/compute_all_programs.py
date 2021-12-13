@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 #
-from ... import global_var, capacity
+from ... import global_var, production_capacity
     
 def compute_all_programs(df_outage,
                          list_plants = None,
@@ -21,9 +21,9 @@ def compute_all_programs(df_outage,
     """  
     
     try:
-        capacity_end = capacity.unit.load(source     = global_var.data_source_capacity_rte,
-                                          map_code   = 'FR',
-                                          )
+        capacity_end = production_capacity.unit.load(source   = global_var.data_source_capacity_rte,
+                                                     map_code = 'FR',
+                                                     )
         capacity_end = {k:v
                         for ii, (k, v) in capacity_end[[global_var.unit_name,
                                                         global_var.capacity_end_date_local,

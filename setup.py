@@ -15,6 +15,7 @@ setup(
                           'matplotlib',
                           'numpy',
                           'pandas',
+						  'requests',
                           'seaborn',
                           'termcolor',
                           ],

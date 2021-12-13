@@ -32,11 +32,11 @@
 
 
 from . import auctions
-from . import capacity
 from . import global_tools
 from . import global_var
 from . import load
 from . import multiplots
 from . import outages
 from . import production
+from . import production_capacity
 from . import weather
