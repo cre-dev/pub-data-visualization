@@ -23,12 +23,13 @@ def compute_maturity(dt                  = None,
         :return: The maturity for the pair (contract, trade/order)
         :rtype: string
     """
-        
-    delivery_date = delivery_begin_date.floor('D')
-    if commodity == global_var.commodity_gas:
-        action_date = (dt.floor('D') - pd.Timedelta(hours = 6)).floor('D')
-    elif commodity == global_var.commodity_electricity:
-        action_date = dt.floor('D')
+
+    if commodity == global_var.commodity_electricity:
+        action_date   = dt.floor('D')
+        delivery_date = delivery_begin_date.floor('D')
+    elif commodity == global_var.commodity_gas:
+        action_date   = (dt - pd.Timedelta(hours = 6)).floor('D')
+        delivery_date = delivery_begin_date.floor('D')
     else:
         raise ValueError
     
@@ -42,25 +43,23 @@ def compute_maturity(dt                  = None,
         nb_days = int((delivery_date - action_date).total_seconds()//(3600*24))
         assert nb_days >= 0
         return global_var.maturity_day.format(nb_days = nb_days)
-    
+
     ### WE+X
     elif frequency in [global_var.contract_frequency_weekend,
                        ]:
-        action_floor   = action_date - pd.DateOffset(days = action_date.timetuple().tm_wday)
-        delivery_floor = delivery_date - - pd.DateOffset(days = action_date.timetuple().tm_wday)
+        action_floor   = action_date   - pd.DateOffset(days = action_date.timetuple().tm_wday)
+        delivery_floor = delivery_date - pd.DateOffset(days = delivery_date.timetuple().tm_wday)
         nb_weeks = int(round((delivery_floor - action_floor).total_seconds()//(3600*24*7)))
-        if nb_weeks >= 0:
-            return global_var.maturity_weekend.format(nb_weeks = nb_weeks)
-        else:
-            return global_var.maturity_unknown
+        assert nb_weeks >= 0
+        return global_var.maturity_weekend.format(nb_weeks = nb_weeks)
     
     ### W+X
     elif frequency in [global_var.contract_frequency_bow,
                        global_var.contract_frequency_week,
                        global_var.contract_frequency_weekbgn,
                        ]:
-        action_floor   = action_date - pd.DateOffset(days = action_date.timetuple().tm_wday)
-        delivery_floor = delivery_date - - pd.DateOffset(days = action_date.timetuple().tm_wday)
+        action_floor   = action_date   - pd.DateOffset(days = action_date.timetuple().tm_wday)
+        delivery_floor = delivery_date - pd.DateOffset(days = delivery_date.timetuple().tm_wday)
         nb_weeks = int(round((delivery_floor - action_floor).total_seconds()//(3600*24*7)))
         assert nb_weeks >= 0
         return global_var.maturity_week.format(nb_weeks = nb_weeks)
@@ -107,8 +106,7 @@ def compute_maturity(dt                  = None,
         delivery_floor = delivery_date.replace(day = 1, month = 1)
         nb_years       = delivery_floor.year - action_floor.year
         assert nb_years >= 0
-        return global_var.maturity_year.format(nb_years = nb_years)    
-        
+        return global_var.maturity_year.format(nb_years = nb_years)
         
     ### GY+X
     elif frequency in [global_var.contract_frequency_gas_year,
