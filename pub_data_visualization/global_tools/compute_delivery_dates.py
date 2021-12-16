@@ -9,6 +9,7 @@ from .. import global_var
 
 def compute_delivery_dates(delivery_begin_year   = None,
                            delivery_begin_date   = None,
+                           delivery_end_date     = None,
                            frequency             = None,
                            delivery_period_index = None,
                            local_tz              = None,
@@ -18,11 +19,13 @@ def compute_delivery_dates(delivery_begin_year   = None,
  
         :param delivery_begin_year: The year of the delivery
         :param delivery_begin_date: The presumed date of the delivery
+        :param delivery_end_date: The presumed date of the delivery
         :param frequency: The type of delivery contract (year, month, etc.)
         :param delivery_period_index: The index of the delivery contract
         :param local_tz: The local timezone
         :type delivery_begin_year: int
         :type delivery_begin_date: pd.Timestamp
+        :type delivery_end_date: pd.Timestamp
         :type frequency: string
         :type delivery_period_index: int
         :type local_tz: pytz.tzfile
@@ -86,6 +89,12 @@ def compute_delivery_dates(delivery_begin_year   = None,
                                              format = "%d/%m/%Y",
                                              )
         delivery_end_date = delivery_begin_date + pd.DateOffset(months = 1)
+
+    elif frequency in [global_var.contract_frequency_fr,
+                       global_var.contract_frequency_bk,
+                       ]:
+        assert bool(delivery_begin_date)
+        assert bool(delivery_end_date)
 
     elif frequency == global_var.contract_frequency_bom:
         if bool(delivery_begin_date):
@@ -202,5 +211,5 @@ def compute_delivery_dates(delivery_begin_year   = None,
     if bool(delivery_end_date) and delivery_end_date.tz   is None:
         delivery_end_date   = delivery_end_date.tz_localize(local_tz)
         
-    return delivery_begin_date, delivery_end_date
+    return pd.Series([delivery_begin_date, delivery_end_date])
 

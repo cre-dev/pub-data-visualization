@@ -12,6 +12,7 @@ def compute_delivery_windows(frequency                 = None,
                              delivery_period_index     = None,
                              profile                   = None,
                              delivery_begin_date_local = None,
+                             delivery_end_date_local   = None,
                              tz_local                  = None,
                              ):
     """
@@ -22,12 +23,14 @@ def compute_delivery_windows(frequency                 = None,
         :param delivery_period_index: The index of the delivery contract
         :param profile: The profile of the delivery
         :param delivery_begin_date_local: The beginning date of the delivery
+        :param delivery_end_date_local: The beginning date of the delivery
         :param tz_local: The local timezone
         :type frequency: string
         :type delivery_begin_year_local: int
         :type delivery_period_index: int
         :type profile: string
         :type delivery_begin_date_local: pd.Timestamp
+        :type delivery_end_date_local: pd.Timestamp
         :type tz_local: pytz.tzfile
         :return: The delivery windows as list of intervals
         :rtype: list of pairs of pd.Timestamp
@@ -57,16 +60,18 @@ def compute_delivery_windows(frequency                 = None,
                                                                                     local_tz              = tz_local,
                                                                                     )
     else:
-        dd, delivery_end_date_local = compute_delivery_dates(delivery_begin_year   = delivery_begin_year_local,
-                                                             delivery_begin_date   = delivery_begin_date_local,
-                                                             frequency             = frequency,
-                                                             delivery_period_index = delivery_period_index,
-                                                             local_tz              = tz_local,
+        dd, delivery_end_date_local = compute_delivery_dates(delivery_begin_year=delivery_begin_year_local,
+                                                             delivery_begin_date=delivery_begin_date_local,
+                                                             delivery_end_date=delivery_end_date_local,
+                                                             frequency=frequency,
+                                                             delivery_period_index=delivery_period_index,
+                                                             local_tz=tz_local,
                                                              )
-        if not dd == delivery_begin_date_local:
+        if  dd != delivery_begin_date_local:
             assert profile == global_var.contract_profile_peak, 'Incorrect begin_date, profile : {0}, {1}'.format(delivery_begin_date_local,
                                                                                                                   profile,
-                                                                                                                  )   
+                                                                                                                  frequency,
+                                                                                                                  )
         
     if   profile == global_var.contract_profile_gas:
         return [(delivery_begin_date_local.replace(hour = 6),

@@ -66,7 +66,9 @@ def compute_maturity(dt                  = None,
         return global_var.maturity_week.format(nb_weeks = nb_weeks)
     
     ### M+X
-    elif frequency in [global_var.contract_frequency_bom,
+    elif frequency in [global_var.contract_frequency_fr,
+                       global_var.contract_frequency_bk,
+                       global_var.contract_frequency_bom,
                        global_var.contract_frequency_month,
                        global_var.contract_frequency_months,
                        ]:

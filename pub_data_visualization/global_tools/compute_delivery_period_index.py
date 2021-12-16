@@ -115,6 +115,12 @@ def compute_delivery_period_index(frequency               = None,
                                                                        day   = delivery_begin_dt_local.day,
                                                                        ))
 
+    elif frequency == global_var.contract_frequency_fr:
+        ans = delivery_begin_dt_local.month
+
+    elif frequency == global_var.contract_frequency_bk:
+        ans = delivery_begin_dt_local.month
+
     elif frequency == global_var.contract_frequency_quarter:
         ans = (delivery_begin_dt_local.month//3)+1
 
