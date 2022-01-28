@@ -7,7 +7,7 @@
 
 from ..... import global_var
 
-columns = {'date'      : global_var.weather_dt_UTC,
+columns = {'date'      : global_var.weather_dt_utc,
            't'         : global_var.weather_temperature_kelvin,
            'n'         : global_var.weather_nebulosity,
            'ff'        : global_var.weather_wind_speed,

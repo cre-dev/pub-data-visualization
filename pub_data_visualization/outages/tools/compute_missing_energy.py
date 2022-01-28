@@ -73,7 +73,7 @@ def compute_missing_energy(product_delivery_windows_local,
 
     dikt_energy           = {}
     for ii, unit_name in enumerate(dikt_programs):
-        print('\rcompute_missing_energy loop 1 - {0:3}/{1:3}- {2:20}'.format(ii,
+        print('\rcompute_missing_energy loop 1 - {0:3}/{1:3}- {2:20}'.format(ii+1,
                                                                              len(dikt_programs),
                                                                              unit_name, 
                                                                              ),
@@ -89,7 +89,7 @@ def compute_missing_energy(product_delivery_windows_local,
                                          for e in dikt_energy[unit_name].index
                                          ]))
     for ii, unit_name in enumerate(dikt_energy):
-        print('\rcompute_missing_energy loop 2 - {0:3}/{1:3}- {2:20}'.format(ii,
+        print('\rcompute_missing_energy loop 2 - {0:3}/{1:3}- {2:20}'.format(ii+1,
                                                                              len(dikt_energy),
                                                                              unit_name, 
                                                                              ),
