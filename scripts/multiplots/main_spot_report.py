@@ -10,7 +10,7 @@ of a given zone.
 import numpy  as np
 import pandas as pd
 #
-from pub_data_visualization import global_var, weather, production, load, outages, auctions, multiplots
+from pub_data_visualization import global_var, weather, production, load, outages, indices, multiplots
 
 ###############################################################################
 map_code          = global_var.geography_map_code_france
@@ -79,7 +79,7 @@ df_extrapolated_programs = outages.tools.extrapolate_programs(dikt_programs,
                                                               )
 
 ### Auctions
-df_auctions = auctions.load(date_min = date_min,
+df_auctions = indices.load(date_min = date_min,
                             date_max = date_max,
                             source   = data_source_auctions,
                             map_code = map_code_auctions,
@@ -90,7 +90,7 @@ dg_auctions = df_auctions.pivot_table(values = global_var.auction_price_euro_mwh
                                                global_var.contract_delivery_begin_date_local, 
                                                global_var.contract_delivery_period_index, 
                                                global_var.contract_delivery_begin_dt_local,
-                                               global_var.contract_delivery_begin_dt_UTC,
+                                               global_var.contract_delivery_begin_dt_utc,
                                                global_var.contract_profile,
                                                ],
                                       columns = [global_var.geography_map_code,

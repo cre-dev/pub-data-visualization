@@ -41,7 +41,7 @@ def load(map_code = None,
                          header = [0],
                          sep = ';',
                          )
-        df.loc[:,global_var.load_dt_UTC] = pd.to_datetime(df[global_var.load_dt_UTC])
+        df.loc[:,global_var.load_dt_utc] = pd.to_datetime(df[global_var.load_dt_utc])
         print('Loaded')
     except:
         print('fail - has to read raw data')
@@ -72,14 +72,14 @@ def load(map_code = None,
                                                           )
             df = df.loc[df[global_var.load_dt_local].apply(lambda x : global_tools.dt_exists_in_tz(x, 'CET'))]
             df[global_var.load_dt_local] = df[global_var.load_dt_local].dt.tz_localize('CET', ambiguous = True)
-            df[global_var.load_dt_UTC]   = df[global_var.load_dt_local].dt.tz_convert('UTC') 
+            df[global_var.load_dt_utc]   = df[global_var.load_dt_local].dt.tz_convert('UTC')
             df = df[[global_var.load_nature_forecast_day0,
                      global_var.load_nature_forecast_day1,
                      global_var.load_nature_observation,
-                     global_var.load_dt_UTC,
+                     global_var.load_dt_utc,
                      ]]
             df[global_var.geography_map_code] = global_var.geography_map_code_france
-            df = df.set_index([global_var.load_dt_UTC,
+            df = df.set_index([global_var.load_dt_utc,
                                global_var.geography_map_code,
                                ])
             df.columns.name = global_var.load_nature

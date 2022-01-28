@@ -33,10 +33,10 @@ def load(date_min = None,
         df = pd.read_csv(df_path,
                          sep=';',
                          )
-        df.loc[:,global_var.transmission_begin_dt_UTC]    = pd.to_datetime(df[global_var.transmission_begin_dt_UTC])
-        df.loc[:,global_var.transmission_end_dt_UTC]      = pd.to_datetime(df[global_var.transmission_end_dt_UTC])
-        df.loc[:, global_var.transmission_begin_dt_local] = df[global_var.transmission_begin_dt_UTC].dt.tz_convert('CET')
-        df.loc[:, global_var.transmission_end_dt_local]   = df[global_var.transmission_end_dt_UTC].dt.tz_convert('CET')
+        df.loc[:,global_var.transmission_begin_dt_utc]    = pd.to_datetime(df[global_var.transmission_begin_dt_utc])
+        df.loc[:,global_var.transmission_end_dt_utc]      = pd.to_datetime(df[global_var.transmission_end_dt_utc])
+        df.loc[:, global_var.transmission_begin_dt_local] = df[global_var.transmission_begin_dt_utc].dt.tz_convert('CET')
+        df.loc[:, global_var.transmission_end_dt_local]   = df[global_var.transmission_end_dt_utc].dt.tz_convert('CET')
         print('Loaded')
     except FileNotFoundError:
         print('Not loaded')
@@ -59,8 +59,8 @@ def load(date_min = None,
         ### Datetimes
         df[global_var.transmission_begin_dt_local] = pd.to_datetime(df[global_var.transmission_begin_dt_local]).dt.tz_localize('CET')
         df[global_var.transmission_end_dt_local]   = pd.to_datetime(df[global_var.transmission_end_dt_local]).dt.tz_localize('CET') + pd.Timedelta(seconds = 1)
-        df[global_var.transmission_begin_dt_UTC] = df[global_var.transmission_begin_dt_local].dt.tz_convert('UTC')
-        df[global_var.transmission_end_dt_UTC]   = df[global_var.transmission_end_dt_local].dt.tz_convert('UTC')
+        df[global_var.transmission_begin_dt_utc] = df[global_var.transmission_begin_dt_local].dt.tz_convert('UTC')
+        df[global_var.transmission_end_dt_utc]   = df[global_var.transmission_end_dt_local].dt.tz_convert('UTC')
 
         # Power units
         assert set(df[global_var.transmission_unit].unique()) == {'kWh/d'}

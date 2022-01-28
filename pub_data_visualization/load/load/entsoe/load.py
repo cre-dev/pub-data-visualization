@@ -23,7 +23,7 @@ def load(map_code = None):
                          header = [0],
                          sep = ';',
                          )
-        df.loc[:,global_var.load_dt_UTC] = pd.to_datetime(df[global_var.load_dt_UTC])
+        df.loc[:,global_var.load_dt_utc] = pd.to_datetime(df[global_var.load_dt_utc])
         print('Loaded')
     except Exception as e:
         print('fail')
@@ -58,13 +58,13 @@ def load(map_code = None):
                 df = df.rename(transcode.columns,
                                axis = 1,
                                )
-                df[global_var.load_dt_UTC] = pd.to_datetime(df[global_var.load_dt_UTC]).dt.tz_localize('UTC') 
+                df[global_var.load_dt_utc] = pd.to_datetime(df[global_var.load_dt_utc]).dt.tz_localize('UTC')
                 df = df[df[global_var.geography_map_code] == map_code]
-                df = df[[global_var.load_dt_UTC,
+                df = df[[global_var.load_dt_utc,
                          global_var.geography_map_code,
                          global_var.load_power_mw,
                          ]]
-                df = df.set_index([global_var.load_dt_UTC,
+                df = df.set_index([global_var.load_dt_utc,
                                    global_var.geography_map_code,
                                    ])
                 #df.columns.name = global_var.load_nature
@@ -84,7 +84,7 @@ def load(map_code = None):
         df[global_var.commodity]     = global_var.commodity_electricity
         df[global_var.load_nature]   = global_var.load_nature_observation
         df[global_var.load_power_gw] = df[global_var.load_power_mw]/1e3
-        df = df[~df[global_var.load_dt_UTC].duplicated(keep='first')]
+        df = df[~df[global_var.load_dt_utc].duplicated(keep='first')]
 
         # Save
         print('Save')

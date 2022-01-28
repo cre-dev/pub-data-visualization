@@ -42,7 +42,7 @@ def load(source      = None,
 
     # At this point, df has columns
     # global_var.commodity
-    # global_var.load_dt_UTC
+    # global_var.load_dt_utc
     #  (values are e.g. observation or forecast)
     #
     #
@@ -50,7 +50,7 @@ def load(source      = None,
 
     # Checks
     assert set(df.columns) == {global_var.commodity,
-                               global_var.load_dt_UTC,
+                               global_var.load_dt_utc,
                                global_var.load_nature,
                                global_var.load_power_gw,
                                global_var.load_power_mw,
@@ -58,7 +58,7 @@ def load(source      = None,
                                }
 
     # Sort
-    dg = df.set_index(global_var.load_dt_UTC)
+    dg = df.set_index(global_var.load_dt_utc)
     dg = dg.sort_index()
     dg = dg.reindex(sorted(dg.columns), axis = 1)
 
@@ -69,6 +69,6 @@ def load(source      = None,
                 ]
     
     assert dh.shape[0] > 0
-    assert not dh.reset_index()[[global_var.load_dt_UTC,global_var.load_nature]].duplicated().sum()
+    assert not dh.reset_index()[[global_var.load_dt_utc,global_var.load_nature]].duplicated().sum()
 
     return dh

@@ -3,7 +3,7 @@ import os
 from .. import global_tools, global_var
 from ..weather.plot import subplot as weather_subplot
 from ..load.plot import subplot as load_subplot
-from ..auctions.plot import subplot as auctions_subplot
+from ..indices.plot import subplot as indices_subplot
 from ..production.plot import subplot as prod_subplot
 from ..outages.plot import subplot as outages_subplot
 #

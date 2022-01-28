@@ -38,7 +38,7 @@ def load(date_min = None,
                          header = [0],
                          sep = ';',
                          )
-        df.loc[:,global_var.production_dt_UTC] = pd.to_datetime(df[global_var.production_dt_UTC])
+        df.loc[:,global_var.production_dt_utc] = pd.to_datetime(df[global_var.production_dt_utc])
         print('Loaded')
     except:
         print('fail - has to read raw data')
@@ -70,7 +70,7 @@ def load(date_min = None,
             df = df.loc[~df[global_var.production_dt_local].isna()]
             df = df.loc[df[global_var.production_dt_local].apply(lambda x : global_tools.dt_exists_in_tz(x, 'CET'))]
             df.loc[:,global_var.production_dt_local] = df[global_var.production_dt_local].dt.tz_localize('CET', ambiguous = True)
-            df[global_var.production_dt_UTC]         = df[global_var.production_dt_local].dt.tz_convert('UTC')
+            df[global_var.production_dt_utc]         = df[global_var.production_dt_local].dt.tz_convert('UTC')
             df = df.drop([global_var.file_info,
                           global_var.load_nature_forecast_day0,
                           global_var.load_nature_forecast_day1,
@@ -91,7 +91,7 @@ def load(date_min = None,
                          axis = 1,
                          )
             df[global_var.geography_map_code] = global_var.geography_map_code_france
-            df = df.set_index([global_var.production_dt_UTC,
+            df = df.set_index([global_var.production_dt_utc,
                                global_var.geography_map_code,
                                ])
             df.columns.name = global_var.production_source

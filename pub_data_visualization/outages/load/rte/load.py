@@ -34,10 +34,10 @@ def load(map_code = None):
                          )
         with open(dikt_incoherences_path, 'rb') as f:
             dikt_incoherences = pickle.load(f)
-        df.loc[:,global_var.publication_dt_UTC]          = pd.to_datetime(df[global_var.publication_dt_UTC])
-        df.loc[:,global_var.outage_begin_dt_UTC]         = pd.to_datetime(df[global_var.outage_begin_dt_UTC])
-        df.loc[:,global_var.outage_end_dt_UTC]           = pd.to_datetime(df[global_var.outage_end_dt_UTC])
-        df.loc[:,global_var.publication_creation_dt_UTC] = pd.to_datetime(df[global_var.publication_creation_dt_UTC])
+        df.loc[:,global_var.publication_dt_utc]          = pd.to_datetime(df[global_var.publication_dt_utc])
+        df.loc[:,global_var.outage_begin_dt_utc]         = pd.to_datetime(df[global_var.outage_begin_dt_utc])
+        df.loc[:,global_var.outage_end_dt_utc]           = pd.to_datetime(df[global_var.outage_end_dt_utc])
+        df.loc[:,global_var.publication_creation_dt_utc] = pd.to_datetime(df[global_var.publication_creation_dt_utc])
         print('Loaded')
     except FileNotFoundError:
         print('fail - FileNotFound')
@@ -92,13 +92,13 @@ def load(map_code = None):
         print('Localize and convert')
         df[global_var.geography_map_code]    = map_code
         df[global_var.capacity_available_gw] = df[global_var.capacity_available_mw]/1e3
-        for col_local, col_UTC in [(global_var.publication_creation_dt_local, global_var.publication_creation_dt_UTC),
-                                   (global_var.publication_dt_local,          global_var.publication_dt_UTC),
-                                   (global_var.outage_begin_dt_local,         global_var.outage_begin_dt_UTC),
-                                   (global_var.outage_end_dt_local,           global_var.outage_end_dt_UTC),
+        for col_local, col_utc in [(global_var.publication_creation_dt_local, global_var.publication_creation_dt_utc),
+                                   (global_var.publication_dt_local,          global_var.publication_dt_utc),
+                                   (global_var.outage_begin_dt_local,         global_var.outage_begin_dt_utc),
+                                   (global_var.outage_end_dt_local,           global_var.outage_end_dt_utc),
                                    ]:
             df.loc[:,col_local] = pd.to_datetime(df[col_local], format = '%d/%m/%Y %H:%M').dt.tz_localize('CET', ambiguous = True)
-            df[col_UTC]         = df[col_local].dt.tz_convert('UTC')
+            df[col_utc]         = df[col_local].dt.tz_convert('UTC')
             df = df.drop(col_local, axis = 1)        
 
         print('Transcode')
@@ -117,7 +117,6 @@ def load(map_code = None):
             if pd.isnull(df.loc[df[global_var.unit_name] == unit_name][global_var.capacity_nominal_mw]).all() > 0:
                 df.loc[df[global_var.unit_name] == unit_name][global_var.capacity_nominal_mw] = transcode.capacity[unit_name]
         df[global_var.commodity] = global_var.commodity_electricity
-            
         
         print('Save')
         os.makedirs(os.path.dirname(df_path),

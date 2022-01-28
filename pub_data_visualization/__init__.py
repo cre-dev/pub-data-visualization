@@ -31,9 +31,9 @@
 """
 
 
-from . import auctions
 from . import global_tools
 from . import global_var
+from . import indices
 from . import load
 from . import multiplots
 from . import outages

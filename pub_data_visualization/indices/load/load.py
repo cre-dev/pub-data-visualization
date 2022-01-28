@@ -2,35 +2,34 @@
 import pandas as pd
 #
 from ... import global_var
-from . import entsoe
+from . import entsoe_da
 
 
 def load(source   = None,
-         map_code = None,
          date_min = None,
          date_max = None,
+         **kwargs,
          ):
     """
-        Calls the appropriate loader of the prices
-        between two dates from the given data source.
+        Calls the appropriate loader of indices from the given data source.
  
         :param source: The data source
-        :param map_code: The bidding zone
         :param date_min: The left bound
         :param date_max: The right bound
+        :param kwargs: Additional kwargs
         :type source: string
-        :type map_code: string
         :type date_min: pd.Timestamp
         :type date_max: pd.Timestamp
-        :return: The selected auction prices
+        :type kwargs: dict
+        :return: The selected indices
         :rtype: pd.DataFrame
     """
     
     if source == global_var.data_source_auctions_entsoe:
-        dg = entsoe.load(map_code = map_code)
+        dg = entsoe_da.load(**kwargs)
     
     else: 
-        raise ValueError('Incorrect source : {0}'.format(source))
+        raise ValueError('Incorrect data source : {0}'.format(source))
 
     dh = dg.loc[  pd.Series(True, index = dg.index)
                 & ((dg[global_var.auction_dt_UTC] >= date_min) if bool(date_min) else True)

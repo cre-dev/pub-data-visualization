@@ -27,10 +27,10 @@ def load(map_code = None):
         df = pd.read_csv(df_path,
                          sep = ';',
                          )
-        df.loc[:,global_var.publication_dt_UTC]          = pd.to_datetime(df[global_var.publication_dt_UTC])
-        df.loc[:,global_var.outage_begin_dt_UTC]         = pd.to_datetime(df[global_var.outage_begin_dt_UTC])
-        df.loc[:,global_var.outage_end_dt_UTC]           = pd.to_datetime(df[global_var.outage_end_dt_UTC])
-        df.loc[:,global_var.publication_creation_dt_UTC] = pd.to_datetime(df[global_var.publication_creation_dt_UTC])
+        df.loc[:,global_var.publication_dt_utc]          = pd.to_datetime(df[global_var.publication_dt_utc])
+        df.loc[:,global_var.outage_begin_dt_utc]         = pd.to_datetime(df[global_var.outage_begin_dt_utc])
+        df.loc[:,global_var.outage_end_dt_utc]           = pd.to_datetime(df[global_var.outage_end_dt_utc])
+        df.loc[:,global_var.publication_creation_dt_utc] = pd.to_datetime(df[global_var.publication_creation_dt_utc])
         print('Loaded') 
     except FileNotFoundError:
         print('fail - FileNotFound')
@@ -68,9 +68,9 @@ def load(map_code = None):
                 df = df.loc[df[global_var.geography_map_code] == map_code]
                 df[global_var.file_name] = os.path.basename(fname)
                 # Localize and Convert
-                for col in [global_var.publication_dt_UTC,
-                            global_var.outage_begin_dt_UTC,
-                            global_var.outage_end_dt_UTC,
+                for col in [global_var.publication_dt_utc,
+                            global_var.outage_begin_dt_utc,
+                            global_var.outage_end_dt_utc,
                             ]:
                     df.loc[:,col] = pd.to_datetime(df[col],
                                                    format = '%Y/%m/%d %H:%M:%S',
@@ -80,8 +80,8 @@ def load(map_code = None):
                                                                                                             ).tz_convert('UTC'),
                                                                           axis = 1,
                                                                           )
-                dikt_id_creation_dt = df.groupby(global_var.publication_id)[global_var.publication_dt_UTC].agg(min).to_dict()
-                df[global_var.publication_creation_dt_UTC] = df[global_var.publication_id].map(dikt_id_creation_dt)
+                dikt_id_creation_dt = df.groupby(global_var.publication_id)[global_var.publication_dt_utc].agg(min).to_dict()
+                df[global_var.publication_creation_dt_utc] = df[global_var.publication_id].map(dikt_id_creation_dt)
                 dikt_outages[fname] = df
             
         print('\nConcatenate')

@@ -31,10 +31,10 @@ close      = False
 ###############################################################################
 
 ### Contract name
-contract_name  = global_tools.format_contract_name(contract_delivery_begin_year,
-                                                   contract_frequency,
-                                                   contract_delivery_period_index,
-                                                   contract_profile,
+contract_name  = global_tools.format_contract_name(year = contract_delivery_begin_year,
+                                                   frequency = contract_frequency,
+                                                   delivery_period = contract_delivery_period_index,
+                                                   profile = contract_profile,
                                                    )
 
 ### Load

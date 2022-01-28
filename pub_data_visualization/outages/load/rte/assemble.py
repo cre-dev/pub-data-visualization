@@ -19,14 +19,14 @@ def assemble(df):
     
     ### Drop NaT values
     print('Drop NaT values')
-    nan_dates     = df[global_var.outage_end_dt_UTC].apply(pd.isnull)
+    nan_dates     = df[global_var.outage_end_dt_utc].apply(pd.isnull)
     if bool(nan_dates.sum()):
         print(colored("""Due to NaT in outage_end_dt columns, 
                       {0} publications in years {1} 
                       and concerning years {2} 
                       are dropped""".format(len(nan_dates),
-                                            df.loc[nan_dates][global_var.publication_dt_UTC].dt.year.unique(),
-                                            df.loc[nan_dates][global_var.outage_begin_dt_UTC].dt.year.unique(),
+                                            df.loc[nan_dates][global_var.publication_dt_utc].dt.year.unique(),
+                                            df.loc[nan_dates][global_var.outage_begin_dt_utc].dt.year.unique(),
                                             ),
                       'red',
                       ))
@@ -38,13 +38,13 @@ def assemble(df):
     df_check = df[[col
                    for col in df.columns
                    if col not in [global_var.file_name,
-                                  global_var.outage_period_begin_dt_UTC,
-                                  global_var.outage_period_end_dt_UTC,
+                                  global_var.outage_period_begin_dt_utc,
+                                  global_var.outage_period_end_dt_utc,
                                   ]
                    ]]
     groups_df_check = df_check.groupby([global_var.publication_id,
                                         global_var.publication_version, 
-                                        global_var.publication_dt_UTC, 
+                                        global_var.publication_dt_utc,
                                         ])
     dikt_groups = {k:v
                    for k, v in groups_df_check.groups.items()
@@ -66,7 +66,7 @@ def assemble(df):
     # Only keep the last publications       
     df = df.groupby([global_var.publication_id,
                      global_var.publication_version, 
-                     global_var.publication_dt_UTC, 
+                     global_var.publication_dt_utc,
                      ],
                     axis = 0,
                     ).tail(1)
@@ -74,12 +74,12 @@ def assemble(df):
     ### Sort rows
     print('Sort rows')
     df = df.sort_values(by = [
-                              global_var.publication_creation_dt_UTC,
+                              global_var.publication_creation_dt_utc,
                               global_var.publication_id,
                               global_var.publication_version,
-                              global_var.publication_dt_UTC,
+                              global_var.publication_dt_utc,
                               global_var.outage_status,
-                              global_var.outage_begin_dt_UTC,
+                              global_var.outage_begin_dt_utc,
                               ], 
                         ascending = [True,
                                      True,

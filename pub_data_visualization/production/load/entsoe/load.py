@@ -66,8 +66,8 @@ def load(map_code = None):
                                                   - df[global_var.production_negative_part_mw].fillna(0)
                                                   )
             df[global_var.production_nature] = global_var.production_nature_observation
-            df.loc[:,global_var.production_dt_UTC] = pd.to_datetime(df[global_var.production_dt_UTC]).dt.tz_localize('UTC')
-            df = df[[global_var.production_dt_UTC,
+            df.loc[:,global_var.production_dt_utc] = pd.to_datetime(df[global_var.production_dt_utc]).dt.tz_localize('UTC')
+            df = df[[global_var.production_dt_utc,
                      global_var.geography_map_code,
                      global_var.unit_name,
                      global_var.production_source,

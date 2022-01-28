@@ -45,7 +45,7 @@ def load(source            = None,
 
     assert set(df.columns) == {global_var.commodity,
                                global_var.geography_map_code,
-                               global_var.production_dt_UTC,
+                               global_var.production_dt_utc,
                                global_var.production_nature,
                                global_var.production_power_mw,
                                global_var.production_source,
@@ -54,7 +54,7 @@ def load(source            = None,
 
     # Sort
     dg = df.reindex(sorted(df.columns), axis = 1)
-    dg = dg.set_index(global_var.production_dt_UTC)
+    dg = dg.set_index(global_var.production_dt_utc)
     dg = dg.sort_index()
     dg[global_var.production_power_gw] = dg[global_var.production_power_mw]/1e3
 
@@ -66,7 +66,7 @@ def load(source            = None,
 
     # Checks
     assert dh.shape[0] > 0
-    assert not dh.reset_index()[[global_var.production_dt_UTC,global_var.unit_name]].duplicated().sum()
+    assert not dh.reset_index()[[global_var.production_dt_utc,global_var.unit_name]].duplicated().sum()
 
     return dh
 

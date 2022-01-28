@@ -21,7 +21,7 @@ def load():
                          header = [0],
                          sep = ';',
                          )
-        df.loc[:,global_var.production_dt_UTC] = pd.to_datetime(df[global_var.production_dt_UTC])
+        df.loc[:,global_var.production_dt_utc] = pd.to_datetime(df[global_var.production_dt_utc])
         print('Loaded')
     except Exception as e:
         print('fail')
@@ -62,7 +62,7 @@ def load():
                              )
             df = df.dropna(axis = 1, how = 'all')
             df.index         = [transcode.format_str_date(e) for e in df.index] 
-            df.index.name    = global_var.production_dt_UTC
+            df.index.name    = global_var.production_dt_utc
             df               = df.loc[df.index.dropna()]
             df.columns.names = [global_var.production_source, global_var.unit_name]
             df.columns       = df.columns.remove_unused_levels()

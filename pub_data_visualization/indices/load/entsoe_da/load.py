@@ -21,11 +21,11 @@ def load(map_code = None):
         df = pd.read_csv(df_path,
                          sep = ';',
                          )
-        df.loc[:,global_var.contract_delivery_begin_dt_UTC]     = pd.to_datetime(df[global_var.contract_delivery_begin_dt_UTC])
-        df.loc[:,global_var.contract_delivery_begin_date_UTC]   = pd.to_datetime(df[global_var.contract_delivery_begin_date_UTC])
-        df.loc[:,global_var.auction_dt_UTC]                     = pd.to_datetime(df[global_var.auction_dt_UTC])
-        df.loc[:,global_var.contract_delivery_begin_dt_local]   = df.apply(lambda row : row[global_var.contract_delivery_begin_dt_UTC].tz_convert(global_var.dikt_tz[row[global_var.geography_map_code]]), axis = 1)
-        df.loc[:,global_var.contract_delivery_begin_date_local] = df.apply(lambda row : row[global_var.contract_delivery_begin_date_UTC].tz_convert(global_var.dikt_tz[row[global_var.geography_map_code]]), axis = 1)
+        df.loc[:,global_var.contract_delivery_begin_dt_utc]     = pd.to_datetime(df[global_var.contract_delivery_begin_dt_utc])
+        df.loc[:,global_var.contract_delivery_begin_date_utc]   = pd.to_datetime(df[global_var.contract_delivery_begin_date_utc])
+        df.loc[:,global_var.auction_dt_utc]                     = pd.to_datetime(df[global_var.auction_dt_utc])
+        df.loc[:,global_var.contract_delivery_begin_dt_local]   = df.apply(lambda row : row[global_var.contract_delivery_begin_dt_utc].tz_convert(global_var.dikt_tz[row[global_var.geography_map_code]]), axis = 1)
+        df.loc[:,global_var.contract_delivery_begin_date_local] = df.apply(lambda row : row[global_var.contract_delivery_begin_date_utc].tz_convert(global_var.dikt_tz[row[global_var.geography_map_code]]), axis = 1)
         print('Loaded') 
     except FileNotFoundError:
         print('Not loaded')
@@ -57,18 +57,18 @@ def load(map_code = None):
                            )
             dg = dg[[
                      global_var.geography_map_code,
-                     global_var.contract_delivery_begin_dt_UTC,
+                     global_var.contract_delivery_begin_dt_utc,
                      global_var.auction_price_euro_mwh,
                      ]]
             if map_code is not None:
                 dg = dg[dg[global_var.geography_map_code].isin([map_code] if type(map_code) == str else map_code)]
             if dg.empty:
                 continue
-            dg[global_var.contract_delivery_begin_dt_UTC]     = pd.to_datetime(dg[global_var.contract_delivery_begin_dt_UTC]).dt.tz_localize('UTC')
-            dg[global_var.contract_delivery_begin_dt_local]   = dg.apply(lambda row : row[global_var.contract_delivery_begin_dt_UTC].tz_convert(global_var.dikt_tz[row[global_var.geography_map_code]]), axis = 1)
+            dg[global_var.contract_delivery_begin_dt_utc]     = pd.to_datetime(dg[global_var.contract_delivery_begin_dt_utc]).dt.tz_localize('UTC')
+            dg[global_var.contract_delivery_begin_dt_local]   = dg.apply(lambda row : row[global_var.contract_delivery_begin_dt_utc].tz_convert(global_var.dikt_tz[row[global_var.geography_map_code]]), axis = 1)
             dg[global_var.contract_delivery_begin_date_local] = dg[global_var.contract_delivery_begin_dt_local].apply(lambda x : x.replace(hour = 0, minute = 0))
             dg[global_var.contract_delivery_begin_year_local] = dg[global_var.contract_delivery_begin_dt_local].apply(lambda x : x.timetuple().tm_year)
-            dg[global_var.contract_delivery_begin_date_UTC]   = dg[global_var.contract_delivery_begin_date_local].apply(lambda x : x.tz_convert('UTC'))
+            dg[global_var.contract_delivery_begin_date_utc]   = dg[global_var.contract_delivery_begin_date_local].apply(lambda x : x.tz_convert('UTC'))
             dg[global_var.contract_frequency]                 = global_var.contract_frequency_hour
             dg[global_var.contract_profile]                   = global_var.contract_profile_hour
             dg[global_var.contract_delivery_period_index]     = dg.apply(lambda row : global_tools.compute_delivery_period_index(frequency  = row[global_var.contract_frequency],
@@ -78,7 +78,7 @@ def load(map_code = None):
                 
                                                                           axis = 1,
                                                                           )
-            dg[global_var.auction_dt_UTC] = dg[global_var.contract_delivery_begin_dt_local].apply(lambda x : x.replace(hour = 12).tz_convert('UTC'))
+            dg[global_var.auction_dt_utc] = dg[global_var.contract_delivery_begin_dt_local].apply(lambda x : x.replace(hour = 12).tz_convert('UTC'))
             dikt_prices[fname] = dg
         print('\nConcatenate')
         df = pd.concat([dikt_prices[key] 
@@ -87,7 +87,7 @@ def load(map_code = None):
                        axis = 0,
                        sort = False,
                        )
-        df = df.sort_values(global_var.contract_delivery_begin_dt_UTC,
+        df = df.sort_values(global_var.contract_delivery_begin_dt_utc,
                             axis = 0,
                             )
         df = df.reset_index(drop = True)

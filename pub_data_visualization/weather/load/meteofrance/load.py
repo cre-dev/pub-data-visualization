@@ -71,14 +71,14 @@ def read_raw_weather_data(year  = None,
     df = df.rename(transcode.columns, 
                    axis = 1,
                    )
-    df[global_var.weather_dt_UTC] = pd.to_datetime(df[global_var.weather_dt_UTC], 
+    df[global_var.weather_dt_utc] = pd.to_datetime(df[global_var.weather_dt_utc],
                                                    format = '%Y%m%d%H%M%S',
                                                    ).dt.tz_localize('UTC')
-    df.drop_duplicates(subset  = [global_var.weather_dt_UTC, global_var.weather_site_id],
+    df.drop_duplicates(subset  = [global_var.weather_dt_utc, global_var.weather_site_id],
                        inplace = True,
                        keep    = 'first',
                        )
-    df = df.set_index([global_var.weather_dt_UTC, global_var.weather_site_id])
+    df = df.set_index([global_var.weather_dt_utc, global_var.weather_site_id])
     df[global_var.weather_temperature_celsius] = df[global_var.weather_temperature_kelvin] - 273.15
     df = df[[global_var.weather_temperature_celsius,
              global_var.weather_nebulosity,
@@ -212,7 +212,7 @@ def load(zone     = None,
         df_weather = pd.read_csv(fname_weather,
                                  sep       = ';',
                                  )
-        df_weather.loc[:,global_var.weather_dt_UTC] = pd.to_datetime(df_weather[global_var.weather_dt_UTC])
+        df_weather.loc[:,global_var.weather_dt_utc] = pd.to_datetime(df_weather[global_var.weather_dt_utc])
         with open(fname_trash, 'rb') as f:
             trash_weather = pickle.load(f)
         print('Loaded')
@@ -289,8 +289,8 @@ def load(zone     = None,
     df_weather          = df_weather.loc[df_weather[global_var.weather_site_name].isin(common_names)]
     coordinates_weather = coordinates_weather.loc[common_names]
     
-    df_weather          = df_weather.loc[  (df_weather[global_var.weather_dt_UTC] >= date_min)
-                                         & (df_weather[global_var.weather_dt_UTC] <  date_max)
+    df_weather          = df_weather.loc[  (df_weather[global_var.weather_dt_utc] >= date_min)
+                                         & (df_weather[global_var.weather_dt_utc] <  date_max)
                                          ]
     assert df_weather.shape[0] > 0
 

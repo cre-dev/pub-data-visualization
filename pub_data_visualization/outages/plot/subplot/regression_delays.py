@@ -22,11 +22,11 @@ def regression_delays(ax,
     
     dg_grouped = df.reset_index().groupby(global_var.publication_id)
     
-    X = (  dg_grouped[global_var.outage_end_dt_UTC].head(1)
-         - dg_grouped[global_var.outage_begin_dt_UTC].head(1)
+    X = (  dg_grouped[global_var.outage_end_dt_utc].head(1)
+         - dg_grouped[global_var.outage_begin_dt_utc].head(1)
          ).reset_index(drop = True).dt.total_seconds()/3600
-    Y = (  dg_grouped[global_var.outage_end_dt_UTC].tail(1)
-         - dg_grouped[global_var.outage_begin_dt_UTC].tail(1)
+    Y = (  dg_grouped[global_var.outage_end_dt_utc].tail(1)
+         - dg_grouped[global_var.outage_begin_dt_utc].tail(1)
          ).reset_index(drop = True).dt.total_seconds()/3600
     
     ax.scatter(X,

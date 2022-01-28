@@ -32,7 +32,7 @@ def price(ax,
 
     for col in dg.columns:
         ax.plot(
-                dg.index.get_level_values(global_var.contract_delivery_begin_dt_UTC),
+                dg.index.get_level_values(global_var.contract_delivery_begin_dt_utc),
                 dg[col],
                 label = global_tools.format_latex(col),
                 **kwargs,

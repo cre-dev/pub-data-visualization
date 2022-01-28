@@ -11,7 +11,7 @@ import numpy  as np
 import pandas as pd
 from scipy.stats import kde
 #
-from pub_data_visualization import global_var, global_tools, load, auctions, multiplots
+from pub_data_visualization import global_var, global_tools, load, indices, multiplots
 #
 import seaborn as sns
 import matplotlib as mpl
@@ -56,7 +56,7 @@ df_load = df_load.loc[  (df_load[global_var.geography_map_code] == map_code)
 dg_load = df_load[load_unit]
 
 ### Auctions
-df_auctions = auctions.load(date_min = date_min,
+df_auctions = indices.load(date_min = date_min,
                             date_max = date_max,
                             source   = data_source_auctions,
                             map_code = map_code_auctions,
@@ -67,7 +67,7 @@ dg_auctions = df_auctions.pivot_table(values = global_var.auction_price_euro_mwh
                                                global_var.contract_delivery_begin_date_local, 
                                                global_var.contract_delivery_period_index, 
                                                global_var.contract_delivery_begin_dt_local,
-                                               global_var.contract_delivery_begin_dt_UTC,
+                                               global_var.contract_delivery_begin_dt_utc,
                                                global_var.contract_profile,
                                                ],
                                       columns = [global_var.geography_map_code,
@@ -77,7 +77,7 @@ dg_auctions = dg_auctions.sort_index()
   
 
 ### Plot
-common_index = dg_auctions.index.get_level_values(global_var.contract_delivery_begin_dt_UTC).intersection(dg_load.index)
+common_index = dg_auctions.index.get_level_values(global_var.contract_delivery_begin_dt_utc).intersection(dg_load.index)
 X = dg_auctions.loc[(slice(None), slice(None), slice(None), slice(None), slice(None), common_index),:]
 Y = dg_load.loc[common_index]
 x_label   = global_var.auction_price_euro_mwh

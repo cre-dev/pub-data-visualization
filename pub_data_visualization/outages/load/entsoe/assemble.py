@@ -19,7 +19,7 @@ def assemble(df):
     # Only keep the last publications        
     df = df.groupby([global_var.publication_id,
                      global_var.publication_version,
-                     global_var.publication_dt_UTC,
+                     global_var.publication_dt_utc,
                      ],
                     axis = 0,
                     ).tail(1)
@@ -27,12 +27,12 @@ def assemble(df):
     ### Sort rows
     print('Sort rows')
     df = df.sort_values(by = [
-                              global_var.publication_creation_dt_UTC,
+                              global_var.publication_creation_dt_utc,
                               global_var.publication_id,
                               global_var.publication_version,
-                              global_var.publication_dt_UTC,
+                              global_var.publication_dt_utc,
                               global_var.outage_status,
-                              global_var.outage_begin_dt_UTC,
+                              global_var.outage_begin_dt_utc,
                               ], 
                         ascending = [True,
                                      True,

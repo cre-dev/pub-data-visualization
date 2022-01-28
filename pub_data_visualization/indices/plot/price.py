@@ -72,7 +72,7 @@ def price(dg,
         ax.set_xlim(date_min, date_max)
     
     ### labels                
-    ax.set_xlabel(global_tools.format_latex(global_var.contract_delivery_begin_dt_UTC))
+    ax.set_xlabel(global_tools.format_latex(global_var.contract_delivery_begin_dt_utc))
     ax.set_ylabel(global_var.auction_price_euro_mwh)
     
     ### Add legend

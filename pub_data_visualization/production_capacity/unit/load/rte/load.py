@@ -24,10 +24,10 @@ def load(map_code = None):
                          header = [0],
                          sep = ';',
                          )
-        df.loc[:,global_var.capacity_end_date_UTC]         = pd.to_datetime(df[global_var.capacity_end_date_UTC])
-        df.loc[:,global_var.publication_creation_dt_UTC]   = pd.to_datetime(df[global_var.publication_creation_dt_UTC])
-        df.loc[:,global_var.publication_creation_dt_local] = df[global_var.publication_creation_dt_UTC].dt.tz_convert(global_var.dikt_tz[map_code])
-        df.loc[:,global_var.capacity_end_date_local]       = df[global_var.capacity_end_date_UTC].dt.tz_convert(global_var.dikt_tz[map_code])
+        df.loc[:,global_var.capacity_end_date_utc]         = pd.to_datetime(df[global_var.capacity_end_date_utc])
+        df.loc[:,global_var.publication_creation_dt_utc]   = pd.to_datetime(df[global_var.publication_creation_dt_utc])
+        df.loc[:,global_var.publication_creation_dt_local] = df[global_var.publication_creation_dt_utc].dt.tz_convert(global_var.dikt_tz[map_code])
+        df.loc[:,global_var.capacity_end_date_local]       = df[global_var.capacity_end_date_utc].dt.tz_convert(global_var.dikt_tz[map_code])
         print('Loaded') 
     except FileNotFoundError:
         print('fail - has to read raw data')
@@ -69,8 +69,8 @@ def load(map_code = None):
         df = df.loc[df[global_var.capacity_end_date_local].dropna().index]
         df.loc[:,global_var.publication_creation_dt_local] = pd.to_datetime(df[global_var.publication_creation_dt_local]).dt.tz_localize(global_var.dikt_tz[map_code])
         df.loc[:,global_var.capacity_end_date_local]       = pd.to_datetime(df[global_var.capacity_end_date_local]).dt.tz_localize(global_var.dikt_tz[map_code])
-        df[global_var.publication_creation_dt_UTC]         = df[global_var.publication_creation_dt_local].dt.tz_convert('UTC')
-        df[global_var.capacity_end_date_UTC]               = df[global_var.capacity_end_date_local].dt.tz_convert('UTC')
+        df[global_var.publication_creation_dt_utc]         = df[global_var.publication_creation_dt_local].dt.tz_convert('UTC')
+        df[global_var.capacity_end_date_utc]               = df[global_var.capacity_end_date_local].dt.tz_convert('UTC')
         df[global_var.commodity]                           = global_var.commodity_electricity
 
         # Save
