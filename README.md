@@ -111,11 +111,11 @@ In this repository, we propose a set of modules that read, format, transform and
 We also provide ready-to-run visualization scripts as illustrated below.
 The parameters therein can be modified by the user.
 
-## Auctions
+## Indices
 
 ### Day-ahead fixing prices
-![Auction prices](examples/auctions/prices.png)
-This figure, that represents the fixing prices of the day-ahead auctions, is obtained by running `scripts/auctions/main_price.py`.
+![Auction prices](examples/indices/prices.png)
+This figure, that represents the fixing prices of the day-ahead auctions, is obtained by running `scripts/indices/main_price.py`.
 The data, provided by ENTSO-E, currently have to be downloaded manually.
 
 ## Load

@@ -3,24 +3,24 @@
 
 """
 The script allows the user to plot the observed production and 
-the production expected from the transpranecy publications 
+the production expected from the transparency publications
 for a given set of production units.
 """
 
 import pandas as pd
 #
-from pub_data_visualization import global_var, outages, production, multiplots
+from pub_data_visualization import global_var, global_tools, outages, production, multiplots
 
 ###############################################################################
 map_code               = global_var.geography_map_code_france
-unit_name              = 'DAMPIERRE 3'
+unit_name              = global_tools.format_unit_name('CORDEMAIS 2')
 date_min               = None
 date_max               = None
 #
-data_source_outages    = global_var.data_source_outages_entsoe
+data_source_outages    = global_var.data_source_outages_rte
 producer_outages       = None
 #
-data_source_production = global_var.data_source_production_entsoe
+data_source_production = global_var.data_source_production_rte
 production_source      = None
 production_nature      = global_var.production_nature_observation
 production_unit        = global_var.production_power_mw

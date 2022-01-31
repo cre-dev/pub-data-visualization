@@ -103,7 +103,7 @@ def compute_program(dg,
                                         )
 
     ### Capacity
-    nameplate_capacity_max = max(dg[global_var.capacity_nominal_mw])
+    nameplate_capacity_max = np.nanmax(dg[global_var.capacity_nominal_mw])
     assert not np.isnan(nameplate_capacity_max)
 
     # Init program    

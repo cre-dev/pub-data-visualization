@@ -17,8 +17,7 @@ try: # Local non-synchronized file for personal folders path
     from .pers_var import path_transformed
     from .pers_var import path_outputs
     from .pers_var import path_plots
-    #assert os.path.isdir(path_public_data)
-    
+
 except (ModuleNotFoundError, AssertionError):
     path_home        = r'{0}'.format(os.path.expanduser('~'))
     path_public_data = os.path.join(path_home,
