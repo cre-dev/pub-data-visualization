@@ -158,7 +158,7 @@ def compute_delivery_dates(delivery_begin_year   = None,
                                                                            ),
                                              format = "%d/%m/%Y",
                                              )
-        delivery_end_date = delivery_begin_date + pd.DateOffset(days = days_match.group(3))
+        delivery_end_date = delivery_begin_date + pd.DateOffset(days = int(days_match.group(3)))
             
     elif frequency == global_var.contract_frequency_bloc:
         hour_match = re.compile(global_var.contract_delivery_period_index_bloc_pattern).match(str(delivery_period_index))
