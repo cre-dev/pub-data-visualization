@@ -5,10 +5,16 @@
     
 """
 
-### Values coming from clients.rte-france.com - local issuing office
 
-capacity = {'17W100P100P0042T' : 600, # PORCHEVILLE B 1
-            '17W100P100P0043R' : 600, # PORCHEVILLE B 2
-            '17W100P100P0044P' : 600, # PORCHEVILLE B 3
-            '17W100P100P0045N' : 600, # PORCHEVILLE B 4
-            }
+capacity = {
+    'BEAUCAIRE 5'  : 35, # ?
+    'BEAUCHASTEL 1': 32, # ?
+    'BEAUCHASTEL 3': 32, # ?
+    'BOLLENE 1'    : 59, # ?
+    'BOLLENE 5'    : 58, # ?
+    'CHATEAUNEUF DU RHONE 4': 46, # ?
+    'CHATEAUNEUF DU RHONE 5': 46, # ?
+    'GENISSIAT 6'  : 70, # ?
+    'SEYSSEL 1'    : 15, # ?
+}
+

@@ -113,9 +113,9 @@ def load(map_code = None):
         df, dikt_incoherences = assemble(df)
         
         print('Complete capacities')
-        for unit_name in df[global_var.unit_name].unique():
+        for unit_name in sorted(df[global_var.unit_name].unique()):
             if pd.isnull(df.loc[df[global_var.unit_name] == unit_name][global_var.capacity_nominal_mw]).all() > 0:
-                df.loc[df[global_var.unit_name] == unit_name][global_var.capacity_nominal_mw] = transcode.capacity[unit_name]
+                df.loc[df[global_var.unit_name] == unit_name,global_var.capacity_nominal_mw] = transcode.capacity[unit_name]
         df[global_var.commodity] = global_var.commodity_electricity
         
         print('Save')
