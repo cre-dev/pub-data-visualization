@@ -65,6 +65,7 @@ contract_delivery_begin_month_utc       = 'delivery_begin_month (UTC)'
 contract_delivery_begin_year_local      = 'delivery_begin_year (local)'
 contract_delivery_begin_year_unknown    = -1
 contract_delivery_begin_year_utc        = 'delivery_begin_year (UTC)'
+contract_delivery_dt_local              = 'delivery_dt (local)'
 contract_delivery_end_date_local        = 'delivery_end_date (local)'
 contract_delivery_end_date_utc          = 'delivery_end_date (UTC)'
 contract_delivery_end_date_unknown      = pd.NaT
