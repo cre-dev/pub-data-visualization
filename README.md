@@ -14,17 +14,18 @@ It can be installed with :
 cd ~/Downloads
 git clone https://github.com/cre-dev/pub-data-visualization.git
 cd pub-data-visualization
-conda create --name visu python=3.8 pip
-conda activate visu
-pip install -e .
+python3 -m venv venv
+source venv/bin/activate
+python3 -m pip install --upgrade pip
+python3 -m pip install -e .
 ```
 The installation can then be tested with one of the following :
 ```
-python scripts/weather/main_curve.py
+python3 scripts/weather/main_curve.py
 ```
 or 
 ```
-python scripts/load/main_forecasting_error.py
+python3 scripts/load/main_forecasting_error.py
 ```
 The scripts should terminate without any error.
 They will create 3 folders in the home directory :
