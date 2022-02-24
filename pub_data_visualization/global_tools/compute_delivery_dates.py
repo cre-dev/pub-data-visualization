@@ -82,6 +82,15 @@ def compute_delivery_dates(delivery_begin_year   = None,
             delivery_begin_date = pd.NaT
             delivery_end_date   = pd.NaT
             
+    elif frequency == global_var.contract_frequency_months:
+        months_match = re.compile(global_var.contract_delivery_period_index_months_pattern).match(str(delivery_period_index))
+        delivery_begin_date = pd.to_datetime("01/{month}/{year}".format(year  = delivery_begin_year,
+                                                                        month = months_match.group(1),
+                                                                        ),
+                                             format = "%d/%m/%Y",
+                                             )
+        delivery_end_date = delivery_begin_date + pd.DateOffset(months = int(months_match.group(2)))
+
     elif frequency == global_var.contract_frequency_month:
         delivery_begin_date = pd.to_datetime("01/{month}/{year}".format(year  = delivery_begin_year,
                                                                         month = delivery_period_index,

@@ -88,6 +88,7 @@ contract_delivery_period_index_hour              = '{month:0>2}{day:0>2}{hour:0>
 contract_delivery_period_index_hour_pattern      = r"^(\d{1,2})(\d{2})(\d{2})$"
 contract_delivery_period_index_gas_year          = 1
 contract_delivery_period_index_months            = '{month:0>2}{nb_months:0>2}'
+contract_delivery_period_index_months_pattern    = r"^(\d{1,2})(\d{2})$"
 contract_delivery_period_index_NA                = 0
 contract_delivery_period_index_summer            = 1
 contract_delivery_period_index_unknown           =-1
