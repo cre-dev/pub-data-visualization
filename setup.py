@@ -3,7 +3,7 @@ from distutils.core import setup
 
 setup(
       name             = 'pub-data-visualization',
-      version          = '0.1.dev0',
+      version          = '0.1.0',
       packages         = setuptools.find_packages(),
       scripts          = [],
       author           = 'CRE',
