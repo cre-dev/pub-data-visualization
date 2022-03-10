@@ -10,20 +10,23 @@ def incremental_programs(ax,
                          df_programs,
                          diff_init = False,
                          smoother  = None,
+                         vline_publication_dt = False,
                          ):
     """
         Draws in a subplot the expected availability programs
         of a set of production assets.
  
         :param ax: The ax to fill
-        :param df: The expected availability programs
+        :param df_programs: The expected availability programs
         :param diff_init: Boolean to plot relative differences
                           with the initial date
         :param smoother: Boolean to draw oblique instead of vertical steps
+        :param vline_publication_dt: Boolean to draw vertical line
         :type ax: matplotlib.axes._subplots.AxesSubplot
-        :type df: pd.DataFrame
+        :type df_programs: pd.DataFrame
         :type diff_init: bool
         :type smoother: bool
+        :type vline_publication_dt: bool
         :return: None
         :rtype: None
     """ 
@@ -39,7 +42,7 @@ def incremental_programs(ax,
                                                              )
         ax.plot(X,
                 Y, 
-                label = global_tools.format_latex('init - {0}'.format(dd.strftime(format = '%Y-%m-%d %H:%M %Z'))),
+                label = global_tools.format_latex('init - {0}'.format(dd.strftime(format = global_var.dt_formatter_tz))),
                 color = 'k',
                 ls    = ':',
                 )
@@ -52,17 +55,26 @@ def incremental_programs(ax,
                                                              )
         ax.plot(X,
                 Y, 
-                label = global_tools.format_latex(dd.strftime(format = '%Y-%m-%d %H:%M %Z')),
+                label = global_tools.format_latex(dd.strftime(format = global_var.dt_formatter_tz)),
                 color = global_var.colors[ii],
                 )
     
     ### Plot nameplate capacity
     if not diff_init:
-        ax.plot([df_programs.index.min(), df_programs.index.max()], 
+        ax.plot([df_programs.index.min(), df_programs.index.max()],
                 [df_programs.values.max() for kk in range(2)], 
                 ls = ':', 
                 linewidth = 0.5,
                 color = 'k', 
                 label = 'nameplate capacity',
-                )    
+                )
+
+    ### Plot vline for publication_dt
+    if vline_publication_dt:
+        ax.plot([df_programs.columns[0], df_programs.columns[0]],
+                ax.get_ylim(),
+                label=global_tools.format_latex(df_programs.columns[0].strftime(format = global_var.dt_formatter_tz)),
+                color='k',
+                ls='--',
+                )
 

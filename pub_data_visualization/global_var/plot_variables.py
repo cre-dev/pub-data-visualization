@@ -3,11 +3,18 @@
     User defined variables for plotting.
     
 """
-
+from distutils.spawn import find_executable
 import matplotlib.cm as cm
 
-dt_formatter   = "%a\ %d/%m/%Y\ %H{:}%M"
-date_formatter = "%a\ %d/%m/%Y"
+
+if find_executable('latex'):
+    dt_formatter    = "%a\ %d/%m/%Y\ %H{:}%M"
+    dt_formatter_tz = '%d/%m/%Y\ %H{:}%M %Z'
+    date_formatter  = "%a\ %d/%m/%Y"
+else:
+    dt_formatter    = "%a %d/%m/%Y %H:%M"
+    dt_formatter_tz = '%d/%m/%Y %H:%M %Z'
+    date_formatter  = "%a %d/%m/%Y"
 
 colors     = cm.tab10.colors
 linestyles = ['-', '--', '-.', ':']

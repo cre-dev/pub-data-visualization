@@ -47,11 +47,11 @@ def compute_energy_unavailability_product(product_delivery_windows,
         idx_begin = unavailability.columns.get_loc(begin)
         idx_end   = unavailability.columns.get_loc(end)
         for idx in range(idx_begin, idx_end):
-            duration               = durations[idx]
+            nb_hours               = durations[idx].total_seconds()/3600
             unavailable_power      = unavailability.iloc[:,idx]
             unavailability_product[(unavailability.columns[idx],
                                     unavailability.columns[idx+1],
-                                    )] = unavailable_power*duration.total_seconds()/3600
+                                    )] = unavailable_power*nb_hours
     return unavailability_product.sum(axis = 1)
 
 ###############################################################################
@@ -107,5 +107,3 @@ def compute_missing_energy(product_delivery_windows_local,
     print()
     
     return df_energy_tot
-
-
