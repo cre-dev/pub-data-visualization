@@ -6,7 +6,7 @@
 from distutils.spawn import find_executable
 import matplotlib.cm as cm
 
-
+dt_formatter_file = '%Y%m%d_%H%M'
 if find_executable('latex'):
     dt_formatter    = "%a\ %d/%m/%Y\ %H{:}%M"
     dt_formatter_tz = '%d/%m/%Y\ %H{:}%M %Z'

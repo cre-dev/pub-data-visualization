@@ -32,8 +32,8 @@ def load(source   = None,
         raise ValueError('Incorrect data source : {0}'.format(source))
 
     dh = dg.loc[  pd.Series(True, index = dg.index)
-                & ((dg[global_var.auction_dt_UTC] >= date_min) if bool(date_min) else True)
-                & ((dg[global_var.auction_dt_UTC] <  date_max) if bool(date_max) else True)
+                & ((dg[global_var.auction_dt_utc] >= date_min) if bool(date_min) else True)
+                & ((dg[global_var.auction_dt_utc] <  date_max) if bool(date_max) else True)
                 ]
     
     assert dh.shape[0] > 0

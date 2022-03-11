@@ -151,6 +151,7 @@ contract_is_swap_false                  = 0
 contract_is_swap_unknown                = -1
 contract_name                           = 'contract_name'
 contract_nature                         = 'contract_nature'
+contract_power_mw                       = 'contract_power (MW)'
 contract_profile                        = 'profile'
 contract_profile_base                   = 'BASE'
 contract_profile_bloc                   = 'BLOC.{hour_begin}.{hour_end}'

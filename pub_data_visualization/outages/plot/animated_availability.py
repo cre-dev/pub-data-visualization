@@ -124,7 +124,7 @@ def animated_availability(dh,
         dd  = dh.index[int(idx)]
         l1.set_ydata(dh.iloc[int(idx)])
         v1.set_xdata([dd,dd])
-        sdate1.valtext.set_text(dd.strftime(format = "%a %d/%m/%Y %H:%M"))
+        sdate1.valtext.set_text(dd.strftime(format = global_var.dt_formatter_tz))
         fig.canvas.draw_idle()
     sdate1.on_changed(update1)
     ### Slider 2
@@ -140,7 +140,7 @@ def animated_availability(dh,
         dd  = dh.index[int(idx)]
         l2.set_ydata(dh.iloc[int(idx)])
         v2.set_xdata([dd,dd])
-        sdate2.valtext.set_text(dd.strftime(format = "%a %d/%m/%Y %H:%M"))
+        sdate2.valtext.set_text(dd.strftime(format = global_var.dt_formatter_tz))
         fig.canvas.draw_idle()
     sdate2.on_changed(update2)
     
@@ -176,8 +176,8 @@ def animated_availability(dh,
     # Save
     full_path = os.path.join(folder_out,
                              "outages_animated_availability", 
-                             "period_{begin}_{end}".format(begin = production_dt_min.strftime('%Y%m%d_%H%M'), 
-                                                           end   = production_dt_max.strftime('%Y%m%d_%H%M'), 
+                             "period_{begin}_{end}".format(begin = production_dt_min.strftime(global_var.dt_formatter_file),
+                                                           end   = production_dt_max.strftime(global_var.dt_formatter_file),
                                                            ) if production_dt_min and production_dt_max else '',
                              title
                              )
