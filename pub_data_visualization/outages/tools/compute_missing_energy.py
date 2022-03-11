@@ -20,11 +20,11 @@ def compute_energy_unavailability_product(product_delivery_windows,
     """
     
     nameplate_capacity = program.max().max()
-    window_dt_UTC      = [d.tz_convert('UTC') 
+    window_dt_utc      = [d.tz_convert('UTC')
                           for (begin, end) in product_delivery_windows
                           for d in [begin, end]
                           ]
-    new_steps          = pd.Index(sorted(set(program.columns).union(window_dt_UTC).union(program.index)))
+    new_steps          = pd.Index(sorted(set(program.columns).union(window_dt_utc).union(program.index)))
     unavailability     = (nameplate_capacity - program)*(-1)
     unavailability     = (unavailability.reindex(columns = new_steps)
                                         .fillna(method = 'ffill',

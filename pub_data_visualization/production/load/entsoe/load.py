@@ -24,7 +24,7 @@ def load(map_code = None):
                          header = [0],
                          sep = ';',
                          )
-        df.loc[:,global_var.production_dt_UTC] = pd.to_datetime(df[global_var.production_dt_UTC])
+        df.loc[:,global_var.production_dt_utc] = pd.to_datetime(df[global_var.production_dt_utc])
         print('Loaded')
     except Exception as e:
         print('fail')
