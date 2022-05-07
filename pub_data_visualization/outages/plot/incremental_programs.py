@@ -25,6 +25,7 @@ def incremental_programs(df_programs,
                          producer          = None,
                          production_source = None,
                          unit_name         = None,
+                         local_tz          = None,
                          figsize           = global_var.figsize_horizontal,
                          folder_out        = None, 
                          close             = True,
@@ -76,7 +77,11 @@ def incremental_programs(df_programs,
     fig, ax = plt.subplots(figsize = figsize,
                            nrows = 1,
                            ncols = 1,
-                           )     
+                           )
+
+    if bool(local_tz):
+        mpl.rcParams['timezone'] = local_tz
+
     ### Subplot
     subplot.incremental_programs(ax,
                                  df_programs,
@@ -100,7 +105,6 @@ def incremental_programs(df_programs,
         ax.set_xlim(date_min, date_max)
     
     ### labels                
-    ax.set_xlabel(global_tools.format_latex(df_programs.index.name))
     ax.set_ylabel(global_tools.format_latex(global_var.capacity_available_mw))
 
     
