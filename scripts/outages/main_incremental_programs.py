@@ -16,13 +16,14 @@ map_code            = global_var.geography_map_code_france
 producer_outages    = None
 production_source   = global_var.production_source_nuclear
 unit_name           = None
-date_min            = pd.Timestamp("2020-01-01 00:00").tz_localize(global_var.dikt_tz[map_code])
-date_max            = pd.Timestamp("2022-01-01 00:00").tz_localize(global_var.dikt_tz[map_code])
-viewpoint_dt_extrapolate = [pd.Timestamp('2020-05-01 00:00').tz_localize(global_var.dikt_tz[map_code]),
-                            pd.Timestamp('2020-06-01 00:00').tz_localize(global_var.dikt_tz[map_code]),
-                            pd.Timestamp('2020-07-01 00:00').tz_localize(global_var.dikt_tz[map_code]),
+date_min            = pd.Timestamp("2022-01-01 00:00").tz_localize(global_var.dikt_tz[map_code])
+date_max            = pd.Timestamp("2024-01-01 00:00").tz_localize(global_var.dikt_tz[map_code])
+viewpoint_dt_extrapolate = [pd.Timestamp('2021-12-01 00:00').tz_localize(global_var.dikt_tz[map_code]),
+                            pd.Timestamp('2022-01-01 00:00').tz_localize(global_var.dikt_tz[map_code]),
+                            pd.Timestamp('2022-02-01 00:00').tz_localize(global_var.dikt_tz[map_code]),
                             ]
 ###############################################################################
+local_tz   = 'CET'
 diff_init  = False
 smoother   = 'basic'
 figsize    = global_var.figsize_horizontal_ppt
@@ -58,6 +59,7 @@ outages.plot.incremental_programs(dh,
                                   producer          = producer_outages,
                                   production_source = production_source,
                                   unit_name         = unit_name,
+                                  local_tz          = local_tz,
                                   figsize           = figsize,
                                   folder_out        = folder_out,
                                   close             = close,

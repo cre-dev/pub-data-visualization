@@ -121,9 +121,9 @@ def spot_report(dg_weather,
                                          )
 
     ### Subplot 3
-    auctions_subplot.price(ax[3],
-                           dg_auctions,
-                           )
+    indices_subplot.price(ax[3],
+                          dg_auctions,
+                          )
     ### Subplot 4
     weather_subplot.curve(ax[4],
                           dg_weather,
@@ -186,8 +186,8 @@ def spot_report(dg_weather,
     # Save
     full_path = os.path.join(folder_out,
                              "multiplots_spot_report",
-                             "period_{begin}_{end}".format(begin=date_min.strftime('%Y%m%d_%H%M'),
-                                                           end=date_max.strftime('%Y%m%d_%H%M'),
+                             "period_{begin}_{end}".format(begin = date_min.strftime(global_var.dt_formatter_file),
+                                                           end   = date_max.strftime(global_var.dt_formatter_file),
                                                            ) if date_min and date_max else '',
                              title,
                              )
