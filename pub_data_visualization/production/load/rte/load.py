@@ -78,6 +78,7 @@ def load():
                         ],
                        axis = 0,
                        )
+        df.loc[:,global_var.production_source] = df[global_var.production_source].replace(transcode.production_source)
         df[global_var.geography_map_code] = global_var.geography_map_code_france
         df[global_var.production_nature]  = global_var.production_nature_observation
         df[global_var.commodity]          = global_var.commodity_electricity
