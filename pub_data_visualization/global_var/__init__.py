@@ -5,6 +5,7 @@
 """
 
 from .cascade_frequencies import *
+from .cascade_frequencies_gas import *
 from .cascade_maturities  import *
 from .dikt_tz             import *
 from .months              import *
