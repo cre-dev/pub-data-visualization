@@ -24,7 +24,7 @@ def cloud_2d(X,
              date_max    = None, 
              map_code    = None,
              figsize     = global_var.figsize_horizontal,
-             folder_out  = None, 
+             folder_out  = None,
              close       = True,
              ):
     """
@@ -64,21 +64,22 @@ def cloud_2d(X,
                            ncols = 1, 
                            )     
     ### Subplots
-    
-    
-        
-    
     if kernel_plot:
         subplot.kernel()
     else:
-        ax.scatter(X, Y)
+        ax.scatter(X,
+                   Y,
+                   s=2,
+                   )
         if display_linreg:
+            if X.ndim > 1 and X.shape[1] != 1:
+                raise NotImplementedError # Linear regression only set for scalar inputs
             xm = X.mean()
             ym = Y.mean()
             x = X - xm
             y = Y - ym
-            a = x.T.dot(y)/x.T.dot(x)
-            b = ym - a*xm
+            a = float(x.T.dot(y)/x.T.dot(x))
+            b = float(ym - a*xm)
             def f(t):
                 return a*t + b
             ax.plot([X.min(), X.max()],

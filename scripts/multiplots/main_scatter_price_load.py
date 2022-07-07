@@ -24,8 +24,8 @@ import matplotlib.patches as mpatches
 
 ###############################################################################
 map_code          = global_var.geography_map_code_france
-date_min          = None
-date_max          = None
+date_min          = pd.Timestamp('2017-01-01 00:00').tz_localize('CET')
+date_max          = pd.Timestamp('2021-01-01 00:00').tz_localize('CET')
 #
 data_source_load = global_var.data_source_load_eco2mix
 load_nature      = global_var.load_nature_observation
@@ -37,7 +37,8 @@ map_code_auctions    = [global_var.geography_map_code_france,
                         global_var.geography_map_code_spain,
                         ]
 #
-kernel_plot = False
+kernel_plot    = False
+display_linreg = True
 ###############################################################################
 figsize    = global_var.figsize_horizontal_ppt
 folder_out = global_var.path_plots
@@ -78,14 +79,14 @@ dg_auctions = dg_auctions.sort_index()
 
 ### Plot
 common_index = dg_auctions.index.get_level_values(global_var.contract_delivery_begin_dt_utc).intersection(dg_load.index)
-X = dg_auctions.loc[(slice(None), slice(None), slice(None), slice(None), slice(None), common_index),:]
-Y = dg_load.loc[common_index]
-x_label   = global_var.auction_price_euro_mwh
-y_label   = dg_load.name
+Y = dg_auctions.loc[(slice(None), slice(None), slice(None), slice(None), slice(None), common_index),:]
+X = dg_load.loc[common_index]
+y_label   = global_var.auction_price_euro_mwh
+x_label   = dg_load.name
 plot_name = 'scatter_price_load'
 
-multiplots.cloud_2d(X,
-                    Y,
+multiplots.cloud_2d(X.values,
+                    Y.values,
                     x_label     = x_label,
                     y_label     = y_label,
                     kernel_plot = kernel_plot,
@@ -93,8 +94,9 @@ multiplots.cloud_2d(X,
                     date_min    = date_min,
                     date_max    = date_max,
                     map_code    = map_code,
+                    display_linreg = display_linreg,
                     figsize     = figsize,
-                    folder_out  = folder_out, 
+                    folder_out  = folder_out,
                     close       = close,
                     )
 

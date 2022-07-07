@@ -42,23 +42,35 @@ def cross_section_view(df_program,
                                  index   = new_production_steps,
                                  columns = index_delays,
                                  )
+
+
+    df_program = df_program.reindex(index = viewed_series.index+tolerated_delay,
+                                    method = 'ffill',
+                                    )
+    df_program = df_program.reindex(columns = viewed_series.index,
+                                    method = 'ffill',
+                                    )
     
     for timestamp in viewed_series.index:
-        if type(tolerated_delay) == pd.Timedelta:
-            publi_idx = df_program.index.get_loc(timestamp + tolerated_delay,
-                                                 'ffill',
-                                                 )
-        elif tolerated_delay is None:
-            publi_idx = -1
+        # if type(tolerated_delay) == pd.Timedelta:
+        #     publi_idx = df_program.index.get_loc(timestamp + tolerated_delay,
+        #                                          'ffill',
+        #                                          )
+        # elif tolerated_delay is None:
+        #     publi_idx = -1
+        # else:
+        #     raise TypeError
+            
+        # prod_idx  = df_program.columns.get_loc(timestamp,
+        #                                        'ffill',
+        #                                        )
+        # viewed_series.loc[timestamp] = df_program.iloc[timestamp + tolerated_delay,
+        #                                                timestamp,
+        #                                                ]
+        if tolerated_delay is None:
+            viewed_series.loc[timestamp] = df_program.loc[-1,timestamp]
         else:
-            raise TypeError
-            
-        prod_idx  = df_program.columns.get_loc(timestamp,
-                                               'ffill',
-                                               )
-        viewed_series.loc[timestamp] = df_program.iloc[publi_idx,
-                                                       prod_idx,
-                                                       ] 
-            
+            viewed_series.loc[timestamp] = df_program.loc[timestamp + tolerated_delay,timestamp]
+
     return viewed_series
 
