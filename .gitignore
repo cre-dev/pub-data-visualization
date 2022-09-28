@@ -7,7 +7,7 @@ venv/
 
 
 # Files
-*.txt
+#*.txt
 *.pdf
 *.xls*
 *.doc*
